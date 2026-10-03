@@ -122,9 +122,36 @@ jobs:
             | tee transfer/reference/_grab_log.txt
           set -e
 
+      - name: Write run status
+        if: always()
+        run: |
+          {
+            echo "date: $(date -u)"
+            echo "pwd: $(pwd)"
+            echo "github.sha: $GITHUB_SHA   ref: $GITHUB_REF_NAME"
+            echo
+            echo "--- ls -la ---"
+            ls -la
+            echo
+            echo "--- find transfer -type f ---"
+            find transfer -type f 2>/dev/null | sort | head -100
+            echo
+            echo "--- du -sh transfer/reference ---"
+            du -sh transfer/reference 2>/dev/null
+            echo
+            echo "--- git status --short ---"
+            git status --short | head -50
+            echo
+            echo "--- git log -3 ---"
+            git log --oneline -3
+            echo
+            echo "--- env: BRANCH=$BRANCH DRIVE_FOLDER=$DRIVE_FOLDER ---"
+          } > transfer/_run_status.txt 2>&1
+          cat transfer/_run_status.txt
+
       - name: Commit reference data
         if: hashFiles('transfer/request/reference_urls.txt') != '' || hashFiles('transfer/request/grab_urls.txt') != ''
-        run: 'bash tools/commit_push.sh "$BRANCH" "transfer: reference data [skip ci]" transfer/reference'
+        run: 'bash tools/commit_push.sh "$BRANCH" "transfer: reference data [skip ci]" transfer/reference transfer/_run_status.txt'
 
       - name: Extract conversion-relevant text files
         if: steps.mode.outputs.mode == 'extract'
