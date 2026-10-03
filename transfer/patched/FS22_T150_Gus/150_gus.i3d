@@ -54,12 +54,12 @@
     <File fileId="119" filename="kapots/tex/KAB_NEW2025_specular.dds"/>
     <File fileId="16" filename="kapots/tex/KAPOT_SP_specular.dds"/>
     <File fileId="126" filename="kapots/tex/SPEC_UNVIRESAL.dds"/>
-    <File fileId="163" filename="kapots/tex/Tuning/hammers_diffuse.png"/>
-    <File fileId="164" filename="kapots/tex/Tuning/hammers_normal.png"/>
-    <File fileId="165" filename="kapots/tex/Tuning/hammers_specular.png"/>
-    <File fileId="166" filename="kapots/tex/Tuning/wrenches_diffuse.png"/>
-    <File fileId="167" filename="kapots/tex/Tuning/wrenches_normal.png"/>
-    <File fileId="168" filename="kapots/tex/Tuning/wrenches_specular.png"/>
+    <File fileId="163" filename="kapots/tex/Tuning/hammers_diffuse.dds"/>
+    <File fileId="164" filename="kapots/tex/Tuning/hammers_normal.dds"/>
+    <File fileId="165" filename="kapots/tex/Tuning/hammers_specular.dds"/>
+    <File fileId="166" filename="kapots/tex/Tuning/wrenches_diffuse.dds"/>
+    <File fileId="167" filename="kapots/tex/Tuning/wrenches_normal.dds"/>
+    <File fileId="168" filename="kapots/tex/Tuning/wrenches_specular.dds"/>
     <File fileId="169" filename="kapots/tex/ascher.dds"/>
     <File fileId="186" filename="kapots/tex/bizonZ056Lights_normal.dds"/>
     <File fileId="142" filename="kapots/tex/decals_mtz_pack_2.dds"/>
@@ -72,7 +72,7 @@
     <File fileId="128" filename="kapots/tex/ou2_specular.dds"/>
     <File fileId="33" filename="shaders/vehicleShader.xml"/>
     <File fileId="78" filename="kapots/tex/specular2.dds"/>
-    <File fileId="130" filename="kapots/tex/stoika_specular.png"/>
+    <File fileId="130" filename="kapots/tex/stoika_specular.dds"/>
     <File fileId="138" filename="kapots/tex/textures/Lambreken_diffuse.dds"/>
     <File fileId="69" filename="kapots/tex/textures/Tros_normal.dds"/>
     <File fileId="70" filename="kapots/tex/textures/Tros_specular.dds"/>
@@ -105,8 +105,8 @@
     <File fileId="85" filename="kapots/textures/engineCooler_normal.dds"/>
     <File fileId="45" filename="kapots/textures/engine_SMDParts_normal.dds"/>
     <File fileId="46" filename="kapots/textures/engine_SMDParts_specular.dds"/>
-    <File fileId="108" filename="kapots/textures/frontLightRectangle_02_normal.png"/>
-    <File fileId="109" filename="kapots/textures/frontLightRectangle_02_specular.png"/>
+    <File fileId="108" filename="kapots/textures/frontLightRectangle_02_normal.dds"/>
+    <File fileId="109" filename="kapots/textures/frontLightRectangle_02_specular.dds"/>
     <File fileId="191" filename="kapots/textures/gen_dirt2.dds"/>
     <File fileId="17" filename="kapots/textures/grid2k_2.dds"/>
     <File fileId="18" filename="kapots/textures/grid2k_NN.dds"/>
@@ -114,7 +114,7 @@
     <File fileId="125" filename="kapots/textures/kirovetsK700extension_specular.dds"/>
     <File fileId="88" filename="kapots/textures/kirovetsK700transmission_normal.dds"/>
     <File fileId="89" filename="kapots/textures/kirovetsK700transmission_specular.dds"/>
-    <File fileId="193" filename="kapots/textures/krepeji_sp_specular.png"/>
+    <File fileId="193" filename="kapots/textures/krepeji_sp_specular.dds"/>
     <File fileId="195" filename="kapots/textures/lightsNiva_normal.dds"/>
     <File fileId="196" filename="kapots/textures/lightsNiva_vmask.dds"/>
     <File fileId="189" filename="kapots/textures/lights_MTZ_normal.dds"/>

@@ -9,7 +9,7 @@
     <File fileId="3" filename="../textures/a41_specular.dds"/>
     <File fileId="17" filename="../textures/gen_dirt2.dds"/>
     <File fileId="11" filename="../textures/gridradiator_diffuse.dds"/>
-    <File fileId="12" filename="../textures/gridradiator_normal.png"/>
+    <File fileId="12" filename="../textures/gridradiator_normal.dds"/>
     <File fileId="13" filename="../textures/gridradiator_specular.dds"/>
     <File fileId="19" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
     <File fileId="4" filename="shaders/vehicleShader.xml"/>

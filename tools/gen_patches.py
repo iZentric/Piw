@@ -198,3 +198,81 @@ print('T150 kapots shaders replaced with the fixed one:', len(KAPOTS_SHADERS))
 # --- _remove.txt ---
 write(f'{OUT}/FS22_DT_Pack/_remove.txt', 'scripts/MoreDesignConfigs.lua\n')
 write(f'{OUT}/FS22_T150_Gus/_remove.txt', 'scripts/MoreDesignConfigs.lua\n')
+
+# --- repair dangling local texture/image references ---------------------------
+# The FS22 authors left a few references to .png files that were never shipped
+# (only the .dds with the same name exists, e.g. store icons, kapots textures,
+# the A41 radiator normal map).  FS25 refuses to load a missing texture, so point
+# every dangling reference at the shipped file with the same name/other extension.
+REF_ATTR = re.compile(r'(?P<pre>\b(?:filename|image|xmlFilename|iconFilename|img)=")(?P<path>[^"]+)(?P<post>")')
+REF_ELEM = re.compile(r'(?P<pre><(?:image|iconFilename|filename)>)(?P<path>[^<]+)(?P<post></(?:image|iconFilename|filename)>)')
+
+
+def known_files(mod):
+    known = set()
+    for line in open(f'{ROOT}/_filelist_{mod}.txt', encoding='utf-8'):
+        m = re.match(r'\s*\d+\s+[0-9a-fA-F]{8}\s+(.+?)\s*$', line)
+        if m and not m.group(1).endswith('/'):
+            known.add(m.group(1))
+    for dirpath, _dirs, files in os.walk(os.path.join(OUT, mod)):
+        for f in files:
+            known.add(os.path.relpath(os.path.join(dirpath, f), os.path.join(OUT, mod)).replace('\\', '/'))
+    return known
+
+
+def repair_refs(mod):
+    known = known_files(mod)
+    low = {k.lower() for k in known}
+
+    def try_paths(path, basedir):
+        for cand in (os.path.normpath(os.path.join(basedir, path)), os.path.normpath(path)):
+            c = cand.replace('\\', '/')
+            if c in known or c.lower() in low:
+                return True
+        return False
+
+    def fixed(path, basedir):
+        path = path.strip().replace('\\', '/')
+        if not path or path.startswith(('$', '/')) or re.match(r'^[A-Za-z]:', path):
+            return None
+        if try_paths(path, basedir):
+            return None
+        stem, ext = os.path.splitext(path)
+        for alt in ('.dds', '.png'):
+            if alt.lower() == ext.lower():
+                continue
+            cand = stem + alt
+            if try_paths(cand, basedir):
+                return cand
+        return None
+
+    hits = []
+
+    for dirpath, _dirs, files in os.walk(os.path.join(OUT, mod)):
+        for f in sorted(files):
+            if not f.endswith(('.xml', '.i3d')):
+                continue
+            full = os.path.join(dirpath, f)
+            rel = os.path.relpath(full, os.path.join(OUT, mod)).replace('\\', '/')
+            basedir = os.path.dirname(rel).replace('\\', '/')
+            s = read(full)
+
+            def repl(m, _rel=rel):
+                new = fixed(m.group('path'), basedir)
+                if new:
+                    hits.append((_rel, m.group('path'), new))
+                    return m.group('pre') + new + m.group('post')
+                return m.group(0)
+
+            out = REF_ATTR.sub(repl, s)
+            out = REF_ELEM.sub(repl, out)
+            if out != s:
+                write(full, out)
+
+    for rel, old_ref, new_ref in hits:
+        print('    ~ %s: %s -> %s' % (rel, old_ref, new_ref))
+    return len(hits)
+
+
+print('DT dangling refs repaired :', repair_refs('FS22_DT_Pack'))
+print('T150 dangling refs repaired:', repair_refs('FS22_T150_Gus'))

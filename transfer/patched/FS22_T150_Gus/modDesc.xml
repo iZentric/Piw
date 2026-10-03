@@ -51,7 +51,7 @@ Höchstgeschwindigkeit: 15 km/h
     </vehicleTypes>
 	
 	
-    <iconFilename>icon_150_gus.png</iconFilename>
+    <iconFilename>icon_150_gus.dds</iconFilename>
     <multiplayer supported="true"/>
     <extraSourceFiles>
         <sourceFile filename="scripts/BaseMaterial.lua"/>
@@ -60,7 +60,7 @@ Höchstgeschwindigkeit: 15 km/h
         <storeItem rootNode="vehicle" xmlFilename="150_gus.xml"/>
     </storeItems>
     <brands>
-        <brand name="HTZ" title="Харьковский Тракторный Завод" image="brand.png"/>
+        <brand name="HTZ" title="Харьковский Тракторный Завод" image="brand.dds"/>
     </brands>
     <l10n>
         <text name="configuration_light"><en>Lighting</en><de>Beleuchtung</de><ru>Освещение</ru></text>
