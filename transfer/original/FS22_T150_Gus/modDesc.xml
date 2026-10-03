@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="63">
+    <author>Овер Клокер, Олександр, 𝔖𝔠𝔯𝔦𝔭𝔱𝔬𝔯</author>
+    <contributors>Овер Клокер, Олександр, 𝔖𝔠𝔯𝔦𝔭𝔱𝔬𝔯, Derezovsky</contributors>
+    <version>1.0.0.0</version>
+    <title>
+        <en>T-150 </en>
+        <ru>Т-150 </ru>
+    </title>
+ 
+ 
+    <description>
+		<en>
+	<![CDATA[
+Plant manufacturer: HTZ
+Model: T-150
+Engine: YaMZ-238
+Price: 4981 €
+Engine power: 240 HP
+Maximum speed: 15 km/h
+]]>
+
+	</en>
+	    <de>
+    <![CDATA[
+Anlagenhersteller: HTZ
+Modell: T-150
+Motor: YaMZ-238
+Preis: 4981 €
+Motorleistung: 240 PS
+Höchstgeschwindigkeit: 15 km/h
+ ]]>
+
+		</de>
+		<ru>
+    <![CDATA[
+Завод производитель: ХТЗ
+Модель: Т-150
+Двигатель: ЯМЗ-238
+Цена: 4981 €
+Мощность двигателя: 240 л.с
+Максимальная скорость: 15 км/ч
+
+
+]]>
+		</ru>
+    </description>
+	
+	<specializations>
+        <specialization name="moreDesignConfigs" className="MoreDesignConfigs" filename="scripts/MoreDesignConfigs.lua" />
+	</specializations>
+	
+	<vehicleTypes>
+		<type name="HTZ-T150" parent="tractor" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="moreDesignConfigs" />
+		</type>
+    </vehicleTypes>
+	
+	
+    <iconFilename>icon_150_gus.png</iconFilename>
+    <multiplayer supported="true"/>
+    <storeItems>
+        <storeItem rootNode="vehicle" xmlFilename="150_gus.xml"/>
+    </storeItems>
+    <brands>
+        <brand name="HTZ" title="Харьковский Тракторный Завод" image="brand.png"/>
+    </brands>
+    <l10n>
+        <text name="configuration_light"><en>Lighting</en><de>Beleuchtung</de><ru>Освещение</ru></text>
+        <text name="configuration_light1"><en>Hood bottom + add's</en><de>Hood bottom + add's</de><ru>Капот низ + допы</ru></text>
+        <text name="configuration_light2"><en>Hood top</en><de>Hood top</de><ru>Капот верх</ru></text>
+
+        <text name="configuration_ptoNo"><en>No installed</en><de>Nicht installiert</de><ru>Не установлен</ru></text>
+        <text name="configuration_ptoInstalled"><en>Installed</en><de>Installiert</de><ru>Установлен</ru></text>
+        <text name="configuration_equipment"><en>Selection equipment</en><de>Auswahl der ausrüstung</de><ru>Выбор оборудования</ru></text>
+		<text name="configuration_airfilter"><en>Airfilter</en> <de>Airfilter</de><ru>Воздушный фильтр</ru></text>
+		<text name="configuration_exhaust"><en>Exhaust</en><de>Exhaust</de><ru>Выхлоп</ru></text>
+		<text name="configuration_exhaust1"><en>Exhaust left</en><de>Auspuff links</de><ru>Выхлоп влево</ru></text>
+		<text name="configuration_buldozer"><en>Buldozer</en><de>Buldozer</de><ru>Бульдозер</ru></text>
+		<text name="configuration_batteryBox"><en>Battery compartment</en><de>Batteriefach</de><ru>Аккумуляторный отсек</ru></text>
+		<text name="configuration_decal"><en>Decal</en><de>Abziehbild</de><ru>Декаль</ru></text>
+		<text name="configuration_decal1"><en>Decal pasted</en><de>Aufkleber geklebt</de><ru>Декаль наклеена</ru></text>
+		<text name="AttacherBulldozer"> <en>Bulldozer</en><de>Bulldozer</de><ru>Бульдозер</ru></text>
+		<text name="color_thunderstorm"><en>Thunderstorm</en><de>Gewitter</de><ru>Грозовой</ru></text>
+		<text name="color_darkBlue"><en>Dark blue</en><de>Marineblau</de><ru>Тёмно-синий</ru></text>
+		<text name="color_blue"><en>Blue</en><de>Blau</de><ru>Синий</ru></text>
+		<text name="color_black"><en>Black</en><de>Schwarz</de><ru>Чёрный</ru></text>
+		<text name="color_red"><en>Red</en><de>Rot</de><ru>Красный</ru></text>
+		<text name="color_white"><en>White</en><de>Weiß</de> <ru>Белый</ru></text>
+		<text name="color_white2"><en>White 2</en><de>Weiß 2</de> <ru>Белый 2</ru></text>
+		<text name="color_green"><en>Green</en><de>Grün</de> <ru>Зелёный</ru></text>
+		<text name="color_gray"><en>Gray</en><de>Grüe</de> <ru>Серый</ru></text>
+		
+        <text name="configuration_t150_model"><en>Modification of the tractor</en><de>Modification of the tractor</de> <ru>Модификация трактора</ru></text>
+        <text name="configuration_t150_05_09"><en>T-150 05-09</en><de>T-150 05-09</de> <ru>Т-150 05-09</ru></text>
+        <text name="configuration_t150_05"><en>T-150-05</en><de>T-150-05</de> <ru>Т-150 05-09</ru></text>
+		<text name="configuration_ciclon">
+            <ru>Циклон</ru>
+        </text>		
+    </l10n>
+</modDesc>

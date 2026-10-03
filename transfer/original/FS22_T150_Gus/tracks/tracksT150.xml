@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<crawler>
+    <file name="tracks/trackHTZ150.i3d" leftNode="0|0" rightNode="0|1"/>
+    <scrollerNodes>
+        <scrollerNode node="8" scrollSpeed="-0.145" scrollLength="3.26" shaderParameterName="scrollPosition" shaderParameterComponent="1"/>	
+    </scrollerNodes>		
+    <rotatingParts>
+        <rotatingPart node="0" radius="0.3" />
+        <rotatingPart node="1" radius="0.3" />
+        <rotatingPart node="2" radius="0.3" />
+		<rotatingPart node="3" radius="0.3" />
+		<rotatingPart node="4" radius="0.15" />
+		<rotatingPart node="5" radius="0.15" />
+        <rotatingPart node="6" radius="0.466" />
+		<rotatingPart node="7" radius="0.4923" />
+    </rotatingParts>
+    <rimColorNodes>
+        <rimColorNode node="0" shaderParameter="colorMat0"/>
+        <rimColorNode node="1" shaderParameter="colorMat0"/>        
+		<rimColorNode node="2" shaderParameter="colorMat0"/>        
+		<rimColorNode node="3" shaderParameter="colorMat0"/>        
+		<rimColorNode node="3" shaderParameter="colorMat0"/>        
+		<rimColorNode node="4" shaderParameter="colorMat0"/>       
+		<rimColorNode node="5" shaderParameter="colorMat0"/>		
+		<rimColorNode node="6" shaderParameter="colorMat0"/>		
+		<rimColorNode node="7" shaderParameter="colorMat0"/>	
+    </rimColorNodes>
+</crawler>

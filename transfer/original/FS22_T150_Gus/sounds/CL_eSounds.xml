@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+
+<!-- Sound designer: Erlan10. [eSounds designer Erlan10] https://vk.com/fsgiantssoftware -->
+
+<!-- YouTube channel: https://www.youtube.com/channel/UCM910tkoXo7Mz48jYUkAg6w?view_as=subscriber -->
+
+<!-- Sound files & sound.xml made by Erlan10 [eSounds designer Erlan10] since 2020. -->
+
+<sounds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/vehicle_sounds.xsd">
+    <motorized>
+        <sounds>
+		    <motor template="engineLarge" file="sounds/CL_eSounds_engine_loop.gls" innerRadius="0" volumeScale="2.7" loopSynthesisRPMRatio="0.80" linkNodeOffset="0 1.7 3.9">
+			    <volume indoor="0.0" outdoor="1.0" />
+			</motor>
+			<motor template="engineLarge" file="sounds/CL_eSounds_turbo_loop.gls" volumeScale="1.0" innerRadius="0" loopSynthesisRPMRatio="0.80" supportsReverb="false" linkNodeOffset="0 1.7 3.9">
+			    <volume indoor="0.3" outdoor="0.6" />
+			</motor>
+			<motor template="engineLarge" file="sounds/CL_eSounds_exhaus_loop.gls" volumeScale="0.6" innerRadius="0" loopSynthesisRPMRatio="0.80" supportsReverb="false" linkNodeOffset="-0.33 0.77 0.71">
+			    <volume indoor="0.5" outdoor="1.0" />
+			</motor>
+			<motor template="engineLarge" file="sounds/CL_eSounds_interior_loop.gls" volumeScale="3.0" innerRadius="5" supportsReverb="false" linkNodeOffset="0 2 3">
+			    <volume indoor="1.0" outdoor="0.0" />
+			</motor>
+			<motor template="indoorCabinOldVehicle" innerRadius="5.0" outerRadius="5.0" volumeScale="9.0" supportsReverb="false" linkNodeOffset="0 2 3"/>
+			<gearbox file="$data/sounds/vehicles/transmission/transmissionLoop06.ogg" volumeScale="0.8" innerRadius="5.0" outerRadius="5.0" supportsReverb="false" linkNodeOffset="0 1.5 2.7">
+			    <volume indoor="1.0" outdoor="0.0">
+			        <modifier type="MOTOR_RPM" value="0.00" modifiedValue="0.0" />
+					<modifier type="MOTOR_RPM" value="0.10" modifiedValue="0.75" />
+ 			        <modifier type="MOTOR_RPM" value="1.00" modifiedValue="1.00" />
+					<modifier type="DRIVING_DIRECTION" value="-1.0" modifiedValue="1.35" />
+					<modifier type="DRIVING_DIRECTION" value="0.00" modifiedValue="0.0" />
+					<modifier type="DRIVING_DIRECTION" value="1.00" modifiedValue="1.0" />
+			    </volume>
+			    <pitch indoor="1.0" outdoor="1.0" >
+			        <modifier type="SPEED" value="0.0" modifiedValue="0.30"/>
+					<modifier type="SPEED" value="80.0" modifiedValue="0.70"/>
+					<modifier type="SUSPENSION" value="-1.0" modifiedValue="0.9" />
+					<modifier type="SUSPENSION" value="-0.5" modifiedValue="0.95" />
+					<modifier type="SUSPENSION" value="0.0" modifiedValue="1.0" />
+					<modifier type="SUSPENSION" value="0.5" modifiedValue="1.05" />
+					<modifier type="SUSPENSION" value="1.0" modifiedValue="1.1" />
+					<modifier type="MOTOR_RPM_REAL" value="850" modifiedValue="0.30" />
+			        <modifier type="MOTOR_RPM_REAL" value="2000" modifiedValue="0.70" />
+			    </pitch>
+			</gearbox>
+			<motor file="$data/sounds/vehicles/transmission/transmissionLoop01.ogg" volumeScale="0.9" innerRadius="5.0" outerRadius="65.0" fadeIn="0.5" fadeOut="0.5" supportsReverb="false" linkNodeOffset="0 1 1.5">
+			    <volume indoor="0.3" outdoor="1.0" >
+			        <modifier type="SPEED" value="0.0" modifiedValue="0.0"/>
+			        <modifier type="SPEED" value="80.0" modifiedValue="1.0"/>
+					<modifier type="DRIVING_DIRECTION" value="-1.0" modifiedValue="0.0" />
+					<modifier type="DRIVING_DIRECTION" value="0.00" modifiedValue="0.0" />
+					<modifier type="DRIVING_DIRECTION" value="1.00" modifiedValue="1.0" />
+			    </volume>
+			    <pitch indoor="1.0" outdoor="1.0">
+					<modifier type="SPEED" value="0.0" modifiedValue="0.65"/>
+					<modifier type="SPEED" value="80.0" modifiedValue="1.15"/>
+					<modifier type="SUSPENSION" value="-1.0" modifiedValue="0.9" />
+					<modifier type="SUSPENSION" value="-0.5" modifiedValue="0.95" />
+					<modifier type="SUSPENSION" value="0.0" modifiedValue="1.0" />
+					<modifier type="SUSPENSION" value="0.5" modifiedValue="1.05" />
+					<modifier type="SUSPENSION" value="1.0" modifiedValue="1.1" />
+					<modifier type="MOTOR_RPM_REAL" value="850" modifiedValue="0.75" />
+			        <modifier type="MOTOR_RPM_REAL" value="2200" modifiedValue="1.10" />
+			    </pitch>
+			</motor>
+			<reverseDrive file="sounds/CL_reverse_loop.ogg" innerRadius="5.0" outerRadius="65.0" supportsReverb="false" linkNodeOffset="0 1 1.5">
+			    <volume indoor="0.45" outdoor="0.85">
+			        <modifier type="MOTOR_RPM" value="0.00" modifiedValue="0.00" />
+			        <modifier type="MOTOR_RPM" value="0.15" modifiedValue="1.00" />
+			    </volume>
+			    <pitch indoor="1.0" outdoor="1.0">
+			        <modifier type="MOTOR_RPM" value="0.25" modifiedValue="0.65" />
+			        <modifier type="MOTOR_RPM" value="1.00" modifiedValue="1.00" />
+			        <modifier type="SPEED" value="0.0" modifiedValue="0.75" />
+			        <modifier type="SPEED" value="15.0" modifiedValue="1.00" />
+			    </pitch>
+			    <lowpassGain indoor="1.0" outdoor="1.0" />
+			</reverseDrive>
+       <airRelease file="sounds/kirovets_compressorWork1.wav" innerRadius="10.0" outerRadius="120.0" linkNode="0>7|7">
+                <volume indoor="3.00" outdoor="5.50" />
+                <pitch indoor="0.8" outdoor="0.8" />
+                <lowpassGain indoor="0.50" outdoor="1.0" />
+            </airRelease>
+            <airCompressorStart file="$data/sounds/vehicles/compressor/truck_regulator_valve_02.wav" innerRadius="10.0" outerRadius="120.0" linkNode="0>7|7">
+                <volume indoor="0.75" outdoor="0.30" />
+                <pitch indoor="1.0" outdoor="1.0" />
+                <lowpassGain indoor="0.50" outdoor="1.0" />
+            </airCompressorStart>
+            <airCompressorStop file="$data/sounds/vehicles/compressor/air_valve.wav" innerRadius="10.0" outerRadius="120.0" linkNode="0>7|7">
+                <volume indoor="0.75" outdoor="0.30" />
+                <pitch indoor="1.0" outdoor="1.0" />
+                <lowpassGain indoor="0.50" outdoor="1.0" />
+            </airCompressorStop>
+            <airCompressorRun file="$data/sounds/vehicles/compressor/compressor_idle_loop.wav" innerRadius="10.0" outerRadius="120.0" fadeOut="0.1" linkNode="0>7|7">
+                <volume indoor="0.50" outdoor="0.60" />
+                <pitch indoor="1.0" outdoor="1.0" />
+                <lowpassGain indoor="0.50" outdoor="1.0" />
+            </airCompressorRun>
+            <compressedAir file="$data/sounds/vehicles/brake/brake_old.wav" innerRadius="10.0" outerRadius="120.0" linkNode="0>7|7">
+                <volume indoor="0.85" outdoor="2.10">
+                    <modifier type="BRAKE_TIME" value="0.0" modifiedValue="0.0" />
+                    <modifier type="BRAKE_TIME" value="1.0" modifiedValue="1.0" />
+                </volume>
+                <pitch indoor="1.0" outdoor="1.0" />
+                <lowpassGain indoor="0.50" outdoor="1.0" />
+            </compressedAir>
+            <gearLeverStart template="gearDisengaged" volumeScale="1.5"/>
+            <gearLeverEnd template="gearEngaged" volumeScale="1.5"/>
+            <gearGroupLeverStart template="gearDisengaged" volumeScale="1.5"/>
+            <gearGroupLeverEnd template="gearEngaged" volumeScale="1.5"/>
+        </sounds>
+    </motorized>
+
+    <lights>
+        <sounds>
+            <toggleLights template="SWITCH_01" supportsReverb="false" linkNodeOffset="0.4 2.1 2.9"/>
+            <turnLight template="SWITCH_TURNLIGHT" supportsReverb="false" linkNodeOffset="0.4 2.1 2.9"/>
+        </sounds>
+    </lights>
+
+    <attacherJoints>
+        <sounds>
+            <attach template="TRUCK_ATTACH_01" pitchScale="0.5" linkNodeOffset="0 1.4 -1.1"/>
+            <detach template="TRUCK_ATTACH_03" pitchScale="0.5" linkNodeOffset="0 1.4 -1.1"/>
+        </sounds>
+    </attacherJoints>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01"/>
+        </sounds>
+    </drivable>
+
+    <honk>
+        <sound template="HONK_NH_TX32" pitchScale="0.7" volumeScale="3.5" linkNodeOffset="0 1.7 3.9"/>
+    </honk>
+</sounds>
+
+<!-- [eSounds's studio by Erlan10] since 2020. -->
