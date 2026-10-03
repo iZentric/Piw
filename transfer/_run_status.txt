@@ -1,0 +1,138 @@
+date: Sat Oct  3 16:20:41 UTC 2026
+pwd: /home/runner/work/Piw/Piw
+github.sha: e60100fb0ae553dc35acd0fc686c69dea3a1d55f   ref: arena/01a10279-piw
+
+--- ls -la ---
+total 32
+drwxr-xr-x 6 runner runner 4096 Oct  3 16:19 .
+drwxr-xr-x 3 runner runner 4096 Oct  3 16:19 ..
+drwxr-xr-x 7 runner runner 4096 Oct  3 16:19 .git
+drwxr-xr-x 3 runner runner 4096 Oct  3 16:19 .github
+-rw-r--r-- 1 runner runner  171 Oct  3 16:19 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct  3 16:19 README.md
+drwxr-xr-x 2 runner runner 4096 Oct  3 16:19 tools
+drwxr-xr-x 5 runner runner 4096 Oct  3 16:20 transfer
+
+--- find transfer -type f ---
+transfer/_run_status.txt
+transfer/original/FS22_DT_Pack/DT_75.i3d
+transfer/original/FS22_DT_Pack/DT_75.xml
+transfer/original/FS22_DT_Pack/dynamicallyLoadedParts/A41.i3d
+transfer/original/FS22_DT_Pack/modDesc.xml
+transfer/original/FS22_DT_Pack/scripts/MoreDesignConfigs.lua
+transfer/original/FS22_DT_Pack/scripts/categorizer.lua
+transfer/original/FS22_DT_Pack/sounds/a41.xml
+transfer/original/FS22_DT_Pack/tools/PFP_12.xml
+transfer/original/FS22_DT_Pack/tools/PFP_1_2.i3d
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_Bucket.i3d
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_Bucket.xml
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_ForkGrab.i3d
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_ForkGrab.xml
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_LogFork.i3d
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_LogFork.xml
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_Shovel.i3d
+transfer/original/FS22_DT_Pack/tools/PFP_Tool_Shovel.xml
+transfer/original/FS22_DT_Pack/tools/PND_250.i3d
+transfer/original/FS22_DT_Pack/tools/PND_250.xml
+transfer/original/FS22_DT_Pack/tools/PTS_77.i3d
+transfer/original/FS22_DT_Pack/tools/PTS_77.xml
+transfer/original/FS22_DT_Pack/tools/Shovel.i3d
+transfer/original/FS22_DT_Pack/tools/Shovel.xml
+transfer/original/FS22_DT_Pack/tools/ShovelWide.i3d
+transfer/original/FS22_DT_Pack/tools/ShovelWide.xml
+transfer/original/FS22_DT_Pack/tools/TO_7.i3d
+transfer/original/FS22_DT_Pack/tools/TO_7.xml
+transfer/original/FS22_DT_Pack/tools/TO_Tool_Bucket.i3d
+transfer/original/FS22_DT_Pack/tools/TO_Tool_Bucket.xml
+transfer/original/FS22_DT_Pack/tools/Weight.i3d
+transfer/original/FS22_DT_Pack/tools/Weight.xml
+transfer/original/FS22_DT_Pack/wheels/tracksDT75.i3d
+transfer/original/FS22_DT_Pack/wheels/tracksDT75.xml
+transfer/original/FS22_DT_Pack/wheels/tracksDT75NarrowLowered.i3d
+transfer/original/FS22_DT_Pack/wheels/tracksDT75NarrowLowered.xml
+transfer/original/FS22_DT_Pack/wheels/tracksDT75WideLowered.i3d
+transfer/original/FS22_DT_Pack/wheels/tracksDT75WideLowered.xml
+transfer/original/FS22_DT_Pack/wheels/tracksDT75WideRaised.i3d
+transfer/original/FS22_DT_Pack/wheels/tracksDT75WideRaised.xml
+transfer/original/FS22_T150_Gus/150_gus.i3d
+transfer/original/FS22_T150_Gus/150_gus.xml
+transfer/original/FS22_T150_Gus/icons/ic_clickIcons.i3d
+transfer/original/FS22_T150_Gus/kapots/shader/customVehicleShader.xml
+transfer/original/FS22_T150_Gus/kapots/shaders/vehicleShader.xml
+transfer/original/FS22_T150_Gus/kapots/tex/shaders/vehicleShader.xml
+transfer/original/FS22_T150_Gus/kapots/tex1/res/shaders/vehicleShader.xml
+transfer/original/FS22_T150_Gus/kapots/tex1/shederaa/vehicleShader.xml
+transfer/original/FS22_T150_Gus/modDesc.xml
+transfer/original/FS22_T150_Gus/scripts/MoreDesignConfigs.lua
+transfer/original/FS22_T150_Gus/shaders/vehicleShader.xml
+transfer/original/FS22_T150_Gus/sounds/CL_eSounds.xml
+transfer/original/FS22_T150_Gus/tracks/trackHTZ150.i3d
+transfer/original/FS22_T150_Gus/tracks/trackHTZ151.i3d
+transfer/original/FS22_T150_Gus/tracks/trackHTZ152.i3d
+transfer/original/FS22_T150_Gus/tracks/tracksT150.xml
+transfer/original/FS22_T150_Gus/tracks/tracksT151.xml
+transfer/original/FS22_T150_Gus/tracks/tracksT152.xml
+transfer/original/_download_log.txt
+transfer/original/_filelist_FS22_DT_Pack.txt
+transfer/original/_filelist_FS22_T150_Gus.txt
+transfer/original/_info_FS22_DT_Pack.json
+transfer/original/_info_FS22_T150_Gus.json
+transfer/reference/_fetch_log.txt
+transfer/reference/_fetch_report.txt
+transfer/reference/_grab_log.txt
+transfer/reference/extracted/FS25_mirror_DT_Pack/DT_75.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/DT_75.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/dynamicallyLoadedParts/A41.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/modDesc.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/scripts/MoreDesignConfigs.lua
+transfer/reference/extracted/FS25_mirror_DT_Pack/scripts/categorizer.lua
+transfer/reference/extracted/FS25_mirror_DT_Pack/sounds/a41.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_12.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_1_2.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_Bucket.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_Bucket.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_ForkGrab.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_ForkGrab.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_LogFork.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_LogFork.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_Shovel.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PFP_Tool_Shovel.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PND_250.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PND_250.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PTS_77.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/PTS_77.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/Shovel.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/Shovel.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/ShovelWide.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/ShovelWide.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/TO_7.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/TO_7.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/TO_Tool_Bucket.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/TO_Tool_Bucket.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/Weight.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/tools/Weight.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/wheels/tracksDT75.i3d
+transfer/reference/extracted/FS25_mirror_DT_Pack/wheels/tracksDT75.xml
+transfer/reference/extracted/FS25_mirror_DT_Pack/wheels/tracksDT75NarrowLowered.i3d
+
+--- du -sh transfer/reference ---
+2.9M	transfer/reference
+
+--- git status --short ---
+ M transfer/original/_download_log.txt
+ M transfer/reference/_fetch_report.txt
+ M transfer/reference/pages/RCQkPQMzoBz0Vr6_5b555b84a5.html
+ M transfer/reference/pages/farming-simulator-25-mods_dt-75-pack-v1000-1_12f803cd9b.html
+ M transfer/reference/pages/mod_download_064e51b8f7.html
+ M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
+?? transfer/_run_status.txt
+?? transfer/reference/_fetch_log.txt
+?? transfer/reference/_grab_log.txt
+?? transfer/reference/extracted/
+
+--- git log -3 ---
+e60100f Keep only extracted text in git; resilient grabs; ignore big binaries
+bff1aef Report diagnostics via annotations (readable through the API)
+4342945 Workflow: publish diagnostics as a check-run (logs are unreadable from the sandbox)
+
+--- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---

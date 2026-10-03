@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="tracksDT75.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="6" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="13" filename="hodovaya_normal.dds"/>
+    <File fileId="14" filename="hodovaya_specular.dds"/>
+    <File fileId="10" filename="trackArray.dds"/>
+    <File fileId="4" filename="track_normal.dds"/>
+    <File fileId="5" filename="track_vmask.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="crawlerFrame_mat" materialId="5" diffuseColor="0.8 0.8 0.8 1" specularColor="0.6 1 0">
+    </Material>
+    <Material name="hodovaya_mat" materialId="6" diffuseColor="0.8 0.8 0.8 1" customShaderId="6" customShaderVariation="colorMask">
+      <Normalmap fileId="13"/>
+      <Glossmap fileId="14"/>
+      <CustomParameter name="colorMat0" value="0.8 0.05 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.05 0.05 0.05 5"/>
+    </Material>
+    <Material name="trackDT75M_mat" materialId="7" diffuseColor="1 1 1 1" customShaderId="6" customShaderVariation="motionPath_secondUV_colorMask">
+      <Normalmap fileId="4"/>
+      <Glossmap fileId="5"/>
+      <Custommap name="mTrackArray" fileId="10"/>
+      <CustomParameter name="colorMat0" value="0.03 0.03 0.03 6"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="tracksDT75.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <TransformGroup name="crawlersDT75" nodeId="27">
+        <Shape shapeId="1" name="crawlerFrameLeft" nodeId="28" materialIds="5" nonRenderable="true">
+          <Shape shapeId="2" name="crawler42DT75MGeo" rotation="-1.36604e-05 -0 0" clipDistance="300" nodeId="156" materialIds="7" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="3" name="katok_peredniy1" translation="0 0.418609 0.921378" nodeId="30" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="4" name="katok_oporniy5" translation="0 0.18502 0.49635" nodeId="31" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="5" name="katok_oporniy6" translation="0 0.171851 -0.0828855" nodeId="32" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="6" name="katok_oporniy7" translation="0 0.180779 -0.738217" nodeId="33" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="7" name="katok_oporniy8" translation="0 0.190623 -1.32129" nodeId="34" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="8" name="katok_podderzhivayshiy3" translation="0.0495423 0.647 -0.0128928" nodeId="35" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="9" name="katok_podderzhivayshiy4" translation="0.05 0.653031 -1.03348" nodeId="36" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="10" name="zvezda1" translation="0.0500083 0.433969 -1.747" nodeId="37" materialIds="6" castsShadows="true" receiveShadows="true"/>
+        </Shape>
+        <Shape shapeId="1" name="crawlerFrameRight" nodeId="38" materialIds="5" nonRenderable="true">
+          <Shape shapeId="2" name="crawler42DT75MGeo" translation="-0.015 0 0" rotation="-1.36604e-05 -0 0" clipDistance="300" nodeId="157" materialIds="7" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="11" name="katok_peredniy1" translation="0 0.418609 0.921378" nodeId="40" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="12" name="katok_oporniy5" translation="0 0.185 0.496" nodeId="41" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="13" name="katok_oporniy6" translation="0 0.171851 -0.0828855" nodeId="42" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="14" name="katok_oporniy7" translation="0 0.181064 -0.738" nodeId="43" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="15" name="katok_oporniy8" translation="0 0.191 -1.321" nodeId="44" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="16" name="katok_podderzhivayshiy3" translation="-0.06 0.647 -0.0128928" nodeId="45" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="17" name="katok_podderzhivayshiy4" translation="-0.06 0.643 -1.03348" nodeId="46" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="18" name="zvezda1" translation="-0.0658289 0.433969 -1.747" nodeId="47" materialIds="6" castsShadows="true" receiveShadows="true"/>
+        </Shape>
+      </TransformGroup>
+  </Scene>
+
+</i3D>

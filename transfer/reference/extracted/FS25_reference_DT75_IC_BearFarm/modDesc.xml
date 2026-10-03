@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="99">
+    <author>BearFarm</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>DT-75 IC</en>
+        <ru>ВгТЗ ДТ-75 IC</ru>		
+    </title>
+    <description>
+<en><![CDATA[
+Vgtz DT-75(PD 10)
+Category: Small Tractors
+Price: $75,000
+Power: 95 hp
+Max. speed: 12 kph
+Capacity: 250 L
+
+Vgtz DT-75(Starter)
+Category: Small Tractors
+Price: $75,000
+Power: 95 hp
+Max. speed: 12 kph
+Capacity: 250 L
+
+Vgtz Coupling with a bracket
+Category: Miscellaneous
+Price: $800
+
+Vgtz Shovel
+Category: Miscellaneous
+Price: $3,500
+Capacity: 2,000 L
+
+Vgtz Snow shovel
+Category: Winter Equipment
+Price: $4,000
+Capacity: 3,000 L
+
+Vgtz Snow wedge
+Category: Winter Equipment
+Price: $6,000
+Capacity: 6,000 L
+
+Interactive Control
+]]></en>
+
+	<de><![CDATA[
+Vgtz DT-75(PD 10)
+Shopkategorie: Kompakttraktoren
+Preis: 75.000€
+Leistung: 95 PS
+Höchstgeschwindigkeit: 12 km/h
+Kapazität: 250 L
+
+Vgtz DT-75(Starter)
+Shopkategorie: Kompakttraktoren
+Preis: 75.000€
+Leistung: 95 PS
+Höchstgeschwindigkeit: 12 km/h
+Kapazität: 250 L
+
+Vgtz Coupling with a bracket
+Shopkategorie: Diverses
+Preis: 800€
+
+Vgtz Shovel
+Shopkategorie: Diverses
+Preis: 3.500€
+Kapazität: 2.000 L
+
+Vgtz Snow shovel
+Shopkategorie: Winter Gerätschaften
+Preis: 4.000€
+Kapazität: 3.000 L
+
+Vgtz Snow wedge
+Shopkategorie: Winter Gerätschaften
+Preis: 6.000€
+Kapazität: 6.000 L
+
+Interactive Control
+]]></de>
+		
+    </description>
+    <iconFilename>store/icon_mod.png</iconFilename>
+	<brands>
+		<brand name="VgTZ" title="ВгТЗ ДТ-75" image="store/brand_brandVgTZ.dds"/>
+	</brands>		
+    <vehicleTypes>
+        <type name="dt75" parent="tractor" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua"/>
+
+        <type name="autoCoupling" parent="implement" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="attacherJointControl" />
+        </type>			
+    </vehicleTypes>	
+	
+    <jointTypes>
+        <jointType name="attacherJoint"/>
+        <jointType name="jointDump"/>		
+    </jointTypes>	
+	
+    <storeItems>
+        <storeItem xmlFilename="dt75_SMD_PD.xml"/>
+        <storeItem xmlFilename="dt75_SMD_starter.xml"/>		
+        <storeItem xmlFilename="dt75autoCoupling.xml"/>
+        <storeItem xmlFilename="dt75_dump.xml"/>
+        <storeItem xmlFilename="dt75_dumpSnow.xml"/>
+        <storeItem xmlFilename="dt75_snowWedge.xml"/>			
+    </storeItems>
+    <multiplayer supported="true"/>
+	
+    <l10n>
+        <text name="configuration_option1"> 				<ru>Вариант 1</ru> 						<en>Option 1</en> 					<de>Option 1</de> 						</text>	
+        <text name="configuration_option2"> 				<ru>Вариант 2</ru> 						<en>Option 2</en> 					<de>Option 2</de>						</text>	
+        <text name="configuration_option3"> 				<ru>Вариант 3</ru> 						<en>Option 3</en> 					<de>Option 3</de>						</text>	
+        <text name="configuration_option4"> 				<ru>Вариант 4</ru> 						<en>Option 4</en> 					<de>Option 4</de>						</text>	
+        <text name="configuration_option5"> 				<ru>Вариант 5</ru> 						<en>Option 5</en> 					<de>Option 5</de>						</text>	
+        <text name="configuration_option6"> 				<ru>Вариант 6</ru> 						<en>Option 6</en> 					<de>Option 6</de>						</text>			
+        <text name="configuration_frontAttacher"> 			<ru>Переднее крепление</ru> 			<en>Front mount</en> 				<de>Fronthalterung</de> 				</text>
+        <text name="configuration_cargo"> 					<ru>Противовес</ru> 					<en>Weight</en> 					<de>Gegengewicht</de> 					</text>		
+        <text name="configuration_dump"> 					<ru>Крепление отвала/противовес</ru> 	<en>Blade/Weight</en> 				<de>Schildbefestigung/Gegengewicht</de> </text>
+        <text name="configuration_dump2"> 					<ru>Крепление отвала</ru> 				<en>Blade</en> 						<de>Schildbefestigung</de> 				</text>		
+        <text name="configuration_armor"> 					<ru>Защита</ru> 						<en>Armor</en> 						<de>Schutz</de> 						</text>
+        <text name="configuration_armor540"> 				<ru>Противовес 540 кг</ru> 				<en>Weight 540</en> 				<de>Gegengewicht von 540 kg</de>		</text>
+        <text name="configuration_armor790"> 				<ru>Противовес 790 кг</ru> 				<en>Weight 790</en> 				<de>Gegengewicht von 790 kg</de>		</text>		
+        <text name="configuration_cool"> 					<ru>Охлаждение салона</ru> 				<en>Interior cooling</en> 			<de>Innenraumkühlung</de> 				</text>
+        <text name="configuration_cooler"> 					<ru>Охладитель</ru> 					<en>Cooler</en> 					<de>Kühler</de> 						</text>
+        <text name="configuration_conditioner"> 			<ru>Кондиционер</ru> 					<en>Conditioner</en> 				<de>Klimaanlage</de> 					</text>				
+        <text name="configuration_sticker"> 				<ru>Отражатель</ru> 					<en>Sticker</en> 					<de>Reflektor</de>  					</text>				
+        <text name="configuration_PTO"> 					<ru>Вал отбора мощности</ru> 			<en>PTO</en> 						<de>Zapfwelle</de> 		 				</text>	
+        <text name="configuration_trailers"> 				<ru>Прицепная скоба</ru> 				<en>Trailed bracket</en> 			<de>Anhängebügel</de> 					</text>
+        <text name="configuration_2pointAttacher"> 			<ru>2-х точечная навеска</ru> 			<en>2-point Attacher</en> 			<de>2-Punkt-Aufhängung</de>				</text>
+        <text name="configuration_3pointAttacher"> 			<ru>3-х точечная навеска</ru> 			<en>3-point Attacher</en> 			<de>3-Punkt-Aufhängung</de>				</text>
+        <text name="configuration_monocyclone"> 			<ru>Моноциклон</ru> 					<en>Monocyclone</en> 				<de>Einzyklon</de> 						</text>
+        <text name="configuration_exhlaust"> 				<ru>Выхлопная труба</ru> 				<en>Exhlaust</en> 					<de>Abgasrohr</de> 						</text>
+        <text name="configuration_exhaustColor"> 			<ru>Цвет выхлопной трубы</ru> 			<en>Exhaust Color</en> 				<de>Abgasrohrfarbe</de> 				</text>			
+        <text name="configuration_frontCladding"> 			<ru>Передняя облицовка</ru> 			<en>Front cladding</en> 			<de>Verkleidung vorn</de> 				</text>
+        <text name="configuration_frontWireColor"> 			<ru>Решетка радиатора</ru> 				<en>Front wire</en> 				<de>Kühlergrill</de>					</text>		
+        <text name="configuration_sideCladding"> 			<ru>Боковая облицовка</ru> 				<en>Side cladding</en> 				<de>Seitenverkleidung</de> 				</text>			
+        <text name="configuration_lowerCladding"> 			<ru>Нижняя облицовка</ru> 				<en>Lower cladding</en> 			<de>Verkleidung unten</de> 	 			</text>	
+        <text name="configuration_rearCladding"> 			<ru>Задняя облицовка</ru> 				<en>Rear cladding</en> 				<de>Verkleidung hinten</de> 			</text>	
+        <text name="configuration_roofColor"> 				<ru>Крыша</ru> 							<en>Roof color</en> 				<de>Dach</de> 							</text>
+        <text name="configuration_frameColor"> 				<ru>Рама/трансмиссия</ru> 				<en>Frame color</en> 				<de>Rahmen/Getriebe</de> 				</text>
+        <text name="configuration_tractorName"> 			<ru>Надпись на капоте</ru> 				<en>Tractor name</en> 				<de>Schriftzug auf der Motorhaube</de> 	</text>		
+        <text name="configuration_runningGear"> 			<ru>Ходовая часть</ru> 					<en>Running gear</en> 				<de>Fahrwerk</de> 						</text>
+        <text name="configuration_runningGear2"> 			<ru>Звёздочка/направляющее колесо</ru> 	<en>Running gear 2</en> 			<de>Kettenrad/Führungsrad</de>			</text>
+        <text name="configuration_engineColor"> 			<ru>Двигатель</ru> 						<en>Engine color</en> 				<de>Motor</de> 							</text>
+        <text name="configuration_interiorUpholstery"> 		<ru>Обивка салона</ru> 					<en>Interior upholstery</en> 		<de>Innenraumverkleidung</de> 			</text>
+        <text name="configuration_interiorColor"> 			<ru>Cалон</ru> 							<en>Interior color</en> 			<de>Salon</de> 							</text>		
+        <text name="configuration_lightBar"> 				<ru>Доп. освещение</ru> 				<en>Additional lighting</en> 		<de>Zusätzliche Beleuchtung</de> 		</text>
+        <text name="configuration_fasteningBar"> 			<ru>Цвет кронштейнов</ru> 				<en>Sfastening bar</en> 			<de>Farbe der Klammern</de> 			</text>
+        <text name="configuration_knife"> 					<ru>Цвет ножа</ru> 						<en>Knife</en> 						<de>Farbe des Messers</de> 				</text>	
+        <text name="configuration_lower"> 					<ru>Опустить</ru> 						<en>lower</en> 						<de>Weglassen</de> 						</text>
+        <text name="configuration_upper"> 					<ru>Поднять</ru> 						<en>upper</en> 						<de>Heben</de> 							</text>	
+        <text name="configuration_turnOn"> 					<ru>Включить</ru> 						<en>Turn on</en> 					<de>Aktivieren</de> 					</text>
+        <text name="configuration_turnOff"> 				<ru>Выключить</ru> 						<en>Turn off</en> 					<de>Ausschalten</de> 					</text>	
+        <text name="configuration_Open"> 					<ru>Открыть</ru> 						<en>Open</en> 						<de>Öffnen</de> 						</text>
+        <text name="configuration_Close"> 					<ru>Закрыть</ru> 						<en>Close</en> 						<de>Schließen</de> 						</text>				
+        <text name="configuration_cruiseControl"> 			<ru>Ручной газ</ru> 					<en>Сruise Control</en> 			<de>Handgas</de> 						</text>		
+        <text name="configuration_Install"> 				<ru>Установить</ru> 					<en>Install</en> 					<de>Installieren</de> 					</text>
+        <text name="configuration_Remove"> 				    <ru>Снять</ru> 						    <en>Remove</en> 					<de>Entfernen</de>						</text>			
+    </l10n>		
+</modDesc>

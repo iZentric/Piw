@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="dt75_dumpSnow.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.3"/>
+  </Asset>
+
+  <Files>
+    <File fileId="25" filename="$data/maps/mapAS/textures/props/oldChairs/oldChairs_diffuse.png"/>
+    <File fileId="26" filename="$data/maps/mapAS/textures/props/oldChairs/oldChairs_normal.png"/>
+    <File fileId="27" filename="$data/maps/mapAS/textures/props/oldChairs/oldChairs_specular.png"/>
+    <File fileId="28" filename="$data/shaders/placeableShader.xml"/>
+    <File fileId="5" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="23" filename="$data/shared/default_normal.png"/>
+    <File fileId="7" filename="$data/shared/detailLibrary/calibrated/calibratedPaint_normal.dds"/>
+    <File fileId="6" filename="$data/shared/detailLibrary/calibrated/calibratedPaint_specular.dds"/>
+    <File fileId="8" filename="$data/shared/detailLibrary/metallic/clear_diffuse.dds"/>
+    <File fileId="15" filename="$data/shared/detailLibrary/metallic/metalGalvanized_diffuse.png"/>
+    <File fileId="14" filename="$data/shared/detailLibrary/metallic/metalGalvanized_normal.png"/>
+    <File fileId="13" filename="$data/shared/detailLibrary/metallic/metalGalvanized_specular.png"/>
+    <File fileId="20" filename="$data/shared/detailLibrary/nonMetallic/metal/metalPaintedRough_normal.dds"/>
+    <File fileId="19" filename="$data/shared/detailLibrary/nonMetallic/metal/metalPaintedRough_specular.png"/>
+    <File fileId="21" filename="$data/shared/detailLibrary/nonMetallic/metal/metalPainted_diffuse.png"/>
+    <File fileId="32" filename="$data/shared/detailLibrary/nonMetallic/reflector/reflectorCube_diffuse.dds"/>
+    <File fileId="31" filename="$data/shared/detailLibrary/nonMetallic/reflector/reflectorCube_normal.dds"/>
+    <File fileId="30" filename="$data/shared/detailLibrary/nonMetallic/reflector/reflectorCube_specular.dds"/>
+    <File fileId="18" filename="$data/shared/detailLibrary/nonMetallic/rubber/rubberBlack_diffuse.png"/>
+    <File fileId="17" filename="$data/shared/detailLibrary/nonMetallic/rubber/rubber_normal.png"/>
+    <File fileId="16" filename="$data/shared/detailLibrary/nonMetallic/rubber/rubber_specular.png"/>
+    <File fileId="2" filename="$data/shared/white_diffuse.dds"/>
+    <File fileId="3" filename="textures/dt75_dumpSnow_normal.dds"/>
+    <File fileId="4" filename="textures/dt75_dumpSnow_vmask.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="default_mat" materialId="5" diffuseColor="0.501961 0.501961 0.501961 1" specularColor="0.501961 1 0.501961">
+      <Normalmap fileId="23"/>
+    </Material>
+    <Material name="dt75_dumpSBlack_mat" materialId="6" customShaderId="5">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3" bumpDepth="0.3"/>
+      <Glossmap fileId="4"/>
+      <Custommap name="detailSpecular" fileId="19"/>
+      <Custommap name="detailNormal" fileId="20"/>
+      <Custommap name="detailDiffuse" fileId="21"/>
+      <CustomParameter name="colorScale" value="0.03 0.03 0.03"/>
+    </Material>
+    <Material name="dt75_dumpSCast_mat" materialId="7" customShaderId="5">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3" bumpDepth="0.3"/>
+      <Glossmap fileId="4"/>
+      <Custommap name="detailSpecular" fileId="6"/>
+      <Custommap name="detailNormal" fileId="7"/>
+      <Custommap name="detailDiffuse" fileId="8"/>
+      <CustomParameter name="colorScale" value="0.1 0.2 0.5"/>
+      <CustomParameter name="smoothnessScale" value="0.85"/>
+      <CustomParameter name="clearCoatIntensity" value="0.1"/>
+      <CustomParameter name="clearCoatSmoothness" value="0.2"/>
+    </Material>
+    <Material name="dt75_dumpSMetal_mat" materialId="8" customShaderId="5">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <Custommap name="detailSpecular" fileId="13"/>
+      <Custommap name="detailNormal" fileId="14"/>
+      <Custommap name="detailDiffuse" fileId="15"/>
+    </Material>
+    <Material name="dt75_dumpSRubber_mat" materialId="9" customShaderId="5">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3" bumpDepth="0.3"/>
+      <Glossmap fileId="4"/>
+      <Custommap name="detailSpecular" fileId="16"/>
+      <Custommap name="detailNormal" fileId="17"/>
+      <Custommap name="detailDiffuse" fileId="18"/>
+      <CustomParameter name="porosity" value="0.5"/>
+    </Material>
+    <Material name="dumpDesign" materialId="53" customShaderId="5">
+      <Texture fileId="2"/>
+      <Custommap name="detailSpecular" fileId="30"/>
+      <Custommap name="detailNormal" fileId="31"/>
+      <Custommap name="detailDiffuse" fileId="32"/>
+      <CustomParameter name="colorScale" value="1 0.1 0"/>
+    </Material>
+    <Material name="dumpDesign3" materialId="54" customShaderId="5">
+      <Texture fileId="2"/>
+      <Custommap name="detailSpecular" fileId="30"/>
+      <Custommap name="detailNormal" fileId="31"/>
+      <Custommap name="detailDiffuse" fileId="32"/>
+      <CustomParameter name="colorScale" value="0.7 0.7 0"/>
+    </Material>
+    <Material name="dumpDesign3" materialId="55" customShaderId="5">
+      <Texture fileId="2"/>
+      <Custommap name="detailSpecular" fileId="30"/>
+      <Custommap name="detailNormal" fileId="31"/>
+      <Custommap name="detailDiffuse" fileId="32"/>
+      <CustomParameter name="colorScale" value="0.7 0.7 0.7"/>
+    </Material>
+    <Material name="dumpDesign3" materialId="56" customShaderId="5">
+      <Texture fileId="2"/>
+      <Custommap name="detailSpecular" fileId="30"/>
+      <Custommap name="detailNormal" fileId="31"/>
+      <Custommap name="detailDiffuse" fileId="32"/>
+      <CustomParameter name="colorScale" value="1 0.5 0"/>
+    </Material>
+    <Material name="lambert1" materialId="10" diffuseColor="0.501961 0.501961 0.501961 1">
+    </Material>
+    <Material name="lambert_mat" materialId="11" diffuseColor="1 1 1 1" specularColor="1 1 1">
+    </Material>
+    <Material name="oldChairs_mat" materialId="12" customShaderId="28">
+      <Texture fileId="25"/>
+      <Normalmap fileId="26"/>
+      <Glossmap fileId="27"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="dt75_dumpSnow.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <Shape name="dt75_dump_main_component1" shapeId="1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="21" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="11">
+      <Shape name="dumpVis" translation="0 0.184 -2.786" shapeId="2" nodeId="22" castsShadows="true" receiveShadows="true" materialIds="7,8,9,6">
+        <TransformGroup name="attachable" nodeId="23">
+          <TransformGroup name="attacherJoint" translation="0 0 -3.13664e-08" rotation="90.0003 -89.53 -90.0003" nodeId="24"/>
+          <TransformGroup name="topReferenceNode" translation="0 -0.0201427 2.46354" nodeId="25"/>
+        </TransformGroup>
+      </Shape>
+      <TransformGroup name="collisions" nodeId="26">
+        <Shape name="colPart1" translation="1.05663 0.117567 -1.39534" shapeId="3" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="27" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="10"/>
+        <Shape name="colPart2" translation="-1.00601 0.117567 -1.39534" shapeId="3" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="28" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="10"/>
+        <Shape name="colPart3" translation="0 0.976979 -0.0664452" rotation="-87.8373 -0 0" shapeId="4" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="29" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="10"/>
+        <Shape name="colPart4" translation="1.057 -0.174 -2.564" shapeId="5" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="30" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="10"/>
+        <Shape name="colPart5" translation="-1.057 -0.174 -2.56364" shapeId="5" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="31" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="10"/>
+      </TransformGroup>
+      <TransformGroup name="levelerNode" translation="0 0 0.214964" nodeId="32"/>
+      <TransformGroup name="occlustionArea01" nodeId="33">
+        <TransformGroup name="occlustionArea01Start" translation="1.25 0 0.2" nodeId="34"/>
+        <TransformGroup name="occlustionArea01Width" translation="-1.25 0 0.2" nodeId="35"/>
+        <TransformGroup name="occlustionArea01Height" translation="1.25 0 -1.34833" nodeId="36"/>
+      </TransformGroup>
+      <TransformGroup name="effects" nodeId="37">
+        <Shape name="effectMesh" translation="0.000446036 -0.300802 0.842757" rotation="-17.6145 -0 0" shapeId="6" clipDistance="200" nodeId="38" castsShadows="true" receiveShadows="true" materialIds="5"/>
+        <TransformGroup name="snowEffectNode" translation="0 0 -0.2" nodeId="39"/>
+      </TransformGroup>
+      <Shape name="pen" translation="1.03381 -0.174 -2.558" shapeId="7" nodeId="40" castsShadows="true" receiveShadows="true" materialIds="12">
+        <Shape name="pen2" translation="-2.068 0 0" shapeId="7" nodeId="41" castsShadows="true" receiveShadows="true" materialIds="12"/>
+      </Shape>
+      <TransformGroup name="fakeWheel" nodeId="42">
+        <TransformGroup name="wheelLeft" translation="0.964512 0.143849 -0.114286" nodeId="43"/>
+        <TransformGroup name="wheelMiddle" translation="0 0.143849 -0.114286" nodeId="44"/>
+        <TransformGroup name="wheelRight" translation="-0.965 0.143849 -0.114286" nodeId="45"/>
+      </TransformGroup>
+      <Shape name="design1" shapeId="8" nodeId="59" castsShadows="true" receiveShadows="true" distanceBlending="false" materialIds="55"/>
+      <Shape name="design2" shapeId="8" nodeId="60" castsShadows="true" receiveShadows="true" distanceBlending="false" materialIds="54"/>
+      <Shape name="design3" shapeId="8" nodeId="61" castsShadows="true" receiveShadows="true" distanceBlending="false" materialIds="56"/>
+      <Shape name="design4" shapeId="8" nodeId="62" castsShadows="true" receiveShadows="true" distanceBlending="false" materialIds="53"/>
+    </Shape>
+  </Scene>
+
+</i3D>

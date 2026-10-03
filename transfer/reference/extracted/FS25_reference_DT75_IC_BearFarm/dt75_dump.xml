@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="leveler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>
+			<en>Shovel</en>
+			<ru>Бульдозерный отвал</ru>			
+        </name>
+        <functions>
+            <function>$l10n_function_leveler</function>
+        </functions>
+    <specs>
+      <combination xmlFilename="dt75_SMD_PD.xml"/>
+      <combination xmlFilename="dt75_SMD_starter.xml"/>	  
+    </specs>		
+        <image>store/store_dump.png</image>
+        <price>3500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>VgTZ</brand>
+        <category>misc</category>
+        <shopHeight>3</shopHeight>
+        <vertexBufferMemoryUsage>189696</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>53248</indexBufferMemoryUsage>
+        <textureMemoryUsage>524288</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_leveler</typeDesc>
+        <filename>dt75_dump.i3d</filename>
+        <size width="3.5" length="4" height="1.5"/>
+        <components>
+            <component centerOfMass="0 0.2 -0.15" solverIterationCount="20" mass="1100"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT"/>
+        <mapHotspot type="TOOL"/>
+    </base>
+
+	<attachable>
+		<inputAttacherJoints>
+			<inputAttacherJoint node="attacherJoint" jointType="jointDump" topReferenceNode="topReferenceNode" lowerRotLimitScale="0 0 0" upperRotLimitScale="0 0 0" upperRotationOffset="1" lowerTransLimitScale="0 0 0" upperTransLimitScale="0 0 0" needsLowering="true" isControllable="true">
+				<distanceToGround lower="-0.48" upper="2"/>	
+						<objectChange node="pen" 	  	visibilityActive="false" 	visibilityInactive="true"/>					
+			</inputAttacherJoint>
+		</inputAttacherJoints>
+		<support animationName="moveSupport"/>
+				
+	</attachable>
+	
+    <attacherJointControl maxTiltAngle="25" supportsDamping="false">
+        <control controlFunction="controlAttacherJointHeight" controlAxis="AXIS_HYDRAULICATTACHER1" invertControlAxis="false" mouseSpeedFactor="0.3" iconName="IMPLEMENT_ATTACHER_TRANS" />
+        <sounds>
+            <hydraulic template="hydraulicClose01" linkNode="attacherJoint" volumeScale="10" pitchScale="0.8" fadeIn="0.1" fadeOut="0.1"/>
+        </sounds>
+    </attacherJointControl>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="colPart4" startTime="0.00" endTime="0.01" startTrans="1.057 0.107 -0.219"   endTrans="1.057 -0.174 -2.564" />
+            <part node="colPart5" startTime="0.00" endTime="0.01" startTrans="-1.057 0.107 -0.219"  endTrans="-1.057 -0.174 -2.564" />
+        </animation>
+    </animations>
+
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits allowFoldingWhileFilled="false">
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" fillTypeCategories="bulk windrow" capacity="2000" showInShop="false" showOnHud="false"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <leveler fillUnitIndex="1" maxFillLevelPerMS="35">
+        <levelerNode node="levelerNode" width="2" zOffset="0.5" minDropWidth="2" maxDropWidth="2.2" minDropDirOffset="2" maxDropDirOffset="3" alignToWorldY="false">
+            <smoothing allowed="true" radius="0.5" overlap="1.7" />
+		    <occlusionAreas>
+                <occlusionArea startNode="occlustionArea01Start" widthNode="occlustionArea01Width" heightNode="occlustionArea01Height"/>
+            </occlusionAreas>				
+        </levelerNode>
+
+        <force node="dt75_dump_main_component1" maxForce="50" direction="1" />
+
+        <pickUpDirection>1</pickUpDirection>
+
+        <effects>
+            <effectNode effectNode="levelerEffectNode" effectClass="LevelerEffect" materialType="leveler" fadeTime="0.5" speed="1" maxHeight="1" />
+        </effects>
+    </leveler>
+
+    <ai>
+        <agentAttachment width="2.55" height="1" length="3.1" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-0.2" maxZ="0.22" yOffset="0.1"/>
+        <bendingNode minX="-1.1" maxX="1.1" minZ="-2.86" maxZ="0.22" yOffset="0.1"/>
+    </foliageBending>
+
+    <baseColorConfigurations useDefaultColors="true" >
+        <material materialSlotName="mainDump" materialTemplateUseColorOnly="true"/>
+		<baseColorConfiguration color="0.05 0.05 0.05" isDefault="true"/>	
+    </baseColorConfigurations>	
+    <designColorConfigurations useDefaultColors="true" price="100">
+        <material materialSlotName="mainDumpDesign" materialTemplateUseColorOnly="true"/>
+        <designColorConfiguration color="0.05 0.05 0.05" isDefault="true"/>		
+    </designColorConfigurations>	
+
+    <designConfigurations title="$l10n_configuration_sticker" isYesNoOption="false">
+        <designConfiguration name="$l10n_configuration_valueNo" price="0">
+            <objectChange node="design1"	visibilityActive="false"  	visibilityInactive="true"/>		
+            <objectChange node="design2"	visibilityActive="false"  	visibilityInactive="true"/>			
+            <objectChange node="design3"	visibilityActive="false"  	visibilityInactive="true"/>	
+            <objectChange node="design4"	visibilityActive="false"  	visibilityInactive="true"/>						
+        </designConfiguration>
+        <designConfiguration name="$l10n_configuration_option1" price="100">
+            <objectChange node="design1"	visibilityActive="true"  	visibilityInactive="false"/>		
+            <objectChange node="design2"	visibilityActive="false"  	visibilityInactive="true"/>			
+            <objectChange node="design3"	visibilityActive="false"  	visibilityInactive="true"/>	
+            <objectChange node="design4"	visibilityActive="false"  	visibilityInactive="true"/>		
+        </designConfiguration>
+        <designConfiguration name="$l10n_configuration_option2" price="100">
+            <objectChange node="design1"	visibilityActive="false"  	visibilityInactive="true"/>		
+            <objectChange node="design2"	visibilityActive="true"  	visibilityInactive="false"/>				
+            <objectChange node="design3"	visibilityActive="false"  	visibilityInactive="true"/>	
+            <objectChange node="design4"	visibilityActive="false"  	visibilityInactive="true"/>		
+        </designConfiguration>	
+        <designConfiguration name="$l10n_configuration_option3" price="100">
+            <objectChange node="design1"	visibilityActive="false"  	visibilityInactive="true"/>		
+            <objectChange node="design2"	visibilityActive="false"  	visibilityInactive="true"/>			
+            <objectChange node="design3"	visibilityActive="true"  	visibilityInactive="false"/>		
+            <objectChange node="design4"	visibilityActive="false"  	visibilityInactive="true"/>		
+        </designConfiguration>
+        <designConfiguration name="$l10n_configuration_option4" price="100">
+            <objectChange node="design1"	visibilityActive="false"  	visibilityInactive="true"/>		
+            <objectChange node="design2"	visibilityActive="false"  	visibilityInactive="true"/>			
+            <objectChange node="design3"	visibilityActive="false"  	visibilityInactive="true"/>	
+            <objectChange node="design4"	visibilityActive="true"  	visibilityInactive="false"/>			
+        </designConfiguration>			
+    </designConfigurations>	
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="dt75_dump_main_component1" node="0>" />
+        <i3dMapping id="dumpVis" node="0>0" />
+        <i3dMapping id="attachable" node="0>0|0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="collisions" node="0>1" />
+        <i3dMapping id="colPart1" node="0>1|0" />
+        <i3dMapping id="colPart2" node="0>1|1" />
+        <i3dMapping id="colPart3" node="0>1|2" />
+        <i3dMapping id="colPart4" node="0>1|3" />
+        <i3dMapping id="colPart5" node="0>1|4" />			
+        <i3dMapping id="levelerNode" node="0>2" />		
+        <i3dMapping id="occlustionArea01" node="0>3" />
+        <i3dMapping id="occlustionArea01Start" 	node="0>3|0" />
+        <i3dMapping id="occlustionArea01Width" 	node="0>3|1" />
+        <i3dMapping id="occlustionArea01Height" node="0>3|2" />
+        <i3dMapping id="effects" node="0>4" />
+        <i3dMapping id="pen" node="0>5" />
+		<i3dMapping id="design1" node="0>6" />
+		<i3dMapping id="design2" node="0>7" />		
+		<i3dMapping id="design3" node="0>8" />		
+		<i3dMapping id="design4" node="0>9" />			
+        <i3dMapping id="levelerEffectNode" 	node="0>4|0" />		
+    </i3dMappings>
+</vehicle>

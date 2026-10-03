@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<sounds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/vehicle_sounds.xsd">
+    <motorized>
+        <sounds>
+            <motor template="engineMedium" file="sounds/dt75_engine.gls" linkNodeOffset="0 1.3 1.2" pitchScale="1" volumeScale="1.7" >
+                <volume outdoor="1.0" indoor="0.65"/>
+			</motor>
+            <motor template="indoorCabinRumble" volumeScale="30" pitchScale="1.3" linkNodeOffset="0.18 1.4 -0.15"/>
+            <motor template="indoorCabinRumble" volumeScale="30" pitchScale="1.1" linkNodeOffset="-0.7 1.4 -0.15"/>				
+			<motor template="indoorCabinOldVehicle" file="sounds/seat.ogg" volumeScale="10.0" supportsReverb="false" linkNode="seat"/>
+			<motor template="indoorCabinOldVehicle" volumeScale="50.0" supportsReverb="false" linkNode="characterTargets"/>
+            <motor template="engineSmall" file="sounds/interiorRumble.ogg" linkNode="leverGroup" pitchScale="0.9" volumeScale="0.8" innerRadius="1" outerRadius="1" fadeIn="0.9">
+                <volume outdoor="0" indoor="1">
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.00" modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.00" modifiedValue="0.15" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.00" modifiedValue="0.60" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+                    <modifier type="DRIVING_DIRECTION" value="-1.00" modifiedValue="1.6" />
+                </volume>
+                <pitch>
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="1.0"  modifiedValue="0.55" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.0"  modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.0"  modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.85" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+                </pitch>
+            </motor>
+            <motor template="engineSmall" file="sounds/transmission.ogg" linkNode="leverGroup" pitchScale="0.9" volumeScale="2" innerRadius="1" outerRadius="25" fadeIn="0.9">
+                <volume outdoor="0" indoor="1">
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.00" modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.00" modifiedValue="0.15" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.00" modifiedValue="0.60" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+                    <modifier type="DRIVING_DIRECTION" value="-1.00" modifiedValue="1.6" />
+                </volume>
+                <pitch>
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="1.0"  modifiedValue="0.55" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.0"  modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.0"  modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.85" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+                </pitch>
+            </motor>
+            <gearbox file="sounds/dt75_transmission_loop.gls" linkNodeOffset="-0.134 1.0 -0.8" pitchScale="1.0" volumeScale="3.8" innerRadius="1" outerRadius="10" fadeIn="0.9">
+                <loopSynthesisRpm>
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0" modifiedValue="0.0" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.5" modifiedValue="0.5" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.0" modifiedValue="1.0" />
+                </loopSynthesisRpm>
+                <volume indoor="0.2" outdoor="1" >
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.3" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="1.0" modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="3.0" modifiedValue="0.90" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.0" modifiedValue="1.20" />
+                </volume>
+                <pitch>
+                    <modifier type="SUSPENSION" value="-0.08" modifiedValue="1.07" />
+                    <modifier type="SUSPENSION" value="-0.02" modifiedValue="1.05" />
+                    <modifier type="SUSPENSION" value="0.0" modifiedValue="1.0" />
+                    <modifier type="SUSPENSION" value="0.02" modifiedValue="1.05" />
+                    <modifier type="SUSPENSION" value="0.08" modifiedValue="1.08" />
+                </pitch>
+            </gearbox>
+			<gearLeverStart file="sounds/gearUp2.ogg" volumeScale="5" supportsReverb="false" linkNode="leverGears">
+			    <volume indoor="0.25" outdoor="0.05" />
+			    <sourceRandomization file="sounds/gearUp2.ogg"/>
+			    <sourceRandomization file="sounds/gearCrunch2.ogg"/>
+			    <sourceRandomization file="sounds/gearUp.ogg"/>
+			    <sourceRandomization file="sounds/gearDown.ogg"/>
+			    <sourceRandomization file="sounds/gearCrunch.ogg"/>				
+			    <sourceRandomization file="sounds/gearDown2.ogg"/>
+			    <sourceRandomization file="sounds/gearUp2.ogg"/>
+			</gearLeverStart>
+	        <gearGroupLeverStart file="sounds/gearDown2.ogg" volumeScale="5" supportsReverb="false" linkNode="leverGroup">
+			    <volume indoor="0.25" outdoor="0.05" />
+			    <sourceRandomization file="sounds/gearDown2.ogg"/>
+			    <sourceRandomization file="sounds/gearCrunch.ogg"/>
+			    <sourceRandomization file="sounds/gearDown.ogg"/>
+			    <sourceRandomization file="sounds/gearUp.ogg"/>
+			    <sourceRandomization file="sounds/gearCrunch.ogg"/>
+			    <sourceRandomization file="sounds/gearUp2.ogg"/>					
+	        </gearGroupLeverStart>
+
+            <motor template="engineSmall" file="$data/vehicles/impex/hannibalT50/sounds/tracksLoop.wav" linkNodeOffset="-0.665 0.4 -0.35" pitchScale="0.90" volumeScale="4.8" innerRadius="1.2" outerRadius="25">
+                <volume outdoor="0.58" indoor="0.6">
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.00" modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.00" modifiedValue="0.15" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.00" modifiedValue="0.60" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+
+                    <modifier type="DRIVING_DIRECTION" value="-1.00" modifiedValue="1.6" />
+                </volume>
+                <pitch>
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="1.0"  modifiedValue="0.55" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.0"  modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.0"  modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.85" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+                </pitch>
+                <lowpassGain indoor="0.25" outdoor="1.0" />
+            </motor>
+            <motor template="engineSmall" file="$data/vehicles/impex/hannibalT50/sounds/tracksLoop.wav" linkNodeOffset="0.665 0.4 -0.35" pitchScale="0.70" volumeScale="4.8" innerRadius="1.2" outerRadius="25" isLocalSound="true">
+                <volume outdoor="0.58" indoor="0.6">
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.00" modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.00" modifiedValue="0.15" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.00" modifiedValue="0.60" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+
+                    <modifier type="DRIVING_DIRECTION" value="-1.00" modifiedValue="1.6" />
+                </volume>
+                <pitch>
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="1.0"  modifiedValue="0.55" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="2.0"  modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="5.0"  modifiedValue="0.75" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.85" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="18.0" modifiedValue="1.00" />
+                </pitch>
+                <lowpassGain indoor="0.25" outdoor="1.0" />
+            </motor>
+            <motor template="tracksLayer" volumeScale="1" pitchScale="0.8"/>			
+		</sounds>
+    </motorized>
+
+    <enterable>
+        <sounds>
+            <rain template="rainInVehicle" linkNodeOffset="0 1.0 -1">
+                <loopSynthesisRpm>
+                    <modifier type="SPEED" value="0.0" modifiedValue="0.0" />
+                    <modifier type="SPEED" value="18.0" modifiedValue="1" />
+                </loopSynthesisRpm>
+                <volume>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="5" modifiedValue="1" />
+                    <modifier type="SPEED" value="18" modifiedValue="1.2" />
+                </volume>
+
+                <pitch>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="5" modifiedValue="1" />
+                    <modifier type="SPEED" value="18" modifiedValue="1.0" />
+                </pitch>
+            </rain>
+            <hail template="hailInVehicle" linkNodeOffset="0 1.0 -1" volumeScale="1.5">
+                <loopSynthesisRpm>
+                    <modifier type="SPEED" value="0.0" modifiedValue="0.0" />
+                    <modifier type="SPEED" value="18" modifiedValue="1" />
+                </loopSynthesisRpm>
+                <volume>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="5" modifiedValue="1" />
+                    <modifier type="SPEED" value="18" modifiedValue="1.2" />
+                </volume>
+                <pitch>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="5" modifiedValue="1" />
+                    <modifier type="SPEED" value="18" modifiedValue="1.0" />
+                </pitch>
+            </hail>
+        </sounds>
+    </enterable>
+
+    <lights>
+        <sounds>
+            <toggleLights template="switch01"  />
+            <turnLight template="switchTurnlight"  />
+        </sounds>
+    </lights>
+
+    <attacherJoints>
+        <sounds>
+            <attach template="attach01" />
+            <hydraulic template="hydraulicOpen02" />
+        </sounds>
+    </attacherJoints>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="waterSplash01" />
+        </sounds>
+    </drivable>
+
+    <honk>
+        <sound file="$data/vehicles/impex/hannibalT50/sounds/hannibalT50_horn.wav" linkNodeOffset="0 1 1.5" innerRadius="1" outerRadius="50">
+        <volume indoor="0.6" outdoor="3.00" />
+        <pitch indoor="1.0" outdoor="1.0" />
+        <lowpassGain indoor="0.50" outdoor="1.0" />
+        </sound>
+    </honk>
+</sounds>

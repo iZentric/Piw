@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<topArm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/attacherJointTopArm.xsd">
+    <filename>dt75upperLink.i3d</filename>
+
+    <rootNode node="dt75upperLink"/>
+    <translation node="dt75Head" referenceNode="referencePoint"/>
+    <scale node="dt75ScalePart" referenceNode="scalePartRef"/>
+
+    <i3dMappings>
+        <i3dMapping id="dt75upperLink" node="0>" />
+        <i3dMapping id="dt75Head" node="0>0" />
+        <i3dMapping id="referencePoint" node="0>0|0" />
+        <i3dMapping id="dt75ScalePart" node="0>1" />
+        <i3dMapping id="scalePartRef" node="0>1|0" />
+    </i3dMappings>
+</topArm>
+

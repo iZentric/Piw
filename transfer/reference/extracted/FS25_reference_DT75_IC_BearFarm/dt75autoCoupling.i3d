@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="dt75autoCoupling.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.3"/>
+  </Asset>
+
+  <Files>
+    <File fileId="6" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="8" filename="$data/shared/detailLibrary/calibrated/calibratedPaint_normal.dds"/>
+    <File fileId="15" filename="$data/shared/detailLibrary/calibrated/castIron_normal.dds"/>
+    <File fileId="14" filename="$data/shared/detailLibrary/calibrated/castIron_specular.dds"/>
+    <File fileId="9" filename="$data/shared/detailLibrary/nonMetallic/metal/metalPaintedOld_diffuse.dds"/>
+    <File fileId="7" filename="$data/shared/detailLibrary/nonMetallic/metal/metalPainted_specular.png"/>
+    <File fileId="3" filename="$data/shared/white_diffuse.png"/>
+    <File fileId="4" filename="textures/dt75_autoCoupling_normal.dds"/>
+    <File fileId="5" filename="textures/dt75_autoCoupling_vmask.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="dt75_scep" materialId="5" diffuseColor="0.588235 0.588235 0.588235 1" specularColor="0.901961 1 0.901961">
+    </Material>
+    <Material name="dt75_trColor1_mat" materialId="6" customShaderId="6">
+      <Texture fileId="3"/>
+      <Normalmap fileId="4"/>
+      <Glossmap fileId="5"/>
+      <Custommap name="detailSpecular" fileId="7"/>
+      <Custommap name="detailNormal" fileId="8"/>
+      <Custommap name="detailDiffuse" fileId="9"/>
+      <CustomParameter name="colorScale" value="0.7 0.1 0.05"/>
+      <CustomParameter name="smoothnessScale" value="0.85"/>
+      <CustomParameter name="clearCoatIntensity" value="0.1"/>
+      <CustomParameter name="clearCoatSmoothness" value="0.2"/>
+    </Material>
+    <Material name="dt75_trColor2Cast_mat" materialId="7" customShaderId="6">
+      <Texture fileId="3"/>
+      <Normalmap fileId="4"/>
+      <Glossmap fileId="5"/>
+      <Custommap name="detailSpecular" fileId="14"/>
+      <Custommap name="detailNormal" fileId="15"/>
+      <Custommap name="detailDiffuse" fileId="9"/>
+      <CustomParameter name="colorScale" value="0.7 0.1 0.05"/>
+      <CustomParameter name="smoothnessScale" value="0.85"/>
+      <CustomParameter name="clearCoatIntensity" value="0.1"/>
+      <CustomParameter name="clearCoatSmoothness" value="0.2"/>
+    </Material>
+    <Material name="lambert1" materialId="8" diffuseColor="0.501961 0.501961 0.501961 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="dt75autoCoupling.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <Shape name="dt75coupling_main_component1" shapeId="1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="14" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5">
+      <Shape name="couplingVis" translation="0 0.01 0" shapeId="2" nodeId="15" castsShadows="true" receiveShadows="true" materialIds="6,7">
+        <TransformGroup name="attachable" translation="0 0.0422379 0" nodeId="16">
+          <TransformGroup name="attacherJoint" translation="-1.46157e-08 -0.000268929 0" rotation="0 -90 0" nodeId="17"/>
+          <TransformGroup name="topReferenceNode" translation="0 0.817694 -0.0345055" nodeId="18"/>
+          <TransformGroup name="trailerAttacherJoint" translation="-9.08531e-09 -0.00239636 0.379349" rotation="0 -90 0" nodeId="19"/>
+          <TransformGroup name="trailerAttacherJointLow" translation="-9.08531e-09 -0.00239636 0.379349" rotation="0 -90 0" nodeId="29"/>
+        </TransformGroup>
+        <TransformGroup name="collisions" nodeId="20">
+          <Shape name="tensionBeltMesh01" translation="0 3.25942e-17 0" shapeId="3" clipDistance="300" nodeId="21" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
+          <Shape name="collision" translation="-4.38587e-08 0.0327721 -0.0517351" rotation="0 90 0" shapeId="4" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="22" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="8"/>
+        </TransformGroup>
+        <TransformGroup name="connectionHoses" nodeId="23">
+          <TransformGroup name="hydraulicIn01" translation="0.247752 0.06 0.109977" rotation="180 -3.2483e-05 90" nodeId="24">
+            <TransformGroup name="hydraulicIn01_connector" translation="-3.77123e-08 0 0.215162" nodeId="25"/>
+          </TransformGroup>
+          <TransformGroup name="hydraulicOut01" translation="0.160645 0.06 0.105703" rotation="180 -2.67863e-05 90" nodeId="26">
+            <TransformGroup name="hydraulicOut01_connector" translation="-3.77123e-08 0 0.147182" nodeId="27"/>
+          </TransformGroup>
+        </TransformGroup>
+      </Shape>
+    </Shape>
+  </Scene>
+
+</i3D>

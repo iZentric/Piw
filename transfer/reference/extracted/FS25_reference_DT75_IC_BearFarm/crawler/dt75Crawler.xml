@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<crawler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/crawler.xsd">
+    <file name="crawler/dt75Crawler.i3d" leftNode="0" rightNode="1"/>
+
+    <scrollerNodes>
+        <scrollerNode node="0|0" scrollSpeed="-0.124979" scrollLength="1" shaderParameterName="scrollPos" shaderParameterComponent="1"/>
+    </scrollerNodes>
+
+    <rotatingParts>
+        <rotatingPart node="1|0" radius="0.3025" />
+        <rotatingPart node="1|1" radius="0.385" />
+        <rotatingPart node="1|2" radius="0.1135" />
+        <rotatingPart node="1|3" radius="0.1135" />
+    </rotatingParts>
+</crawler>
