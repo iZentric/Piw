@@ -28,13 +28,11 @@
     </description>
     <iconFilename>store/icon_DT_75.dds</iconFilename>
     <multiplayer supported="true"/>
-    <newcategory name="vgtz" title="ДТ Пак" type="VEHICLE" img="store/storeDT_75.dds"/>
     <extraSourceFiles>
         <sourceFile filename="scripts/categorizer.lua"/>
         <sourceFile filename="scripts/BaseMaterial.lua"/>
-
-        <sourceFile filename="scripts/categorizer.lua"/>
     </extraSourceFiles>
+    <newcategory name="vgtz" title="ДТ Пак" type="VEHICLE" img="store/storeDT_75.dds"/>
 <vehicleTypes>
         <type name="dt" parent="tractor" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
 			<specialization name="powerConsumer"/>

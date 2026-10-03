@@ -53,6 +53,9 @@ Höchstgeschwindigkeit: 15 km/h
 	
     <iconFilename>icon_150_gus.png</iconFilename>
     <multiplayer supported="true"/>
+    <extraSourceFiles>
+        <sourceFile filename="scripts/BaseMaterial.lua"/>
+    </extraSourceFiles>
     <storeItems>
         <storeItem rootNode="vehicle" xmlFilename="150_gus.xml"/>
     </storeItems>
@@ -92,7 +95,4 @@ Höchstgeschwindigkeit: 15 km/h
             <ru>Циклон</ru>
         </text>		
     </l10n>
-    <extraSourceFiles>
-        <sourceFile filename="scripts/BaseMaterial.lua"/>
-    </extraSourceFiles>
 </modDesc>
