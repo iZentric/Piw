@@ -10,8 +10,9 @@ name: FS22 to FS25 mod helper
 #                   FS25 mods as release assets.
 #
 # The mode is picked automatically: if transfer/patched/ has files -> apply.
-# Everything the run does is written to transfer/original/_download_log.txt
-# (or transfer/patched/_apply_log.txt) so it can be inspected from outside.
+# All console output of the helper steps is written into the repository
+# (transfer/original/_download_log.txt, transfer/reference/_*_log.txt,
+# transfer/patched/_apply_log.txt) because run logs are not readable elsewhere.
 
 on:
   push:
@@ -21,6 +22,7 @@ on:
       - '.github/workflows/mod-convert.yml'
       - 'transfer/request/**'
       - 'transfer/patched/**'
+      - 'tools/**'
   workflow_dispatch:
 
 permissions:
@@ -33,6 +35,7 @@ concurrency:
 env:
   DRIVE_FOLDER: 'https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm'
   EXPECTED: 'FS22_DT_Pack.zip FS22_T150_Gus.zip'
+  BRANCH: 'arena/01a10279-piw'
 
 jobs:
   helper:
@@ -70,12 +73,9 @@ jobs:
           mkdir -p /tmp/downloads
           echo "=== gdown --folder ===" | tee -a "$LOG"
           set +e
-          gdown --folder "$DRIVE_FOLDER" -O /tmp/downloads --remaining-ok 2>&1 | tee -a "$LOG"
-          GDOWN_RC=${PIPESTATUS[0]}
+          gdown --folder "$DRIVE_FOLDER" -O /tmp/downloads 2>&1 | tee -a "$LOG"
           set -e
-          echo "gdown rc=$GDOWN_RC" | tee -a "$LOG"
 
-          # flatten anything gdown put into sub-folders
           find /tmp/downloads -mindepth 2 -name '*.zip' -exec mv -n {} /tmp/downloads/ \; 2>/dev/null || true
           echo "=== after gdown ===" | tee -a "$LOG"
           find /tmp/downloads -type f -printf '%10s  %p\n' | sort -k2 | tee -a "$LOG"
@@ -107,27 +107,24 @@ jobs:
       - name: Fetch reference pages / files
         if: hashFiles('transfer/request/reference_urls.txt') != ''
         run: |
-          python3 tools/fetch_urls.py transfer/request/reference_urls.txt transfer/reference
+          mkdir -p transfer/reference
+          set +e
+          python3 tools/fetch_urls.py transfer/request/reference_urls.txt transfer/reference 2>&1 \
+            | tee transfer/reference/_fetch_log.txt
+          set -e
 
       - name: Grab files from web hosts
         if: hashFiles('transfer/request/grab_urls.txt') != ''
         run: |
+          mkdir -p transfer/reference/files
           set +e
-          python3 tools/grab_file.py transfer/request/grab_urls.txt transfer/reference/files 2>&1 | tee transfer/reference/_grab_log.txt
+          python3 tools/grab_file.py transfer/request/grab_urls.txt transfer/reference/files 2>&1 \
+            | tee transfer/reference/_grab_log.txt
           set -e
 
       - name: Commit reference data
-        if: hashFiles('transfer/request/reference_urls.txt') != ''
-        run: |
-          git config user.name "piw-mod-helper"
-          git config user.email "piw-mod-helper@users.noreply.github.com"
-          git add -f transfer/reference
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
-            exit 0
-          fi
-          git commit -m "transfer: reference data [skip ci]"
-          git push origin "HEAD:${{ github.ref_name }}"
+        if: hashFiles('transfer/request/reference_urls.txt') != '' || hashFiles('transfer/request/grab_urls.txt') != ''
+        run: bash tools/commit_push.sh "$BRANCH" "transfer: reference data [skip ci]" transfer/reference
 
       - name: Extract conversion-relevant text files
         if: steps.mode.outputs.mode == 'extract'
@@ -138,22 +135,15 @@ jobs:
 
       - name: Commit extracted files
         if: steps.mode.outputs.mode == 'extract'
-        run: |
-          git config user.name "piw-mod-helper"
-          git config user.email "piw-mod-helper@users.noreply.github.com"
-          git add -f transfer/original
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
-            exit 0
-          fi
-          git commit -m "transfer: extract mod text files [skip ci]"
-          git push origin "HEAD:${{ github.ref_name }}"
+        run: bash tools/commit_push.sh "$BRANCH" "transfer: extract mod text files [skip ci]" transfer/original
 
       - name: Apply patches and build converted mods
         if: steps.mode.outputs.mode == 'apply'
         run: |
           mkdir -p transfer/patched
-          python3 tools/apply_patches.py /tmp/downloads transfer/patched dist > "$RUNNER_TEMP/apply.log" 2>&1 || true
+          set +e
+          python3 tools/apply_patches.py /tmp/downloads transfer/patched dist > "$RUNNER_TEMP/apply.log" 2>&1
+          set -e
           cp "$RUNNER_TEMP/apply.log" transfer/patched/_apply_log.txt
           cat "$RUNNER_TEMP/apply.log"
           ls -la dist
@@ -174,13 +164,4 @@ jobs:
 
       - name: Commit apply log
         if: steps.mode.outputs.mode == 'apply'
-        run: |
-          git config user.name "piw-mod-helper"
-          git config user.email "piw-mod-helper@users.noreply.github.com"
-          git add -f transfer/patched/_apply_log.txt
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
-            exit 0
-          fi
-          git commit -m "transfer: apply log [skip ci]"
-          git push origin "HEAD:${{ github.ref_name }}"
+        run: bash tools/commit_push.sh "$BRANCH" "transfer: apply log [skip ci]" transfer/patched/_apply_log.txt
