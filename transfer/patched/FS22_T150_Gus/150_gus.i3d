@@ -43,8 +43,8 @@
     <File fileId="170" filename="kapots/rama.dds"/>
     <File fileId="57" filename="kapots/ramka.dds"/>
     <File fileId="182" filename="kapots/salon.dds"/>
-    <File fileId="66" filename="kapots/shader/customVehicleShader.xml"/>
-    <File fileId="38" filename="kapots/shaders/vehicleShader.xml"/>
+    <File fileId="66" filename="shaders/vehicleShader.xml"/>
+    <File fileId="38" filename="shaders/vehicleShader.xml"/>
     <File fileId="95" filename="kapots/shildN.dds"/>
     <File fileId="60" filename="kapots/shitky.dds"/>
     <File fileId="115" filename="kapots/ssaahik.dds"/>
@@ -70,7 +70,7 @@
     <File fileId="129" filename="kapots/tex/ou2Decals_diffuse.dds"/>
     <File fileId="127" filename="kapots/tex/ou2_normal.dds"/>
     <File fileId="128" filename="kapots/tex/ou2_specular.dds"/>
-    <File fileId="33" filename="kapots/tex/shaders/vehicleShader.xml"/>
+    <File fileId="33" filename="shaders/vehicleShader.xml"/>
     <File fileId="78" filename="kapots/tex/specular2.dds"/>
     <File fileId="130" filename="kapots/tex/stoika_specular.png"/>
     <File fileId="138" filename="kapots/tex/textures/Lambreken_diffuse.dds"/>
@@ -82,13 +82,13 @@
     <File fileId="144" filename="kapots/tex/windows_diffuse_toner.dds"/>
     <File fileId="140" filename="kapots/tex/zetor_normal.dds"/>
     <File fileId="61" filename="kapots/tex1/capp.dds"/>
-    <File fileId="25" filename="kapots/tex1/res/shaders/vehicleShader.xml"/>
+    <File fileId="25" filename="shaders/vehicleShader.xml"/>
     <File fileId="74" filename="kapots/tex1/res/textures/LED_lightramp_22_52_normal.dds"/>
     <File fileId="75" filename="kapots/tex1/res/textures/LED_lightramp_22_52_specular.dds"/>
     <File fileId="23" filename="kapots/tex1/res/textures/default_normal.dds"/>
     <File fileId="73" filename="kapots/tex1/res/textures/res_specular.dds"/>
     <File fileId="24" filename="kapots/tex1/res/textures/znak_specular.dds"/>
-    <File fileId="62" filename="kapots/tex1/shederaa/vehicleShader.xml"/>
+    <File fileId="62" filename="shaders/vehicleShader.xml"/>
     <File fileId="68" filename="kapots/tex1/wiiv.dds"/>
     <File fileId="131" filename="kapots/textures/02Mat_normal.dds"/>
     <File fileId="132" filename="kapots/textures/02Mat_specular.dds"/>
