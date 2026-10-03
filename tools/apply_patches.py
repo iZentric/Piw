@@ -21,6 +21,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -110,6 +111,36 @@ def build_zip(src_zip: str, patch_root: str, out_dir: str, info_dir: str | None)
 
         with open(os.path.join(work, "CONVERSIE_FS25_INFO.txt"), "w", encoding="utf-8") as fh:
             fh.write(INFO_TXT)
+
+        # --- verification: no FS22-era shader leftover, all shader refs resolvable ---
+        fs22_shaders, missing_refs = [], []
+        for root, _dirs, files in os.walk(work):
+            for name in sorted(files):
+                full = os.path.join(root, name)
+                rel = os.path.relpath(full, work)
+                if name.lower().endswith(".xml"):
+                    try:
+                        with open(full, "rb") as fh:
+                            blob = fh.read()
+                    except OSError:
+                        continue
+                    if b"<CustomShader" in blob[:4096] and b"tex2D(" in blob:
+                        fs22_shaders.append(rel)
+                if name.lower().endswith(".i3d"):
+                    with open(full, "rb") as fh:
+                        text = fh.read().decode("utf-8-sig", errors="replace")
+                    for ref in sorted(set(re.findall(r'filename="([^"]*shader[^"]*\.xml)"', text))):
+                        if ref.startswith(("$data", "$dataS")):
+                            continue
+                        target = os.path.normpath(os.path.join(os.path.dirname(full), ref.replace("/", os.sep)))
+                        if not os.path.isfile(target):
+                            missing_refs.append(f"{rel} -> {ref}")
+        print(f"  check: FS22-era shader files left : {len(fs22_shaders)}")
+        for item in fs22_shaders:
+            print(f"    ! {item}")
+        print(f"  check: unresolved shader refs     : {len(missing_refs)}")
+        for item in missing_refs:
+            print(f"    ? {item}")
 
         out_name = f"FS25_{stem[5:]}" if stem.upper().startswith("FS22_") else f"FS25_{stem}"
         out_path = os.path.join(out_dir, out_name + ".zip")
