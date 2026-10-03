@@ -1,16 +1,17 @@
 name: FS22 to FS25 mod helper
 
-# Helper workflow used to move the mod .zip files from Google Drive into this
-# repository (the sandbox machine has no direct internet access to Drive) and to
-# build the converted FS25 mods.
+# Helper used to move the mod .zip files from Google Drive into this repository
+# (the sandbox machine cannot reach Drive) and to build the converted FS25 mods.
 #
-#   mode "extract": downloads the mods and commits only the small text files
+#   mode "extract": download the mods, commit only the small text files
 #                   (xml / i3d / lua / txt) so they can be inspected and edited.
-#   mode "apply":   downloads the mods again, applies everything from
-#                   transfer/patched/ on top of them, and attaches the final
-#                   FS25 mods to a GitHub release.
+#   mode "apply":   download the mods again, apply everything from
+#                   transfer/patched/ on top of them and publish the finished
+#                   FS25 mods as release assets.
 #
-# The mode is picked automatically: if transfer/patched/ contains files -> apply.
+# The mode is picked automatically: if transfer/patched/ has files -> apply.
+# Everything the run does is written to transfer/original/_download_log.txt
+# (or transfer/patched/_apply_log.txt) so it can be inspected from outside.
 
 on:
   push:
@@ -31,6 +32,7 @@ concurrency:
 
 env:
   DRIVE_FOLDER: 'https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm'
+  EXPECTED: 'FS22_DT_Pack.zip FS22_T150_Gus.zip'
 
 jobs:
   helper:
@@ -63,18 +65,44 @@ jobs:
 
       - name: Download mods from Google Drive
         run: |
+          LOG="$RUNNER_TEMP/download.log"
+          : > "$LOG"
           mkdir -p /tmp/downloads
+          echo "=== gdown --folder ===" | tee -a "$LOG"
           set +e
-          gdown --folder "$DRIVE_FOLDER" -O /tmp/downloads --remaining-ok
-          rc=$?
+          gdown --folder "$DRIVE_FOLDER" -O /tmp/downloads --remaining-ok 2>&1 | tee -a "$LOG"
+          GDOWN_RC=${PIPESTATUS[0]}
           set -e
-          if [ "$rc" -ne 0 ] || [ -z "$(find /tmp/downloads -name '*.zip' -print -quit)" ]; then
-            echo "gdown failed (rc=$rc) - using fallback downloader"
-            python3 tools/drive_fallback.py "$DRIVE_FOLDER" /tmp/downloads
-          fi
-          find /tmp/downloads -type f -printf '%10s  %p\n' | sort -k2
-          test -n "$(find /tmp/downloads -name '*.zip' -print -quit)"
-          sha256sum $(find /tmp/downloads -name '*.zip' | sort) | tee /tmp/checksums.txt
+          echo "gdown rc=$GDOWN_RC" | tee -a "$LOG"
+
+          # flatten anything gdown put into sub-folders
+          find /tmp/downloads -mindepth 2 -name '*.zip' -exec mv -n {} /tmp/downloads/ \; 2>/dev/null || true
+          echo "=== after gdown ===" | tee -a "$LOG"
+          find /tmp/downloads -type f -printf '%10s  %p\n' | sort -k2 | tee -a "$LOG"
+
+          NEED=""
+          for f in $EXPECTED; do
+            [ -f "/tmp/downloads/$f" ] || NEED="$NEED $f"
+          done
+          echo "=== missing after gdown:$NEED ===" | tee -a "$LOG"
+
+          echo "=== python fallback ===" | tee -a "$LOG"
+          set +e
+          python3 tools/drive_fallback.py "$DRIVE_FOLDER" /tmp/downloads --log "$LOG" --need $NEED 2>&1 | tee -a "$LOG"
+          set -e
+
+          find /tmp/downloads -type f -printf '%10s  %p\n' | sort -k2 | tee -a "$LOG"
+          sha256sum /tmp/downloads/*.zip | tee -a "$LOG"
+
+          mkdir -p transfer/original
+          cp "$LOG" transfer/original/_download_log.txt
+
+          for f in $EXPECTED; do
+            if [ ! -f "/tmp/downloads/$f" ]; then
+              echo "::error::missing $f after all download attempts"
+              exit 1
+            fi
+          done
 
       - name: Extract conversion-relevant text files
         if: steps.mode.outputs.mode == 'extract'
@@ -99,15 +127,18 @@ jobs:
       - name: Apply patches and build converted mods
         if: steps.mode.outputs.mode == 'apply'
         run: |
-          python3 tools/apply_patches.py /tmp/downloads transfer/patched dist
+          mkdir -p transfer/patched
+          python3 tools/apply_patches.py /tmp/downloads transfer/patched dist > "$RUNNER_TEMP/apply.log" 2>&1 || true
+          cp "$RUNNER_TEMP/apply.log" transfer/patched/_apply_log.txt
+          cat "$RUNNER_TEMP/apply.log"
           ls -la dist
-          du -sh dist
 
       - name: Publish converted mods as release assets
         if: steps.mode.outputs.mode == 'apply'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          test -n "$(find dist -name '*.zip' -print -quit)"
           if ! gh release view fs25-converted >/dev/null 2>&1; then
             gh release create fs25-converted --title "FS25 converted mods" --notes "FS22 mods converted for Farming Simulator 25 (generated automatically)."
           fi
@@ -115,3 +146,16 @@ jobs:
             gh release upload fs25-converted "$f" --clobber
           done
           gh release view fs25-converted
+
+      - name: Commit apply log
+        if: steps.mode.outputs.mode == 'apply'
+        run: |
+          git config user.name "piw-mod-helper"
+          git config user.email "piw-mod-helper@users.noreply.github.com"
+          git add -f transfer/patched/_apply_log.txt
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "transfer: apply log [skip ci]"
+          git push origin "HEAD:${{ github.ref_name }}"

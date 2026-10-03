@@ -15,6 +15,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import shutil
 import sys
 import zipfile
 
@@ -41,6 +42,7 @@ def sha256(path: str, chunk: int = 1 << 20) -> str:
 def process(zip_path: str, out_dir: str) -> None:
     stem = os.path.splitext(os.path.basename(zip_path))[0]
     dest = os.path.join(out_dir, stem)
+    shutil.rmtree(dest, ignore_errors=True)
     os.makedirs(dest, exist_ok=True)
 
     with zipfile.ZipFile(zip_path) as zf:
