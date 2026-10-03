@@ -1,17 +1,17 @@
-date: Sat Oct  3 16:33:29 UTC 2026
+date: Sat Oct  3 17:33:26 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: d233b017a2b53e71a68d9882e637d0ebe245836e   ref: arena/01a10279-piw
+github.sha: 7e24f3851cbadc52736dfbefc7317cf52290bd26   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct  3 16:32 .
-drwxr-xr-x 3 runner runner 4096 Oct  3 16:32 ..
-drwxr-xr-x 7 runner runner 4096 Oct  3 16:32 .git
-drwxr-xr-x 3 runner runner 4096 Oct  3 16:32 .github
--rw-r--r-- 1 runner runner  171 Oct  3 16:32 .gitignore
--rw-r--r-- 1 runner runner    6 Oct  3 16:32 README.md
-drwxr-xr-x 2 runner runner 4096 Oct  3 16:32 tools
-drwxr-xr-x 6 runner runner 4096 Oct  3 16:32 transfer
+drwxr-xr-x 6 runner runner 4096 Oct  3 17:32 .
+drwxr-xr-x 3 runner runner 4096 Oct  3 17:32 ..
+drwxr-xr-x 7 runner runner 4096 Oct  3 17:32 .git
+drwxr-xr-x 3 runner runner 4096 Oct  3 17:32 .github
+-rw-r--r-- 1 runner runner  171 Oct  3 17:32 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct  3 17:32 README.md
+drwxr-xr-x 2 runner runner 4096 Oct  3 17:32 tools
+drwxr-xr-x 6 runner runner 4096 Oct  3 17:32 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
@@ -114,8 +114,6 @@ transfer/patched/FS22_DT_Pack/tools/shaders/vehicleShader.xml
 transfer/patched/FS22_DT_Pack/wheels/shaders/vehicleShader.xml
 transfer/patched/FS22_DT_Pack/wheels/tracksDT75.i3d
 transfer/patched/FS22_DT_Pack/wheels/tracksDT75NarrowLowered.i3d
-sort: write failed: 'standard output': Broken pipe
-sort: write error
 
 --- du -sh transfer/reference ---
 3.5M	transfer/reference
@@ -134,8 +132,8 @@ sort: write error
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
 
 --- git log -3 ---
-d233b01 Conversion patches: FS25 descVersion, native color blocks, bundled FS22 paint compat layer (credits kept)
-12be9c1 transfer: extract mod text files [skip ci]
-f6c4093 transfer: reference data [skip ci]
+7e24f38 Make the bundled FS25 color-compat layer idempotent (no duplicate config registration when both mods are installed)
+a002116 transfer: apply log [skip ci]
+bc2d91a transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---

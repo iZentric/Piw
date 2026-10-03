@@ -452,7 +452,7 @@
 	});
 	function delComment(cmt_id)
 	{
-		var postdata = { op: 'comments', del: 1, token: '7058a5f8126b10979cfa8872e8161192', cmt_id: cmt_id };
+		var postdata = { op: 'comments', del: 1, token: '0dc36badc053d8a29e3ea7a5d5ab99c0', cmt_id: cmt_id };
 		$.ajax({ url: 'https://moddingfile.com/', type: "POST", data: postdata, success: function(data)
 		{
 			$('#cmt_' + cmt_id.toString()).remove();
