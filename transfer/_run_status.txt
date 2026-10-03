@@ -1,17 +1,17 @@
-date: Sat Oct  3 16:20:41 UTC 2026
+date: Sat Oct  3 16:29:09 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: e60100fb0ae553dc35acd0fc686c69dea3a1d55f   ref: arena/01a10279-piw
+github.sha: bc3b6dbaf68767660a8dcb570cf25c893381789c   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct  3 16:19 .
-drwxr-xr-x 3 runner runner 4096 Oct  3 16:19 ..
-drwxr-xr-x 7 runner runner 4096 Oct  3 16:19 .git
-drwxr-xr-x 3 runner runner 4096 Oct  3 16:19 .github
--rw-r--r-- 1 runner runner  171 Oct  3 16:19 .gitignore
--rw-r--r-- 1 runner runner    6 Oct  3 16:19 README.md
-drwxr-xr-x 2 runner runner 4096 Oct  3 16:19 tools
-drwxr-xr-x 5 runner runner 4096 Oct  3 16:20 transfer
+drwxr-xr-x 6 runner runner 4096 Oct  3 16:28 .
+drwxr-xr-x 3 runner runner 4096 Oct  3 16:28 ..
+drwxr-xr-x 7 runner runner 4096 Oct  3 16:28 .git
+drwxr-xr-x 3 runner runner 4096 Oct  3 16:28 .github
+-rw-r--r-- 1 runner runner  171 Oct  3 16:28 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct  3 16:28 README.md
+drwxr-xr-x 2 runner runner 4096 Oct  3 16:28 tools
+drwxr-xr-x 5 runner runner 4096 Oct  3 16:28 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
@@ -119,20 +119,19 @@ transfer/reference/extracted/FS25_mirror_DT_Pack/wheels/tracksDT75NarrowLowered.
 2.9M	transfer/reference
 
 --- git status --short ---
+ M transfer/_run_status.txt
  M transfer/original/_download_log.txt
+ M transfer/reference/_fetch_log.txt
  M transfer/reference/_fetch_report.txt
+ M transfer/reference/_grab_log.txt
  M transfer/reference/pages/RCQkPQMzoBz0Vr6_5b555b84a5.html
  M transfer/reference/pages/farming-simulator-25-mods_dt-75-pack-v1000-1_12f803cd9b.html
  M transfer/reference/pages/mod_download_064e51b8f7.html
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
-?? transfer/_run_status.txt
-?? transfer/reference/_fetch_log.txt
-?? transfer/reference/_grab_log.txt
-?? transfer/reference/extracted/
 
 --- git log -3 ---
-e60100f Keep only extracted text in git; resilient grabs; ignore big binaries
-bff1aef Report diagnostics via annotations (readable through the API)
-4342945 Workflow: publish diagnostics as a check-run (logs are unreadable from the sandbox)
+bc3b6db Request the FS22 Shader Color Fix mods (paint reference); stop re-downloading the large mirrors
+ac06c6e transfer: extract mod text files [skip ci]
+bc2f286 transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---
