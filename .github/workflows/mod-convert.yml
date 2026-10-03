@@ -124,7 +124,7 @@ jobs:
 
       - name: Commit reference data
         if: hashFiles('transfer/request/reference_urls.txt') != '' || hashFiles('transfer/request/grab_urls.txt') != ''
-        run: bash tools/commit_push.sh "$BRANCH" "transfer: reference data [skip ci]" transfer/reference
+        run: 'bash tools/commit_push.sh "$BRANCH" "transfer: reference data [skip ci]" transfer/reference'
 
       - name: Extract conversion-relevant text files
         if: steps.mode.outputs.mode == 'extract'
@@ -135,7 +135,7 @@ jobs:
 
       - name: Commit extracted files
         if: steps.mode.outputs.mode == 'extract'
-        run: bash tools/commit_push.sh "$BRANCH" "transfer: extract mod text files [skip ci]" transfer/original
+        run: 'bash tools/commit_push.sh "$BRANCH" "transfer: extract mod text files [skip ci]" transfer/original'
 
       - name: Apply patches and build converted mods
         if: steps.mode.outputs.mode == 'apply'
@@ -164,4 +164,4 @@ jobs:
 
       - name: Commit apply log
         if: steps.mode.outputs.mode == 'apply'
-        run: bash tools/commit_push.sh "$BRANCH" "transfer: apply log [skip ci]" transfer/patched/_apply_log.txt
+        run: 'bash tools/commit_push.sh "$BRANCH" "transfer: apply log [skip ci]" transfer/patched/_apply_log.txt'
