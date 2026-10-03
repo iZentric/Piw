@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="PFP_1_2.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="18" filename="../textures/gen_dirt2.dds"/>
+    <File fileId="14" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
+    <File fileId="17" filename="textures/decals_PTS_77.dds"/>
+    <File fileId="4" filename="textures/pfp1_specular.dds"/>
+    <File fileId="16" filename="textures/pfp2_specular.dds"/>
+    <File fileId="12" filename="textures/pfp_specular.dds"/>
+    <File fileId="5" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="22" filename="$data/shared/connectionHoses/connectors1_normal.png"/>
+    <File fileId="23" filename="$data/shared/connectionHoses/connectors1_vmask.png"/>
+    <File fileId="3" filename="$data/shared/default_normal.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="connectors1_mat" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="22"/>
+      <Glossmap fileId="23"/>
+      <CustomParameter name="colorMat0" value="0.3587 0.0328 0.0352 1"/>
+      <CustomParameter name="colorMat1" value="0.673 0.4783 0.023 1"/>
+      <CustomParameter name="colorMat2" value="0.01 0.01 0.01 1"/>
+    </Material>
+    <Material name="decals_mat" materialId="6" customShaderId="5" customShaderVariation="colorMask">
+      <Texture fileId="17"/>
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="14"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 6"/>
+    </Material>
+    <Material name="hose_mat" materialId="7" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="18"/>
+    </Material>
+    <Material name="hose_mat" materialId="8" diffuseColor="0.8 0 0 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="18"/>
+    </Material>
+    <Material name="hose_mat" materialId="9" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="18"/>
+    </Material>
+    <Material name="hose_mat" materialId="10" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="14"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+    </Material>
+    <Material name="hydraulicPipe_mat" materialId="11" diffuseColor="0.8 0.709804 0 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="14"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.055 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+    </Material>
+    <Material name="lambert1" materialId="12" diffuseColor="1 1 1 1">
+    </Material>
+    <Material name="parts_mat" materialId="13" diffuseColor="0 0.0901961 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="14"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.05 0.05 0.05 6"/>
+    </Material>
+    <Material name="pfp1_mat" materialId="14" diffuseColor="0.8 0 0 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+    </Material>
+    <Material name="pfp2_mat" materialId="15" diffuseColor="0.513726 0.8 0 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="16"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.05 0.05 0.05 6"/>
+    </Material>
+    <Material name="pfp_mat" materialId="16" diffuseColor="0.8 0 0.00784314 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="12"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.05 0.05 0.05 6"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="PFP_1_2.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="PFP_12_main_component1" dynamic="true" compound="true" collisionMask="10493954" density="60" clipDistance="300" nodeId="51" materialIds="12" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="PFP_12_vis" nodeId="52">
+          <TransformGroup name="hydraulic" nodeId="53">
+            <TransformGroup name="rearHydraulicRot" translation="0 0.493412 -1.78339" rotation="4.3 -0 0" nodeId="54">
+              <Shape shapeId="2" name="rearHydraulicCylynder" rotation="4.26887e-07 -0 0" nodeId="55" materialIds="14" castsShadows="true" receiveShadows="true">
+                <Shape shapeId="3" name="rearHydraulicCylynderPunch" rotation="4.26887e-07 -0 0" nodeId="56" materialIds="14" castsShadows="true" receiveShadows="true"/>
+                <TransformGroup name="hoseRearBoneRefs" translation="0 -0.358307 1.81537" rotation="-4.3 -0 0" nodeId="57">
+                  <TransformGroup name="hose7BoneRef" translation="1.09512 0.724053 -1.45471" rotation="90 -0 0" nodeId="58"/>
+                  <TransformGroup name="hose8BoneRef" translation="1.09512 0.724052 -1.48555" rotation="90 -0 0" nodeId="59"/>
+                  <TransformGroup name="hose9BoneRef" translation="-1.09575 0.723172 -1.45504" rotation="90 -0 0" nodeId="60"/>
+                  <TransformGroup name="hose10BoneRef" translation="-1.09515 0.723172 -1.48457" rotation="90 -0 0" nodeId="61"/>
+                </TransformGroup>
+              </Shape>
+            </TransformGroup>
+            <TransformGroup name="rearHydraulicRefFrame" translation="0 0.493 -1.783" nodeId="62"/>
+          </TransformGroup>
+          <TransformGroup name="rearFrameVis" nodeId="63">
+            <Shape shapeId="4" name="rearFrame" visibility="false" nodeId="64" materialIds="16" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <Shape shapeId="5" name="pfpMount" visibility="false" nodeId="65" materialIds="13" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <Shape shapeId="6" name="topMount" translation="0.000470754 1.0843 -1.65083" visibility="false" nodeId="66" materialIds="16" castsShadows="true" receiveShadows="true" nonRenderable="true">
+              <Shape shapeId="7" name="bolts" translation="0.00590969 0.03722 -0.0307" nodeId="67" materialIds="13" castsShadows="true" receiveShadows="true"/>
+            </Shape>
+            <Shape shapeId="8" name="supportArm1" translation="0 0.779 -0.182689" rotation="90 -0 0" nodeId="68" materialIds="16" castsShadows="true" receiveShadows="true">
+              <Shape shapeId="9" name="supportArm" translation="0 4.9736e-08 0.495981" rotation="-90.45 -0 0" nodeId="69" materialIds="15" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
+              <TransformGroup name="rearHydraulicCylinderRef" translation="0 -0.388 0.377074" rotation="-85.7 -0 0" nodeId="70"/>
+            </Shape>
+            <TransformGroup name="decals_Frame" nodeId="71">
+              <Shape shapeId="10" name="decalsFrame" nodeId="72" materialIds="6" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <TransformGroup name="skinedMeshRearFrame" nodeId="73">
+              <TransformGroup name="hose5" translation="-1.19043 0.830895 -0.396961" rotation="-6.83019e-06 -0 0" nodeId="74">
+                <TransformGroup name="hose5Bone" rotation="90 -0 0" nodeId="75"/>
+                <Shape shapeId="11" name="hose5Skin" translation="0 -1.3027e-15 -2.98023e-08" rotation="-6.83019e-06 -0 0" nodeId="76" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="75 139"/>
+              </TransformGroup>
+              <TransformGroup name="hose6" translation="-1.14931 0.830895 -0.396961" rotation="-6.83019e-06 -0 0" nodeId="77">
+                <TransformGroup name="hose6Bone" rotation="90 -0 0" nodeId="78"/>
+                <Shape shapeId="11" name="hose6Skin" translation="0 -1.3027e-15 -2.98023e-08" rotation="-6.83019e-06 -0 0" nodeId="79" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="78 140"/>
+              </TransformGroup>
+              <TransformGroup name="hose7" translation="0.0536588 0.879064 -1.03903" rotation="-6.83019e-06 -0 0" nodeId="80">
+                <TransformGroup name="hose7Bone" rotation="90 -0 0" nodeId="81"/>
+                <Shape shapeId="12" name="hose7Skin" rotation="-6.83019e-06 -0 0" nodeId="82" materialIds="7" castsShadows="true" receiveShadows="true" skinBindNodeIds="81 58"/>
+              </TransformGroup>
+              <TransformGroup name="hose8" translation="-0.0552059 0.879684 -1.03882" rotation="-6.83019e-06 -0 0" nodeId="83">
+                <TransformGroup name="hose8Bone" rotation="90 -0 0" nodeId="84"/>
+                <Shape shapeId="13" name="hose8Skin" rotation="-6.83019e-06 -0 0" nodeId="85" materialIds="7" castsShadows="true" receiveShadows="true" skinBindNodeIds="84 59"/>
+              </TransformGroup>
+              <TransformGroup name="hose9" translation="0.0525141 0.982112 -0.928227" rotation="-6.83019e-06 -0 0" nodeId="86">
+                <TransformGroup name="hose9Bone" rotation="90 -0 0" nodeId="87"/>
+                <Shape shapeId="14" name="hose9Skin" translation="-3.72529e-09 0 0" rotation="-6.83019e-06 -0 0" nodeId="88" materialIds="7" castsShadows="true" receiveShadows="true" skinBindNodeIds="87 60"/>
+              </TransformGroup>
+              <TransformGroup name="hose10" translation="-0.0560506 0.982112 -0.928227" rotation="-6.83019e-06 -0 0" nodeId="89">
+                <TransformGroup name="hose10Bone" rotation="90 -0 0" nodeId="90"/>
+                <Shape shapeId="15" name="hose10Skin" rotation="-6.83019e-06 -0 0" nodeId="91" materialIds="7" castsShadows="true" receiveShadows="true" skinBindNodeIds="90 61"/>
+              </TransformGroup>
+              <TransformGroup name="hose11" translation="1.19 0.830895 -0.396961" rotation="-6.83019e-06 -0 0" nodeId="92">
+                <TransformGroup name="hose11Bone" rotation="90 -0 0" nodeId="93"/>
+                <Shape shapeId="11" name="hose11Skin" translation="0 -1.3027e-15 -2.98023e-08" rotation="-6.83019e-06 -0 0" nodeId="94" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="93 141"/>
+              </TransformGroup>
+              <TransformGroup name="hose12" translation="1.149 0.830895 -0.396961" rotation="-6.83019e-06 -0 0" nodeId="95">
+                <TransformGroup name="hose12Bone" rotation="90 -0 0" nodeId="96"/>
+                <Shape shapeId="11" name="hose12Skin" translation="0 -1.3027e-15 -2.98023e-08" rotation="-6.83019e-06 -0 0" nodeId="97" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="96 142"/>
+              </TransformGroup>
+              <Shape shapeId="16" name="rearHose" nodeId="98" materialIds="9" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <Shape shapeId="17" name="hydraulicConnector" nodeId="99" materialIds="11" castsShadows="true" receiveShadows="true"/>
+          </TransformGroup>
+          <TransformGroup name="mainArm" translation="0 0.807776 0.102257" nodeId="100">
+            <TransformGroup name="attacherRot" translation="0 -0.718841 3.50398" nodeId="101">
+              <TransformGroup name="attacher" nodeId="102">
+                <TransformGroup name="attacherJointToolsVisuals" translation="-5.77365e-09 0 0" rotation="-0 -90 0" nodeId="103"/>
+                <TransformGroup name="frontHydraulicCylinderRef" translation="0 0.342834 -0.132598" rotation="9.25 -0 0" nodeId="104"/>
+              </TransformGroup>
+            </TransformGroup>
+            <TransformGroup name="supportArmRefs" translation="0 -0.808 -0.102257" nodeId="105">
+              <TransformGroup name="supportArm1Ref" translation="0 0.282852 -0.182689" rotation="90 -0 0" nodeId="106"/>
+              <TransformGroup name="supportArmRef" translation="0 0.298408 1.706" rotation="-0.45 -0 0" nodeId="107"/>
+            </TransformGroup>
+            <TransformGroup name="frontHydraulicCylinderRot" translation="0 -0.196948 2.27238" rotation="9.25 -0 0" nodeId="108">
+              <Shape shapeId="18" name="frontHydraulicCylinder" translation="0 0 -5.96046e-08" nodeId="109" materialIds="14" castsShadows="true" receiveShadows="true">
+                <Shape shapeId="19" name="frontHydraulicPunch" translation="0 0 -5.96046e-08" nodeId="110" materialIds="14" castsShadows="true" receiveShadows="true">
+                  <TransformGroup name="frontHydraulicPunchRef" translation="0 8.9407e-08 1.11349" nodeId="111"/>
+                </Shape>
+                <TransformGroup name="hoseBoneRefs" translation="0 -0.98459 -2.24557" rotation="-9.25 -0 0" nodeId="112">
+                  <TransformGroup name="hose1BoneRef" translation="1.0092 0.546261 3.1494" rotation="90 -0 0" nodeId="113"/>
+                  <TransformGroup name="hose2BoneRef" translation="1.05905 0.405097 3.08363" rotation="90 -0 0" nodeId="114"/>
+                  <TransformGroup name="hose3BoneRef" translation="-1.00677 0.545494 3.14929" rotation="90 -0 0" nodeId="115"/>
+                  <TransformGroup name="hose4BoneRef" translation="-1.0592 0.405524 3.08375" rotation="90 -0 0" nodeId="116"/>
+                </TransformGroup>
+              </Shape>
+              <TransformGroup name="FrontHydraulicCylinderMainRefFrame" nodeId="117">
+                <TransformGroup name="FrontHydraulicPunchMainRefFrame" translation="0 0 -5.96046e-08" nodeId="118">
+                  <TransformGroup name="frontHydraulicPunchMainRefFrame" translation="0 5.96046e-08 1.11349" nodeId="119"/>
+                </TransformGroup>
+              </TransformGroup>
+            </TransformGroup>
+            <Shape shapeId="20" name="LiftingArm" nodeId="120" materialIds="15" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
+            <TransformGroup name="deacals_Arm" translation="0 -0.807776 -0.102257" nodeId="121">
+              <Shape shapeId="21" name="decalsArm" nodeId="122" materialIds="6" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <TransformGroup name="skinedMesh" translation="0 -0.807776 -0.102257" nodeId="123">
+              <Shape shapeId="22" name="hose" translation="-1.14573 0.377904 2.72997" rotation="-1.61649e-05 -0 0" nodeId="124" materialIds="9" castsShadows="true" receiveShadows="true"/>
+              <TransformGroup name="hose1" translation="0.805045 0.28832 3.13324" rotation="-6.83019e-06 -0 0" nodeId="125">
+                <TransformGroup name="hose1Bone" rotation="90 -0 0" nodeId="126"/>
+                <Shape shapeId="23" name="hose1Skin" rotation="-6.83019e-06 -0 0" nodeId="127" materialIds="9" castsShadows="true" receiveShadows="true" skinBindNodeIds="126 113"/>
+              </TransformGroup>
+              <TransformGroup name="hose2" translation="0.807963 0.298566 3.09194" rotation="-6.83019e-06 -0 0" nodeId="128">
+                <TransformGroup name="hose2Bone" rotation="90 -0 0" nodeId="129"/>
+                <Shape shapeId="24" name="hose2Skin" rotation="-6.83019e-06 -0 0" nodeId="130" materialIds="9" castsShadows="true" receiveShadows="true" skinBindNodeIds="129 114"/>
+              </TransformGroup>
+              <TransformGroup name="hose3" translation="-0.770941 0.390239 3.15978" rotation="-6.83019e-06 -0 0" nodeId="131">
+                <TransformGroup name="hose3Bone" rotation="90 -0 0" nodeId="132"/>
+                <Shape shapeId="25" name="hose3Skin" rotation="-6.83019e-06 -0 0" nodeId="133" materialIds="9" castsShadows="true" receiveShadows="true" skinBindNodeIds="132 115"/>
+              </TransformGroup>
+              <TransformGroup name="hose4" translation="-0.770941 0.402413 3.11765" rotation="-6.83019e-06 -0 0" nodeId="134">
+                <TransformGroup name="hose4Bone" rotation="90 -0 0" nodeId="135"/>
+                <Shape shapeId="26" name="hose4Skin" rotation="-6.83019e-06 -0 0" nodeId="136" materialIds="9" castsShadows="true" receiveShadows="true" skinBindNodeIds="135 116"/>
+              </TransformGroup>
+              <Shape shapeId="27" name="hose" nodeId="137" materialIds="9" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <Shape shapeId="28" name="hydraulicPipe" translation="0 -0.807776 -0.102257" nodeId="152" materialIds="10" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="hoseBoneRefs1" translation="0 -0.807586 -0.10375" rotation="0.105942 -0 0" nodeId="138">
+              <TransformGroup name="hose5BoneRef" translation="-1.18594 0.880111 0.214895" rotation="90 -0 0" nodeId="139"/>
+              <TransformGroup name="hose6BoneRef" translation="-1.14482 0.880111 0.214895" rotation="90 -0 0" nodeId="140"/>
+              <TransformGroup name="hose11BoneRef" translation="1.19449 0.880111 0.214895" rotation="90 -0 0" nodeId="141"/>
+              <TransformGroup name="hose12BoneRef" translation="1.15349 0.880111 0.214895" rotation="90 -0 0" nodeId="142"/>
+            </TransformGroup>
+            <TransformGroup name="connectionHose" translation="0 -0.807776 -0.102257" nodeId="143">
+              <Shape shapeId="29" name="hydraulic01" translation="0.985215 0.275407 3.22814" rotation="129.715 -8.21425 94.8618" clipDistance="50" nodeId="144" materialIds="5" castsShadows="true" receiveShadows="true">
+                <TransformGroup name="referencePoint" translation="-0 -0 -0.055719" nodeId="145"/>
+                <Shape shapeId="30" name="detachedCab" translation="-0 0 -0.044518" rotation="-8.19623e-05 -4.61038e-05 81.2193" clipDistance="50" nodeId="146" materialIds="5" castsShadows="true" receiveShadows="true"/>
+                <Shape shapeId="31" name="attachedCab" translation="-0 0 -0.044518" rotation="0 0 -44.7599" visibility="false" clipDistance="50" nodeId="147" materialIds="5" castsShadows="true" receiveShadows="true"/>
+              </Shape>
+              <Shape shapeId="29" name="hydraulic01" translation="0.949401 0.276096 3.17095" rotation="122.13 -3.66239 87.7032" clipDistance="50" nodeId="148" materialIds="5" castsShadows="true" receiveShadows="true">
+                <TransformGroup name="referencePoint" translation="-0 -0 -0.055719" nodeId="149"/>
+                <Shape shapeId="30" name="detachedCab" translation="-0 0 -0.044518" rotation="0 0 -45" clipDistance="50" nodeId="150" materialIds="5" castsShadows="true" receiveShadows="true"/>
+                <Shape shapeId="31" name="attachedCab" translation="-0 0 -0.044518" rotation="0 0 -44.7599" visibility="false" clipDistance="50" nodeId="151" materialIds="5" castsShadows="true" receiveShadows="true"/>
+              </Shape>
+            </TransformGroup>
+          </TransformGroup>
+          <TransformGroup name="mainArmDummy" translation="0 0.807776 0.102257" nodeId="153">
+            <TransformGroup name="attacherDummyRot" translation="0 -0.718841 3.50398" nodeId="154">
+              <TransformGroup name="attacherDummy" nodeId="155">
+                <TransformGroup name="attacherJoint" rotation="0 -90 0" nodeId="156"/>
+                <TransformGroup name="frontHydraulicCylinderRef" translation="0 0.342834 -0.132598" rotation="9.25 -0 0" nodeId="157"/>
+              </TransformGroup>
+            </TransformGroup>
+            <TransformGroup name="collisions" translation="0 -0.807776 -0.102257" nodeId="158">
+              <Shape shapeId="32" name="colPartLeft1" translation="1.16894 0.765872 0.230473" rotation="11.3447 -0 0" compoundChild="true" collisionMask="33172" nodeId="159" materialIds="12" nonRenderable="true" distanceBlending="false"/>
+              <Shape shapeId="32" name="colPartRight1" translation="-1.169 0.765872 0.230473" rotation="11.3447 -0 0" compoundChild="true" collisionMask="33172" nodeId="160" materialIds="12" nonRenderable="true" distanceBlending="false"/>
+              <Shape shapeId="33" name="colPartCenter" translation="0 0.203634 3.03314" rotation="9.83554 -0 0" compoundChild="true" collisionMask="33172" nodeId="161" materialIds="12" nonRenderable="true" distanceBlending="false"/>
+            </TransformGroup>
+          </TransformGroup>
+          <TransformGroup name="frontLoaderAttacherRot" nodeId="162">
+            <TransformGroup name="frontLoaderAttacher" translation="0 0.35 0.279928" rotation="-0 -90 0" nodeId="163"/>
+          </TransformGroup>
+        </TransformGroup>
+        <Camera name="camera" translation="0.806058 0.722397 3.98729" rotation="-22.0747 -13.1189 -0.916813" visibility="false" nodeId="164" fov="60" nearClip="0.1" farClip="10000" orthographicHeight="1"/>
+      </Shape>
+  </Scene>
+
+</i3D>

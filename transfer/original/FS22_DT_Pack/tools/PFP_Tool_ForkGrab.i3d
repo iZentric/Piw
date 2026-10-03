@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="PFP_Tool_ForkGrab.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="12" filename="../textures/gen_dirt2.dds"/>
+    <File fileId="19" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
+    <File fileId="18" filename="textures/decals_PTS_77.dds"/>
+    <File fileId="4" filename="textures/forkPFP_specular.dds"/>
+    <File fileId="5" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="14" filename="$data/shared/connectionHoses/connectors_normal.png"/>
+    <File fileId="15" filename="$data/shared/connectionHoses/connectors_vmask.png"/>
+    <File fileId="3" filename="$data/shared/default_normal.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="connectors_mat" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="14"/>
+      <Glossmap fileId="15"/>
+      <CustomParameter name="colorMat0" value="0.5356 0.0254 0.0254 1"/>
+      <CustomParameter name="colorMat1" value="0.5356 0.0254 0.0254 8"/>
+      <CustomParameter name="colorMat2" value="0.673 0.4704 0.022 1"/>
+    </Material>
+    <Material name="decals_mat" materialId="6" customShaderId="5" customShaderVariation="colorMask">
+      <Texture fileId="18"/>
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="19"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 16"/>
+    </Material>
+    <Material name="default_mat" materialId="7" diffuseColor="0.494118 0.494118 0.494118 1" specularColor="0.494118 1 0.494118">
+      <Normalmap fileId="3"/>
+    </Material>
+    <Material name="hose_mat" materialId="8" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="12"/>
+    </Material>
+    <Material name="lambert1" materialId="9" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+    <Material name="lambert1" materialId="10" diffuseColor="0.8 0.8 0.8 1" specularColor="0.494118 1 0">
+    </Material>
+    <Material name="pfpFork_mat" materialId="11" diffuseColor="0.8 0.0156863 0.0156863 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="colorMat0" value="1 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.1 0.1 0.1 6"/>
+      <CustomParameter name="colorMat3" value="1 0.55 0.05 6"/>
+    </Material>
+    <Material name="unloadMap_mat" materialId="12" diffuseColor="0.494118 0.494118 0.494118 1" alphaBlending="true">
+      <Normalmap fileId="3"/>
+    </Material>
+    <Material name="UnnamedMaterial" materialId="13" diffuseColor="1 1 1 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="PFP_Tool_ForkGrab.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="frontloaderManureGrab_main_component1" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="33" materialIds="13" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <Shape shapeId="2" name="frontloaderManureGrab_vis" rotation="-1.61649e-05 -0 0" nodeId="34" materialIds="11" castsShadows="true" receiveShadows="true">
+          <TransformGroup name="attacherJoint" translation="0 0.0687948 0.00642199" rotation="1.61649e-05 -0 0" nodeId="35">
+            <TransformGroup name="attacher" translation="-0.00631325 0.00772817 -0.112333" rotation="90.0001 -75 -90.0001" nodeId="36"/>
+            <TransformGroup name="topReferenceNode" translation="0 0.375598 -0.106781" nodeId="37"/>
+            <TransformGroup name="hydraulicHose" translation="0 -0.0687948 -0.00642197" nodeId="38">
+              <Shape shapeId="3" name="hydraulicHoseDetach" nodeId="39" materialIds="8" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="hydraulic" translation="0.689873 0.869275 0.0646151" rotation="73.4484 3.45378 11.459" clipDistance="50" nodeId="40" materialIds="5" castsShadows="true" receiveShadows="true">
+                <Shape shapeId="4" name="hydraulic" translation="0.082203 -0.00147861 -0.0426531" rotation="-7.42898 8.21757e-06 -1.03043" clipDistance="50" nodeId="41" materialIds="5" castsShadows="true" receiveShadows="true"/>
+              </Shape>
+            </TransformGroup>
+          </TransformGroup>
+          <TransformGroup name="fillUnit" translation="0 -1.95086e-07 0.691474" rotation="1.61649e-05 -0 0" nodeId="42">
+            <Shape shapeId="5" name="fillVolume" translation="0.000383735 0.47281 0.03215" rotation="-6.83019e-06 -0 0" nodeId="43" materialIds="10" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <Shape shapeId="6" name="exactFillRootNode" translation="3.17637e-22 0.338229 0.0896466" kinematic="true" compound="true" collisionMask="1073741824" nodeId="44" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <TransformGroup name="fillVolumeLoadNode" translation="0 0.502036 1" nodeId="45"/>
+            <TransformGroup name="fillVolumeUnloadNode" translation="0 0.9 0.1" nodeId="46"/>
+            <TransformGroup name="dischargeNode" translation="0 0.0391417 1.3" rotation="5 -0 0" nodeId="47"/>
+            <TransformGroup name="pickUpNode" translation="0 0.0289012 1" nodeId="48"/>
+          </TransformGroup>
+          <TransformGroup name="effects" translation="0 -2.36889e-07 0.839642" rotation="1.61649e-05 -0 0" nodeId="49">
+            <Shape shapeId="7" name="grainEffect" translation="-8.47453e-17 0.0580446 0.460823" clipDistance="100" nodeId="50" materialIds="7" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="8" name="smokeEffect" translation="-8.47453e-17 0.0280401 0.577047" visibility="false" clipDistance="100" nodeId="51" materialIds="12" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="9" name="emitterShape" clipDistance="300" nodeId="52" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          </TransformGroup>
+          <TransformGroup name="movingParts" rotation="1.61649e-05 -0 0" nodeId="53">
+            <TransformGroup name="hydraulicCylinder" translation="0.00169723 0.170903 -0.0914942" rotation="-94 -0 0" nodeId="54">
+              <Shape shapeId="10" name="hydraulicCylinder" translation="0 -1.86265e-09 0" nodeId="55" materialIds="11" castsShadows="true" receiveShadows="true">
+                <Shape shapeId="11" name="cylinderPunch" translation="0 0 0.00143197" nodeId="56" materialIds="11" castsShadows="true" receiveShadows="true"/>
+                <TransformGroup name="hosesRefs" translation="-0.00169723 -0.0793498 -0.176869" rotation="94 -0 0" nodeId="57">
+                  <TransformGroup name="hoseIn1" translation="0.0295887 0.419295 -0.201167" rotation="109.63 54.6765 16.9632" nodeId="58"/>
+                  <TransformGroup name="hoseIn2" translation="-0.0266317 0.41877 -0.201283" rotation="108.806 53.3979 14.9381" nodeId="59"/>
+                </TransformGroup>
+              </Shape>
+            </TransformGroup>
+          </TransformGroup>
+          <TransformGroup name="grabJoint" translation="-0.172556 0.948163 -0.0441555" rotation="1.61649e-05 -0 0" nodeId="60"/>
+          <TransformGroup name="grabRot" translation="-0.172556 0.948163 -0.0441555" nodeId="61">
+            <Shape shapeId="12" name="forkVis" nodeId="62" materialIds="11" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="grabHydraulicRef" translation="0.174 -0.00255591 -0.101511" rotation="-94 -0 0" nodeId="63"/>
+          </TransformGroup>
+          <TransformGroup name="decals" rotation="1.61649e-05 -0 0" nodeId="64">
+            <Shape shapeId="13" name="decal" nodeId="65" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          </TransformGroup>
+        </Shape>
+        <TransformGroup name="collisions" translation="0 0.0521103 0.472737" rotation="-1.53273 -0 0" nodeId="66">
+          <Shape shapeId="14" name="colPartBack01" translation="0 0.0176339 0.182" compoundChild="true" collisionMask="134225920" nodeId="67" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="15" name="colPart02" translation="0 -0.00379013 1.21028" compoundChild="true" collisionMask="134225920" nodeId="68" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        </TransformGroup>
+      </Shape>
+      <Shape shapeId="16" name="frontloaderManureGrab_grab_component2" translation="0 0.947667 0.604433" dynamic="true" compound="true" collisionMask="2109440" clipDistance="300" nodeId="69" materialIds="13" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="grabRef" translation="-0.172556 0.000495613 0.615914" nodeId="70"/>
+        <TransformGroup name="collisions" translation="0 -0.271238 -0.539578" nodeId="71">
+          <Shape shapeId="17" name="grabColPart01" translation="0 0.11843 1.12803" rotation="9.54247 -0 0" compoundChild="true" collisionMask="134225920" nodeId="72" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="18" name="grabColPart02" translation="0 -0.087149 1.13426" rotation="-6.92669 -0 0" compoundChild="true" collisionMask="134225920" nodeId="73" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        </TransformGroup>
+      </Shape>
+  </Scene>
+
+</i3D>
