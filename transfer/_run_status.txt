@@ -1,17 +1,17 @@
-date: Sat Oct  3 17:59:48 UTC 2026
+date: Sat Oct  3 18:01:59 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: 8d5a38d13d0f6b41d3679e3a715df4d09c577443   ref: arena/01a10279-piw
+github.sha: f5e4d4b2438d9023cf7c885b3e2869ba093a4264   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct  3 17:59 .
-drwxr-xr-x 3 runner runner 4096 Oct  3 17:59 ..
-drwxr-xr-x 7 runner runner 4096 Oct  3 17:59 .git
-drwxr-xr-x 3 runner runner 4096 Oct  3 17:59 .github
--rw-r--r-- 1 runner runner  171 Oct  3 17:59 .gitignore
--rw-r--r-- 1 runner runner    6 Oct  3 17:59 README.md
-drwxr-xr-x 2 runner runner 4096 Oct  3 17:59 tools
-drwxr-xr-x 6 runner runner 4096 Oct  3 17:59 transfer
+drwxr-xr-x 6 runner runner 4096 Oct  3 18:01 .
+drwxr-xr-x 3 runner runner 4096 Oct  3 18:01 ..
+drwxr-xr-x 7 runner runner 4096 Oct  3 18:01 .git
+drwxr-xr-x 3 runner runner 4096 Oct  3 18:01 .github
+-rw-r--r-- 1 runner runner  171 Oct  3 18:01 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct  3 18:01 README.md
+drwxr-xr-x 2 runner runner 4096 Oct  3 18:01 tools
+drwxr-xr-x 6 runner runner 4096 Oct  3 18:01 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
@@ -123,6 +123,7 @@ transfer/patched/FS22_DT_Pack/wheels/tracksDT75NarrowLowered.i3d
  M transfer/original/_download_log.txt
  M transfer/reference/_fetch_log.txt
  M transfer/reference/_fetch_report.txt
+ M transfer/reference/_grab_log.txt
  M transfer/reference/pages/FS25_ref_FS22ShaderColorFix_v1.2.zip.html
  M transfer/reference/pages/FS25_ref_VolvoT425_colorfix.zip.html
  M transfer/reference/pages/RCQkPQMzoBz0Vr6_5b555b84a5.html
@@ -131,8 +132,8 @@ transfer/patched/FS22_DT_Pack/wheels/tracksDT75NarrowLowered.i3d
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
 
 --- git log -3 ---
-8d5a38d T150: replace remaining FS22-era kapots shaders with the FS25-compatible shader
-526b0cb transfer: reference data [skip ci]
-35f252c modDesc: single, duplicate-free extraSourceFiles block
+f5e4d4b apply_patches: verify built zips (no FS22-era shaders left, all shader refs resolvable)
+dcd9b80 transfer: apply log [skip ci]
+9dcd1ab transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---
