@@ -6,24 +6,24 @@ Building directory structure
 Building directory structure completed
 Downloading...
 From (original): https://drive.google.com/uc?id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE
-From (redirected): https://drive.google.com/uc?id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE&confirm=t&uuid=ec08d9e0-c4c5-438c-ad16-12640745c5db
+From (redirected): https://drive.google.com/uc?id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE&confirm=t&uuid=5cc4fea1-f7a5-4e98-9d60-f1bb4c89aa52
 To: /tmp/downloads/FS22_DT_Pack.zip
 Processing file 1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE FS22_DT_Pack.zip
 Processing file 1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O FS22_T150_Gus.zip
-  0%|          | 0.00/147M [00:00<?, ?B/s]  7%|▋         | 10.5M/147M [00:00<00:01, 102MB/s] 19%|█▉        | 28.3M/147M [00:00<00:00, 144MB/s] 29%|██▉       | 43.0M/147M [00:00<00:00, 142MB/s] 41%|████      | 60.3M/147M [00:00<00:00, 151MB/s] 52%|█████▏    | 76.5M/147M [00:00<00:00, 154MB/s] 63%|██████▎   | 92.3M/147M [00:00<00:00, 144MB/s] 75%|███████▍  | 110M/147M [00:00<00:00, 154MB/s]  86%|████████▌ | 126M/147M [00:00<00:00, 156MB/s] 97%|█████████▋| 142M/147M [00:00<00:00, 155MB/s]100%|██████████| 147M/147M [00:00<00:00, 150MB/s]
+  0%|          | 0.00/147M [00:00<?, ?B/s]  1%|          | 1.05M/147M [00:00<00:16, 8.78MB/s]  8%|▊         | 11.5M/147M [00:00<00:02, 60.8MB/s] 16%|█▋        | 24.1M/147M [00:00<00:01, 88.6MB/s] 27%|██▋       | 39.8M/147M [00:00<00:00, 114MB/s]  36%|███▌      | 52.4M/147M [00:00<00:00, 118MB/s] 46%|████▋     | 68.2M/147M [00:00<00:00, 129MB/s] 55%|█████▌    | 81.3M/147M [00:00<00:00, 127MB/s] 64%|██████▍   | 94.4M/147M [00:00<00:00, 118MB/s] 73%|███████▎  | 107M/147M [00:00<00:00, 113MB/s]  82%|████████▏ | 121M/147M [00:01<00:00, 118MB/s] 92%|█████████▏| 135M/147M [00:01<00:00, 125MB/s]100%|██████████| 147M/147M [00:01<00:00, 116MB/s]
 Downloading...
 From (original): https://drive.google.com/uc?id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O
-From (redirected): https://drive.google.com/uc?id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O&confirm=t&uuid=f4411edb-d1d3-4aef-98f3-a075216652c2
+From (redirected): https://drive.google.com/uc?id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O&confirm=t&uuid=ca877468-723d-41ea-a5b1-5f9d94cb0dc0
 To: /tmp/downloads/FS22_T150_Gus.zip
-  0%|          | 0.00/218M [00:00<?, ?B/s]  3%|▎         | 7.34M/218M [00:00<00:02, 70.8MB/s]  8%|▊         | 17.3M/218M [00:00<00:02, 87.4MB/s] 12%|█▏        | 26.2M/218M [00:00<00:02, 84.3MB/s] 17%|█▋        | 37.2M/218M [00:00<00:01, 93.5MB/s] 23%|██▎       | 50.9M/218M [00:00<00:01, 108MB/s]  29%|██▉       | 63.4M/218M [00:00<00:01, 112MB/s] 35%|███▌      | 76.5M/218M [00:00<00:01, 118MB/s] 41%|████      | 88.6M/218M [00:00<00:01, 115MB/s] 47%|████▋     | 103M/218M [00:00<00:00, 121MB/s]  53%|█████▎    | 116M/218M [00:01<00:00, 115MB/s] 59%|█████▊    | 128M/218M [00:01<00:00, 106MB/s] 64%|██████▍   | 140M/218M [00:01<00:00, 107MB/s] 70%|███████   | 153M/218M [00:01<00:00, 113MB/s] 76%|███████▌  | 165M/218M [00:01<00:00, 114MB/s] 84%|████████▍ | 183M/218M [00:01<00:00, 132MB/s] 91%|█████████▏| 199M/218M [00:01<00:00, 141MB/s] 98%|█████████▊| 214M/218M [00:01<00:00, 133MB/s]100%|██████████| 218M/218M [00:01<00:00, 117MB/s]
+  0%|          | 0.00/218M [00:00<?, ?B/s]  0%|          | 524k/218M [00:00<00:49, 4.38MB/s]  2%|▏         | 4.19M/218M [00:00<00:11, 19.2MB/s]  3%|▎         | 7.34M/218M [00:00<00:09, 21.3MB/s]  5%|▍         | 9.96M/218M [00:00<00:09, 22.0MB/s]  7%|▋         | 16.3M/218M [00:00<00:05, 34.1MB/s]  9%|▉         | 19.9M/218M [00:00<00:07, 26.1MB/s] 13%|█▎        | 27.3M/218M [00:00<00:05, 37.4MB/s] 16%|█▌        | 34.6M/218M [00:01<00:03, 45.9MB/s] 18%|█▊        | 39.8M/218M [00:01<00:03, 46.1MB/s] 21%|██        | 45.1M/218M [00:01<00:03, 47.4MB/s] 23%|██▎       | 50.3M/218M [00:01<00:05, 30.6MB/s] 25%|██▌       | 54.5M/218M [00:01<00:05, 32.6MB/s] 28%|██▊       | 61.9M/218M [00:01<00:04, 37.3MB/s] 31%|███       | 66.6M/218M [00:02<00:06, 23.4MB/s] 32%|███▏      | 70.3M/218M [00:02<00:06, 23.2MB/s] 34%|███▎      | 73.4M/218M [00:02<00:06, 22.5MB/s] 38%|███▊      | 82.8M/218M [00:02<00:04, 33.3MB/s] 41%|████▏     | 90.2M/218M [00:02<00:03, 40.6MB/s] 45%|████▍     | 97.5M/218M [00:02<00:03, 38.9MB/s] 49%|████▉     | 107M/218M [00:03<00:02, 50.4MB/s]  53%|█████▎    | 115M/218M [00:03<00:01, 54.6MB/s] 57%|█████▋    | 124M/218M [00:03<00:01, 61.1MB/s] 60%|█████▉    | 131M/218M [00:03<00:02, 40.7MB/s] 64%|██████▍   | 140M/218M [00:03<00:01, 48.8MB/s] 67%|██████▋   | 146M/218M [00:03<00:01, 46.9MB/s] 70%|███████   | 154M/218M [00:04<00:01, 51.4MB/s] 73%|███████▎  | 160M/218M [00:04<00:01, 48.5MB/s] 76%|███████▌  | 166M/218M [00:04<00:01, 36.4MB/s] 79%|███████▉  | 172M/218M [00:04<00:01, 41.6MB/s] 82%|████████▏ | 179M/218M [00:04<00:00, 45.0MB/s] 85%|████████▌ | 186M/218M [00:04<00:00, 49.5MB/s] 89%|████████▊ | 193M/218M [00:04<00:00, 56.1MB/s] 92%|█████████▏| 200M/218M [00:04<00:00, 56.8MB/s] 94%|█████████▍| 206M/218M [00:05<00:00, 52.7MB/s] 99%|█████████▊| 215M/218M [00:05<00:00, 61.1MB/s]100%|██████████| 218M/218M [00:05<00:00, 41.6MB/s]
 Download completed
 === after gdown ===
  146993870  /tmp/downloads/FS22_DT_Pack.zip
  218069935  /tmp/downloads/FS22_T150_Gus.zip
 === missing after gdown: ===
 === python fallback ===
-  folder page: 335059 bytes
-  folder page: 335059 bytes
+  folder page: 335110 bytes
+  folder page: 335110 bytes
 /home/runner/work/Piw/Piw/tools/drive_fallback.py:72: DeprecationWarning: invalid escape sequence '\/'
   decoded = raw.encode("utf-8").decode("unicode_escape")
   parsed 2 file(s) from the folder page:
