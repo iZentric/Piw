@@ -1,33 +1,41 @@
 === gdown --folder ===
-usage: gdown [-h] [-V] [-O OUTPUT] [-q] [--proxy PROXY] [--speed SPEED]
-             [--cookies FILE] [--cookies-from-browser BROWSER] [--no-cookies]
-             [--no-check-certificate] [--continue] [--retries N] [--folder]
-             [--json] [--format FORMAT] [--user-agent USER_AGENT]
-             [--timeout SECONDS]
-             url_or_id
-gdown: error: unrecognized arguments: --remaining-ok
-gdown rc=2
+warning: `--folder` is no longer required for folder URLs and will be removed in a future release
+Retrieving folder contents
+Retrieving folder contents completed
+Building directory structure
+Building directory structure completed
+Downloading...
+From (original): https://drive.google.com/uc?id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE
+From (redirected): https://drive.google.com/uc?id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE&confirm=t&uuid=77181e6c-1ef2-432b-9a8f-02a1670a8be2
+To: /tmp/downloads/FS22_DT_Pack.zip
+Processing file 1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE FS22_DT_Pack.zip
+Processing file 1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O FS22_T150_Gus.zip
+  0%|          | 0.00/147M [00:00<?, ?B/s]  1%|          | 1.05M/147M [00:00<00:14, 9.88MB/s]  5%|▍         | 7.34M/147M [00:00<00:03, 40.3MB/s]  8%|▊         | 11.5M/147M [00:00<00:04, 33.4MB/s] 12%|█▏        | 17.3M/147M [00:00<00:04, 32.2MB/s] 15%|█▍        | 21.5M/147M [00:00<00:04, 30.9MB/s] 20%|██        | 29.9M/147M [00:00<00:03, 32.2MB/s] 25%|██▍       | 36.2M/147M [00:01<00:03, 33.1MB/s] 32%|███▏      | 46.7M/147M [00:01<00:02, 38.8MB/s] 36%|███▌      | 53.0M/147M [00:01<00:02, 39.2MB/s] 42%|████▏     | 61.3M/147M [00:01<00:02, 41.2MB/s] 47%|████▋     | 69.7M/147M [00:01<00:01, 41.8MB/s] 53%|█████▎    | 78.1M/147M [00:02<00:01, 44.8MB/s] 63%|██████▎   | 92.8M/147M [00:02<00:01, 51.3MB/s] 70%|███████   | 103M/147M [00:02<00:00, 53.1MB/s]  80%|████████  | 118M/147M [00:02<00:00, 60.6MB/s] 89%|████████▉ | 131M/147M [00:02<00:00, 64.0MB/s] 99%|█████████▉| 145M/147M [00:02<00:00, 68.7MB/s]100%|██████████| 147M/147M [00:02<00:00, 49.1MB/s]
+Downloading...
+From (original): https://drive.google.com/uc?id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O
+From (redirected): https://drive.google.com/uc?id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O&confirm=t&uuid=420878ab-9ab6-4093-9ece-7ceafc1b7499
+To: /tmp/downloads/FS22_T150_Gus.zip
+  0%|          | 0.00/218M [00:00<?, ?B/s]  0%|          | 524k/218M [00:00<00:43, 5.00MB/s]  2%|▏         | 4.72M/218M [00:00<00:08, 25.2MB/s]  4%|▍         | 8.91M/218M [00:00<00:07, 27.6MB/s]  6%|▌         | 12.1M/218M [00:00<00:07, 27.8MB/s]  7%|▋         | 15.2M/218M [00:00<00:08, 22.8MB/s]  9%|▉         | 19.4M/218M [00:00<00:09, 21.8MB/s] 11%|█         | 23.6M/218M [00:01<00:08, 22.4MB/s] 14%|█▎        | 29.9M/218M [00:01<00:07, 26.2MB/s] 17%|█▋        | 36.2M/218M [00:01<00:06, 29.2MB/s] 19%|█▉        | 42.5M/218M [00:01<00:05, 30.4MB/s] 23%|██▎       | 50.9M/218M [00:01<00:04, 35.6MB/s] 27%|██▋       | 59.2M/218M [00:01<00:04, 39.6MB/s] 31%|███       | 67.6M/218M [00:02<00:03, 42.3MB/s] 36%|███▌      | 78.1M/218M [00:02<00:03, 45.1MB/s] 41%|████      | 88.6M/218M [00:02<00:02, 48.4MB/s] 45%|████▌     | 99.1M/218M [00:02<00:02, 52.3MB/s] 51%|█████     | 112M/218M [00:02<00:01, 58.6MB/s]  57%|█████▋    | 124M/218M [00:02<00:01, 70.6MB/s] 60%|██████    | 132M/218M [00:03<00:01, 64.8MB/s] 65%|██████▍   | 141M/218M [00:03<00:01, 63.8MB/s] 68%|██████▊   | 148M/218M [00:03<00:01, 60.6MB/s] 73%|███████▎  | 160M/218M [00:03<00:00, 65.1MB/s] 81%|████████  | 177M/218M [00:03<00:00, 76.1MB/s] 88%|████████▊ | 191M/218M [00:03<00:00, 89.9MB/s] 92%|█████████▏| 201M/218M [00:04<00:00, 75.7MB/s] 99%|█████████▉| 217M/218M [00:04<00:00, 82.9MB/s]100%|██████████| 218M/218M [00:04<00:00, 52.3MB/s]
+Download completed
 === after gdown ===
-=== missing after gdown: FS22_DT_Pack.zip FS22_T150_Gus.zip ===
+ 146993870  /tmp/downloads/FS22_DT_Pack.zip
+ 218069935  /tmp/downloads/FS22_T150_Gus.zip
+=== missing after gdown: ===
 === python fallback ===
-  folder page: 334938 bytes
-  folder page: 334938 bytes
+  folder page: 335043 bytes
+  folder page: 335043 bytes
 /home/runner/work/Piw/Piw/tools/drive_fallback.py:72: DeprecationWarning: invalid escape sequence '\/'
   decoded = raw.encode("utf-8").decode("unicode_escape")
   parsed 2 file(s) from the folder page:
-    - FS22_DT_Pack.zip  (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE)
-    - FS22_T150_Gus.zip  (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O)
-  downloading FS22_DT_Pack.zip (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE, attempt 1) ...
   parsed 2 file(s) from the folder page:
     - FS22_DT_Pack.zip  (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE)
     - FS22_T150_Gus.zip  (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O)
-  downloading FS22_DT_Pack.zip (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE, attempt 1) ...
-  ok FS22_DT_Pack.zip: 146993870 bytes in 2.3s
-  ok FS22_DT_Pack.zip: 146993870 bytes in 2.3s
-  downloading FS22_T150_Gus.zip (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O, attempt 1) ...
-  downloading FS22_T150_Gus.zip (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O, attempt 1) ...
-  ok FS22_T150_Gus.zip: 218069935 bytes in 3.2s
-  ok FS22_T150_Gus.zip: 218069935 bytes in 3.2s
+    - FS22_DT_Pack.zip  (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE)
+    - FS22_T150_Gus.zip  (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O)
+  already present: FS22_DT_Pack.zip
+  already present: FS22_DT_Pack.zip
+  already present: FS22_T150_Gus.zip
+  already present: FS22_T150_Gus.zip
  146993870  /tmp/downloads/FS22_DT_Pack.zip
  218069935  /tmp/downloads/FS22_T150_Gus.zip
 50aa2a6aa586330425da1383025e8ce14d2317f21a4ca975a57016f31ed3bb31  /tmp/downloads/FS22_DT_Pack.zip
