@@ -80,6 +80,32 @@ def parse_form(html: str, idx: int = 0) -> tuple[str | None, dict[str, str]] | N
     return action, fields
 
 
+def pick_form(html: str) -> tuple[int, str | None, dict[str, str]] | None:
+    """Prefer the form that looks like a download form, else the first one."""
+    tags = FORM_TAG_RE.findall(html)
+    best = None
+    for idx in range(len(FORM_RE.findall(html))):
+        step = parse_form(html, idx)
+        if not step:
+            continue
+        _action, fields = step
+        attrs = dict(ATTR_RE.findall(tags[idx])) if idx < len(tags) else {}
+        score = 0
+        if "download" in (attrs.get("action") or "").lower():
+            score += 3
+        if str(fields.get("op", "")).startswith("download"):
+            score += 3
+        if "method_free" in fields or "method_premium" in fields:
+            score += 2
+        if any(k in fields for k in ("_token", "upload_id", "id", "fname")):
+            score += 1
+        if best is None or score > best[0]:
+            best = (score, idx, step[0], step[1])
+    if not best:
+        return None
+    return best[1], best[2], best[3]
+
+
 def find_direct_link(html: str, base: str) -> str | None:
     for link in LINK_RE.findall(html):
         low = link.lower()
@@ -116,11 +142,14 @@ def grab(op, page_url: str, out_dir: str, name: str) -> bool:
     log(f"  page: {len(html)} bytes")
 
     for attempt in range(6):
-        step = parse_form(html, 0)
-        if not step:
+        picked = pick_form(html)
+        if not picked:
             log("  no form found")
+            link = find_direct_link(html, page_url)
+            if link and download(op, link, page_url, out_dir, name):
+                return True
             break
-        action, fields = step
+        _idx, action, fields = picked
         opcode = fields.get("op", "?")
         target = urllib.parse.urljoin(page_url, action) if action else page_url
         log(f"  POST {opcode} -> {target} ({len(fields)} fields)")

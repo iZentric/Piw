@@ -1,5 +1,4 @@
-# Files to grab through the XFileSharing trick (page_url [output_name])
-# The FS25 "DT-75 Pack v1.0.0.1" that mirrors distribute (same file the FS22-era
-# page points at; used to compare against the user's FS22 copy):
+# Files to grab through the form/web-host flow (page_url [output_name])
 https://modsfile.com/b13vmedzlbq8/FS22_DT_Pack.zip.html FS25_mirror_DT_Pack.zip
-https://moddingfile.com/zbm8hfjkusrk/FS22_DT_Pack.zip.html FS25_mirror_DT_Pack_moddingfile.zip
+https://www.modhub.us/farming-simulator-25-mods/dt-75-pack-v1000-1 FS25_mirror_DT_Pack_modhub.zip
+https://modsfile.com/r7ozpypmw8wu/fs25_dt75_ic.zip.html FS25_reference_DT75_IC_BearFarm.zip

@@ -112,8 +112,9 @@ jobs:
       - name: Grab files from web hosts
         if: hashFiles('transfer/request/grab_urls.txt') != ''
         run: |
-          python3 tools/grab_file.py transfer/request/grab_urls.txt transfer/reference/files || \
-            echo "::warning::some grabs failed (see log above)"
+          set +e
+          python3 tools/grab_file.py transfer/request/grab_urls.txt transfer/reference/files 2>&1 | tee transfer/reference/_grab_log.txt
+          set -e
 
       - name: Commit reference data
         if: hashFiles('transfer/request/reference_urls.txt') != ''
