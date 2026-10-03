@@ -1,0 +1,59 @@
+=== FS22_DT_Pack.zip
+built dist/FS25_DT_Pack.zip
+  replaced files : 33
+    ~ DT_75.i3d
+    ~ DT_75.xml
+    ~ dynamicallyLoadedParts/A41.i3d
+    ~ modDesc.xml
+    ~ scripts/categorizer.lua
+    ~ tools/PFP_12.xml
+    ~ tools/PFP_1_2.i3d
+    ~ tools/PFP_Tool_Bucket.i3d
+    ~ tools/PFP_Tool_Bucket.xml
+    ~ tools/PFP_Tool_ForkGrab.i3d
+    ~ tools/PFP_Tool_ForkGrab.xml
+    ~ tools/PFP_Tool_LogFork.i3d
+    ~ tools/PFP_Tool_LogFork.xml
+    ~ tools/PFP_Tool_Shovel.i3d
+    ~ tools/PFP_Tool_Shovel.xml
+    ~ tools/PND_250.i3d
+    ~ tools/PND_250.xml
+    ~ tools/PTS_77.i3d
+    ~ tools/PTS_77.xml
+    ~ tools/Shovel.i3d
+    ~ tools/Shovel.xml
+    ~ tools/ShovelWide.i3d
+    ~ tools/ShovelWide.xml
+    ~ tools/TO_7.i3d
+    ~ tools/TO_7.xml
+    ~ tools/TO_Tool_Bucket.i3d
+    ~ tools/TO_Tool_Bucket.xml
+    ~ tools/Weight.i3d
+    ~ tools/Weight.xml
+    ~ wheels/tracksDT75.i3d
+    ~ wheels/tracksDT75NarrowLowered.i3d
+    ~ wheels/tracksDT75WideLowered.i3d
+    ~ wheels/tracksDT75WideRaised.i3d
+  added files    : 5
+    + dynamicallyLoadedParts/shaders/vehicleShader.xml
+    + scripts/BaseMaterial.lua
+    + shaders/vehicleShader.xml
+    + tools/shaders/vehicleShader.xml
+    + wheels/shaders/vehicleShader.xml
+  deleted files  : 1
+    - scripts/MoreDesignConfigs.lua
+=== FS22_T150_Gus.zip
+built dist/FS25_T150_Gus.zip
+  replaced files : 7
+    ~ 150_gus.i3d
+    ~ 150_gus.xml
+    ~ modDesc.xml
+    ~ shaders/vehicleShader.xml
+    ~ tracks/trackHTZ150.i3d
+    ~ tracks/trackHTZ151.i3d
+    ~ tracks/trackHTZ152.i3d
+  added files    : 2
+    + scripts/BaseMaterial.lua
+    + tracks/shaders/vehicleShader.xml
+  deleted files  : 1
+    - scripts/MoreDesignConfigs.lua
