@@ -1,25 +1,25 @@
 === https://modsfire.com/zNC6oMDco75X92Z
-  page: 47454 bytes
+  page: 47453 bytes
   no form found
   page saved: /home/runner/work/Piw/Piw/transfer/reference/pages/FS25_ref_FS22ShaderColorFix_v1.2.zip.html
   candidate links: /download/zNC6oMDco75X92Z/48be4
   GET (file) https://modsfire.com/download/zNC6oMDco75X92Z/48be4
-    got HTML instead of a file (48839 bytes), head=b'<!DOCTYPE html>\n<html lang="en" class="light-mode">\n\n<head>\n   <meta http-equiv="Content-Type" content="text/html; chars'
+    got HTML instead of a file (48838 bytes), head=b'<!DOCTYPE html>\n<html lang="en" class="light-mode">\n\n<head>\n   <meta http-equiv="Content-Type" content="text/html; chars'
     trying https://modsfire.com/d/zNC6oMDco75X92Z
   GET (file) https://modsfire.com/d/zNC6oMDco75X92Z
     saved FS25_ref_FS22ShaderColorFix_v1.2.zip: 385790 bytes, head=b'PK\x03\x04'
 === https://modsfire.com/L9Ise43d5c19H9y
-  page: 47416 bytes
+  page: 47415 bytes
   no form found
   page saved: /home/runner/work/Piw/Piw/transfer/reference/pages/FS25_ref_VolvoT425_colorfix.zip.html
   candidate links: /download/L9Ise43d5c19H9y/2b28d
   GET (file) https://modsfire.com/download/L9Ise43d5c19H9y/2b28d
-    got HTML instead of a file (48809 bytes), head=b'<!DOCTYPE html>\n<html lang="en" class="light-mode">\n\n<head>\n   <meta http-equiv="Content-Type" content="text/html; chars'
+    got HTML instead of a file (48808 bytes), head=b'<!DOCTYPE html>\n<html lang="en" class="light-mode">\n\n<head>\n   <meta http-equiv="Content-Type" content="text/html; chars'
     trying https://modsfire.com/d/L9Ise43d5c19H9y
   GET (file) https://modsfire.com/d/L9Ise43d5c19H9y
     saved FS25_ref_VolvoT425_colorfix.zip: 11106527 bytes, head=b'PK\x03\x04'
 === https://www.modhub.us/farming-simulator-25-mods/fs22-shader-color-fix-v1000
-  page: 173045 bytes
+  page: 173046 bytes
   POST ? -> https://www.modhub.us/mod/download (2 fields)
     saved directly: FS25_ref_FS22ShaderColorFix_modhub.zip (101464 bytes)
 FS25_ref_FS22ShaderColorFix_modhub.zip: 5 entries, sha256=b6c792a96da898982ba59ff6662db081e8061f241143d7a7572a94ed5eaf3ef8
