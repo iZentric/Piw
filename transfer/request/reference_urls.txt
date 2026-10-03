@@ -1,0 +1,9 @@
+# Reference pages to fetch (one URL per line).
+# Purpose: find the author's own FS25 conversion of the DT-75 Pack so the
+# converted files can be compared 1:1 with the FS22 originals.
+https://www.modhub.us/farming-simulator-25-mods/dt-75-pack-v1000-1
+https://www.farming2015mods.com/farming-simulator-25-mods/fs-25-implements-tools/fs25-dt-75-pack-v1-0-0-1/
+https://www.farmingsimulator19mods.com/fs25-dt-75-pack-v1-0-0-1/
+https://farmingsimulator.app/en/fs22-mods/dt-75-pack-v1-0-0-1-fs25
+https://www.kingmods.net/en/fs25/mods/65938/dt-75
+https://www.farmingsimulator25mods.com/dt-75-v1-0-4/
