@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="dynamicMountAttacherShovel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>
+            <en>Fork grab for PFP-1.2</en>
+			<de>Heugabel fur PFP-1.2</de>
+			<ru>Вилы для ПФП-1.2</ru>
+		</name>
+		<specs>
+		  <combination xmlFilename="tools/PFP_12.xml"/>
+        </specs>
+        <functions>
+            <function>$l10n_function_frontloaderManureFork</function>
+        </functions>
+        <image>store/storePFPForkGrab.dds</image>
+        <price>2500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>VGTZ</brand>
+        <category>vgtz</category>
+        <shopTranslationOffset>0 0.05 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>433152</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>79104</indexBufferMemoryUsage>
+        <textureMemoryUsage>786432</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>tools/PFP_Tool_ForkGrab.i3d</filename>
+        <size width="2.5" length="2"/>
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="300" />
+            <component solverIterationCount="10" mass="100" />
+            <joint component1="1" component2="2" node="0>0|4" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="300 0 0" rotLimitDamping="30 0 0" rotLimitForceLimit="10 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT" />
+        <mapHotspot type="TOOL" />
+    </base>
+
+     <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="0>0|0|0" jointType="frontloader" topReferenceNode="0>0|0|1"/>
+        </inputAttacherJoints>	
+    </attachable>
+
+
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit shopDisplayUnit="LITER" fillTypeCategories="FORK" capacity="2500" >
+                        <exactFillRootNode node="0>0|1|1" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="0>0|1|0" maxAllowedHeapAngle="30" fillUnitIndex="1" maxSubDivEdgeLength="0.6" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <loadInfos>
+            <loadInfo>
+                <node node="0>0|1|2" width="2.5" length="0.1" />
+            </loadInfo>
+        </loadInfos>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="0>0|1|3" width="2.5" length="0.1" />
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+	
+	  	    <powerConsumer ptoRpm="300" neededMinPtoPower="1" neededMaxPtoPower="5" useTurnOnState="false"/>
+
+    <connectionHoses>
+        <hose diameter="0.028" inputAttacherJointIndices="1" length="1.1" node="0>0|3|0|0|1|0" startStraightening="0.5"  endStraightening="0.5"   isWorldSpaceHose="true" minCenterPointAngle="100"  type="hydraulicIn">
+		     <objectChange node="0>0|0|2" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+       
+	   <hose diameter="0.028" inputAttacherJointIndices="1" length="1.2" node="0>0|3|0|0|1|1" startStraightening="0.5"  endStraightening="0.5"   isWorldSpaceHose="true" minCenterPointAngle="0"  type="hydraulicOut"/>
+    </connectionHoses>
+	
+ 
+    <cylindered>
+        <movingTools  powerConsumingActiveTimeOffset="0.5" >
+            <movingTool node="0>0|4" playSound="true" isConsumingPower="true">
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.15" iconName="TOOL_OPEN_CLOSE" />
+                <componentJoint index="1" anchorActor="0" />
+                <rotation rotSpeed="75" rotAcceleration="450" rotMax="0" rotMin="-60" startRot="0" detachingRotMinLimit="0" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="0>0|5" referencePoint="1>0" referenceFrame="1>0" limitedAxis="1" isActiveDirty="true" maxUpdateDistance="100">
+                <dependentPart node="0>0|3|0|0" />
+            </movingPart>
+            <movingPart node="0>0|3|0|0" referencePoint="0>0|5|1" referenceFrame="0>0|5|1" >
+                <translatingPart node="0>0|3|0|0|0" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <actionSound template="defaultHydraulicSound" pitchScale="0.6" volumeScale="2"   linkNode="0>0|4" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG" nodes="0>0|4"/>
+            <actionSound template="clackVar6"             pitchScale="0.9" volumeScale="1.4" linkNode="0>0|4" actionNames="TOOL_MOVE_END_POS_LIMIT"     nodes="0>0|4"/>
+            <actionSound template="cylinderPunch"         pitchScale="2"   volumeScale="0.5" linkNode="0>0|4" actionNames="TOOL_MOVE_END_POS_LIMIT"     nodes="0>0|4"/>
+            <actionSound template="clackVar6"             pitchScale="0.6" volumeScale="1.7" linkNode="0>0|4" actionNames="TOOL_MOVE_END_NEG_LIMIT"     nodes="0>0|4"/>
+            <actionSound template="sheetImp02"            pitchScale="0.8" volumeScale="2"   linkNode="0>0|4" actionNames="TOOL_MOVE_END_NEG_LIMIT"     nodes="0>0|4"/>
+        </sounds>
+    </cylindered>
+	
+    <dischargeable requiresTipOcclusionArea="false">
+        <dischargeNode node="0>0|1|4" fillUnitIndex="1" emptySpeed="3000" >
+            <raycast node="0>0|1|4" maxDistance="30" useWorldNegYDirection="true" yOffset="2"/>
+            <info width="2.5" length="0.2" zOffset="0.5"/>
+            <movingToolActivation node="0>0|4" isInverted="true" openFactor="0.4" />
+
+            <effects>
+                <effectNode effectClass="TipEffect">
+                    <effectNode effectNode="0>0|2|2" effectClass="ParticleEffect" materialType="unloadingParticle"/>
+                    <effectNode effectNode="0>0|2|0" materialType="unloading" fadeTime="0.5" alignXAxisToWorldY="true" />
+                </effectNode>
+                <effectNode effectNode="0>0|2|1" materialType="unloadingSmoke" fadeTime="0.5" />
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <shovel>
+        <shovelNode node="0>0|1|5" fillUnitIndex="1" loadInfoIndex="1" width="2.0" length="0.1" needsMovement="true" maxPickupAngle="105">
+            <movingToolActivation node="0>0|4" isInverted="true" openFactor="0.4" />
+        </shovelNode>
+        <dischargeInfo node="0>0|1|4" minSpeedAngle="105" maxSpeedAngle="130" />
+    </shovel>
+
+	
+	<dynamicMountAttacher node="0>">
+        <mountCollisionMask node="0>1|0" collisionMask="134225920" />
+        <mountCollisionMask node="1>1|0" collisionMask="134225920" />
+        <grab openMountType="TYPE_FORK" closedMountType="TYPE_AUTO_ATTACH_XYZ">
+        <movingToolActivation node="grabJoint" isInverted="true" openFactor="0.4" />
+        </grab>
+    </dynamicMountAttacher>
+
+    <ai>
+        <agentAttachment width="2.5" height="1.0" length="1.5" lengthOffset="0.62"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.2" maxX="1.2" minZ="0" maxZ="1.3" yOffset="0.2" />
+    </foliageBending>
+	
+	<baseMaterial>
+        <material name="pfpFork_mat" baseNode="0>0">
+            <shaderParameter name="colorMat0" value="0.3663 0.0395 0.0395 6"/>
+            <shaderParameter name="colorMat2" value="0.42 0.04 0.02 6"/>
+            <shaderParameter name="colorMat3" value="1 0.55 0.055 6"/>
+        </material>
+        <material name="decals_mat" baseNode="0>0|6|0">
+            <shaderParameter name="colorMat0" value="0.3663 0.0395 0.0395 6"/>
+        </material>
+    </baseMaterial>
+	
+	
+    <baseMaterialConfigurations>
+		  <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.42 0.04 0.02 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.5 0.05 0.05 6"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.3 0.02 0.02 1"  /> 
+		  <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.37 0.056 0.023 6" />
+          <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.35 0.05 0.04 6" />	
+		  <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.5 0.085 0.05" material="6"/>  		
+		  <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.3663 0.0395 0.0395"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorRed" color="0.366 0.06 0.04"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorBrown" color="0.09 0.04 0.04 1" />  
+          <baseMaterialConfiguration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04 1" /> 
+          <baseMaterialConfiguration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04"   material="6" /> 
+          <baseMaterialConfiguration name="$l10n_ui_colorBrown" color="0.4 0.2 0.12 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBrown" color="0.3 0.13 0.1 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBrown" color="0.38 0.08 0.04 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBrown" color="0.22 0.08 0.04 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBordo" color="0.22 0.022 0.022" material="6" /> 
+          <baseMaterialConfiguration name="$l10n_ui_colorArmy" color="0.035 0.035 0.015"/>		
+          <baseMaterialConfiguration name="$l10n_ui_colorWhite" color="0.57 0.567 0.488 6"/> 
+          <baseMaterialConfiguration name="$l10n_ui_colorWhite" color="0.729 0.765 0.835 6"/>  		
+          <baseMaterialConfiguration name="$l10n_ui_colorGray" color="0.264 0.264 0.264 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorGray" color="0.18 0.18 0.18 6"   />
+		  <baseMaterialConfiguration name="$l10n_ui_colorGray" color="0.11 0.11 0.11" material="6"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorGray" color="0.3 0.3 0.3 6"/>		
+		  <baseMaterialConfiguration name="$l10n_ui_colorBlack" color="0.03 0.03 0.03 6"/>
+	      <baseMaterialConfiguration name="$l10n_ui_colorBlack" color="0.015 0.015 0.015" material="6"/>			
+          <baseMaterialConfiguration name="$l10n_ui_colorBeige" color="0.26 0.2 0.15 6" />
+          <baseMaterialConfiguration name="$l10n_ui_colorBeige" color="0.55 0.36 0.2 6" />
+          <baseMaterialConfiguration name="$l10n_ui_colorBeige" color="0.46 0.28 0.15 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBeige" color="0.46 0.28 0.12 6"/>		
+          <baseMaterialConfiguration name="$l10n_ui_colorYellow" color="0.953 0.675 0.373 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorYellow" color="1.00 0.70 0.00 1"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorYellow" color="0.55 0.35 0.035" isDefault="true"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorYellow" color="0.73 0.35 0.11" material="6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorYellow" color="0.8 0.55 0.055 6" />
+          <baseMaterialConfiguration name="$l10n_ui_colorYellow" color="0.548 0.254 0.017"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorYellow" color="1 0.25 0.017"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorOrange" color="0.5 0.12 0.02 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorOrange" color="0.8 0.28 0.06 6"/> 
+          <baseMaterialConfiguration name="$l10n_ui_colorOrange" color="0.7372 0.1963 0.0004"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorOrange" color="1 0.16 0"/>		
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0 0.21 0.1 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.26 0.2 0.1 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.01 0.13 0.04 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.1 0.21 0.06 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.1 0.13 0.06 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.04 0.15 0.1 6" />
+		  <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0 0.21 0.1 1"     />
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 1" />
+          <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.077 0.24 0.12"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.0789 0.2390 0.0830"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.03 0.15 0.07 6"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorGreen" color="0.25 0.35 0.08 1" />		
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.27 0.37 6" />
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.17 0.37 6" />
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.21 0.43 6" />
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.2 0.3 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0.05 0.2 0.3 6"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0.02 0.13 0.24 6"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.21 0.37"/>
+		  <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.27 0.37"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.17 0.37"/>
+          <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.21 0.43"/>	
+		  <baseMaterialConfiguration name="$l10n_ui_colorBlue" color="0.0 0.15 0.40 1"/>
+    <material materialSlotName="pfpFork_mat" shaderParameter="colorMat0"/>
+    </baseMaterialConfigurations>
+	
+	
+    <designMaterialConfigurations>
+          <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.42 0.04 0.02 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.5 0.05 0.05 6"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.3 0.02 0.02 1"  /> 
+		  <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.37 0.056 0.023 6" />
+          <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.35 0.05 0.04 6" />	
+		  <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.5 0.085 0.05" material="6"/>  		
+		  <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.3663 0.0395 0.0395"/>
+          <designMaterialConfiguration name="$l10n_ui_colorRed" color="0.366 0.06 0.04"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorBrown" color="0.09 0.04 0.04 1" />  
+          <designMaterialConfiguration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04 1" /> 
+          <designMaterialConfiguration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04"   material="6" /> 
+          <designMaterialConfiguration name="$l10n_ui_colorBrown" color="0.4 0.2 0.12 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBrown" color="0.3 0.13 0.1 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBrown" color="0.38 0.08 0.04 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBrown" color="0.22 0.08 0.04 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBordo" color="0.22 0.022 0.022" material="6" /> 
+          <designMaterialConfiguration name="$l10n_ui_colorArmy" color="0.035 0.035 0.015"/>		
+          <designMaterialConfiguration name="$l10n_ui_colorWhite" color="0.57 0.567 0.488 6"/> 
+          <designMaterialConfiguration name="$l10n_ui_colorWhite" color="0.729 0.765 0.835 6"/>  		
+          <designMaterialConfiguration name="$l10n_ui_colorGray" color="0.264 0.264 0.264 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorGray" color="0.18 0.18 0.18 6"   />
+		  <designMaterialConfiguration name="$l10n_ui_colorGray" color="0.11 0.11 0.11" material="6"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorGray" color="0.3 0.3 0.3 6"/>		
+		  <designMaterialConfiguration name="$l10n_ui_colorBlack" color="0.03 0.03 0.03 6" isDefault="true"/>
+	      <designMaterialConfiguration name="$l10n_ui_colorBlack" color="0.015 0.015 0.015" material="6"/>			
+          <designMaterialConfiguration name="$l10n_ui_colorBeige" color="0.26 0.2 0.15 6" />
+          <designMaterialConfiguration name="$l10n_ui_colorBeige" color="0.55 0.36 0.2 6" />
+          <designMaterialConfiguration name="$l10n_ui_colorBeige" color="0.46 0.28 0.15 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBeige" color="0.46 0.28 0.12 6"/>		
+          <designMaterialConfiguration name="$l10n_ui_colorYellow" color="0.953 0.675 0.373 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorYellow" color="1.00 0.70 0.00 1"/>
+          <designMaterialConfiguration name="$l10n_ui_colorYellow" color="0.55 0.35 0.035" />
+          <designMaterialConfiguration name="$l10n_ui_colorYellow" color="0.73 0.35 0.11" material="6" />
+          <designMaterialConfiguration name="$l10n_ui_colorYellow" color="0.8 0.55 0.055 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorYellow" color="0.548 0.254 0.017"/>
+          <designMaterialConfiguration name="$l10n_ui_colorYellow" color="1 0.25 0.017"/>
+          <designMaterialConfiguration name="$l10n_ui_colorOrange" color="0.5 0.12 0.02 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorOrange" color="0.8 0.28 0.06 6"/> 
+          <designMaterialConfiguration name="$l10n_ui_colorOrange" color="0.7372 0.1963 0.0004"/>
+          <designMaterialConfiguration name="$l10n_ui_colorOrange" color="1 0.16 0"/>		
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0 0.21 0.1 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.26 0.2 0.1 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.01 0.13 0.04 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.1 0.21 0.06 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.1 0.13 0.06 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.04 0.15 0.1 6" />
+		  <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0 0.21 0.1 1"     />
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 1" />
+          <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.077 0.24 0.12"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.0789 0.2390 0.0830"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.03 0.15 0.07 6"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorGreen" color="0.25 0.35 0.08 1" />		
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.27 0.37 6" />
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.17 0.37 6" />
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.21 0.43 6" />
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.2 0.3 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0.05 0.2 0.3 6"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0.02 0.13 0.24 6"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.21 0.37"/>
+		  <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.27 0.37"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.17 0.37"/>
+          <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0 0.21 0.43"/>	
+		  <designMaterialConfiguration name="$l10n_ui_colorBlue" color="0.0 0.15 0.40 1"/>	
+        <material materialSlotName="pfpFork_mat" shaderParameter="colorMat2"/>
+    </designMaterialConfigurations> 
+	
+	<designMaterial2Configurations title="$l10n_configuration_cylinderColor">
+          <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.42 0.04 0.02 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.5 0.05 0.05 6"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.3 0.02 0.02 1"  /> 
+		  <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.37 0.056 0.023 6" />
+          <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.35 0.05 0.04 6" />	
+		  <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.5 0.085 0.05" material="6"/>  		
+		  <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.3663 0.0395 0.0395"/>
+          <designMaterial2Configuration name="$l10n_ui_colorRed" color="0.366 0.06 0.04"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorBrown" color="0.09 0.04 0.04 1" />  
+          <designMaterial2Configuration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04 1" /> 
+          <designMaterial2Configuration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04"   material="6" /> 
+          <designMaterial2Configuration name="$l10n_ui_colorBrown" color="0.4 0.2 0.12 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBrown" color="0.3 0.13 0.1 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBrown" color="0.38 0.08 0.04 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBrown" color="0.22 0.08 0.04 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBordo" color="0.22 0.022 0.022" material="6" /> 
+          <designMaterial2Configuration name="$l10n_ui_colorArmy" color="0.035 0.035 0.015"/>		
+          <designMaterial2Configuration name="$l10n_ui_colorWhite" color="0.57 0.567 0.488 6"/> 
+          <designMaterial2Configuration name="$l10n_ui_colorWhite" color="0.729 0.765 0.835 6"/>  		
+          <designMaterial2Configuration name="$l10n_ui_colorGray" color="0.264 0.264 0.264 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorGray" color="0.18 0.18 0.18 6"   />
+		  <designMaterial2Configuration name="$l10n_ui_colorGray" color="0.11 0.11 0.11" material="6"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorGray" color="0.3 0.3 0.3 6"/>		
+		  <designMaterial2Configuration name="$l10n_ui_colorBlack" color="0.03 0.03 0.03 6"/>
+	      <designMaterial2Configuration name="$l10n_ui_colorBlack" color="0.015 0.015 0.015" material="6"/>			
+          <designMaterial2Configuration name="$l10n_ui_colorBeige" color="0.26 0.2 0.15 6" />
+          <designMaterial2Configuration name="$l10n_ui_colorBeige" color="0.55 0.36 0.2 6" />
+          <designMaterial2Configuration name="$l10n_ui_colorBeige" color="0.46 0.28 0.15 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBeige" color="0.46 0.28 0.12 6"/>		
+          <designMaterial2Configuration name="$l10n_ui_colorYellow" color="0.953 0.675 0.373 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorYellow" color="1.00 0.70 0.00 1"/>
+          <designMaterial2Configuration name="$l10n_ui_colorYellow" color="0.55 0.35 0.035" isDefault="true"/>
+          <designMaterial2Configuration name="$l10n_ui_colorYellow" color="0.73 0.35 0.11" material="6" />
+          <designMaterial2Configuration name="$l10n_ui_colorYellow" color="0.8 0.55 0.055 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorYellow" color="0.548 0.254 0.017"/>
+          <designMaterial2Configuration name="$l10n_ui_colorYellow" color="1 0.25 0.017"/>
+          <designMaterial2Configuration name="$l10n_ui_colorOrange" color="0.5 0.12 0.02 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorOrange" color="0.8 0.28 0.06 6"/> 
+          <designMaterial2Configuration name="$l10n_ui_colorOrange" color="0.7372 0.1963 0.0004"/>
+          <designMaterial2Configuration name="$l10n_ui_colorOrange" color="1 0.16 0"/>		
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0 0.21 0.1 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.26 0.2 0.1 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.01 0.13 0.04 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.1 0.21 0.06 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.1 0.13 0.06 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.04 0.15 0.1 6" />
+		  <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0 0.21 0.1 1"     />
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 1" />
+          <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.077 0.24 0.12"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.0789 0.2390 0.0830"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.03 0.15 0.07 6"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorGreen" color="0.25 0.35 0.08 1" />		
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.27 0.37 6" />
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.17 0.37 6" />
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.21 0.43 6" />
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.2 0.3 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0.05 0.2 0.3 6"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0.02 0.13 0.24 6"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.21 0.37"/>
+		  <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.27 0.37"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.17 0.37"/>
+          <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0 0.21 0.43"/>	
+		  <designMaterial2Configuration name="$l10n_ui_colorBlue" color="0.0 0.15 0.40 1"/>	
+        <material materialSlotName="pfpFork_mat" shaderParameter="colorMat3"/>
+    </designMaterial2Configurations>
+	
+	<designMaterial3Configurations title="$l10n_configuration_decalColor">
+          <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.42 0.04 0.02 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.5 0.05 0.05 6"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.3 0.02 0.02 1"  /> 
+		  <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.37 0.056 0.023 6" />
+          <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.35 0.05 0.04 6" />	
+		  <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.5 0.085 0.05" material="6"/>  		
+		  <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.3663 0.0395 0.0395"/>
+          <designMaterial3Configuration name="$l10n_ui_colorRed" color="0.366 0.06 0.04"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorBrown" color="0.09 0.04 0.04 1" />  
+          <designMaterial3Configuration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04 1" /> 
+          <designMaterial3Configuration name="$l10n_ui_colorBrown" color="0.06 0.04 0.04"   material="6" /> 
+          <designMaterial3Configuration name="$l10n_ui_colorBrown" color="0.4 0.2 0.12 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBrown" color="0.3 0.13 0.1 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBrown" color="0.38 0.08 0.04 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBrown" color="0.22 0.08 0.04 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBordo" color="0.22 0.022 0.022" material="6" /> 
+          <designMaterial3Configuration name="$l10n_ui_colorArmy" color="0.035 0.035 0.015"/>		
+          <designMaterial3Configuration name="$l10n_ui_colorWhite" color="0.57 0.567 0.488 6"/> 
+          <designMaterial3Configuration name="$l10n_ui_colorWhite" color="0.729 0.765 0.835 6"/>  		
+          <designMaterial3Configuration name="$l10n_ui_colorGray" color="0.264 0.264 0.264 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorGray" color="0.18 0.18 0.18 6"   />
+		  <designMaterial3Configuration name="$l10n_ui_colorGray" color="0.11 0.11 0.11" material="6"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorGray" color="0.3 0.3 0.3 6"/>		
+		  <designMaterial3Configuration name="$l10n_ui_colorBlack" color="0.03 0.03 0.03 6" isDefault="true"/>
+	      <designMaterial3Configuration name="$l10n_ui_colorBlack" color="0.015 0.015 0.015" material="6"/>			
+          <designMaterial3Configuration name="$l10n_ui_colorBeige" color="0.26 0.2 0.15 6" />
+          <designMaterial3Configuration name="$l10n_ui_colorBeige" color="0.55 0.36 0.2 6" />
+          <designMaterial3Configuration name="$l10n_ui_colorBeige" color="0.46 0.28 0.15 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBeige" color="0.46 0.28 0.12 6"/>		
+          <designMaterial3Configuration name="$l10n_ui_colorYellow" color="0.953 0.675 0.373 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorYellow" color="1.00 0.70 0.00 1"/>
+          <designMaterial3Configuration name="$l10n_ui_colorYellow" color="0.55 0.35 0.035" />
+          <designMaterial3Configuration name="$l10n_ui_colorYellow" color="0.73 0.35 0.11" material="6" />
+          <designMaterial3Configuration name="$l10n_ui_colorYellow" color="0.8 0.55 0.055 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorYellow" color="0.548 0.254 0.017"/>
+          <designMaterial3Configuration name="$l10n_ui_colorYellow" color="1 0.25 0.017"/>
+          <designMaterial3Configuration name="$l10n_ui_colorOrange" color="0.5 0.12 0.02 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorOrange" color="0.8 0.28 0.06 6"/> 
+          <designMaterial3Configuration name="$l10n_ui_colorOrange" color="0.7372 0.1963 0.0004"/>
+          <designMaterial3Configuration name="$l10n_ui_colorOrange" color="1 0.16 0"/>		
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0 0.21 0.1 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.26 0.2 0.1 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.01 0.13 0.04 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.1 0.21 0.06 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.1 0.13 0.06 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.04 0.15 0.1 6" />
+		  <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0 0.21 0.1 1"     />
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.04 0.15 0.06 1" />
+          <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.077 0.24 0.12"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.0789 0.2390 0.0830"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.03 0.15 0.07 6"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorGreen" color="0.25 0.35 0.08 1" />		
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.27 0.37 6" />
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.17 0.37 6" />
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.21 0.43 6" />
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.2 0.3 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0.05 0.2 0.3 6"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0.02 0.13 0.24 6"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.21 0.37"/>
+		  <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.27 0.37"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.17 0.37"/>
+          <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0 0.21 0.43"/>	
+		  <designMaterial3Configuration name="$l10n_ui_colorBlue" color="0.0 0.15 0.40 1"/>	
+        <material materialSlotName="decals_mat" shaderParameter="colorMat0"/>
+    </designMaterial3Configurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="frontloaderManureGrab_main_component1" node="0>" />
+        <i3dMapping id="grabJoint" node="0>0|4" />
+        <i3dMapping id="frontloaderManureGrab_main_component2" node="1>" />
+    </i3dMappings>
+</vehicle>

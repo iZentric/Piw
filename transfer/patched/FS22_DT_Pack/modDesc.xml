@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="104">
+    <author>UssrModdingTeam</author>
+    <contributors>
+	- UssrModdingTeam - (remake, convert to FS-22, in game PTS-77, PFP-1.2, TO-7A, PND-250)
+	- Relax - (in game Bortovik configuration)
+	- Mari Darth - (3d model: DT-75 )
+	- RazorModdingTeam - (in game PFP-1.2,xml)
+	- Region38 - (3d models: PFP-1.2, TO-7A, parts)
+	- Pavlich - (engine 3d model: A-41)
+	- Average Enjoyer - (in game Crawlers)
+	- TYOMATY - (3d model: Log Fork)
+	- Sevill's Garage - (3d model: Swamp walker suspension)
+	</contributors>
+    <version>1.0.0.2</version>
+    <title>
+        <en>DT-75</en>
+        <de>DT-75</de>
+        <ru>ДТ-75</ru>
+    </title>
+    <description>
+        <en><![CDATA[
+   The universal caterpillar tractor of the 3rd traction class, manufactured at the Volgograd Tractor Plant, is aggregated with various equipment and linkages.]]></en>
+        <de><![CDATA[
+   Der im Wolgograder Traktorenwerk hergestellte Universal-Raupentraktor der 3. Traktionsklasse ist mit verschiedenen Geräten und Gestängen zusammengefasst.]]></de>
+        <ru><![CDATA[
+   Универсальный гусеничный трактор 3 тягового класса, производившийся на Волгоградском Тракторном Заводе, агрегатируется с различными вариациями оборудования и навесками.]]></ru>
+    </description>
+    <iconFilename>store/icon_DT_75.dds</iconFilename>
+    <multiplayer supported="true"/>
+    <newcategory name="vgtz" title="ДТ Пак" type="VEHICLE" img="store/storeDT_75.dds"/>
+    <extraSourceFiles>
+        <sourceFile filename="scripts/categorizer.lua"/>
+        <sourceFile filename="scripts/BaseMaterial.lua"/>
+    </extraSourceFiles>
+<vehicleTypes>
+        <type name="dt" parent="tractor" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="powerConsumer"/>
+        </type>
+        <type name="pnd250" parent="shovel" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+            <specialization name="turnOnVehicle" />
+			<specialization name="conveyorBelt" />
+        </type>
+       <type name="logVily" parent="logGrab" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+            <specialization name="tensionBelts" />
+        </type>
+    </vehicleTypes>
+    <storeItems>
+        <storeItem xmlFilename="DT_75.xml"/>
+        <storeItem xmlFilename="tools/PND_250.xml"/>
+        <storeItem xmlFilename="tools/PTS_77.xml"/>
+        <storeItem xmlFilename="tools/PFP_12.xml"/>
+        <storeItem xmlFilename="tools/TO_7.xml"/>	
+        <storeItem xmlFilename="tools/Shovel.xml"/>
+        <storeItem xmlFilename="tools/ShovelWide.xml"/>
+        <storeItem xmlFilename="tools/PFP_Tool_Shovel.xml"/>
+        <storeItem xmlFilename="tools/PFP_Tool_Bucket.xml"/>
+        <storeItem xmlFilename="tools/PFP_Tool_ForkGrab.xml"/>	
+        <storeItem xmlFilename="tools/PFP_Tool_LogFork.xml"/>	
+        <storeItem xmlFilename="tools/TO_Tool_Bucket.xml"/>
+        <storeItem xmlFilename="tools/Weight.xml"/>
+    </storeItems>
+    <jointTypes>
+        <jointType name="1cylinderedAttacher"/>
+        <jointType name="2cylinderedAttacher"/>
+		<jointType name="pfp12Attacher"/>
+		<jointType name="to7aAttacher"/>
+		<jointType name="pnd250Attacher"/>
+    </jointTypes>
+    <brands>
+        <brand name="VGTZ"          title="Волгоградский тракторный завод"  image="store/brand.dds"/>
+        <brand name="BERDEANSK"     title="Бердянский завод дорожных машин" image="store/brandBerdeansk.dds"/>
+        <brand name="UMANIFERMMASH" title="Уманьферммаш"                    image="store/brandUmanifermmash.dds"/>
+    </brands>
+      <l10n>
+	  
+        <text name="ui_colorBordo"> <en>Bordo</en> <de>Bordo</de>  <ru>Бордовый</ru></text>
+        <text name="ui_colorArmy">  <en>Army</en>  <de>Army</de>   <ru>Военный</ru></text>
+        <text name="ui_colorGray">  <en>Gray</en>  <de>Gray</de>   <ru>Серый</ru></text>
+		
+        <text name="DT75_desc">
+            <en>The universal caterpillar tractor of the 3rd traction class, manufactured at the Volgograd Tractor Plant, is aggregated with various equipment and linkages</en>
+            <de>Der im Wolgograder Traktorenwerk hergestellte Universal-Raupentraktor der 3. Traktionsklasse ist mit verschiedenen Geräten und Gestängen zusammengefasst</de>
+            <ru>Универсальный гусеничный трактор 3 тягового класса, производившийся на Волгоградском Тракторном Заводе, агрегатируется с различными вариациями оборудования и навесками</ru>
+        </text>
+        <text name="DT75">
+            <en>DT-75</en>
+            <ru>ДТ-75</ru>
+        </text>
+        <text name="configuration_dvigatelShitki">
+            <en>Shields</en>
+            <ru>Щитки двигателя</ru>
+        </text>
+       <!--<text name="configuration_tensionBelts">
+            <en>Tension belts</en>
+            <ru>Натяжные ремни</ru>
+        </text>-->
+		<text name="configuration_extraCounterWeight">
+            <en>Extra Weight</en>
+            <ru>Доп. противовес </ru>
+        </text>
+		
+		 <text name="configuration_oilPanProtection">
+            <en>Oil pan protection</en>
+            <ru>Защита масляного поддона</ru>
+        </text>
+		
+        <text name="configuration_dvigatelShitkiTrue">
+            <en>Installed</en>
+            <ru>Установлены</ru>
+        </text>
+        <text name="configuration_dvigatelShitkiFalse">
+            <en>Without shields</en>
+            <ru>Без щитков</ru>
+        </text>
+        <text name="configuration_roofColor">
+            <en>Roof color</en>
+            <ru>Цвет крыши</ru>
+        </text>
+		
+        <text name="configuration_rollersColor">
+            <en>Rollers color</en>
+            <ru>Цвет катков </ru>
+        </text>
+        <text name="attacher_config_shovel">
+            <en>Shovel</en>
+            <ru>Отвал</ru>
+        </text>
+        <text name="attacher_config_universal">
+            <en>Universal</en>
+            <ru>Универсальное</ru>
+        </text>
+        <text name="attachable_configuration">
+            <en>Type of attachable</en>
+            <ru>Тип оборудования</ru>
+        </text>
+        <text name="attachable_configuration_inputAttacher3Point">
+            <en>Input attacher 3 point</en>
+            <ru>Трёхточечная навеска</ru>
+        </text>
+        <text name="attachable_configuration_inputBurtovik">
+            <en>Input Burtovik</en>
+            <ru>Буртоукладчик</ru>
+        </text>
+        <!--И тут я наворотил :)))-->
+        <text name="configuration_A41_7Gears">
+            <en>A-41 7 Gears</en>
+            <ru>A-41 7 Передач</ru>
+        </text>
+        <text name="configuration_A41_reversReductor7Gears">
+            <en>A-41 7 Gears + Reverse Gear</en>
+            <ru>A-41 7 Передач + Реверс-редуктор</ru>
+        </text>
+		<text name="configuration_A41_reversReductor5Gears">
+            <en>A-41 5 Gears + Reverse Gear</en>
+            <ru>A-41 5 Передач + Реверс-редуктор</ru>
+        </text>
+		<text name="configuration_A41_hodoumenshitel7Gears">
+            <en>A-41 7 Gears + Creeper </en>
+            <ru>A-41 7 Передач + Ходоуменьшитель </ru>
+        </text>
+		
+		
+        <text name="configuration_fenders">
+            <en>Fenders</en>
+            <ru>Грязезащитные крылья</ru>
+        </text>
+		
+		 <text name="configuration_mudFlaps">
+            <en>Mud flaps</en>
+            <ru>Брызговики</ru>
+        </text>
+		
+        <text name="configuration_rearFenders">
+            <en>Rear fenders</en>
+            <ru>Крылья сзади</ru>
+        </text>
+        <text name="configuration_frontFenders">
+            <en>Front fenders</en>
+            <ru>Крылья спереди</ru>
+        </text>
+        <text name="configuration_allFenders">
+            <en>All fenders</en>
+            <ru>Все крылья</ru>
+        </text>
+        <text name="configuration_sunProtector">
+            <en>Sun Protector</en>
+            <ru>Солнцезащитный козырёк</ru>
+        </text>
+        <text name="configuration_toolbox">
+            <en>Toolbox</en>
+            <ru>Ящик для инструментов</ru>
+        </text>
+        <text name="configuration_airFilter">
+            <en>Air filter</en>
+            <ru>Воздушный фильтр</ru>
+        </text>
+        <text name="configuration_topLights">
+            <en>Top lights</en>
+            <ru>Верхние фары</ru>
+        </text>
+        <text name="configuration_topLightsFront">
+            <en>Top front</en>
+            <ru>Верхние спереди</ru>
+        </text>
+        <text name="configuration_topLightsBack">
+            <en>Top back</en>
+            <ru>Верхние сзади</ru>
+        </text>
+        <text name="configuration_topLightsBackFront">
+            <en>Top back</en>
+            <ru>Верхние сзади</ru>
+        </text>
+        <text name="configuration_topLightsBackFront1">
+            <en>Top front + top back</en>
+            <ru>Верхние спереди + верхние сзади</ru>
+        </text>
+        <text name="configuration_topLightsBackFront2">
+            <en>Top front (2) + top back</en>
+            <ru>Верхние спереди (2) + верхние сзади</ru>
+        </text>
+        <text name="configuration_cooperativeSticker">
+            <en>Sticker of cooperative</en>
+            <ru>Наклейка кооператива</ru>
+        </text>
+        <text name="configuration_numberSticker">
+            <en>Distinctive number</en>
+            <ru>Номерной знак отличия</ru>
+        </text>
+        <text name="configuration_exhaustPipe">
+            <en>Exhaust pipe</en>
+            <ru>Выхлопная труба</ru>
+        </text>
+        <text name="configuration_protection">
+            <en>Bulldozer protection</en>
+            <ru>Бульдозерная защита</ru>
+        </text>
+        <text name="configuration_cylindersMountion">
+            <en>Cylinder's mounting</en>
+            <ru>Крепление цилиндров</ru>
+        </text>
+        <text name="configuration_1pointMount">
+            <en>1 Cylinder</en>
+            <ru>1 Цилиндр</ru>
+        </text>
+        <text name="configuration_2pointMount">
+            <en>2 Cylinder's</en>
+            <ru>2 Цилиндра</ru>
+        </text>
+        <text name="configuration_buldoserHook">
+            <en>Hook for trailer</en>
+            <ru>Зацеп для прицепа</ru>
+        </text>
+        <text name="configuration_wideRaised">
+            <en>Wide raised</en>
+            <ru>Широкие поднятые</ru>
+        </text>
+        <text name="configuration_wideLowered">
+            <en>Wide lowered</en>
+            <ru>Широкие опущенные</ru>
+        </text>
+        <text name="configuration_loaderTracks_TO7">
+            <en>Loader tracks for TO-7</en>
+            <ru>Гусеницы для погрузчика TO-7</ru>
+        </text>
+		<text name="option1">
+            <en>Option 1</en>
+            <ru>Вариант 1</ru>
+        </text>
+		<text name="option2">
+            <en>Option 2</en>
+            <ru>Вариант 2</ru>
+        </text>
+		<text name="option3">
+            <en>Option 3</en>
+            <ru>Вариант 3</ru>
+        </text>
+		<text name="option4">
+            <en>Option 4</en>
+            <ru>Вариант 4</ru>
+        </text>
+		<text name="option5">
+            <en>Option 5</en>
+            <ru>Вариант 5</ru>
+        </text>
+		<text name="option6">
+            <en>Option 6</en>
+            <ru>Вариант 6</ru>
+        </text>
+
+        <text name="configuration_protectionShields">
+            <en>Cardan shields</en>
+            <ru>Щитки кардана </ru>
+        </text>
+        <text name="configuration_grilleColor">
+            <en>Radiator grille color</en>
+            <ru>Цвет решётки радиатора</ru>
+        </text>
+		<text name="configuration_engineColor">
+            <en>Engine color</en>
+            <ru>Цвет двигателя </ru>
+        </text>
+        <text name="configuration_exhaustColor">
+            <en>Exhaust pipe color</en>
+            <ru>Цвет выхлопной трубы</ru>
+        </text>
+        <text name="configuration_buldoserCylinderColor">
+            <en>Color of bulldozer cylinders</en>
+            <ru>Цвет бульдозерных цилиндров</ru>
+        </text>
+		<text name="configuration_cylinderColor">
+            <en>Color of cylinders</en>
+            <ru>Цвет цилиндров</ru>
+        </text>
+        <text name="configuration_protectionColor">
+            <en>Color of bulldozer protection</en>
+            <ru>Цвет бульдозерной защиты</ru>
+        </text>
+        <text name="configuration_decalColor">
+            <en>Color of decals</en>
+            <ru>Цвет декалей</ru>
+        </text>
+		<text name="configuration_loaderColor">
+            <en>Loader color</en>
+            <ru>Цвет погрузчика</ru>
+        </text>
+        <text name="mod_colorCian">
+            <en>Cyanogen</en>
+            <ru>Цианоген</ru>
+        </text>
+        <text name="mod_colorArmy">
+            <en>Khaki</en>
+            <ru>Хаки</ru>
+        </text>
+        <text name="mod_colorBordo">
+            <en>Bordeaux</en>
+            <ru>Бордо</ru>
+        </text>
+        <text name="mod_colorCrimson">
+            <en>Crimson</en>
+            <ru>Багровый</ru>
+        </text>
+        <text name="mod_colorGalvanized">
+            <en>Galvanized</en>
+            <ru>Оцинкованный</ru>
+        </text>
+		
+        <!-- Interactive Control -->
+        <text name="actionIC_foldWarningSign">       <en>IC: Fold warning signs</en>         <de>IC: Warntafeln einklappen</de>      </text>
+        <text name="actionIC_unfoldWarningSign">     <en>IC: Unfold warning signs</en>         <de>IC: Warntafeln ausklappen</de>      </text>
+        <text name="actionIC_beaconLightsOn">        <en>IC: Beaconlights on</en>         <de>IC: Rundumleuchten anschalten</de>      </text>
+        <text name="actionIC_beaconLightsOff">       <en>IC: Beaconlight off</en>         <de>IC: Rundumleuchten ausschalten</de>      </text>
+        <text name="actionIC_foldSteeringBase">      <en>IC: Fold steeringbase</en>         <de>IC: Lenkkonsole hoch klappen</de>      </text>
+        <text name="actionIC_unfoldSteeringBase">    <en>IC: Unfold steeringbase</en>         <de>IC: Lenkkonsole herunter klappen</de>      </text>
+        <text name="actionIC_moveMonitor">           <en>IC: Move display</en>         <de>IC: Monitor verschieben</de>      </text>
+        <text name="actionIC_lowerMonitor">          <en>IC: Lower display</en>         <de>IC: Monitor ausschieben</de>      </text>
+        <text name="actionIC_upperMonitor">          <en>IC: Pushup display</en>         <de>IC: Monitor einschieben</de>      </text>
+        <text name="actionIC_lowerArmrest">          <en>IC: Lower Armrest</en>         <de>IC: Armlehne herunter klappen</de>      </text>
+        <text name="actionIC_upperArmrest">          <en>IC: Pushup Armrest</en>         <de>IC: Armlehne hoch klappen</de>      </text>
+        <text name="actionIC_IC">                    <en>Interactive control</en>         <de>Interactive Control</de>      </text>
+        <text name="actionIC_MC">                    <en>Mouse control</en>         <de>Maus Control</de>      </text>
+        <text name="actionIC_Animation">             <en>Animation</en>             <de>Animationen</de>      </text>
+    </l10n>
+</modDesc>

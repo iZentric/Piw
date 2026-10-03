@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="trackHTZ151.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.6"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="../shaders/vehicleShader.xml"/>
+    <File fileId="3" filename="sisteronki.dds"/>
+    <File fileId="14" filename="trackArraybol.dds"/>
+    <File fileId="11" filename="track_normal.dds"/>
+    <File fileId="12" filename="track_specular.dds"/>
+    <File fileId="13" filename="shaders/vehicleShader.xml"/>
+    <File fileId="2" filename="$data/shared/default_normal.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="katok" materialId="5" diffuseColor="0.584314 0.584314 0.584314 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="RDT" value="1 0 0 0"/>
+      <CustomParameter name="colorMat0" value="0.055 0.08 0.1 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 4"/>
+    </Material>
+    <Material name="trackDT75M_mat" materialId="6" diffuseColor="0.8 0.8 0.8 1" customShaderId="13" customShaderVariation="motionPathRubber_secondUV_colorMask">
+      <Normalmap fileId="11"/>
+      <Glossmap fileId="12"/>
+      <Custommap name="mTrackArray" fileId="14"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="colorMat0" value="0.03 0.03 0.03 6"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="trackHTZ151.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <TransformGroup name="tracks150" clipDistance="200" nodeId="25">
+        <TransformGroup name="leftTrack" clipDistance="200" nodeId="26">
+          <Shape shapeId="1" name="katok1L" translation="-0.16 -0.286458 2.26779" clipDistance="200" nodeId="27" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="2" name="katok2L" translation="-0.159679 -0.286458 1.6893" clipDistance="200" nodeId="28" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="3" name="katok3L" translation="-0.159679 -0.286458 1.07047" clipDistance="200" nodeId="29" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="4" name="katok4L" translation="-0.159679 -0.286458 0.481584" clipDistance="200" nodeId="30" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="5" name="podves1L" translation="-0.163885 0.211393 1.98345" clipDistance="200" nodeId="31" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="6" name="podves2L" translation="-0.163886 0.211393 0.775827" clipDistance="200" nodeId="32" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="7" name="zvezdaL" translation="-0.0194657 0.0047126 -0.0029972" rotation="-0.5 0 0" clipDistance="200" nodeId="33" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="8" name="lenivecL" translation="-0.01 -0.0484542 2.95415" clipDistance="200" nodeId="34" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="9" name="track" translation="0 -0.492052 1.89223" scale="1 1.08 1.1" clipDistance="200" nodeId="35" materialIds="6" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
+        </TransformGroup>
+        <TransformGroup name="rightTrack" clipDistance="200" nodeId="36">
+          <Shape shapeId="10" name="katok1R" translation="-0.003578 -0.286458 2.26779" clipDistance="200" nodeId="37" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="11" name="katok2R" translation="-0.003578 -0.286458 1.6893" clipDistance="200" nodeId="38" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="12" name="katok3R" translation="-0.003578 -0.286458 1.07047" clipDistance="200" nodeId="39" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="13" name="katok4R" translation="-0.004 -0.286458 0.481584" clipDistance="200" nodeId="40" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="14" name="podves1R" translation="-0.0077845 0.211393 1.98345" clipDistance="200" nodeId="41" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="15" name="podves2R" translation="-0.0077855 0.211393 0.775827" clipDistance="200" nodeId="42" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="16" name="zvezdaR" translation="0.02 0.0047126 -0.0029972" rotation="-0.5 0 0" clipDistance="200" nodeId="43" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="17" name="lenivecR" translation="0.01 -0.0484542 2.95415" rotation="0 1e-05 0" clipDistance="200" nodeId="44" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="9" name="track" translation="0 -0.492 1.892" scale="1 1.08 1.1" clipDistance="200" nodeId="45" materialIds="6" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
+        </TransformGroup>
+      </TransformGroup>
+      <Camera name="persp" translation="0.624112 0.932579 3.61999" rotation="-43.1668 28.7274 1.52126e-08" visibility="false" nodeId="46" fov="60" nearClip="0.1" farClip="1000" orthographicHeight="1"/>
+  </Scene>
+
+</i3D>

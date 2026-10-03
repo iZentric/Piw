@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="ShovelWide.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="14" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
+    <File fileId="4" filename="textures/lopataWide_specular.dds"/>
+    <File fileId="13" filename="textures/lopata_decal.dds"/>
+    <File fileId="16" filename="textures/lopata_specular.dds"/>
+    <File fileId="5" filename="shaders/vehicleShader.xml"/>
+    <File fileId="3" filename="$data/shared/default_normal.dds"/>
+    <File fileId="12" filename="$data/shared/default_normal.png"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="default_mat" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1">
+      <Normalmap fileId="12"/>
+    </Material>
+    <Material name="lopata_mat" materialId="6" diffuseColor="0 0.00784314 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="12"/>
+      <Glossmap fileId="16"/>
+      <CustomParameter name="colorMat0" value="0.8 0.5 0.055 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.1 0.1 0.1 6"/>
+      <CustomParameter name="colorMat3" value="0.5 0.5 0.5 6"/>
+    </Material>
+    <Material name="LopataDecal.002" materialId="7" customShaderId="5" customShaderVariation="Decal_colorMask">
+      <Texture fileId="13"/>
+      <Normalmap fileId="12"/>
+      <Glossmap fileId="14"/>
+      <CustomParameter name="colorMat0" value="0.03 0.03 0.03 6"/>
+    </Material>
+    <Material name="lopataWide_mat" materialId="48" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="colorMat0" value="0.8 0.5 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.5 0.5 0.5 6"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 0.1 6"/>
+    </Material>
+    <Material name="Unnamedhz" materialId="8" diffuseColor="1 1 1 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="ShovelWide.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="lopata_main_component1" dynamic="true" compound="true" collisionMask="10493954" density="2.3" clipDistance="300" nodeId="18" materialIds="8" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <Shape shapeId="2" name="lopataWide_vis" nodeId="47" materialIds="48" castsShadows="true" receiveShadows="true">
+          <TransformGroup name="emptyTrans" nodeId="20"/>
+          <TransformGroup name="FIllable" translation="0 0.0674466 -0.165951" nodeId="21"/>
+          <TransformGroup name="LevelerNode" translation="0 -0.4 3.03405" clipDistance="300" nodeId="22"/>
+          <Shape shapeId="3" name="mesh" translation="0 -0.271263 2.781" clipDistance="300" nodeId="23" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="4" name="col" translation="-1.315 0.0674466 -0.165951" compoundChild="true" collisionMask="33172" nodeId="24" materialIds="8" nonRenderable="true" distanceBlending="false"/>
+          <Shape shapeId="4" name="col" translation="1.315 0.0674466 -0.165951" compoundChild="true" collisionMask="33172" nodeId="25" materialIds="8" nonRenderable="true" distanceBlending="false"/>
+          <Shape shapeId="5" name="Lopata_Decal" translation="0.000259632 -0.0807025 2.83115" nodeId="26" materialIds="7" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
+          <TransformGroup name="trailerAttacher" nodeId="27">
+            <Shape shapeId="6" name="hook" nodeId="28" materialIds="6" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="trailerAttacherLow" translation="3.42541e-07 0.481145 2.855" rotation="-180 -90 -180" nodeId="29"/>
+            <TransformGroup name="trailerAttacher" translation="3.41203e-07 0.481145 2.855" rotation="-180 -90 -180" nodeId="30"/>
+          </TransformGroup>
+          <TransformGroup name="occlustionArea01" translation="-2.64698e-25 2.84217e-14 0.492846" nodeId="31">
+            <TransformGroup name="occlustionArea01Start" translation="1.54 -0.239 2.573" nodeId="32"/>
+            <TransformGroup name="occlustionArea01Width" translation="-1.54 -0.239 2.573" nodeId="33"/>
+            <TransformGroup name="occlustionArea01Height" translation="1.38 -0.239 2.01901" nodeId="34"/>
+          </TransformGroup>
+          <TransformGroup name="attachers" nodeId="35">
+            <Shape shapeId="7" name="krep1" nodeId="36" materialIds="6" castsShadows="true" receiveShadows="true">
+              <TransformGroup name="ChtokFix1" translation="0 0.0525184 2.42844" nodeId="37"/>
+            </Shape>
+            <Shape shapeId="8" name="krep2" nodeId="38" materialIds="6" castsShadows="true" receiveShadows="true">
+              <TransformGroup name="ChtokFix2" translation="0 0.0525184 2.24858" nodeId="39"/>
+            </Shape>
+          </TransformGroup>
+        </Shape>
+        <TransformGroup name="attachersConfiguration" nodeId="40">
+          <TransformGroup name="attacher1" translation="5.5181e-09 0.0654341 -0.166906" rotation="-1.00179e-05 -90 0" nodeId="41"/>
+          <TransformGroup name="attacher2" translation="5.5181e-09 0.0654341 -0.166906" rotation="-1.00179e-05 -90 0" nodeId="42"/>
+        </TransformGroup>
+        <Camera name="persp" translation="3.39987 1.62443 -0.162559" rotation="160.515 48.4245 -180" visibility="false" nodeId="43" fov="60" nearClip="0.1" farClip="10000" orthographicHeight="1"/>
+      </Shape>
+  </Scene>
+
+</i3D>

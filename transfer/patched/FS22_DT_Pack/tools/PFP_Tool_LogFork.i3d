@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="PFP_Tool_LogFork.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="15" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
+    <File fileId="3" filename="textures/logFork_specular.dds"/>
+    <File fileId="4" filename="shaders/vehicleShader.xml"/>
+    <File fileId="14" filename="$data/shared/default_normal.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="default" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+    <Material name="lambert1" materialId="6" diffuseColor="0.8 0 0 1" specularColor="0.494118 1 0">
+    </Material>
+    <Material name="lambert1" materialId="7" diffuseColor="0.584314 0.584314 0.584314 1">
+    </Material>
+    <Material name="lambert1" materialId="8" diffuseColor="0.8 0.8 0.8 1" specularColor="0.494118 1 0">
+    </Material>
+    <Material name="logFork_mat" materialId="9" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Glossmap fileId="3"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+    </Material>
+    <Material name="part_mat" materialId="10" diffuseColor="0.8 0.8 0.8 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="14"/>
+      <Glossmap fileId="15"/>
+      <CustomParameter name="colorMat0" value="1 1 1 8"/>
+    </Material>
+    <Material name="UnnamedMaterial" materialId="11" diffuseColor="1 1 1 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="PFP_Tool_LogFork.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="frontloaderLogFork_main_component1" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="28" materialIds="11" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <Shape shapeId="2" name="logFork_vis" nodeId="29" materialIds="9" castsShadows="true" receiveShadows="true" distanceBlending="false">
+          <TransformGroup name="attacherJoint" translation="0 0.172301 -0.603227" nodeId="30">
+            <TransformGroup name="attacher" translation="-0.00631325 0.00772817 -0.112333" rotation="90.0001 -75 -90.0001" nodeId="31"/>
+            <TransformGroup name="topReferenceNode" translation="0 0.375598 -0.106781" nodeId="32"/>
+          </TransformGroup>
+        </Shape>
+        <TransformGroup name="collisions" nodeId="33">
+          <Shape shapeId="3" name="colPart01" translation="1.04502 0.0651539 0.567869" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="34" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="4" name="colPart02" translation="-1.045 0.0651539 0.567869" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="35" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="5" name="colPart03" translation="1.07779 0.14849 0.0295158" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="36" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="5" name="colPart04" translation="-1.07808 0.14849 0.0295158" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="37" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="6" name="colPart05" translation="1.10343 0.128887 -0.337022" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="38" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="7" name="colPart06" translation="-1.05378 0.128887 -0.337022" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="39" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="8" name="colPart07" translation="0 0.368979 -0.537397" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="40" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="9" name="colPart08" translation="0 0.872317 -0.443405" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="41" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="10" name="colPart09" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" nodeId="42" materialIds="8" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="11" name="colPart10" translation="1.10344 0.450252 -0.617124" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="43" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="11" name="colPart10" translation="-1.05636 0.450252 -0.617124" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="44" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="12" name="colPart11" translation="1.11214 1.01497 -0.346067" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="45" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="13" name="colPart12" translation="-1.06561 1.01497 -0.346067" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.001" nodeId="46" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        </TransformGroup>
+        <TransformGroup name="tensionBelts" nodeId="47">
+          <Shape shapeId="14" name="beltActivationTrigger" kinematic="true" compound="true" trigger="true" collisionMask="1048576" nodeId="48" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <TransformGroup name="tensionBeltStart1" translation="-0.00039751 0.0949152 0.199059" rotation="153 -5.12609e-14 180" nodeId="49">
+            <TransformGroup name="tensionBeltEnd1" translation="1.87827e-06 -1.09765e-28 0.826819" rotation="0 6.66689e-12 -2.63927e-12" nodeId="50"/>
+            <Shape shapeId="15" name="ring" translation="-5.87897e-08 -0.00925706 0.0195532" rotation="-90.0001 29.0834 -90.0001" nodeId="51" materialIds="10" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="16" name="ring" translation="1.95622e-06 -0.019662 0.815786" rotation="90.0001 -60.5283 -90.0001" nodeId="52" materialIds="10" castsShadows="true" receiveShadows="true"/>
+          </TransformGroup>
+          <TransformGroup name="tensionBeltStart2" translation="0.7 0.0949152 0.199059" rotation="107.5 -5.1262e-14 -180" nodeId="53">
+            <TransformGroup name="tensionBeltEnd2" translation="1.87827e-06 -2.20078e-27 1.21694" rotation="0 6.66689e-12 -2.63927e-12" nodeId="54"/>
+            <Shape shapeId="16" name="ring" translation="1.49012e-06 -0.0189965 1.20681" rotation="90.0001 -59.7283 -90.0001" nodeId="55" materialIds="10" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="15" name="ring" translation="-5.96046e-08 -0.0204347 0.00710241" rotation="-90.0004 74.5834 -90.0003" nodeId="56" materialIds="10" castsShadows="true" receiveShadows="true"/>
+          </TransformGroup>
+          <TransformGroup name="tensionBeltStart3" translation="-0.7 0.0949152 0.199059" rotation="107.5 -5.1262e-14 -180" nodeId="57">
+            <TransformGroup name="tensionBeltEnd3" translation="1.87827e-06 -2.20078e-27 1.21694" rotation="0 6.66689e-12 -2.63927e-12" nodeId="58"/>
+            <Shape shapeId="16" name="ring" translation="1.49012e-06 -0.0189965 1.20681" rotation="90.0001 -59.7283 -90.0001" nodeId="59" materialIds="10" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="15" name="ring" translation="-5.96046e-08 -0.0204347 0.00710241" rotation="-90.0004 74.5834 -90.0003" nodeId="60" materialIds="10" castsShadows="true" receiveShadows="true"/>
+          </TransformGroup>
+        </TransformGroup>
+      </Shape>
+  </Scene>
+
+</i3D>

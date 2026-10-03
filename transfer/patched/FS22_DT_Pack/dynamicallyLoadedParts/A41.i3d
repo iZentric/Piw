@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="A41.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="3" filename="../textures/a41_specular.dds"/>
+    <File fileId="17" filename="../textures/gen_dirt2.dds"/>
+    <File fileId="11" filename="../textures/gridradiator_diffuse.dds"/>
+    <File fileId="12" filename="../textures/gridradiator_normal.png"/>
+    <File fileId="13" filename="../textures/gridradiator_specular.dds"/>
+    <File fileId="19" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
+    <File fileId="4" filename="shaders/vehicleShader.xml"/>
+    <File fileId="2" filename="$data/shared/default_normal.dds"/>
+    <File fileId="15" filename="$data/shared/window_specular.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="a41Engine" materialId="1221" diffuseColor="0.576471 0.584314 0.584314 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2" bumpDepth="0.3"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 6"/>
+      <CustomParameter name="colorMat1" value="0.05 0.05 0.05 6"/>
+      <CustomParameter name="colorMat2" value="1 1 1 4"/>
+      <CustomParameter name="colorMat3" value="0.03 0.3 0.3 11"/>
+      <CustomParameter name="colorMat4" value="0.5 0.2 0.11 4"/>
+      <CustomParameter name="colorMat5" value="0.05 0.05 0.05 5"/>
+      <CustomParameter name="colorMat6" value="1 0.5 0.1 6"/>
+    </Material>
+    <Material name="A41Engine_mat" materialId="1222" diffuseColor="0.8 0.8 0.8 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 6"/>
+      <CustomParameter name="colorMat2" value="1 1 1 4"/>
+    </Material>
+    <Material name="gridradiator_mat" materialId="1223" alphaBlending="true" customShaderId="4" customShaderVariation="Decal_colorMask">
+      <Texture fileId="11"/>
+      <Normalmap fileId="12"/>
+      <Glossmap fileId="13"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 6"/>
+    </Material>
+    <Material name="hamut_mat" materialId="1224" diffuseColor="0.8 0.8 0.8 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="19"/>
+      <CustomParameter name="colorMat0" value="1 1 1 8"/>
+      <CustomParameter name="colorMat1" value="0 0.1 0.1 1"/>
+      <CustomParameter name="colorMat2" value="1 1 1 4"/>
+    </Material>
+    <Material name="hose_mat" materialId="1225" diffuseColor="0.121569 0 0.8 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="17"/>
+    </Material>
+    <Material name="Oilpressure_mat" materialId="1226" diffuseColor="1 1 1 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="15"/>
+      <CustomParameter name="colorMat0" value="0.45 0.22 0 1"/>
+    </Material>
+    <Material name="pipe_mat" materialId="1227" diffuseColor="0.0156863 0 0.8 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="19"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.03 0.03 0.03 5"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="A41.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <TransformGroup name="A_41" nodeId="1237">
+        <Shape shapeId="1" name="engine" translation="-0.00427549 1.07057 1.70938" rotation="-90 -0 0" nodeId="1239" materialIds="1221" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
+        <Shape shapeId="2" name="radiator" nodeId="1240" materialIds="1222" castsShadows="true" receiveShadows="true">
+          <Shape shapeId="3" name="grid_radiator" translation="-0.005 -0.0156716 0.857" nodeId="1241" materialIds="1223" castsShadows="true" receiveShadows="true"/>
+        </Shape>
+        <Shape shapeId="4" name="Oilpressure" translation="-0.005 -0.015 0.858" nodeId="1242" materialIds="1226" castsShadows="true" receiveShadows="true"/>
+        <Shape shapeId="5" name="hoses" translation="-0.005 0 0" nodeId="1243" materialIds="1225" castsShadows="true" receiveShadows="true"/>
+        <Shape shapeId="6" name="airFilterPipe" translation="-0.005 -0.231267 -0.0015" visibility="false" nodeId="1244" materialIds="1227" castsShadows="true" receiveShadows="true"/>
+        <Shape shapeId="7" name="hamut" translation="0.0183024 1.61903 1.59203" nodeId="1245" materialIds="1224" castsShadows="true" receiveShadows="true"/>
+      </TransformGroup>
+  </Scene>
+
+</i3D>

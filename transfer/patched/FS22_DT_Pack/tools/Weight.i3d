@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="Weight.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="18" filename="../textures/gen_dirt2.dds"/>
+    <File fileId="15" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
+    <File fileId="12" filename="textures/concrete_normal.dds"/>
+    <File fileId="13" filename="textures/concrete_specular.dds"/>
+    <File fileId="4" filename="textures/weight_specular.dds"/>
+    <File fileId="5" filename="shaders/vehicleShader.xml"/>
+    <File fileId="16" filename="$data/shared/connectionHoses/connectors_normal.png"/>
+    <File fileId="17" filename="$data/shared/connectionHoses/connectors_vmask.png"/>
+    <File fileId="3" filename="$data/shared/default_normal.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="Concrete_mat" materialId="5" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="12"/>
+      <Glossmap fileId="13"/>
+      <CustomParameter name="RDT" value="1 0 0 0"/>
+      <CustomParameter name="colorMat0" value="0.3 0.3 0.3 6"/>
+    </Material>
+    <Material name="connectors1_mat" materialId="6" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="15"/>
+      <CustomParameter name="RDT" value="1 0 0 0"/>
+      <CustomParameter name="colorMat0" value="0.3587 0.0328 0.0352 1"/>
+      <CustomParameter name="colorMat1" value="0.673 0.4783 0.023 1"/>
+      <CustomParameter name="colorMat2" value="0.01 0.01 0.01 1"/>
+    </Material>
+    <Material name="connectors_mat" materialId="7" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="16"/>
+      <Glossmap fileId="17"/>
+      <CustomParameter name="RDT" value="1 0 0 0"/>
+    </Material>
+    <Material name="connectors_mat" materialId="8" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="16"/>
+      <Glossmap fileId="17"/>
+      <CustomParameter name="RDT" value="1 0 0 0"/>
+      <CustomParameter name="colorMat0" value="1 1 1 8"/>
+    </Material>
+    <Material name="hoses_mat" materialId="9" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="18"/>
+      <CustomParameter name="RDT" value="1 0 0 0"/>
+      <CustomParameter name="colorMat0" value="0.03 0.03 0.03 5"/>
+    </Material>
+    <Material name="skp_front_default" materialId="10" diffuseColor="1 1 1 1">
+    </Material>
+    <Material name="weight_mat" materialId="44" diffuseColor="0.8 0.027451 0 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="RDT" value="1 0 0 0"/>
+      <CustomParameter name="colorMat0" value="1 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="Weight.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="protivoves" dynamic="true" compound="true" collisionMask="2105346" density="2.3" clipDistance="200" nodeId="21" materialIds="10" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="attacherJoint" translation="3.11732e-09 0.329641 -0.454257" rotation="0 -90 0" clipDistance="200" nodeId="22"/>
+        <TransformGroup name="topReferenceNode" translation="3.24303e-09 0.787603 -0.43629" rotation="0 -90 0" joint="true" projection="true" projDistance="0" projAngle="1.80964e+29" yAxisDrive="true" drivePos="true" driveForceLimit="-2.53993e-29" driveSpring="4.30506e-30" driveDamping="0" breakableJoint="true" jointBreakForce="15.1498" jointBreakTorque="4.15891e+21" rotMinX="0" rotMaxX="1.8344e+29" transMinX="0" transMaxX="0" rotMinY="6.3579e-31" rotMaxY="-2.54e-29" transMinY="0" transMaxY="1.85916e+29" rotMinZ="0" rotMaxZ="-5.87072e+07" nodeId="23"/>
+        <TransformGroup name="trailerAttacherJoint" translation="-8.17889e-10 0.0519922 0.485873" rotation="0 -90 0" nodeId="24"/>
+        <Shape shapeId="2" name="weight" nodeId="43" materialIds="44" castsShadows="true" receiveShadows="true">
+          <Shape shapeId="3" name="Concrete" nodeId="26" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <TransformGroup name="connectors" nodeId="27">
+            <Shape shapeId="4" name="hydraulic01" translation="0.167302 0.806225 0.363269" rotation="180 0 -180" clipDistance="50" nodeId="28" materialIds="6" castsShadows="true" receiveShadows="true">
+              <TransformGroup name="referencePoint" translation="-4.45064e-08 -1.08658e-11 -0.0557194" nodeId="29"/>
+            </Shape>
+            <Shape shapeId="5" name="electricMetal" translation="0.274394 0.803352 0.411494" rotation="0 0 29.7321" nodeId="30" materialIds="8" castsShadows="true" receiveShadows="true" distanceBlending="false">
+              <TransformGroup name="referencePoint" rotation="-180 0 -180" nodeId="31"/>
+            </Shape>
+            <Shape shapeId="6" name="hydraulic" translation="0.163194 0.839249 -0.193038" rotation="-1.72654e-06 0 1.34349e-05" clipDistance="50" nodeId="32" materialIds="7" castsShadows="true" receiveShadows="true">
+              <TransformGroup name="referencePoint01" translation="0 0 -0.116469" rotation="180 0 -180" nodeId="33"/>
+            </Shape>
+            <Shape shapeId="6" name="hydraulic" translation="0.226352 0.839249 -0.193038" rotation="-1.72654e-06 0 1.34349e-05" clipDistance="50" nodeId="34" materialIds="7" castsShadows="true" receiveShadows="true">
+              <TransformGroup name="referencePoint02" translation="0 0 -0.116469" rotation="180 0 -180" nodeId="35"/>
+            </Shape>
+            <Shape shapeId="7" name="hoses" translation="0.274311 0.803621 0.337362" rotation="2.50448e-06 0 0" nodeId="36" materialIds="9" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
+          </TransformGroup>
+        </Shape>
+      </Shape>
+  </Scene>
+
+</i3D>

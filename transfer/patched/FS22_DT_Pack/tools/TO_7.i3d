@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="TO_7.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.6"/>
+  </Asset>
+
+  <Files>
+    <File fileId="12" filename="../textures/gen_dirt2.dds"/>
+    <File fileId="13" filename="../textures/lvl1_wear_dirt_pecular.dds"/>
+    <File fileId="11" filename="textures/decals_PTS_77.dds"/>
+    <File fileId="4" filename="textures/to7_specular.dds"/>
+    <File fileId="5" filename="shaders/vehicleShader.xml"/>
+    <File fileId="3" filename="$data/shared/default_normal.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="Col_mat" materialId="5" diffuseColor="0.584314 0.584314 0.584314 1">
+    </Material>
+    <Material name="decals_mat" materialId="6" customShaderId="5" customShaderVariation="colorMask">
+      <Texture fileId="11"/>
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="12"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 6"/>
+    </Material>
+    <Material name="default" materialId="7" diffuseColor="0.584314 0.584314 0.584314 1" specularColor="0.894118 1 0.894118">
+    </Material>
+    <Material name="hose_mat" materialId="8" diffuseColor="0.8 0 0 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="12"/>
+    </Material>
+    <Material name="hose_mat" materialId="9" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="12"/>
+    </Material>
+    <Material name="hose_mat.001" materialId="10" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="13"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+    </Material>
+    <Material name="to7_mat" materialId="11" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 6"/>
+      <CustomParameter name="colorMat1" value="1 1 1 8"/>
+      <CustomParameter name="colorMat2" value="0.8 0.55 0.05 6"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="TO_7.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="KunDTNew_main_component1Shape" dynamic="true" compound="true" collisionMask="2105346" clipDistance="300" nodeId="37" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="kunDt_vis" translation="0 1.62187e-05 0" nodeId="38">
+          <Shape shapeId="2" name="mainArm" translation="-0.0023885 1.63098 0.339276" nodeId="39" materialIds="11" castsShadows="true" receiveShadows="true">
+            <TransformGroup name="attacherRot" translation="0 -1.45998 2.34559" nodeId="40">
+              <TransformGroup name="attacher" nodeId="41">
+                <TransformGroup name="attacherJointToolsVisuals" rotation="-3.71915e-05 -90 5.08356e-05" nodeId="42"/>
+                <TransformGroup name="TyagiFixConfig" nodeId="43">
+                  <TransformGroup name="TyagiFix" translation="0 0.516051 0.160924" rotation="38.4147 -0 0" nodeId="44"/>
+                </TransformGroup>
+              </TransformGroup>
+            </TransformGroup>
+            <Shape shapeId="3" name="Napr" translation="-0.00131 -0.655332 1.50186" rotation="87.9938 1.86e-05 180" nodeId="45" materialIds="11" castsShadows="true" receiveShadows="true">
+              <Shape shapeId="4" name="Tyagi" translation="-0.0025823 0.0145843 0.829352" rotation="136.642 -4.84524e-06 180" nodeId="46" materialIds="11" castsShadows="true" receiveShadows="true"/>
+              <TransformGroup name="WerhShtokFix" translation="-0.0036984 0.00664289 0.406582" rotation="103.83 5.00896e-06 180" nodeId="47"/>
+              <TransformGroup name="decal" translation="-0.00369782 -1.80585 -1.03952" rotation="87.9938 5.65703e-06 -180" nodeId="48">
+                <Shape shapeId="5" name="decal1" translation="0 0 2.498e-16" nodeId="49" materialIds="6" castsShadows="true" receiveShadows="true"/>
+              </TransformGroup>
+              <TransformGroup name="maslionka" translation="-0.00369782 -1.80585 -1.03952" rotation="87.9938 5.65703e-06 -180" nodeId="50">
+                <Shape shapeId="6" name="maslionka" translation="0.656032 0.974555 1.84143" nodeId="51" materialIds="10" castsShadows="true" receiveShadows="true"/>
+                <Shape shapeId="6" name="maslionka" translation="0.656032 1.38304 1.86231" nodeId="52" materialIds="10" castsShadows="true" receiveShadows="true"/>
+                <Shape shapeId="6" name="maslionka" translation="0.656032 1.79237 1.8755" nodeId="53" materialIds="10" castsShadows="true" receiveShadows="true"/>
+                <Shape shapeId="6" name="maslionka" translation="-0.666687 0.974555 1.84143" rotation="-180 0 -180" nodeId="54" materialIds="10" castsShadows="true" receiveShadows="true"/>
+                <Shape shapeId="6" name="maslionka" translation="-0.667003 1.38228 1.86231" rotation="-8.39985e-06 180 9.18895e-06" nodeId="55" materialIds="10" castsShadows="true" receiveShadows="true"/>
+                <Shape shapeId="6" name="maslionka" translation="-0.667245 1.79237 1.8755" rotation="0 180 0" nodeId="56" materialIds="10" castsShadows="true" receiveShadows="true"/>
+              </TransformGroup>
+            </Shape>
+            <TransformGroup name="NizShtokFix" translation="0.0023884 -0.650656 1.0036" rotation="0 -3.24e-05 0" nodeId="57"/>
+            <TransformGroup name="Colision" translation="0 1.62125e-05 0" nodeId="58">
+              <Shape shapeId="7" name="Col1" translation="0 -1.54074 2.33845" compoundChild="true" collisionMask="2109442" nodeId="59" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="8" name="Col2" translation="0 -1.54074 2.33845" compoundChild="true" collisionMask="2109442" nodeId="60" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="9" name="Col3" compoundChild="true" collisionMask="2109442" nodeId="61" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="10" name="Col4" compoundChild="true" collisionMask="2109442" nodeId="62" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            </TransformGroup>
+            <TransformGroup name="decals" translation="0.0023885 -1.631 -0.339276" nodeId="63">
+              <Shape shapeId="11" name="decals2" nodeId="64" materialIds="6" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <TransformGroup name="maslionka" translation="0.0023885 -1.631 -0.339276" rotation="2.13443e-07 8.26944e-13 -4.07111e-13" nodeId="65">
+              <Shape shapeId="6" name="maslionka" translation="0.645854 0.979777 1.34277" nodeId="66" materialIds="10" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="6" name="maslionka" translation="-0.646 0.979777 1.34277" rotation="-180 0 -180" nodeId="67" materialIds="10" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <TransformGroup name="naprRefFrame" translation="-0.00131 -0.655332 1.50186" rotation="87.9938 1.8798e-05 -180" nodeId="68"/>
+          </Shape>
+          <Shape shapeId="12" name="NizGid" translation="0 0.962401 0.276" nodeId="69" materialIds="11" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="13" name="NizShtokShape" nodeId="70" materialIds="11" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="hoseRefs" translation="0 -0.962417 -0.276" rotation="-1.70755e-06 -0 0" nodeId="71">
+              <TransformGroup name="hose3Ref" translation="0.751604 1.07599 0.310877" rotation="90 -0 0" nodeId="72"/>
+              <TransformGroup name="hose4Ref" translation="0.704048 1.10097 0.304975" rotation="90 -0 0" nodeId="73"/>
+              <TransformGroup name="hose7Ref" translation="-0.713252 1.10679 0.305675" rotation="90 -0 0" nodeId="74"/>
+              <TransformGroup name="hose8Ref" translation="-0.751394 1.076 0.309508" rotation="90 -0 0" nodeId="75"/>
+            </TransformGroup>
+          </Shape>
+          <Shape shapeId="14" name="WerhGid" translation="0 1.8537 0.162118" rotation="16 -0 0" nodeId="76" materialIds="11" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="15" name="WerhShtokShape" nodeId="77" materialIds="11" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="hoseRefs1" translation="0 -1.8266 0.355116" rotation="-16 -0 0" nodeId="78">
+              <TransformGroup name="hose1Ref" translation="0.746031 1.88897 0.333995" rotation="90 -0 0" nodeId="79"/>
+              <TransformGroup name="hose2Ref" translation="0.69987 1.91471 0.333996" rotation="90 -0 0" nodeId="80"/>
+              <TransformGroup name="hose5Ref" translation="-0.69987 1.91471 0.333995" rotation="90 -0 0" nodeId="81"/>
+              <TransformGroup name="hose6Ref" translation="-0.747674 1.88991 0.335265" rotation="90 -0 0" nodeId="82"/>
+            </TransformGroup>
+          </Shape>
+          <TransformGroup name="mainArmDummy" translation="-0.002 1.631 0.339276" nodeId="83">
+            <TransformGroup name="attacherRotDummy" translation="0 -1.45992 2.34559" nodeId="84">
+              <TransformGroup name="attacherDummy" rotation="-30 -0 0" nodeId="85">
+                <TransformGroup name="attacherJointTools" rotation="3.91422e-05 -90 -0.000469706" nodeId="86"/>
+              </TransformGroup>
+            </TransformGroup>
+          </TransformGroup>
+          <TransformGroup name="hosesSkinMesh" translation="0 0.0540848 -0.881945" nodeId="87">
+            <TransformGroup name="hose1" translation="0.746031 1.83487 1.21594" rotation="-6.83019e-06 -0 0" nodeId="88">
+              <TransformGroup name="hose1Bone" translation="-0.160489 -0.487561 -0.291081" rotation="90 -0 0" nodeId="89"/>
+              <Shape shapeId="16" name="hose1Skin" translation="-0.160489 -0.487561 -0.291081" rotation="-6.83019e-06 -0 0" nodeId="90" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="79 89"/>
+            </TransformGroup>
+            <TransformGroup name="hose2" translation="0.585179 1.41826 0.929176" rotation="-6.83019e-06 -0 0" nodeId="91">
+              <TransformGroup name="hose2Bone" rotation="90 -0 0" nodeId="92"/>
+              <Shape shapeId="17" name="hose2Skin" translation="-0.585179 -1.41826 -0.929176" rotation="-6.83019e-06 -0 0" nodeId="93" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="92 80"/>
+            </TransformGroup>
+            <TransformGroup name="hose3" translation="0.751604 1.02189 1.19282" rotation="-6.83019e-06 -0 0" nodeId="94">
+              <TransformGroup name="hose3Bone" translation="-0.128021 -0.0284543 -0.53327" rotation="90 -0 0" nodeId="95"/>
+              <Shape shapeId="18" name="hose3Skin" translation="-0.128021 -0.0284543 -0.53327" rotation="-6.83019e-06 -0 0" nodeId="96" materialIds="9" castsShadows="true" receiveShadows="true" skinBindNodeIds="72 95"/>
+            </TransformGroup>
+            <TransformGroup name="hose4" translation="0.704048 1.04687 1.18692" rotation="-6.83019e-06 -0 0" nodeId="97">
+              <TransformGroup name="hose4Bone" translation="-0.0817192 -0.01203 -0.489058" rotation="90 -0 0" nodeId="98"/>
+              <Shape shapeId="19" name="hose4Skin" translation="-0.704048 -1.04687 -1.18692" rotation="-6.83019e-06 -0 0" nodeId="99" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="73 98"/>
+            </TransformGroup>
+            <TransformGroup name="hose5" translation="-0.69987 1.86061 1.21594" rotation="-6.83019e-06 -0 0" nodeId="100">
+              <TransformGroup name="hose5Bone" translation="0.114328 -0.44235 -0.291081" rotation="90 -0 0" nodeId="101"/>
+              <Shape shapeId="20" name="hose5Skin" translation="0.69987 -1.86061 -1.21594" rotation="-6.83019e-06 -0 0" nodeId="102" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="81 101"/>
+            </TransformGroup>
+            <TransformGroup name="hose6" translation="-0.747674 1.83581 1.21721" rotation="-6.83019e-06 -0 0" nodeId="103">
+              <TransformGroup name="hose6Bone" translation="0.162132 -0.487984 -0.292352" rotation="90 -0 0" nodeId="104"/>
+              <Shape shapeId="21" name="hose6Skin" translation="0.162132 -0.487984 -0.292352" rotation="-6.83019e-06 -0 0" nodeId="105" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="82 104"/>
+            </TransformGroup>
+            <TransformGroup name="hose7" translation="-0.713252 1.05269 1.18762" rotation="-6.83019e-06 -0 0" nodeId="106">
+              <TransformGroup name="hose7Bone" translation="0.0909227 -0.0178542 -0.489759" rotation="90 -0 0" nodeId="107"/>
+              <Shape shapeId="22" name="hose7Skin" translation="0.0909227 -0.0178542 -0.489759" rotation="-6.83019e-06 -0 0" nodeId="108" materialIds="8" castsShadows="true" receiveShadows="true" skinBindNodeIds="74 107"/>
+            </TransformGroup>
+            <TransformGroup name="hose8" translation="-0.751394 1.0219 1.19145" rotation="-6.83019e-06 -0 0" nodeId="109">
+              <TransformGroup name="hose8Bone" translation="0.128021 -0.0284543 -0.53327" rotation="90 -0 0" nodeId="110"/>
+              <Shape shapeId="23" name="hose8Skin" translation="0.128021 -0.0284543 -0.53327" rotation="-6.83019e-06 -0 0" nodeId="111" materialIds="9" castsShadows="true" receiveShadows="true" skinBindNodeIds="75 110"/>
+            </TransformGroup>
+          </TransformGroup>
+        </TransformGroup>
+        <TransformGroup name="skinedMesh" nodeId="112"/>
+        <TransformGroup name="attacherJoint" translation="-2.83813e-08 -0.0167812 0.316157" rotation="-4.07111e-13 -90 0" nodeId="113"/>
+        <TransformGroup name="supportCol" translation="0 1.734 0.28679" nodeId="114">
+          <Shape shapeId="24" name="ColL" translation="1.3 -1.014 0.000251193" rotation="2.50448e-06 -0 0" compoundChild="true" collisionMask="2109442" clipDistance="300" nodeId="115" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="24" name="ColP" translation="-1.3 -1.014 0.000251236" rotation="2.50448e-06 -0 0" compoundChild="true" collisionMask="2109442" clipDistance="300" nodeId="116" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        </TransformGroup>
+      </Shape>
+  </Scene>
+
+</i3D>
