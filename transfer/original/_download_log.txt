@@ -10,24 +10,24 @@ gdown rc=2
 === after gdown ===
 === missing after gdown: FS22_DT_Pack.zip FS22_T150_Gus.zip ===
 === python fallback ===
-  folder page: 334908 bytes
-  folder page: 334908 bytes
+  folder page: 334892 bytes
+  folder page: 334892 bytes
 /home/runner/work/Piw/Piw/tools/drive_fallback.py:72: DeprecationWarning: invalid escape sequence '\/'
   decoded = raw.encode("utf-8").decode("unicode_escape")
   parsed 2 file(s) from the folder page:
-    - FS22_DT_Pack.zip  (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE)
-    - FS22_T150_Gus.zip  (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O)
-  downloading FS22_DT_Pack.zip (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE, attempt 1) ...
   parsed 2 file(s) from the folder page:
     - FS22_DT_Pack.zip  (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE)
+    - FS22_DT_Pack.zip  (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE)
+    - FS22_T150_Gus.zip  (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O)
     - FS22_T150_Gus.zip  (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O)
   downloading FS22_DT_Pack.zip (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE, attempt 1) ...
-  ok FS22_DT_Pack.zip: 146993870 bytes in 3.0s
-  ok FS22_DT_Pack.zip: 146993870 bytes in 3.0s
+  downloading FS22_DT_Pack.zip (id=1OCq8f8oO6tWvGllYdFE109iIwfH1MwdE, attempt 1) ...
+  ok FS22_DT_Pack.zip: 146993870 bytes in 2.9s
+  ok FS22_DT_Pack.zip: 146993870 bytes in 2.9s
   downloading FS22_T150_Gus.zip (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O, attempt 1) ...
   downloading FS22_T150_Gus.zip (id=1krj-cxbFOZDSzbozQkekQbIG_CHo8O3O, attempt 1) ...
-  ok FS22_T150_Gus.zip: 218069935 bytes in 5.3s
-  ok FS22_T150_Gus.zip: 218069935 bytes in 5.3s
+  ok FS22_T150_Gus.zip: 218069935 bytes in 3.1s
+  ok FS22_T150_Gus.zip: 218069935 bytes in 3.1s
  146993870  /tmp/downloads/FS22_DT_Pack.zip
  218069935  /tmp/downloads/FS22_T150_Gus.zip
 50aa2a6aa586330425da1383025e8ce14d2317f21a4ca975a57016f31ed3bb31  /tmp/downloads/FS22_DT_Pack.zip
