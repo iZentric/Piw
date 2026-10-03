@@ -1,4 +1,6 @@
 === FS22_DT_Pack.zip
+  check: FS22-era shader files left : 0
+  check: unresolved shader refs     : 0
 built dist/FS25_DT_Pack.zip
   replaced files : 33
     ~ DT_75.i3d
@@ -43,6 +45,8 @@ built dist/FS25_DT_Pack.zip
   deleted files  : 1
     - scripts/MoreDesignConfigs.lua
 === FS22_T150_Gus.zip
+  check: FS22-era shader files left : 0
+  check: unresolved shader refs     : 0
 built dist/FS25_T150_Gus.zip
   replaced files : 12
     ~ 150_gus.i3d
