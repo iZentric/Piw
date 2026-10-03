@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<sounds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../bin/shared/xml/schema/vehicle_sounds.xsd">
+    <motorized>
+        <sounds>
+            <motor template="engineSmallVintage" file="t425/sounds/t425_loop.gls" linkNodeOffset="0 1 0.8" pitchScale="1.4" volumeScale="1.5" />
+            <motor  file="t425/sounds/Fan_loop.gls" linkNodeOffset="0 1 1.5" volumeScale="1.9" innerRadius="5" outerRadius="50" fadeIn="1" pitchScale="0.6">
+                <lowpassGain indoor="0.45" outdoor="1.00" />
+                <lowpassCutoffFrequency indoor="100" outdoor="15000"/>
+                <lowpassResonance indoor="0" outdoor="0"/>
+                <volume indoor="0.70" outdoor="1.00" >
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.80" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="20.0" modifiedValue="1.15" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="28.0" modifiedValue="1.25" />
+
+                    <modifier type="MOTOR_LOAD" value="0.00"   modifiedValue="1.00" />
+                    <modifier type="MOTOR_LOAD" value="35.00"  modifiedValue="1.00" />
+                    <modifier type="MOTOR_LOAD" value="75.00"  modifiedValue="1.20" />
+                    <modifier type="MOTOR_LOAD" value="100.00" modifiedValue="1.40" />
+                </volume>
+                <pitch>
+                    <modifier type="SUSPENSION" value="-0.08" modifiedValue="0.9" />
+                    <modifier type="SUSPENSION" value="-0.02" modifiedValue="0.95" />
+                    <modifier type="SUSPENSION" value="0.0" modifiedValue="1.0" />
+                    <modifier type="SUSPENSION" value="0.02" modifiedValue="1.05" />
+                    <modifier type="SUSPENSION" value="0.08" modifiedValue="1.1" />
+                </pitch>
+            </motor>
+            <gearbox file="t425/sounds/Transmission_loop.gls" linkNodeOffset="0.6 0.5 -0.8" pitchScale="1.5" volumeScale="0.5" innerRadius="1" outerRadius="40" fadeIn="0.9">
+                <loopSynthesisRpm>
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0" modifiedValue="0.0" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="15.0" modifiedValue="0.5" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="29.0" modifiedValue="1.0" />
+                </loopSynthesisRpm>
+                <volume indoor="0.25" outdoor="1" >
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="20.0" modifiedValue="0.90" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="29.0" modifiedValue="1.00" />
+
+                    <modifier type="MOTOR_LOAD" value="-1.00" modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.00"  modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.20"  modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.30"  modifiedValue="1.2" />
+                    <modifier type="MOTOR_LOAD" value="0.45"  modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.80"  modifiedValue="0.75" />
+                    <modifier type="MOTOR_LOAD" value="1.00"  modifiedValue="0.65" />
+                </volume>
+                <pitch>
+                    <modifier type="SUSPENSION" value="-0.08" modifiedValue="1.07" />
+                    <modifier type="SUSPENSION" value="-0.02" modifiedValue="1.05" />
+                    <modifier type="SUSPENSION" value="0.0" modifiedValue="1.0" />
+                    <modifier type="SUSPENSION" value="0.02" modifiedValue="1.05" />
+                    <modifier type="SUSPENSION" value="0.08" modifiedValue="1.08" />
+                </pitch>
+            </gearbox>
+            <gearbox file="t425/sounds/Transmission_loop.gls" linkNodeOffset="-0.6 0.5 -0.8" pitchScale="1.3" volumeScale="0.5" innerRadius="1" outerRadius="40" fadeIn="0.9">
+                <loopSynthesisRpm>
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0" modifiedValue="0.0" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="15.0" modifiedValue="0.5" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="29.0" modifiedValue="1.0" />
+                </loopSynthesisRpm>
+                <volume indoor="0.25" outdoor="1" >
+                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.00" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="0.65" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="20.0" modifiedValue="0.90" />
+                    <modifier type="DIFFERENTIAL_SPEED" value="29.0" modifiedValue="1.00" />
+
+                    <modifier type="MOTOR_LOAD" value="-1.00" modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.00"  modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.20"  modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.30"  modifiedValue="1.2" />
+                    <modifier type="MOTOR_LOAD" value="0.45"  modifiedValue="1.0" />
+                    <modifier type="MOTOR_LOAD" value="0.80"  modifiedValue="0.75" />
+                    <modifier type="MOTOR_LOAD" value="1.00"  modifiedValue="0.65" />
+                </volume>
+                <pitch>
+                    <modifier type="SUSPENSION" value="-0.08" modifiedValue="1.07" />
+                    <modifier type="SUSPENSION" value="-0.02" modifiedValue="1.05" />
+                    <modifier type="SUSPENSION" value="0.0" modifiedValue="1.0" />
+                    <modifier type="SUSPENSION" value="0.02" modifiedValue="1.05" />
+                    <modifier type="SUSPENSION" value="0.08" modifiedValue="1.08" />
+                </pitch>
+            </gearbox>
+            <gearGroupLeverStart template="gearDisengagedNoCabin" volumeScale="1.5"/>
+            <gearGroupLeverEnd template="gearEngagedNoCabin" volumeScale="1.5"/>
+        </sounds>
+    </motorized>
+
+    <attacherJoints>
+        <sounds>
+            <attach template="attach01" />
+            <hydraulic template="hydraulicClose03" />
+        </sounds>
+    </attacherJoints>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="waterSplash01" />
+        </sounds>
+    </drivable>
+
+    <honk>
+        <sound template="hornDefault" volumeScale="2" linkNodeOffset="0 1 1.5"/>
+    </honk>
+</sounds>

@@ -1,0 +1,11 @@
+# contents of FS25_ref_FS22ShaderColorFix_v1.2.zip
+# size bytes  crc32  path
+           0  00000000  rustShader/
+           0  00000000  src/
+        5682  10466f52  modDesc.xml
+       13236  391487d3  src/BaseMaterial.lua
+       77177  fcb70ed5  vehicleShader.xml
+       78285  4bcb3bf6  rustShader/vehicleShader.xml
+      131200  9ee9624c  icon_fs22ShaderColorFix.dds
+      174904  7e693232  rustShader/rustSpecular.dds
+      174904  e0262239  rustShader/rustDiffuse.dds

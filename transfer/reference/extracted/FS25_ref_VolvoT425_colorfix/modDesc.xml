@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="100">
+    <author>GIANTS Software</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Volvo T425</en>
+    </title>
+    <description>
+        <en><![CDATA[
+
+]]></en>
+        <ru><![CDATA[
+]]></ru>
+    </description>
+    <iconFilename>icon_volvoT425.png</iconFilename>
+    <multiplayer supported="true"/>
+    <storeItems>
+        <storeItem rootNode="vehicle" xmlFilename="t425/t425.xml"/>
+    </storeItems>
+</modDesc>

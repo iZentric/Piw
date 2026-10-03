@@ -1,0 +1,7 @@
+# contents of FS25_ref_FS22ShaderColorFix_modhub.zip
+# size bytes  crc32  path
+           0  00000000  src/
+        5118  5d84fa0a  modDesc.xml
+       11433  df9ae0b9  src/BaseMaterial.lua
+       77177  fcb70ed5  vehicleShader.xml
+      131200  327b1a3e  icon_fs22ShaderColorFix.dds

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="93">
+    <author>Average Enjoyer</author>
+    <contributors>
+        Lampovo Project ^ω^
+    </contributors>
+    <version>1.2.0.0</version>
+    <title>
+        <en>FS 22 Shader Color Fix</en>
+    </title>
+    <description>
+<en>
+<![CDATA[FS 22 Shader Color Fix – restores color customization for vehicles with fs22support vehicleShader in FS25
+
+The developers of Farming Simulator 25 introduced a new system for painting vehicles. In this new system, shader parameters previously used in FS22 (such as colorMat0, colorMat1, etc.) are no longer supported.
+This mod restores the ability to use those parameters for painting vehicles that rely on the fs22support shader.
+
+An updated version of vehicleShader.xml with bug fixes is included in the mod archive. You can copy this file into your own mod's archive and reference it manually in your .i3d files.
+
+The XML schema is very similar to what was used in FS22 (and FS19).
+
+    Example: <baseMaterial> block
+    <baseMaterial>
+        <material name="UNIQUE SLOT NAME" baseNode="NODE PATH OR I3DMAPPINGS ID">
+            <shaderParameter name="colorMat0" /> <!-- List all shader parameters you want to modify (colorMat0, colorMat1 И Т.Д.) -->
+            <shaderParameter name="colorMat1" />
+        </material>
+    </baseMaterial>
+
+    Example: Color Configuration
+    <designMaterialConfigurations>
+        <material materialSlotName="SLOT NAME FROM BASEMATERIAL" shaderParameter="SHADER PARAMETER FROM BASEMATERIAL (e.g., colorMat0)"/>
+        <baseMaterialConfiguration name="COLOR CONFIG NAME" color="R G B" material="COLOR MATERIAL (0 = Painted Metal, 1 = Painted Plastic, etc.)"/>
+    </designMaterialConfigurations>
+
+    Example: Design Configuration
+    <designConfigurations>
+        <designConfiguration>
+            <material materialSlotName="SLOT NAME FROM BASEMATERIAL" shaderParameter="SHADER PARAMETER FROM BASEMATERIAL (e.g., colorMat0)">
+                <colorScale value="R G B" material="COLOR MATERIAL (0 = Painted Metal, 1 = Painted Plastic, etc.)"/>
+            </material>
+        </designConfiguration>
+    </designConfigurations>
+
+Changelog 1.1.0.0
+- Added fs22support rust shader;
+
+Changelog 1.2.0.0
+- Shared parameter is set to true when calling setShaderParameter (meshes using the same material as baseNode will be colored along with baseNode);
+]]>
+</en>
+<ru>
+<![CDATA[FS 22 Shader Color Fix – восстановление покраски техники с fs22support шейдером в FS25
+
+Разработчики ввели в Farming Simulator 25 новую систему покраски техники, в которой параметры шейдера (например, colorMat0, colorMat1 и т.д.), использовавшиеся в FS22, больше не поддерживаются.
+Этот мод возвращает возможность покраски техники, использующей такие параметры.
+
+vehicleShader.xml с исправленными ошибками можно взять из архива этого мода. Поместите его в архив своего мода и вручную укажите его в ваших .i3d файлах.
+
+Прописка в xml файле похожа на ту что была в FS 22 (и FS 19).
+
+    ПРИМЕР БЛОКА <baseMaterial>
+    <baseMaterial>
+        <material name="УНИКАЛЬНОЕ НАЗВАНИЕ ДЛЯ СЛОТА" baseNode="ИНДЕСК ПУТЬ ДО НОДЫ ИЛИ ID ИЗ I3DMAPPINGS">
+            <shaderParameter name="colorMat0" /> <!-- ЗДЕСЬ ПЕРЕЧИСЛЯЮТСЯ ПАРАМЕТРЫ МАТЕРИАЛА КОТОРЫЕ ХОТИТЕ ИЗМЕНЯТЬ (colorMat0, colorMat1 И Т.Д.) -->
+            <shaderParameter name="colorMat1" />
+        </material>
+    </baseMaterial>
+
+    ПРИМЕР КОНФИГУРАЦИИ ЦВЕТА
+    <designMaterialConfigurations>
+        <material materialSlotName="НАЗВАНИЕ СЛОТА ИЗ БЛОКА BASEMATERIAL" shaderParameter="ПАРАМЕТР ШЕЙДЕРА КОТОРЫЙ СЛЕДУЕТ ПОКРАСИТЬ (НАПРИМЕР colorMat0)"/>
+        <baseMaterialConfiguration name="НАЗВАНИЕ КОНФИГУРАЦИИ ЦВЕТА" color="ЦВЕТ (R G B)" material="МАТЕРИАЛ ЦВЕТА (0 - PAINTED METAL, 1 - PAINTED PLASTIC И Т.Д)"/>
+    </designMaterialConfigurations>
+
+    ПРИМЕР КОНФИГУРАЦИИ ДИЗАЙНА
+    <designConfigurations>
+        <designConfiguration>
+            <material materialSlotName="НАЗВАНИЕ СЛОТА ИЗ БЛОКА BASEMATERIAL" shaderParameter="ПАРАМЕТР ШЕЙДЕРА КОТОРЫЙ СЛЕДУЕТ ПОКРАСИТЬ (НАПРИМЕР colorMat0)">
+                <colorScale value="ЦВЕТ (R G B)" material="МАТЕРИАЛ ЦВЕТА (0 - PAINTED METAL, 1 - PAINTED PLASTIC И Т.Д)"/>
+            </material>
+        </designConfiguration>
+    </designConfigurations>
+
+История версий 1.1.0.0
+- Добавлен fs22support шейдер со ржавчиной;
+
+История версий 1.2.0.0
+- Установлен параметр shared true при вызове setShaderParameter (меши с материалом как у baseNode будут окрашиваться вместе с baseNode);
+]]>
+</ru>
+    </description>
+
+    <iconFilename>icon_fs22ShaderColorFix.png</iconFilename>
+
+    <extraSourceFiles>
+        <sourceFile filename="src/BaseMaterial.lua" />
+    </extraSourceFiles>
+</modDesc>
