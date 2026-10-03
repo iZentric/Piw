@@ -38,6 +38,31 @@ def log(msg: str = "") -> None:
     print(msg, flush=True)
 
 
+def save_page(out_dir: str, name: str, html: str) -> str:
+    """Keep the fetched page so we can inspect the host's form/JS flow later."""
+    parent = os.path.dirname(os.path.abspath(out_dir.rstrip("/"))) or "."
+    pages = os.path.join(parent, "pages")
+    os.makedirs(pages, exist_ok=True)
+    slug = re.sub(r"[^A-Za-z0-9._-]+", "_", name)[:80] or "page"
+    path = os.path.join(pages, slug + ".html")
+    with open(path, "w", encoding="utf-8", errors="replace") as fh:
+        fh.write(html)
+    return path
+
+
+def candidate_links(html: str) -> list:
+    """Any href/data-* that looks like a download endpoint (for diagnosis + retry)."""
+    out, seen = [], set()
+    for attr, value in re.findall(r'(href|action|data-href|data-url|data-link)\s*=\s*["\']([^"\']+)["\']', html, re.I):
+        if value in seen:
+            continue
+        low = value.lower()
+        if any(h in low for h in (".zip", "/d/", "download", "getfile", "downloadfile")):
+            seen.add(value)
+            out.append(value)
+    return out[:15]
+
+
 def build_opener() -> urllib.request.OpenerDirector:
     jar = http.cookiejar.CookieJar()
     return urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
@@ -170,6 +195,15 @@ def grab(op, page_url: str, out_dir: str, name: str) -> bool:
         if link:
             log(f"    direct link found: {link}")
             if download(op, link, target, out_dir, name):
+                return True
+    path = save_page(out_dir, name, html)
+    log(f"  page saved: {path}")
+    links = candidate_links(html)
+    if links:
+        log("  candidate links: " + " | ".join(links))
+        for link in links:
+            target = urllib.parse.urljoin(page_url, link)
+            if download(op, target, page_url, out_dir, name):
                 return True
     log("  !! could not obtain the file through the form flow")
     return False

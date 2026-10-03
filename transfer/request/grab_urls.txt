@@ -7,3 +7,5 @@
 https://modsfire.com/zNC6oMDco75X92Z FS25_ref_FS22ShaderColorFix_v1.2.zip
 # 4) Volvo T425 adapted to that fix - an example FS25 vehicle that uses the restored colorMat schema.
 https://modsfire.com/L9Ise43d5c19H9y FS25_ref_VolvoT425_colorfix.zip
+# 5) same fix on modhub.us (different host, in case modsfire stays uncooperative)
+https://www.modhub.us/farming-simulator-25-mods/fs22-shader-color-fix-v1000 FS25_ref_FS22ShaderColorFix_modhub.zip
