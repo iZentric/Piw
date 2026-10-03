@@ -1,0 +1,8 @@
+# big binaries must never be committed - only extracted text is tracked
+transfer/**/*.zip
+transfer/**/*.rar
+transfer/**/*.7z
+transfer/**/*.shapes
+dist/
+__pycache__/
+*.pyc

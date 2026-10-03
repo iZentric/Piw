@@ -1,4 +1,6 @@
 # Files to grab through the form/web-host flow (page_url [output_name])
+# 1) the FS25 build of the DT-75 pack that the mirror sites distribute (146.8 MB,
+#    different from the user's FS22 copy -> useful as conversion reference)
 https://modsfile.com/b13vmedzlbq8/FS22_DT_Pack.zip.html FS25_mirror_DT_Pack.zip
-https://www.modhub.us/farming-simulator-25-mods/dt-75-pack-v1000-1 FS25_mirror_DT_Pack_modhub.zip
+# 2) BearFarm's FS25 DT-75 IC (mod on the official ModHub) - FS25 reference mod
 https://modsfile.com/r7ozpypmw8wu/fs25_dt75_ic.zip.html FS25_reference_DT75_IC_BearFarm.zip

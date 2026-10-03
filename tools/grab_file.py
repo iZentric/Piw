@@ -197,7 +197,11 @@ def main() -> int:
         if os.path.isfile(os.path.join(out_dir, name)):
             log(f"=== {url}\n  already present: {name}")
             continue
-        if not grab(op, url, out_dir, name):
+        try:
+            if not grab(op, url, out_dir, name):
+                ok = False
+        except Exception as exc:  # noqa: BLE001
+            log(f"  !! {url} raised {type(exc).__name__}: {exc}")
             ok = False
     return 0 if ok else 1
 

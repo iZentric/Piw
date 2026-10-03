@@ -122,6 +122,23 @@ jobs:
             | tee transfer/reference/_grab_log.txt
           set -e
 
+      - name: Extract text files from grabbed reference zips
+        if: hashFiles('transfer/request/grab_urls.txt') != ''
+        run: |
+          mkdir -p transfer/reference/extracted
+          set +e
+          python3 tools/extract_text.py transfer/reference/files transfer/reference/extracted \
+            2>&1 | tee -a transfer/reference/_grab_log.txt
+          set -e
+          # the archives themselves are far too big for git, keep only the text
+          rm -f transfer/reference/files/*.zip transfer/reference/files/*.rar transfer/reference/files/*.7z
+          du -sh transfer/reference/extracted
+
+      - name: Drop anything too large for GitHub
+        if: always()
+        run: |
+          find transfer -type f -size +90M -print -delete
+
       - name: Write run status
         if: always()
         run: |

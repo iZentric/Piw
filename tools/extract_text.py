@@ -19,13 +19,14 @@ import shutil
 import sys
 import zipfile
 
+# Only files that really are text (the .i3d.shapes / .dds / .ogg files are
+# binary assets and must never end up in the repository).
 TEXT_EXT = {
     ".xml", ".i3d", ".lua", ".txt", ".md", ".json", ".cfg", ".conf", ".ini",
-    ".anim", ".shapes", ".materials", ".csv", ".xsd", ".shader", ".glsl",
-    ".lsl", ".veh", ".mat", ".txt.bak",
+    ".materials", ".csv", ".xsd", ".shader", ".glsl", ".xml.bak",
 }
 
-MAX_TEXT_SIZE = 24 * 1024 * 1024  # per file safety limit
+MAX_TEXT_SIZE = 8 * 1024 * 1024  # per file safety limit
 
 
 def sha256(path: str, chunk: int = 1 << 20) -> str:
