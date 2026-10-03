@@ -32,6 +32,8 @@
     <extraSourceFiles>
         <sourceFile filename="scripts/categorizer.lua"/>
         <sourceFile filename="scripts/BaseMaterial.lua"/>
+
+        <sourceFile filename="scripts/categorizer.lua"/>
     </extraSourceFiles>
 <vehicleTypes>
         <type name="dt" parent="tractor" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
