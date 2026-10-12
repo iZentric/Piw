@@ -37,14 +37,14 @@ def transform_moddesc(s, extra_sources, drop_cat=False):
 # DT pack: keep categorizer (rewritten), add BaseMaterial compat
 s = read(f'{ROOT}/FS22_DT_Pack/modDesc.xml')
 s = transform_moddesc(s, ['scripts/categorizer.lua', 'scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.2', '1.0.0.3')
+s = bump_version(s, '1.0.0.2', '1.0.0.4')
 s = s.replace('<category>vgtz</category>', '<category>DT_PACK</category>')
 write(f'{OUT}/FS22_DT_Pack/modDesc.xml', s)
 
 # T150
 s = read(f'{ROOT}/FS22_T150_Gus/modDesc.xml')
 s = transform_moddesc(s, ['scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.0', '1.0.0.1')
+s = bump_version(s, '1.0.0.0', '1.0.0.2')
 write(f'{OUT}/FS22_T150_Gus/modDesc.xml', s)
 
 # --- categorizer rewrite (FS25: categoryTypeName is a string) ---
