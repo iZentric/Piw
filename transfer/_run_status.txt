@@ -1,20 +1,21 @@
-date: Mon Oct 12 14:55:28 UTC 2026
+date: Mon Oct 12 14:57:30 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: 7e737084f2243e8e31366df47e1992a917ba0367   ref: arena/01a10279-piw
+github.sha: 8eccf87535b81022f88743a71a0ba543ad24dd43   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct 12 14:54 .
-drwxr-xr-x 3 runner runner 4096 Oct 12 14:54 ..
-drwxr-xr-x 7 runner runner 4096 Oct 12 14:54 .git
-drwxr-xr-x 3 runner runner 4096 Oct 12 14:54 .github
--rw-r--r-- 1 runner runner  171 Oct 12 14:54 .gitignore
--rw-r--r-- 1 runner runner    6 Oct 12 14:54 README.md
-drwxr-xr-x 3 runner runner 4096 Oct 12 14:54 tools
-drwxr-xr-x 6 runner runner 4096 Oct 12 14:54 transfer
+drwxr-xr-x 6 runner runner 4096 Oct 12 14:57 .
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:56 ..
+drwxr-xr-x 7 runner runner 4096 Oct 12 14:57 .git
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:57 .github
+-rw-r--r-- 1 runner runner  171 Oct 12 14:57 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct 12 14:57 README.md
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:57 tools
+drwxr-xr-x 6 runner runner 4096 Oct 12 14:57 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
+transfer/_selftest.txt
 transfer/original/FS22_DT_Pack/DT_75.i3d
 transfer/original/FS22_DT_Pack/DT_75.xml
 transfer/original/FS22_DT_Pack/dynamicallyLoadedParts/A41.i3d
@@ -113,7 +114,6 @@ transfer/patched/FS22_DT_Pack/tools/Weight.i3d
 transfer/patched/FS22_DT_Pack/tools/Weight.xml
 transfer/patched/FS22_DT_Pack/tools/shaders/vehicleShader.xml
 transfer/patched/FS22_DT_Pack/wheels/shaders/vehicleShader.xml
-transfer/patched/FS22_DT_Pack/wheels/tracksDT75.i3d
 
 --- du -sh transfer/reference ---
 3.5M	transfer/reference
@@ -132,8 +132,8 @@ transfer/patched/FS22_DT_Pack/wheels/tracksDT75.i3d
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
 
 --- git log -3 ---
-7e73708 FS25 self-test suite + FS22->FS25 attribute migration (lights, physics, dashboards, store categories)
-a70bf10 transfer: reference data [skip ci]
-92a80d9 build: bump DT-75 to 1.0.0.4 / T-150 to 1.0.0.2 (collision + sound fix build)
+8eccf87 selftest: also list the pre-existing dangling references
+1210290 transfer: apply log + self-test [skip ci]
+cefc31e transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---
