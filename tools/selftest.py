@@ -140,6 +140,40 @@ def strip_ns(tag: str) -> str:
     return tag.split("}")[-1]
 
 
+# --------------------------------------------------- 11. FS22 leftovers
+# Attributes/elements that exist in FS22 but not in FS25.  The FS25 schemas allow
+# unknown attributes on many elements, so plain schema validation does NOT catch
+# them - the game then either ignores them (broken pose, broken part) or writes an
+# error to log.txt.  tools/gen_patches.py converts every one of them, so a built
+# mod must not contain any.
+LEGACY_PATTERNS = [
+    (r"\bspineRotation(?!Offset)=\"", "FS22 driver pose attribute (FS25 builds the pose itself)"),
+    (r"\bisCareWheel=\"", "FS22 tire attribute"),
+    (r"\bmaxWheelSink=\"", "FS22 wheel attribute (FS25: supportsWheelSink)"),
+    (r"\brealLength=\"", "FS22 hose attribute"),
+    (r"\bstartStraightening=\"", "FS22 hose attribute (FS25: straighteningFactor)"),
+    (r"\bendStraightening=\"", "FS22 hose attribute"),
+    (r"\bxzRotations[A-Za-z]*=\"", "FS22 exhaustEffect attribute"),
+    (r"\baiRevereserNode=\"", "FS22 typo (FS25: aiReverserNode)"),
+    (r"<newcategory\b", "FS22 modDesc element (FS25: storeCategories/storeCategory)"),
+    (r"\battacherJointIndex(?!es)=\"", "FS22 scalar (FS25: attacherJointIndices)"),
+]
+
+
+def check_legacy_attrs(root: str, rep: Report) -> None:
+    found = []
+    for rel in iter_files(root, (".xml", ".i3d")):
+        text = strip_comments(read(os.path.join(root, rel)))
+        for pattern, why in LEGACY_PATTERNS:
+            for m in re.finditer(pattern, text):
+                found.append((rel, m.group(0).strip(), why))
+    for rel, what, why in found[:15]:
+        rep.fail(f"{rel}: FS22 leftover {what!r} - {why}")
+    if len(found) > 15:
+        rep.say(f"      ... and {len(found) - 15} more FS22 leftover(s)")
+    rep.check("fs22-leftovers", "FAIL" if found else "PASS",
+              f"{len(found)} FS22-only attribute(s)/element(s) left")
+
 # ---------------------------------------------------------------- 1. xml parse
 def check_parse(root: str, rep: Report) -> dict:
     trees = {}
@@ -690,6 +724,7 @@ def main() -> int:
     check_shaders(root, rep)
     check_jointtypes(root, rep)
     check_nodepaths(root, rep)
+    check_legacy_attrs(root, rep)
 
     rep.say("")
     passed = sum(1 for _n, s, _d in rep.checks if s == "PASS")

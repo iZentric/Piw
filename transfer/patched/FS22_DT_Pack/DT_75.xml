@@ -1292,7 +1292,7 @@
         <mirrors>
             <mirror node="mirror03Decal" prio="2"/>
         </mirrors>
-        <characterNode node="playerSkin" cameraMinDistance="1.5" spineRotationOffset="-90 -18 90">
+        <characterNode node="playerSkin" cameraMinDistance="1.5">
             <target ikChain="rightFoot" targetNode="playerRightFootTarget"/>
             <target ikChain="leftFoot" targetNode="playerLeftFootTarget"/>
             <target ikChain="rightArm" targetNode="0>9|6|5|0" poseId="narrowFingers"/>

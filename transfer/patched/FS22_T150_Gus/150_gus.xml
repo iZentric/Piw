@@ -729,7 +729,7 @@
 		<passengerSeats>
             <passengerSeat node="0>7|6|0" exitPoint="0>7|6|0|6" outdoorCameraIndex="1">
                 <camera node="0>7|6|0|0" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" positionSmoothingParameter="0" shadowFocusBox="0>1|3"/>
-                <characterNode node="0>7|6|0|1" cameraMinDistance="0.5" spineRotationOffset="-90 -10 90">
+                <characterNode node="0>7|6|0|1" cameraMinDistance="0.5">
                     <target ikChain="leftArm"   targetNode="0>7|6|0|4" poseId="wideFingers"/>
                     <target ikChain="rightArm"  targetNode="0>7|6|0|5" poseId="flatFingers"/>
                     <target ikChain="leftFoot"  targetNode="0>7|6|0|2"/>
@@ -745,7 +745,7 @@
             </camera>
             <camera node="indoorCamera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" isInside="true" shadowFocusBox="shadowFocusBox"/>
         </cameras>
-        <characterNode node="playerSkin" cameraMinDistance="1.5" spineRotationOffset="-90 0 90">
+        <characterNode node="playerSkin" cameraMinDistance="1.5">
             <target ikChain="rightFoot" targetNode="playerRightFootTarget" setDirty="true"/>
             <target ikChain="leftFoot" targetNode="playerLeftFootTarget" setDirty="true"/>
             <target ikChain="rightArm" targetNode="playerRightHandTarget" setDirty="true"/>

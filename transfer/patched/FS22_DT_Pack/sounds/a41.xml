@@ -8,15 +8,40 @@
 			<motorStop file="sounds/a41_stop.ogg" linkNodeOffset="-0.035 1.26 0.789">
 				<volume indoor="0.7" outdoor="1.0" />
 			</motorStop>
-			<motor template="engineMedium" file="sounds/a41_idle.ogg" linkNodeOffset="-0.035 1.26 0.789">
-				<volume indoor="0.7" outdoor="1.0" />
-			</motor>
-			<motor template="engineMedium" file="sounds/a41_run.ogg" pitchScale="1.17" linkNodeOffset="-0.035 1.26 0.789">
-				<volume indoor="1.0" outdoor="2.0" />
-			</motor>
-			<motor template="engineMedium" file="sounds/a41_1200.ogg" linkNodeOffset="-0.035 1.26 0.789">
-				<volume indoor="0.7" outdoor="1.0" />
-			</motor>
+			<motor file="sounds/a41_idle.ogg" innerRadius="10.0" outerRadius="80.0" linkNodeOffset="-0.035 1.26 0.789" fadeIn="0.5" fadeOut="0.5">
+				<volume indoor="0.7" outdoor="1.0">
+					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="1.00"/>
+					<modifier type="MOTOR_RPM_REAL" value="1050" modifiedValue="0.50"/>
+					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="0.10"/>
+        </volume>
+				<pitch indoor="1.0" outdoor="1.0">
+					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.85"/>
+					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.35"/>
+        </pitch>
+</motor>
+			<motor file="sounds/a41_run.ogg" innerRadius="10.0" outerRadius="80.0" pitchScale="1.17" linkNodeOffset="-0.035 1.26 0.789" fadeIn="0.5" fadeOut="0.5">
+				<volume indoor="1.0" outdoor="2.0">
+					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.00"/>
+					<modifier type="MOTOR_RPM_REAL" value="1050" modifiedValue="0.55"/>
+					<modifier type="MOTOR_RPM_REAL" value="1500" modifiedValue="1.00"/>
+					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.00"/>
+        </volume>
+				<pitch indoor="1.0" outdoor="1.0">
+					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.95"/>
+					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.20"/>
+        </pitch>
+</motor>
+			<motor file="sounds/a41_1200.ogg" innerRadius="10.0" outerRadius="80.0" linkNodeOffset="-0.035 1.26 0.789" fadeIn="0.5" fadeOut="0.5">
+				<volume indoor="0.7" outdoor="1.0">
+					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.00"/>
+					<modifier type="MOTOR_RPM_REAL" value="1250" modifiedValue="0.35"/>
+					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="0.90"/>
+        </volume>
+				<pitch indoor="1.0" outdoor="1.0">
+					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="1.00"/>
+					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.15"/>
+        </pitch>
+</motor>
 			<motor file="sounds/tracks.ogg" innerRadius="10.0" outerRadius="110.0" volumeScale="0.5" linkNodeOffset="0.0 0.276 -0.572">
 				<volume indoor="1.00" outdoor="2.3" >
 					<modifier type="SPEED" value="0.0" modifiedValue="0.0"/>

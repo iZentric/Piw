@@ -37,14 +37,14 @@ def transform_moddesc(s, extra_sources, drop_cat=False):
 # DT pack: keep categorizer (rewritten), add BaseMaterial compat
 s = read(f'{ROOT}/FS22_DT_Pack/modDesc.xml')
 s = transform_moddesc(s, ['scripts/categorizer.lua', 'scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.2', '1.0.0.4')
+s = bump_version(s, '1.0.0.2', '1.0.0.5')
 s = s.replace('<category>vgtz</category>', '<category>DT_PACK</category>')
 write(f'{OUT}/FS22_DT_Pack/modDesc.xml', s)
 
 # T150
 s = read(f'{ROOT}/FS22_T150_Gus/modDesc.xml')
 s = transform_moddesc(s, ['scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.0', '1.0.0.2')
+s = bump_version(s, '1.0.0.0', '1.0.0.3')
 write(f'{OUT}/FS22_T150_Gus/modDesc.xml', s)
 
 # --- categorizer rewrite (FS25: categoryTypeName is a string) ---
@@ -351,7 +351,13 @@ XML_FIX_SIMPLE = [
     (re.compile(r'\s+realLength="[^"]*"'), ''),
     (re.compile(r'startStraightening="'), 'straighteningFactor="'),
     (re.compile(r'\s+endStraightening="[^"]*"'), ''),
-    (re.compile(r'spineRotation="'), 'spineRotationOffset="'),
+    # FS22 set #spineRotation *absolutely* on the FS22 player model's spine node.
+    # FS25 has no such attribute: it applies #spineRotationOffset *additively* on top
+    # of its own pose and on the hips node of the new FS25 character, so keeping the
+    # FS22 value twists the whole body ("sits like a madman").  Neither the FS25 base
+    # game nor any FS25 mod sets spineRotation/spineRotationOffset, i.e. the built-in
+    # FS25 pose is the reference: drop the FS22 override and let FS25 seat the driver.
+    (re.compile(r'\s+spineRotation(?!Offset)="[^"]*"'), ''),
     (re.compile(r'aiRevereserNode='), 'aiReverserNode='),
     (re.compile(r'attacherJointIndex="([^"]*\s[^"]*)"'), r'attacherJointIndices="\1"'),
 ]
@@ -608,3 +614,82 @@ def repair_audio_refs(stem):
 
 for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
     print(_stem, 'audio refs repaired:', repair_audio_refs(_stem))
+
+# --- DT engine sound: restore the rpm response the FS22 templates carried -----
+# The A41 engine used the legacy FS22 crossfade templates MEDIUM_TRACTOR_MOTOR_
+# IDLE / _OFFLOAD_RUN / _ONLOAD_RUN: three layers that the template faded in and
+# out with engine rpm / load.  FS25 dropped those template names, and the FS25
+# engine templates (engineMedium) are built around a single .gls loop-synthesis
+# sample; a plain .ogg mapped to them therefore played as one static, always-on
+# layer (all three loops at full volume, no rpm response = flat and repetitive).
+# The three sample files are the mod's own and stay 1:1, and the missing rpm
+# curves are written back explicitly, exactly like FS25 vanilla (volvo fh16) and
+# FS25 mods (superduty) do it: <volume>/<pitch> with MOTOR_RPM_REAL modifiers.
+ENGINE_BLOCKS = {
+    'idle': {
+        'attrs': 'innerRadius="10.0" outerRadius="80.0"',
+        'volume': ('				<volume indoor="0.7" outdoor="1.0">\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="1.00"/>\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="1050" modifiedValue="0.50"/>\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="0.10"/>\n'
+                   '        </volume>\n'),
+        'pitch': ('				<pitch indoor="1.0" outdoor="1.0">\n'
+                  '					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.85"/>\n'
+                  '					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.35"/>\n'
+                  '        </pitch>\n'),
+    },
+    'run': {
+        'attrs': 'innerRadius="10.0" outerRadius="80.0" pitchScale="1.17"',
+        'volume': ('				<volume indoor="1.0" outdoor="2.0">\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.00"/>\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="1050" modifiedValue="0.55"/>\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="1500" modifiedValue="1.00"/>\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.00"/>\n'
+                   '        </volume>\n'),
+        'pitch': ('				<pitch indoor="1.0" outdoor="1.0">\n'
+                  '					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.95"/>\n'
+                  '					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.20"/>\n'
+                  '        </pitch>\n'),
+    },
+    '1200': {
+        'attrs': 'innerRadius="10.0" outerRadius="80.0"',
+        'volume': ('				<volume indoor="0.7" outdoor="1.0">\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="0.00"/>\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="1250" modifiedValue="0.35"/>\n'
+                   '					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="0.90"/>\n'
+                   '        </volume>\n'),
+        'pitch': ('				<pitch indoor="1.0" outdoor="1.0">\n'
+                  '					<modifier type="MOTOR_RPM_REAL" value="850"  modifiedValue="1.00"/>\n'
+                  '					<modifier type="MOTOR_RPM_REAL" value="1800" modifiedValue="1.15"/>\n'
+                  '        </pitch>\n'),
+    },
+}
+
+
+def fix_engine_samples(stem):
+    """Rewrite the three A41 engine <motor> blocks with explicit FS25 curves."""
+    hits = []
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+        for f in sorted(files):
+            if not f.endswith('.xml'):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace(chr(92), '/')
+            base = layered_read(stem, rel)
+            new = base
+            for name, spec in ENGINE_BLOCKS.items():
+                pattern = re.compile(r'<motor\b[^>]*file="(sounds/a41_' + name + r'\.[a-z]+)"[^>]*>.*?</motor>', re.S)
+                block = ('<motor file="\\1" ' + spec['attrs'] +
+                         ' linkNodeOffset="-0.035 1.26 0.789" fadeIn="0.5" fadeOut="0.5">\n' +
+                         spec['volume'] + spec['pitch'] + '</motor>')
+                new, n = pattern.subn(block, new)
+                if n:
+                    hits.append((rel, name, n))
+            if new != base:
+                write(os.path.join(OUT, stem, rel), new)
+    return hits
+
+
+for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
+    _eng = fix_engine_samples(_stem)
+    if _eng:
+        print(_stem, 'engine sample blocks rewritten:', sum(n for _r, _n, n in _eng), _eng)
