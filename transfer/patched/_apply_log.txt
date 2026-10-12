@@ -3,12 +3,13 @@
   check: unresolved local refs      : 0 (pre-existing in the FS22 archive: 2)
   check: refs broken by this build  : 0
 built dist/FS25_DT_Pack.zip
-  replaced files : 33
+  replaced files : 34
     ~ DT_75.i3d
     ~ DT_75.xml
     ~ dynamicallyLoadedParts/A41.i3d
     ~ modDesc.xml
     ~ scripts/categorizer.lua
+    ~ sounds/a41.xml
     ~ tools/PFP_12.xml
     ~ tools/PFP_1_2.i3d
     ~ tools/PFP_Tool_Bucket.i3d
@@ -50,7 +51,7 @@ built dist/FS25_DT_Pack.zip
   check: unresolved local refs      : 0 (pre-existing in the FS22 archive: 13)
   check: refs broken by this build  : 0
 built dist/FS25_T150_Gus.zip
-  replaced files : 12
+  replaced files : 13
     ~ 150_gus.i3d
     ~ 150_gus.xml
     ~ kapots/shader/customVehicleShader.xml
@@ -60,6 +61,7 @@ built dist/FS25_T150_Gus.zip
     ~ kapots/tex1/shederaa/vehicleShader.xml
     ~ modDesc.xml
     ~ shaders/vehicleShader.xml
+    ~ sounds/CL_eSounds.xml
     ~ tracks/trackHTZ150.i3d
     ~ tracks/trackHTZ151.i3d
     ~ tracks/trackHTZ152.i3d
