@@ -2,6 +2,7 @@
 Self-test: FS25_DT_Pack   (/tmp/built/FS25_DT_Pack)
 FS22 original: transfer/original/FS22_DT_Pack
 ==============================================================================
+      modDesc.xml version: 1.0.0.4
 [PASS] xml-parse - 41 xml/i3d files parse
       modDesc.xml: 1 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 1 pre-existing violations vs the FS25 schemas
@@ -23,6 +24,7 @@ selftest FS25_DT_Pack exit=0
 Self-test: FS25_T150_Gus   (/tmp/built/FS25_T150_Gus)
 FS22 original: transfer/original/FS22_T150_Gus
 ==============================================================================
+      modDesc.xml version: 1.0.0.2
 [PASS] xml-parse - 18 xml/i3d files parse
       modDesc.xml: 2 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 2 pre-existing violations vs the FS25 schemas
