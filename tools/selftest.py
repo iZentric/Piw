@@ -151,6 +151,11 @@ def check_parse(root: str, rep: Report) -> dict:
             bad += 1
             rep.fail(f"{rel}: XML is not well formed ({exc})")
     if bad == 0:
+        md = os.path.join(root, "modDesc.xml")
+        if os.path.isfile(md):
+            vm = re.search(r"<version>([^<]+)</version>", read(md))
+            if vm:
+                rep.say(f"      modDesc.xml version: {vm.group(1)}")
         rep.check("xml-parse", "PASS", f"{len(trees)} xml/i3d files parse")
     else:
         rep.check("xml-parse", "FAIL", f"{bad} file(s) broken")
