@@ -277,6 +277,10 @@ def check_refs(root: str, orig: str | None, rep: Report, stripped: bool = False)
 
     for rel, ref in new_missing:
         rep.fail(f"{rel}: missing file reference '{ref}'")
+    for rel, ref in sorted(orig_missing)[:12]:
+        rep.say(f"      (pre-existing, also dangling in FS22) {rel}: {ref}")
+    if len(orig_missing) > 12:
+        rep.say(f"      ... and {len(orig_missing) - 12} more pre-existing dangling reference(s)")
     if case_only:
         rep.warn(f"{len(case_only)} case-only reference(s), e.g. {case_only[0][0]} -> {case_only[0][1]}")
     detail = f"{len(missing) - len(new_missing)} pre-existing dangling, {len(new_missing)} new"
