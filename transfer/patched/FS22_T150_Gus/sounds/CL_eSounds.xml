@@ -76,7 +76,7 @@
 			    </pitch>
 			    <lowpassGain indoor="1.0" outdoor="1.0" />
 			</reverseDrive>
-       <airRelease file="sounds/kirovets_compressorWork1.wav" innerRadius="10.0" outerRadius="120.0" linkNode="0>7|7">
+       <airRelease file="sounds/kirovets_compressorWork1.ogg" innerRadius="10.0" outerRadius="120.0" linkNode="0>7|7">
                 <volume indoor="3.00" outdoor="5.50" />
                 <pitch indoor="0.8" outdoor="0.8" />
                 <lowpassGain indoor="0.50" outdoor="1.0" />
@@ -113,7 +113,7 @@
 
     <lights>
         <sounds>
-            <toggleLights template="SWITCH_01" supportsReverb="false" linkNodeOffset="0.4 2.1 2.9"/>
+            <toggleLights template="switch01" supportsReverb="false" linkNodeOffset="0.4 2.1 2.9"/>
             <turnLight template="switchTurnlight" supportsReverb="false" linkNodeOffset="0.4 2.1 2.9"/>
         </sounds>
     </lights>

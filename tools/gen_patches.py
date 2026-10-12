@@ -397,6 +397,10 @@ SOUND_TEMPLATE_MAP = {
     'MEDIUM_TRACTOR_MOTOR_OFFLOAD_RUN': 'engineMedium',
     'MEDIUM_TRACTOR_MOTOR_ONLOAD_RUN': 'engineMedium',
     'WATER_SPLASH_01': 'waterSplash01',
+    # FS22 kept the legacy upper-case names next to the camelCase ones; FS25 dropped
+    # them (no FS25 vanilla/mod evidence), so the camelCase twins are used instead.
+    'SWITCH_01': 'switch01',
+    'ATTACH_01': 'attach01',
     'SWITCH_TURNLIGHT': 'switchTurnlight',
     'TRUCK_ATTACH_01': 'truckAttach',
     'TRUCK_ATTACH_03': 'truckDetach',
@@ -541,3 +545,66 @@ def repair_refs(mod):
 
 print('DT dangling refs repaired :', repair_refs('FS22_DT_Pack'))
 print('T150 dangling refs repaired:', repair_refs('FS22_T150_Gus'))
+
+# --- repair dangling audio references ----------------------------------------
+# The FS22 authors referenced .wav samples but shipped the very same samples as
+# .ogg (sounds/a41_*.ogg, sounds/tracks.ogg).  FS25 cannot load a missing audio
+# file, which is why the engine / track samples stay silent.  Point every audio
+# reference at the shipped file with the same name when the original is missing.
+AUDIO_REF = re.compile(r'(?P<pre>\b(?:file|filename|externalSoundFile)=")(?P<path>[^"]+\.(?:wav|ogg|gls))(?P<post>")', re.I)
+AUDIO_ALT = ('.ogg', '.gls', '.wav')
+
+
+def repair_audio_refs(stem):
+    known = known_files(stem)
+    low = {k.lower() for k in known}
+
+    def try_paths(path, basedir):
+        for cand in (os.path.normpath(os.path.join(basedir, path)), os.path.normpath(path)):
+            c = cand.replace('\\', '/')
+            if c in known or c.lower() in low:
+                return True
+        return False
+
+    def fixed(path, basedir):
+        path = path.strip().replace('\\', '/')
+        if not path or path.startswith(('$', '/')) or re.match(r'^[A-Za-z]:', path):
+            return None
+        if try_paths(path, basedir):
+            return None
+        stem_, ext = os.path.splitext(path)
+        for alt in AUDIO_ALT:
+            if alt.lower() == ext.lower():
+                continue
+            cand = stem_ + alt
+            if try_paths(cand, basedir):
+                return cand
+        return None
+
+    hits = []
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+        for f in sorted(files):
+            if not f.endswith(('.xml', '.i3d')):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace('\\', '/')
+            basedir = os.path.dirname(rel).replace('\\', '/')
+            base = layered_read(stem, rel)
+
+            def repl(m, _rel=rel):
+                new = fixed(m.group('path'), basedir)
+                if new:
+                    hits.append((_rel, m.group('path'), new))
+                    return m.group('pre') + new + m.group('post')
+                return m.group(0)
+
+            out = AUDIO_REF.sub(repl, base)
+            if out != base:
+                write(os.path.join(OUT, stem, rel), out)
+
+    for rel, old_ref, new_ref in hits:
+        print('    ~ %s: %s -> %s' % (rel, old_ref, new_ref))
+    return len(hits)
+
+
+for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
+    print(_stem, 'audio refs repaired:', repair_audio_refs(_stem))

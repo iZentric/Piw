@@ -37,7 +37,7 @@
             <schema position="1 0" rotation="0" invertX="false" />
         </attacherJoint>
         <sounds>
-            <attach template="ATTACH_01"/>
+            <attach template="attach01"/>
         </sounds>
     </attacherJoints>
 

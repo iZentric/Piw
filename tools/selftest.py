@@ -343,6 +343,113 @@ def check_parity(root: str, orig: str | None, filelist: str | None, rep: Report,
         rep.check("parity-nodes", "FAIL", f"{lost_nodes} names lost")
 
 
+# -------------------------------------------------------------- 10. node paths
+NODE_ATTRS = ("node", "linkNode", "referenceNode", "rootNode", "attacherJointNode",
+              "inputAttacherJointNode", "outputAttacherJointNode", "startNode", "endNode",
+              "componentJointNode", "characterNode", "aiReverserNode", "animationNode",
+              "exactFillRootNode", "fillUnitNode", "fillNode", "dischargeNode", "overlapNode",
+              "prerequisiteNode", "targetNode", "sourceNode", "controlNode", "chainNode",
+              "mountNode", "attachNode", "toolNode", "tipNode", "sensorNode", "sprayNode",
+              "workAreaNode", "emitNode", "finishNode", "partNode", "beltNode", "rotationNode")
+
+
+def _xml_children(el):
+    return [c for c in list(el) if isinstance(c.tag, str)]
+
+
+def _node_index(i3d_path):
+    """Map "N>a|b" paths to the node names of one .i3d file.
+
+    The leading number selects the root component (the N-th top level node of
+    <Scene>), the rest walks the children - "0>14" is the 15th child of the first
+    component, exactly how the game resolves these references.
+    """
+    try:
+        scene = ET.parse(i3d_path).getroot().find("Scene")
+    except Exception:
+        return None
+    if scene is None:
+        return None
+    idx = {}
+
+    def walk(el, parts):
+        for i, ch in enumerate(_xml_children(el)):
+            p = parts + [i]
+            idx[tuple(p)] = ch.get("name")
+            walk(ch, p)
+
+    for n, comp in enumerate(_xml_children(scene)):
+        idx[(n,)] = comp.get("name")
+        walk(comp, [n])
+    return idx
+
+
+def _parse_node_path(v):
+    v = v.strip()
+    if v.isdigit():
+        return None          # bare integers are i3d node indices, not paths
+    m = re.match(r"^(\d+)(?:>([\d|]+))?$", v)
+    if not m:
+        return None
+    parts = [int(m.group(1))]
+    if m.group(2):
+        for seg in m.group(2).split("|"):
+            if seg:
+                parts.append(int(seg))
+    return parts
+
+
+def check_nodepaths(root: str, rep: Report) -> None:
+    """Every numeric i3d node path used by the XMLs must exist in the i3d files.
+
+    An unresolvable node is exactly what makes a part invisible or an attacher
+    joint unusable, so it is verified node by node.
+    """
+    cache, checked, missing = {}, 0, []
+    for rel in iter_files(root, (".xml",)):
+        p = os.path.join(root, rel)
+        try:
+            tree = ET.parse(p)
+        except Exception:
+            continue
+        basedir = os.path.dirname(p)
+        i3d = os.path.join(basedir, os.path.basename(p)[:-4] + ".i3d")
+        if not os.path.exists(i3d):
+            i3d = None
+            for el in tree.getroot().iter():
+                for tag in ("i3dFilename", "filename", "name"):
+                    v = el.get(tag)
+                    if v and v.endswith(".i3d") and not v.startswith("$"):
+                        cand = os.path.join(basedir, v)
+                        if os.path.exists(cand):
+                            i3d = cand
+                            break
+                if i3d:
+                    break
+        if not i3d:
+            continue
+        if i3d not in cache:
+            cache[i3d] = _node_index(i3d) or {}
+        idx = cache[i3d]
+        for el in tree.getroot().iter():
+            for a in NODE_ATTRS:
+                v = el.get(a)
+                if not v:
+                    continue
+                path = _parse_node_path(v)
+                if path is None:
+                    continue
+                checked += 1
+                if tuple(path) not in idx:
+                    missing.append((rel, el.tag, a, v))
+    for rel, tag, a, v in missing[:15]:
+        rep.fail(f'{rel}: <{tag} {a}="{v}"> does not resolve inside the i3d')
+    if len(missing) > 15:
+        rep.say(f"      ... and {len(missing) - 15} more unresolved node reference(s)")
+    rep.check("node-paths", "FAIL" if missing else "PASS",
+              f"{checked} numeric node path(s) checked, {len(missing)} unresolved")
+
+
 # ---------------------------------------------------------------- 5. collision
 def scene_components(text: str):
     m = re.search(r"<Scene>(.*)</Scene>", text, re.S)
@@ -426,20 +533,51 @@ def strip_comments(text: str) -> str:
 
 
 def check_sounds(root: str, rep: Report) -> None:
+    """Every template= name must exist in $data/sounds/soundTemplates.xml.
+
+    A name that is unknown there makes the engine drop that single sample and
+    write an xmlError into log.txt, so the names are triaged against three
+    independent FS25 sources:
+
+      * tools/data/fs25_vanilla_sound_templates.txt - names used by the FS25
+        base game itself (definitely valid),
+      * tools/data/fs25_sound_templates.txt - names used by FS25-era mods,
+      * tools/data/fs22_sound_template_names.txt - the FS22 name set, used to
+        spot FS22-only names that FS25 dropped (e.g. SWITCH_01, MEDIUM_TRACTOR_*).
+    """
     vocab = load_list(os.path.join(DATA, "fs25_sound_templates.txt"))
+    vanilla = load_list(os.path.join(DATA, "fs25_vanilla_sound_templates.txt"))
+    fs22 = load_list(os.path.join(DATA, "fs22_sound_template_names.txt"))
     dead = load_list(os.path.join(DATA, "fs22_dead_sound_templates.txt"))
-    unknown = []
+    evidence = vocab | vanilla
+
+    used, unknown, fs22_only = set(), [], []
     for rel in iter_files(root, (".xml",)):
         for t in SOUND_ATTR.findall(strip_comments(read(os.path.join(root, rel)))):
-            if vocab and t not in vocab:
-                unknown.append((rel, t))
+            used.add(t)
             if t in dead:
                 rep.fail(f"{rel}: sound template '{t}' does not exist in FS25")
+            elif t in fs22 and t not in evidence:
+                fs22_only.append((rel, t))
+            elif t not in evidence:
+                unknown.append((rel, t))
+
+    for rel, t in sorted(set(fs22_only)):
+        rep.fail(f"{rel}: sound template '{t}' is an FS22-only name, dropped by FS25")
     for rel, t in sorted(set(unknown))[:15]:
         rep.warn(f"{rel}: sound template '{t}' not attested in FS25 content")
-    rep.check("sounds", "PASS" if not any(t in dead for _r, t in unknown) else "WARN",
-              f"{len(set(unknown))} template name(s) outside the attested FS25 vocabulary")
-    if unknown:
+
+    van = sorted(t for t in used if t in vanilla)
+    shared = sorted(t for t in used if t in fs22 and t not in vanilla)
+    rep.info(f"      {len(used)} template name(s): {len(van)} confirmed by FS25 vanilla "
+             f"({', '.join(van[:6])}{'…' if len(van) > 6 else ''}), "
+             f"{len(shared)} kept from FS22, {len(used) - len(van) - len(shared)} FS25-mod-only")
+    bad = len(set(fs22_only)) + len(set(unknown))
+    status = "FAIL" if fs22_only else ("WARN" if unknown else "PASS")
+    rep.check("sounds", status,
+              f"{len(used)} template name(s) used, {len(set(fs22_only))} FS22-only, "
+              f"{len(set(unknown))} unattested")
+    if bad:
         rep.info("note: an unattested template only costs that single sample, "
                  "it does not break the rest of the sounds")
 
@@ -546,6 +684,7 @@ def main() -> int:
     check_specializations(root, rep)
     check_shaders(root, rep)
     check_jointtypes(root, rep)
+    check_nodepaths(root, rep)
 
     rep.say("")
     passed = sum(1 for _n, s, _d in rep.checks if s == "PASS")

@@ -45,7 +45,7 @@
             <topArm rotationNode="FrontHydraulicCylinderMainRefFrame" translationNode="FrontHydraulicPunchMainRefFrame" referenceNode="frontHydraulicPunchMainRefFrame" localReferencePoint="PFP_12_main_component1"/>
         </attacherJoint>
         <sounds>
-            <attach template="ATTACH_01"/>
+            <attach template="attach01"/>
         </sounds>
     </attacherJoints>
 	
