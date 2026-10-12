@@ -5,6 +5,12 @@ FS22 original: transfer/original/FS22_DT_Pack
 [PASS] xml-parse - 41 xml/i3d files parse
       modDesc.xml: 1 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 1 pre-existing violations vs the FS25 schemas
+      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_1200.wav
+      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_idle.wav
+      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_run.wav
+      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_start.wav
+      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_stop.wav
+      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/tracks.wav
 [PASS] files - 6 pre-existing dangling, 0 new
       5 added file(s): dynamicallyLoadedParts/shaders/vehicleShader.xml, scripts/BaseMaterial.lua, shaders/vehicleShader.xml, tools/shaders/vehicleShader.xml, wheels/shaders/vehicleShader.xml
 [PASS] parity - 173 archive files, 178 in build, 0 lost, 5 added
@@ -24,6 +30,7 @@ FS22 original: transfer/original/FS22_T150_Gus
 [PASS] xml-parse - 18 xml/i3d files parse
       modDesc.xml: 2 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 2 pre-existing violations vs the FS25 schemas
+      (pre-existing, also dangling in FS22) sounds/CL_eSounds.xml: sounds/kirovets_compressorWork1.wav
 [PASS] files - 1 pre-existing dangling, 0 new
       2 added file(s): scripts/BaseMaterial.lua, tracks/shaders/vehicleShader.xml
 [PASS] parity - 224 archive files, 226 in build, 0 lost, 2 added
