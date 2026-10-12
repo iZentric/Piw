@@ -1,17 +1,17 @@
-date: Mon Oct 12 14:27:31 UTC 2026
+date: Mon Oct 12 14:55:28 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: 92a80d9906f405c443a300ffde15ea8816de4a17   ref: arena/01a10279-piw
+github.sha: 7e737084f2243e8e31366df47e1992a917ba0367   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct 12 14:26 .
-drwxr-xr-x 3 runner runner 4096 Oct 12 14:26 ..
-drwxr-xr-x 7 runner runner 4096 Oct 12 14:26 .git
-drwxr-xr-x 3 runner runner 4096 Oct 12 14:26 .github
--rw-r--r-- 1 runner runner  171 Oct 12 14:26 .gitignore
--rw-r--r-- 1 runner runner    6 Oct 12 14:26 README.md
-drwxr-xr-x 2 runner runner 4096 Oct 12 14:26 tools
-drwxr-xr-x 6 runner runner 4096 Oct 12 14:26 transfer
+drwxr-xr-x 6 runner runner 4096 Oct 12 14:54 .
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:54 ..
+drwxr-xr-x 7 runner runner 4096 Oct 12 14:54 .git
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:54 .github
+-rw-r--r-- 1 runner runner  171 Oct 12 14:54 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct 12 14:54 README.md
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:54 tools
+drwxr-xr-x 6 runner runner 4096 Oct 12 14:54 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
@@ -132,8 +132,8 @@ transfer/patched/FS22_DT_Pack/wheels/tracksDT75.i3d
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
 
 --- git log -3 ---
+7e73708 FS25 self-test suite + FS22->FS25 attribute migration (lights, physics, dashboards, store categories)
+a70bf10 transfer: reference data [skip ci]
 92a80d9 build: bump DT-75 to 1.0.0.4 / T-150 to 1.0.0.2 (collision + sound fix build)
-a3e9f68 transfer: apply log [skip ci]
-b8256a6 transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---
