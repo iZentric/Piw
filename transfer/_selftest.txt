@@ -2,7 +2,7 @@
 Self-test: FS25_DT_Pack   (/tmp/built/FS25_DT_Pack)
 FS22 original: transfer/original/FS22_DT_Pack
 ==============================================================================
-      modDesc.xml version: 1.0.0.5
+      modDesc.xml version: 1.0.0.6
 [PASS] xml-parse - 41 xml/i3d files parse
       modDesc.xml: 1 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 1 pre-existing violations vs the FS25 schemas
@@ -18,14 +18,15 @@ FS22 original: transfer/original/FS22_DT_Pack
 [PASS] jointtypes - 5 mod joint type(s), 0 unknown reference(s)
 [PASS] node-paths - 1526 numeric node path(s) checked, 0 unresolved
 [PASS] fs22-leftovers - 0 FS22-only attribute(s)/element(s) left
+[PASS] shader-params - 8 shader parameter reference(s), 0 not declared
 
-summary: 12 PASS / 0 warning(s) / 0 failure(s)
+summary: 13 PASS / 0 warning(s) / 0 failure(s)
 selftest FS25_DT_Pack exit=0
 ==============================================================================
 Self-test: FS25_T150_Gus   (/tmp/built/FS25_T150_Gus)
 FS22 original: transfer/original/FS22_T150_Gus
 ==============================================================================
-      modDesc.xml version: 1.0.0.3
+      modDesc.xml version: 1.0.0.4
 [PASS] xml-parse - 18 xml/i3d files parse
       modDesc.xml: 2 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 2 pre-existing violations vs the FS25 schemas
@@ -41,6 +42,7 @@ FS22 original: transfer/original/FS22_T150_Gus
 [PASS] jointtypes - 0 mod joint type(s), 0 unknown reference(s)
 [PASS] node-paths - 1293 numeric node path(s) checked, 0 unresolved
 [PASS] fs22-leftovers - 0 FS22-only attribute(s)/element(s) left
+[PASS] shader-params - 3 shader parameter reference(s), 0 not declared
 
-summary: 12 PASS / 0 warning(s) / 0 failure(s)
+summary: 13 PASS / 0 warning(s) / 0 failure(s)
 selftest FS25_T150_Gus exit=0

@@ -3,7 +3,7 @@
   check: unresolved local refs      : 0 (pre-existing in the FS22 archive: 2)
   check: refs broken by this build  : 0
 built dist/FS25_DT_Pack.zip
-  replaced files : 34
+  replaced files : 38
     ~ DT_75.i3d
     ~ DT_75.xml
     ~ dynamicallyLoadedParts/A41.i3d
@@ -35,9 +35,13 @@ built dist/FS25_DT_Pack.zip
     ~ tools/Weight.i3d
     ~ tools/Weight.xml
     ~ wheels/tracksDT75.i3d
+    ~ wheels/tracksDT75.xml
     ~ wheels/tracksDT75NarrowLowered.i3d
+    ~ wheels/tracksDT75NarrowLowered.xml
     ~ wheels/tracksDT75WideLowered.i3d
+    ~ wheels/tracksDT75WideLowered.xml
     ~ wheels/tracksDT75WideRaised.i3d
+    ~ wheels/tracksDT75WideRaised.xml
   added files    : 5
     + dynamicallyLoadedParts/shaders/vehicleShader.xml
     + scripts/BaseMaterial.lua
@@ -51,7 +55,7 @@ built dist/FS25_DT_Pack.zip
   check: unresolved local refs      : 0 (pre-existing in the FS22 archive: 13)
   check: refs broken by this build  : 0
 built dist/FS25_T150_Gus.zip
-  replaced files : 13
+  replaced files : 16
     ~ 150_gus.i3d
     ~ 150_gus.xml
     ~ kapots/shader/customVehicleShader.xml
@@ -65,6 +69,9 @@ built dist/FS25_T150_Gus.zip
     ~ tracks/trackHTZ150.i3d
     ~ tracks/trackHTZ151.i3d
     ~ tracks/trackHTZ152.i3d
+    ~ tracks/tracksT150.xml
+    ~ tracks/tracksT151.xml
+    ~ tracks/tracksT152.xml
   added files    : 2
     + scripts/BaseMaterial.lua
     + tracks/shaders/vehicleShader.xml
