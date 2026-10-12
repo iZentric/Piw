@@ -2,7 +2,7 @@
 Self-test: FS25_DT_Pack   (/tmp/built/FS25_DT_Pack)
 FS22 original: transfer/original/FS22_DT_Pack
 ==============================================================================
-      modDesc.xml version: 1.0.0.4
+      modDesc.xml version: 1.0.0.5
 [PASS] xml-parse - 41 xml/i3d files parse
       modDesc.xml: 1 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 1 pre-existing violations vs the FS25 schemas
@@ -11,20 +11,21 @@ FS22 original: transfer/original/FS22_DT_Pack
 [PASS] parity - 173 archive files, 178 in build, 0 lost, 5 added
 [PASS] parity-nodes - no named node lost in the i3d files
 [PASS] collision - 0 problem(s), 0 unknown-bit, 0 legacy mask(s), 74 component(s) without explicit filters
-            25 template name(s): 14 confirmed by FS25 vanilla (attach01, clackVar1, clackVar6, cylinderPunch, engineMedium, harvesterDischargeStartCabin…), 6 kept from FS22, 5 FS25-mod-only
-[PASS] sounds - 25 template name(s) used, 0 FS22-only, 0 unattested
+            24 template name(s): 13 confirmed by FS25 vanilla (attach01, clackVar1, clackVar6, cylinderPunch, harvesterDischargeStartCabin, hydraulicClose02…), 6 kept from FS22, 5 FS25-mod-only
+[PASS] sounds - 24 template name(s) used, 0 FS22-only, 0 unattested
 [PASS] specializations - 4 specialization reference(s), 0 unknown
 [PASS] shaders - 0 FS22 shader file(s), 0 FS22 shader reference(s)
 [PASS] jointtypes - 5 mod joint type(s), 0 unknown reference(s)
 [PASS] node-paths - 1526 numeric node path(s) checked, 0 unresolved
+[PASS] fs22-leftovers - 0 FS22-only attribute(s)/element(s) left
 
-summary: 11 PASS / 0 warning(s) / 0 failure(s)
+summary: 12 PASS / 0 warning(s) / 0 failure(s)
 selftest FS25_DT_Pack exit=0
 ==============================================================================
 Self-test: FS25_T150_Gus   (/tmp/built/FS25_T150_Gus)
 FS22 original: transfer/original/FS22_T150_Gus
 ==============================================================================
-      modDesc.xml version: 1.0.0.2
+      modDesc.xml version: 1.0.0.3
 [PASS] xml-parse - 18 xml/i3d files parse
       modDesc.xml: 2 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 2 pre-existing violations vs the FS25 schemas
@@ -39,6 +40,7 @@ FS22 original: transfer/original/FS22_T150_Gus
 [PASS] shaders - 0 FS22 shader file(s), 0 FS22 shader reference(s)
 [PASS] jointtypes - 0 mod joint type(s), 0 unknown reference(s)
 [PASS] node-paths - 1293 numeric node path(s) checked, 0 unresolved
+[PASS] fs22-leftovers - 0 FS22-only attribute(s)/element(s) left
 
-summary: 11 PASS / 0 warning(s) / 0 failure(s)
+summary: 12 PASS / 0 warning(s) / 0 failure(s)
 selftest FS25_T150_Gus exit=0
