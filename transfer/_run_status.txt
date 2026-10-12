@@ -1,17 +1,17 @@
-date: Sat Oct  3 18:11:03 UTC 2026
+date: Mon Oct 12 14:24:30 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: 4d333a2d38f8e5adbed0b8773c9b80f0e61c9acb   ref: arena/01a10279-piw
+github.sha: 0e55e1f19857fb4053c5a314e835bb6470286969   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct  3 18:10 .
-drwxr-xr-x 3 runner runner 4096 Oct  3 18:10 ..
-drwxr-xr-x 7 runner runner 4096 Oct  3 18:10 .git
-drwxr-xr-x 3 runner runner 4096 Oct  3 18:10 .github
--rw-r--r-- 1 runner runner  171 Oct  3 18:10 .gitignore
--rw-r--r-- 1 runner runner    6 Oct  3 18:10 README.md
-drwxr-xr-x 2 runner runner 4096 Oct  3 18:10 tools
-drwxr-xr-x 6 runner runner 4096 Oct  3 18:10 transfer
+drwxr-xr-x 6 runner runner 4096 Oct 12 14:23 .
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:23 ..
+drwxr-xr-x 7 runner runner 4096 Oct 12 14:23 .git
+drwxr-xr-x 3 runner runner 4096 Oct 12 14:23 .github
+-rw-r--r-- 1 runner runner  171 Oct 12 14:23 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct 12 14:23 README.md
+drwxr-xr-x 2 runner runner 4096 Oct 12 14:23 tools
+drwxr-xr-x 6 runner runner 4096 Oct 12 14:23 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
@@ -86,6 +86,7 @@ transfer/patched/FS22_DT_Pack/modDesc.xml
 transfer/patched/FS22_DT_Pack/scripts/BaseMaterial.lua
 transfer/patched/FS22_DT_Pack/scripts/categorizer.lua
 transfer/patched/FS22_DT_Pack/shaders/vehicleShader.xml
+transfer/patched/FS22_DT_Pack/sounds/a41.xml
 transfer/patched/FS22_DT_Pack/tools/PFP_12.xml
 transfer/patched/FS22_DT_Pack/tools/PFP_1_2.i3d
 transfer/patched/FS22_DT_Pack/tools/PFP_Tool_Bucket.i3d
@@ -113,7 +114,6 @@ transfer/patched/FS22_DT_Pack/tools/Weight.xml
 transfer/patched/FS22_DT_Pack/tools/shaders/vehicleShader.xml
 transfer/patched/FS22_DT_Pack/wheels/shaders/vehicleShader.xml
 transfer/patched/FS22_DT_Pack/wheels/tracksDT75.i3d
-transfer/patched/FS22_DT_Pack/wheels/tracksDT75NarrowLowered.i3d
 
 --- du -sh transfer/reference ---
 3.5M	transfer/reference
@@ -132,8 +132,8 @@ transfer/patched/FS22_DT_Pack/wheels/tracksDT75NarrowLowered.i3d
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
 
 --- git log -3 ---
-4d333a2 conversion: repair dangling .png refs (store icons, kapots textures, A41 radiator) + build check for unresolved refs
-9a5235d transfer: apply log [skip ci]
-1f9e817 transfer: reference data [skip ci]
+0e55e1f FS25: collision filter migration (collisionMask -> collisionFilterGroup/Mask) + FS25 sound template names
+acb5c1d transfer: apply log [skip ci]
+4dc3a5a transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---
