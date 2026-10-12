@@ -14,8 +14,8 @@ Moduri FS22 convertite pentru Farming Simulator 25: **DT-75 Pack** si **T-150 Gu
    `Available mod: ... FS25_T150_Gus` - daca nu apar, modul nu s-a incarcat.
 
 ## Versiuni
-* DT-75 Pack: **1.0.0.5**
-* T-150 Gus: **1.0.0.3**
+* DT-75 Pack: **1.0.0.6**
+* T-150 Gus: **1.0.0.4**
 
 ## Ce contine conversia
 * `descVersion` 104 si XML-uri actualizate pentru FS25.
@@ -37,6 +37,14 @@ Moduri FS22 convertite pentru Farming Simulator 25: **DT-75 Pack** si **T-150 Gu
   Acum fiecare esantion are curbele lui `MOTOR_RPM_REAL` de volum si
   pitch, exact ca in FS25 (Volvo FH16 de baza, moduri FS25) - un singur
   strat dominant, in functie de turatie.
+* **Senilele care nu se invarteau**: senilele se anima prin parametrul de
+  shader numit in configuratia senilei (`shaderParameterName`).  Shader-ul
+  FS22 al modului folosea numele `scrollPosition`; shader-ul FS25 compatibil
+  livrat de conversie foloseste exact aceleasi valori, dar cu numele FS25
+  `scrollPos`/`prevScrollPos`.  Cum numele vechi nu mai exista, jocul nu mai
+  gasea niciun nod de animat si senilele stateau pe loc.  Numele au fost
+  actualizate la `scrollPos` in toate cele 7 configuratii de senile (4 DT-75,
+  3 T-150), iar `prevScrollPos` este preluat automat de joc pentru motion blur.
 * **Soferul pe scaun**: FS22 folosea `spineRotation` (aplicat absolut, pe
   modelul vechi de personaj).  FS25 nu are acest atribut - postura lui
   este calculata de joc - iar valoarea veche, pastrata ca offset, rasea
@@ -52,8 +60,8 @@ Moduri FS22 convertite pentru Farming Simulator 25: **DT-75 Pack** si **T-150 Gu
 Fiecare build este verificat automat; rezultatul complet este in
 `transfer/_selftest.txt`:
 
-* `FS25_DT_Pack` - **12 verificari PASS, 0 avertismente, 0 erori**
-* `FS25_T150_Gus` - **12 verificari PASS, 0 avertismente, 0 erori**
+* `FS25_DT_Pack` - **13 verificari PASS, 0 avertismente, 0 erori**
+* `FS25_T150_Gus` - **13 verificari PASS, 0 avertismente, 0 erori**
 
 Verificarile acopera: parsare XML, validare fata de schemele FS25
 (`modDesc.xsd`, `vehicle.xsd`, `vehicle_sounds.xsd`, `i3d-1.6.xsd`: 0 violari noi),
@@ -62,7 +70,8 @@ referinte de fisiere (0 lipsa), comparatie 1:1 cu arhiva FS22 (173 / 224 fisiere
 0 necunoscute), specializari, shader-e, tipuri de cuplare,
 **1526 / 1293 de referinte de nod rezolvate in i3d (0 nerezolvate)** si
 **0 atribute/elemente care exista doar in FS22** (verificare facuta special
-pentru postura soferului).
+pentru postura soferului) si **fiecare parametru de shader folosit de animatii
+este declarat de shader-ul livrat** (verificare facuta special pentru senile).
 
 Daca apar probleme in joc, trimite `log.txt`
 (`Documents\My Games\FarmingSimulator2025\log.txt`) si o poza cu problema.

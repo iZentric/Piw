@@ -37,14 +37,14 @@ def transform_moddesc(s, extra_sources, drop_cat=False):
 # DT pack: keep categorizer (rewritten), add BaseMaterial compat
 s = read(f'{ROOT}/FS22_DT_Pack/modDesc.xml')
 s = transform_moddesc(s, ['scripts/categorizer.lua', 'scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.2', '1.0.0.5')
+s = bump_version(s, '1.0.0.2', '1.0.0.6')
 s = s.replace('<category>vgtz</category>', '<category>DT_PACK</category>')
 write(f'{OUT}/FS22_DT_Pack/modDesc.xml', s)
 
 # T150
 s = read(f'{ROOT}/FS22_T150_Gus/modDesc.xml')
 s = transform_moddesc(s, ['scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.0', '1.0.0.3')
+s = bump_version(s, '1.0.0.0', '1.0.0.4')
 write(f'{OUT}/FS22_T150_Gus/modDesc.xml', s)
 
 # --- categorizer rewrite (FS25: categoryTypeName is a string) ---
@@ -693,3 +693,46 @@ for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
     _eng = fix_engine_samples(_stem)
     if _eng:
         print(_stem, 'engine sample blocks rewritten:', sum(n for _r, _n, n in _eng), _eng)
+
+# --- crawler track scrolling: FS22 shader parameter name -> FS25 -------------
+# The tracks scroll by advancing the "caterpillar position" shader parameter: the
+# crawler config names it (#shaderParameterName), the game collects the nodes that
+# expose that parameter and writes the scrolling position into it.  The FS22
+# vehicle shader called those values scrollPosition/prevScrollPosition; the FS25
+# shader - and the FS25-compatible color shader this conversion ships - calls the
+# very same values scrollPos/prevScrollPos.  Keeping the FS22 name means FS25
+# finds no node at all, so the tracks stay frozen.
+SCROLLER_PARAM_MAP = (
+    ('shaderParameterName="scrollPosition"',
+     'shaderParameterName="scrollPos"'),
+    ('shaderParameterNamePrev="prevScrollPosition"',
+     'shaderParameterNamePrev="prevScrollPos"'),
+    ('shaderParameterName="prevScrollPosition"',
+     'shaderParameterName="prevScrollPos"'),
+)
+
+
+def migrate_scroller_params(stem):
+    changed = []
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+        for f in sorted(files):
+            if not f.endswith('.xml'):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace('\\', '/')
+            base = layered_read(stem, rel)
+            new, hits = base, []
+            for old, rep in SCROLLER_PARAM_MAP:
+                if old in new:
+                    hits.append(old.split('"')[1])
+                    new = new.replace(old, rep)
+            if new != base:
+                write(os.path.join(OUT, stem, rel), new)
+                changed.append((rel, hits))
+    return changed
+
+
+for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
+    _sp = migrate_scroller_params(_stem)
+    print(_stem, 'scroller shader-parameter names migrated:',
+          sum(len(h) for _r, h in _sp), _sp)
+

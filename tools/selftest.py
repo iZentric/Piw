@@ -174,6 +174,37 @@ def check_legacy_attrs(root: str, rep: Report) -> None:
     rep.check("fs22-leftovers", "FAIL" if found else "PASS",
               f"{len(found)} FS22-only attribute(s)/element(s) left")
 
+# ------------------------------------------------- 12. shader parameters
+# A crawler config names the shader parameter it writes the track scroll position
+# into (#shaderParameterName) and the game collects the nodes that expose exactly
+# that parameter.  If the name does not exist on the material shader, no node is
+# found and the track never moves - which is what the FS22 name scrollPosition did
+# with the FS25 shader (FS25 calls it scrollPos).
+def check_shader_params(root: str, rep: Report) -> None:
+    shader_params, shader_files = set(), []
+    for rel in iter_files(root, (".xml",)):
+        text = read(os.path.join(root, rel))
+        if "<Parameter name=" in text and ("CodeInjection" in text or "<Shader" in text):
+            shader_files.append(rel)
+            shader_params.update(re.findall(r'<Parameter name=\"([A-Za-z0-9_]+)\"', text))
+    if not shader_files:
+        rep.check("shader-params", "SKIP", "no shader xml shipped in this mod")
+        return
+
+    used, missing = [], []
+    for rel in iter_files(root, (".xml",)):
+        if rel in shader_files:
+            continue
+        text = strip_comments(read(os.path.join(root, rel)))
+        for m in re.finditer(r'shaderParameterName(?:Prev)?=\"([A-Za-z0-9_]+)\"', text):
+            used.append((rel, m.group(1)))
+            if m.group(1) not in shader_params:
+                missing.append((rel, m.group(1)))
+    for rel, name in sorted(set(missing))[:15]:
+        rep.fail(f"{rel}: shader parameter {name!r} is not declared by any shader shipped with this mod")
+    rep.check("shader-params", "FAIL" if missing else "PASS",
+              f"{len(used)} shader parameter reference(s), {len(set(missing))} not declared")
+
 # ---------------------------------------------------------------- 1. xml parse
 def check_parse(root: str, rep: Report) -> dict:
     trees = {}
@@ -725,6 +756,7 @@ def main() -> int:
     check_jointtypes(root, rep)
     check_nodepaths(root, rep)
     check_legacy_attrs(root, rep)
+    check_shader_params(root, rep)
 
     rep.say("")
     passed = sum(1 for _n, s, _d in rep.checks if s == "PASS")
