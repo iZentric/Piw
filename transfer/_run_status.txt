@@ -1,17 +1,17 @@
-date: Mon Oct 12 15:09:16 UTC 2026
+date: Mon Oct 12 15:11:59 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: 05a0e1da5a8e107682c3b2ebd900f75e8214e8ca   ref: arena/01a10279-piw
+github.sha: 18023ea6a1edbf083a992e56410fe9f2a1c4c04e   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct 12 15:08 .
-drwxr-xr-x 3 runner runner 4096 Oct 12 15:08 ..
-drwxr-xr-x 7 runner runner 4096 Oct 12 15:08 .git
-drwxr-xr-x 3 runner runner 4096 Oct 12 15:08 .github
--rw-r--r-- 1 runner runner  171 Oct 12 15:08 .gitignore
--rw-r--r-- 1 runner runner    6 Oct 12 15:08 README.md
-drwxr-xr-x 3 runner runner 4096 Oct 12 15:08 tools
-drwxr-xr-x 6 runner runner 4096 Oct 12 15:08 transfer
+drwxr-xr-x 6 runner runner 4096 Oct 12 15:11 .
+drwxr-xr-x 3 runner runner 4096 Oct 12 15:11 ..
+drwxr-xr-x 7 runner runner 4096 Oct 12 15:11 .git
+drwxr-xr-x 3 runner runner 4096 Oct 12 15:11 .github
+-rw-r--r-- 1 runner runner  171 Oct 12 15:11 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct 12 15:11 README.md
+drwxr-xr-x 3 runner runner 4096 Oct 12 15:11 tools
+drwxr-xr-x 6 runner runner 4096 Oct 12 15:11 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
@@ -132,8 +132,8 @@ transfer/patched/FS22_DT_Pack/wheels/shaders/vehicleShader.xml
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
 
 --- git log -3 ---
-05a0e1d sounds: drop FS22-only template names, repair .wav->.ogg sample refs; selftest: FS22-only name + i3d node-path checks
-2014602 transfer: apply log + self-test [skip ci]
-1208249 transfer: reference data [skip ci]
+18023ea release notes: document the 11-check self-test result; selftest prints the modDesc version
+b5c820b transfer: apply log + self-test [skip ci]
+02e0150 transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---
