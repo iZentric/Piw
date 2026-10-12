@@ -157,6 +157,8 @@ LEGACY_PATTERNS = [
     (r"\baiRevereserNode=\"", "FS22 typo (FS25: aiReverserNode)"),
     (r"<newcategory\b", "FS22 modDesc element (FS25: storeCategories/storeCategory)"),
     (r"\battacherJointIndex(?!es)=\"", "FS22 scalar (FS25: attacherJointIndices)"),
+    (r"\bscrollPosition\b\"", "FS22 shader parameter name (FS25: scrollPos)"),
+    (r"\bprevScrollPosition\b\"", "FS22 shader parameter name (FS25: prevScrollPos)"),
 ]
 
 
@@ -358,6 +360,21 @@ def check_refs(root: str, orig: str | None, rep: Report, stripped: bool = False)
 
 
 # ------------------------------------------------------------------- 4. parity
+# Names that belong to something else than a node/material (shader parameters and
+# custom maps are renamed on purpose during the FS22 -> FS25 conversion, a node or
+# material name must never change).
+I3D_NON_NODE_ELEMENTS = {"CustomParameter", "Custommap", "File", "RenderState",
+                         "Texture", "Parameter", "Shader", "Variation", "Animation"}
+
+
+def i3d_names(text):
+    out = set()
+    for m in re.finditer(r'<([A-Za-z][A-Za-z0-9_]*)\b[^>]*?\bname=\"([^"]*)\"', text):
+        if m.group(1) not in I3D_NON_NODE_ELEMENTS:
+            out.add(m.group(2))
+    return out
+
+
 def check_parity(root: str, orig: str | None, filelist: str | None, rep: Report,
                  stripped: bool = False, remove_list: str | None = None) -> None:
     if not filelist or not os.path.isfile(filelist):
@@ -401,8 +418,8 @@ def check_parity(root: str, orig: str | None, filelist: str | None, rep: Report,
         b = os.path.join(root, rel)
         if not os.path.isfile(b):
             continue
-        names_a = set(re.findall(r'\bname="([^"]*)"', read(a)))
-        names_b = set(re.findall(r'\bname="([^"]*)"', read(b)))
+        names_a = i3d_names(read(a))
+        names_b = i3d_names(read(b))
         gone = sorted(n for n in names_a - names_b if n and not n.startswith("$"))
         if gone:
             lost_nodes += len(gone)

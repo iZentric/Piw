@@ -32,7 +32,7 @@
       <Glossmap fileId="5"/>
       <Custommap name="mTrackArray" fileId="10"/>
       <CustomParameter name="colorMat0" value="0.03 0.03 0.03 6"/>
-      <CustomParameter name="scrollPosition" value="0.7 0 0 0"/>
+      <CustomParameter name="scrollPos" value="0.7 0 0 0"/>
     </Material>
     <Material name="wide_crawlers" materialId="8" diffuseColor="0.8 0.8 0.8 1" customShaderId="6" customShaderVariation="colorMask">
       <Normalmap fileId="13"/>

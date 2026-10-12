@@ -37,14 +37,14 @@ def transform_moddesc(s, extra_sources, drop_cat=False):
 # DT pack: keep categorizer (rewritten), add BaseMaterial compat
 s = read(f'{ROOT}/FS22_DT_Pack/modDesc.xml')
 s = transform_moddesc(s, ['scripts/categorizer.lua', 'scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.2', '1.0.0.6')
+s = bump_version(s, '1.0.0.2', '1.0.0.7')
 s = s.replace('<category>vgtz</category>', '<category>DT_PACK</category>')
 write(f'{OUT}/FS22_DT_Pack/modDesc.xml', s)
 
 # T150
 s = read(f'{ROOT}/FS22_T150_Gus/modDesc.xml')
 s = transform_moddesc(s, ['scripts/BaseMaterial.lua'])
-s = bump_version(s, '1.0.0.0', '1.0.0.4')
+s = bump_version(s, '1.0.0.0', '1.0.0.5')
 write(f'{OUT}/FS22_T150_Gus/modDesc.xml', s)
 
 # --- categorizer rewrite (FS25: categoryTypeName is a string) ---
@@ -703,30 +703,36 @@ for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
 # very same values scrollPos/prevScrollPos.  Keeping the FS22 name means FS25
 # finds no node at all, so the tracks stay frozen.
 SCROLLER_PARAM_MAP = (
-    ('shaderParameterName="scrollPosition"',
-     'shaderParameterName="scrollPos"'),
-    ('shaderParameterNamePrev="prevScrollPosition"',
-     'shaderParameterNamePrev="prevScrollPos"'),
-    ('shaderParameterName="prevScrollPosition"',
-     'shaderParameterName="prevScrollPos"'),
+    ('"scrollPosition"', '"scrollPos"'),
+    ('"prevScrollPosition"', '"prevScrollPos"'),
 )
 
 
+# The i3d material entries store the initial value under the same parameter name
+# (CustomParameter), so the rename has to happen there too - done on the raw bytes,
+# which keeps the encoding/BOM of the i3d untouched.
 def migrate_scroller_params(stem):
     changed = []
-    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+    root = os.path.join(ROOT, stem)
+    for dirpath, _dirs, files in os.walk(root):
         for f in sorted(files):
-            if not f.endswith('.xml'):
+            if not f.lower().endswith((".xml", ".i3d")):
                 continue
-            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace('\\', '/')
-            base = layered_read(stem, rel)
-            new, hits = base, []
+            rel = os.path.relpath(os.path.join(dirpath, f), root).replace('\\', '/')
+            dst = os.path.join(OUT, stem, rel)
+            src = dst if os.path.exists(dst) else os.path.join(root, rel)
+            with open(src, "rb") as fh:
+                data = fh.read()
+            new, hits = data, []
             for old, rep in SCROLLER_PARAM_MAP:
-                if old in new:
-                    hits.append(old.split('"')[1])
-                    new = new.replace(old, rep)
-            if new != base:
-                write(os.path.join(OUT, stem, rel), new)
+                ob, rb = old.encode("utf-8"), rep.encode("utf-8")
+                if ob in new:
+                    hits.append(old.strip('"'))
+                    new = new.replace(ob, rb)
+            if new != data:
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                with open(dst, "wb") as fh:
+                    fh.write(new)
                 changed.append((rel, hits))
     return changed
 

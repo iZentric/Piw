@@ -14,8 +14,8 @@ Moduri FS22 convertite pentru Farming Simulator 25: **DT-75 Pack** si **T-150 Gu
    `Available mod: ... FS25_T150_Gus` - daca nu apar, modul nu s-a incarcat.
 
 ## Versiuni
-* DT-75 Pack: **1.0.0.6**
-* T-150 Gus: **1.0.0.4**
+* DT-75 Pack: **1.0.0.7**
+* T-150 Gus: **1.0.0.5**
 
 ## Ce contine conversia
 * `descVersion` 104 si XML-uri actualizate pentru FS25.
@@ -44,7 +44,9 @@ Moduri FS22 convertite pentru Farming Simulator 25: **DT-75 Pack** si **T-150 Gu
   `scrollPos`/`prevScrollPos`.  Cum numele vechi nu mai exista, jocul nu mai
   gasea niciun nod de animat si senilele stateau pe loc.  Numele au fost
   actualizate la `scrollPos` in toate cele 7 configuratii de senile (4 DT-75,
-  3 T-150), iar `prevScrollPos` este preluat automat de joc pentru motion blur.
+  3 T-150), inclusiv in materialul din `tracksDT75WideLowered.i3d` care pastra
+  valoarea initiala de faza (`0.7`); `prevScrollPos` este preluat automat de joc
+  pentru motion blur.
 * **Soferul pe scaun**: FS22 folosea `spineRotation` (aplicat absolut, pe
   modelul vechi de personaj).  FS25 nu are acest atribut - postura lui
   este calculata de joc - iar valoarea veche, pastrata ca offset, rasea
@@ -69,8 +71,9 @@ referinte de fisiere (0 lipsa), comparatie 1:1 cu arhiva FS22 (173 / 224 fisiere
 0 pierdute, 0 noduri pierdute), coliziuni, nume de sunete (0 nume FS22 ramase,
 0 necunoscute), specializari, shader-e, tipuri de cuplare,
 **1526 / 1293 de referinte de nod rezolvate in i3d (0 nerezolvate)** si
-**0 atribute/elemente care exista doar in FS22** (verificare facuta special
-pentru postura soferului) si **fiecare parametru de shader folosit de animatii
+**0 atribute/elemente care exista doar in FS22**, inclusiv numele vechi de
+parametru de shader (`scrollPosition`) - verificare facuta special pentru postura
+soferului si pentru senile - si **fiecare parametru de shader folosit de animatii
 este declarat de shader-ul livrat** (verificare facuta special pentru senile).
 
 Daca apar probleme in joc, trimite `log.txt`
