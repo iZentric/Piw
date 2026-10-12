@@ -1243,7 +1243,7 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="T_150_L_S" translation="0 0 -5.96046e-08" rotation="0 3.33505e-06 -4.31397e-05" dynamic="true" compound="true" collisionMask="2105410" density="0.62" clipDistance="200" nodeId="529" materialIds="102" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="T_150_L_S" translation="0 0 -5.96046e-08" rotation="0 3.33505e-06 -4.31397e-05" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.62" clipDistance="200" nodeId="529" materialIds="102" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <TransformGroup name="wheels" translation="0 0.05 0" clipDistance="170" nodeId="530">
           <TransformGroup name="BackWheelLeft" translation="0.738 0.592 -1.007" nodeId="531"/>
           <TransformGroup name="BackWheelRight" translation="-0.742 0.592 -1.007" nodeId="532"/>
@@ -1304,7 +1304,7 @@
               </TransformGroup>
               <TransformGroup name="transform" translation="0.527921 1.44711 2.41987" nodeId="575"/>
               <TransformGroup name="transform" translation="-0.536669 1.44711 2.42874" rotation="0 180 0" nodeId="576"/>
-              <Shape shapeId="6" name="sIC_playerTrigger" translation="0 1.75488 1.23052" visibility="false" kinematic="true" trigger="true" collisionMask="1048576" clipDistance="100" nodeId="577" materialIds="163" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="6" name="sIC_playerTrigger" translation="0 1.75488 1.23052" visibility="false" kinematic="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" clipDistance="100" nodeId="577" materialIds="163" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
               <TransformGroup name="sitki_sounds" translation="-0.615194 1.461 2.07597" nodeId="578"/>
               <Shape shapeId="7" name="kapot_17221" translation="0 -0.296655 -0.619391" clipDistance="170" nodeId="579" materialIds="50" castsShadows="true" receiveShadows="true">
                 <Shape shapeId="8" name="ramka" translation="0 -6.67581e-05 0.000356878" clipDistance="170" nodeId="580" materialIds="49" castsShadows="true" receiveShadows="true">

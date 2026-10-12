@@ -41,7 +41,7 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="KowshDT_main_component1" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="22" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="KowshDT_main_component1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="22" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <TransformGroup name="attacherJoint" translation="-7.13564e-09 0.119367 -0.376309" rotation="-90.0001 -85 90.0001" nodeId="23"/>
         <TransformGroup name="transform" translation="0 0.385325 0.320645" scale="0.87 1 1" nodeId="24">
           <TransformGroup name="fillVolume" translation="0 -0.157812 -0.506074" rotation="69.1965 -0 0" scale="1 1.15 1.33" nodeId="25">
@@ -56,7 +56,7 @@
             <Shape shapeId="5" name="smokeEffect" visibility="false" clipDistance="100" nodeId="33" materialIds="7" castsShadows="true" receiveShadows="true"/>
           </TransformGroup>
           <TransformGroup name="pickUpNode" translation="0 -0.38318 0.474" nodeId="34"/>
-          <Shape shapeId="6" name="exactFillRootNode" translation="0 -0.00276797 -0.236167" kinematic="true" compound="true" collisionMask="1073741824" nodeId="35" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="6" name="exactFillRootNode" translation="0 -0.00276797 -0.236167" kinematic="true" compound="true" collisionFilterGroup="0x40000000" collisionFilterMask="0x20000000" nodeId="35" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
         </TransformGroup>
         <TransformGroup name="collisions" nodeId="36">
           <Shape shapeId="7" name="Co3lShape" translation="-1.04961 0.327296 -0.110527" compoundChild="true" nodeId="37" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>

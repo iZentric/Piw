@@ -73,8 +73,8 @@
             <!-- folding -->
             <part node="0>1|2|3" startTime="0.5" endTime="5.0" startRot="0 0 -112" endRot="0 0 -2" />
 			<!-- sounds -->
-            <sound template="defaultHydraulicSound" startTime="0.5" endTime="5.0" pitchScale="0.2" volumeScale="4" fadeIn="0.05" fadeOut="0.1" direction="1"  linkNode="0>1|2|5|0"/>          
-			<sound template="hydraulicLayerTone"    startTime="0.5" endTime="5.0" pitchScale="0.2" volumeScale="4" fadeIn="0.05" fadeOut="0.1" direction="-1" linkNode="0>1|2|5|0"/>	
+            <sound template="hydraulicOpen02" startTime="0.5" endTime="5.0" pitchScale="0.2" volumeScale="4" fadeIn="0.05" fadeOut="0.1" direction="1"  linkNode="0>1|2|5|0"/>          
+			<sound template="hydraulicClose02"    startTime="0.5" endTime="5.0" pitchScale="0.2" volumeScale="4" fadeIn="0.05" fadeOut="0.1" direction="-1" linkNode="0>1|2|5|0"/>	
            
   		    <sound template="metalLowVar2"    startTime="4.99" direction="1"  volumeScale="8" pitchScale="1" linkNode="0>1|2|5|0"/>			
             <sound template="metalLowVar2"    startTime="0.55" direction="-1" volumeScale="8" pitchScale="1" linkNode="0>1|2|5|0"/>
@@ -150,7 +150,7 @@
     </movingParts>
 	
 		<sounds>
-            <hydraulic template="defaultHydraulicSound" linkNode="0>"/>
+            <hydraulic template="hydraulicOpen02" linkNode="0>"/>
 			
 			
 			<actionSound template="metalLowVar2"  pitchScale="1.0" volumeScale="3"   linkNode="0>1|2"   actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="0>1|2"/>
@@ -172,7 +172,7 @@
         </effects>                                                                                     
 
         <sounds>
-            <belt template="ROLLBELT_LOOP"/>
+            <belt template="tracksLoop"/>
         </sounds>
     </conveyorBelt>
 
@@ -199,7 +199,7 @@
                 </effectNode>
 				<effectNode effectNode="0>1|2|4|1|0|1" materialType="smoke"     materialTypeId="1" fadeTime="0.5" />
 			</effects>
-            <dischargeStateSound template="augerBelt" pitchScale="0.7" volumeScale="1.0" fadeIn="0.2" fadeOut="1" innerRadius="1.0" outerRadius="40.0" linkNode="0>"/>
+            <dischargeStateSound template="harvesterDischargeStartCabin" pitchScale="0.7" volumeScale="1.0" fadeIn="0.2" fadeOut="1" innerRadius="1.0" outerRadius="40.0" linkNode="0>"/>
         </dischargeNode>
     </dischargeable>
 
@@ -240,9 +240,9 @@
 			<animationNode class="ScrollingAnimation" node="0>1|2|3|0" shaderParameterName="offsetUV" scrollSpeed="-0.3"   shaderParameterComponent="2" turnOnFadeTime="1" turnOffFadeTime="3"/>		
         </animationNodes>
 		<sounds>
-            <work template="forageHarvesterWork" pitchScale="0.3" volumeScale="2.0" fadeIn="0.5" fadeOut="1.6" innerRadius="1.0" linkNode="0>"/>
-            <work template="HARVESTER_TOOL_WORK" pitchScale="1.0" volumeScale="1.5" fadeIn="0.5" fadeOut="1.6" innerRadius="1.0" linkNode="0>"/>
-            <work template="HARVESTER_TOOL_WORK" pitchScale="0.9" volumeScale="1.0" fadeIn="0.5" fadeOut="1.6" innerRadius="1.0" linkNode="0>"/>
+            <work template="combineThreshingSystemLoop" pitchScale="0.3" volumeScale="2.0" fadeIn="0.5" fadeOut="1.6" innerRadius="1.0" linkNode="0>"/>
+            <work template="harvesterToolWork" pitchScale="1.0" volumeScale="1.5" fadeIn="0.5" fadeOut="1.6" innerRadius="1.0" linkNode="0>"/>
+            <work template="harvesterToolWork" pitchScale="0.9" volumeScale="1.0" fadeIn="0.5" fadeOut="1.6" innerRadius="1.0" linkNode="0>"/>
         </sounds>		
     </turnOnVehicle>
 	

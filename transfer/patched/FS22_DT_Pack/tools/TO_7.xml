@@ -124,7 +124,7 @@
         </movingParts>
 
      		<sounds>
-            <hydraulic template="defaultHydraulicSound" linkNode="0>"/>
+            <hydraulic template="hydraulicOpen02" linkNode="0>"/>
 			
 			
 			<actionSound template="metalLowVar2"  pitchScale="1.0" volumeScale="3"   linkNode="0>0|3"   actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="0>0|3"/>

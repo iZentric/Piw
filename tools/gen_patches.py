@@ -195,6 +195,160 @@ for rel in KAPOTS_SHADERS:
     write(f'{OUT}/FS22_T150_Gus/{rel}', shader)
 print('T150 kapots shaders replaced with the fixed one:', len(KAPOTS_SHADERS))
 
+# --- FS25 collision filter migration -----------------------------------------
+# FS22 stored a single combined mask in the i3d attribute "collisionMask".
+# FS25 replaced it by the pair "collisionFilterGroup" + "collisionFilterMask"
+# (see <game>/shared/collisionMaskFlags.xml).  A shape without the pair has no
+# valid collision filter in FS25 - the game warns
+#   "Missing collision filter mask bit 16 (VEHICLE). Please add this bit to
+#    component node '...'"
+# and the parts stop interacting with the world/other vehicles.
+#
+# The FS22 mask is translated by role onto the matching FS25 preset:
+#   FS22 bit 13 = VEHICLE                  -> preset VEHICLE
+#   FS22 bit 27 = TRIGGER_FORK             -> preset FORK
+#   FS22 bit 30 = FILLABLE (exact fill)    -> preset EXACT_FILL_ROOT_NODE
+#   FS22 bit 20 = TRIGGER_PLAYER           -> preset PLAYER_TRIGGER
+#   FS22 bit 23 = TRIGGER_FILLABLE         -> preset FILL_TRIGGER
+FS22_BIT_VEHICLE = 13
+FS22_BIT_TRIGGER_PLAYER = 20
+FS22_BIT_TRIGGER_FILLABLE = 23
+FS22_BIT_TRIGGER_FORK = 27
+FS22_BIT_FILLABLE = 30
+
+PAIR_VEHICLE = ('0x10004', '0xfe3ffb83')      # group CAMERA_BLOCKING|VEHICLE
+PAIR_FORK = ('0x20000', '0xfe3ffb83')         # group VEHICLE_FORK
+PAIR_FILL_ROOT = ('0x40000000', '0x20000000')  # group FILLABLE / mask TRIGGER
+PAIR_TRIGGER_PLAYER = ('0x20000000', '0x100000')   # TRIGGER / PLAYER
+PAIR_TRIGGER_FILL = ('0x20000000', '0x40000000')   # TRIGGER / FILLABLE
+
+
+def fs25_collision_pair(mask):
+    if mask & (1 << FS22_BIT_TRIGGER_FORK):
+        return PAIR_FORK
+    if mask & (1 << FS22_BIT_FILLABLE):
+        return PAIR_FILL_ROOT
+    if mask & (1 << FS22_BIT_TRIGGER_PLAYER):
+        return PAIR_TRIGGER_PLAYER
+    if mask & (1 << FS22_BIT_TRIGGER_FILLABLE) and not mask & (1 << FS22_BIT_VEHICLE):
+        return PAIR_TRIGGER_FILL
+    return PAIR_VEHICLE
+
+
+SHAPE_TAG = re.compile(r'<Shape\s([^>]*?)(/?)>')
+
+
+def migrate_collision_masks(s):
+    hits = []
+
+    def repl(m):
+        body = m.group(1)
+        cm = re.search(r'collisionMask="(\d+)"', body)
+        if cm is None or 'collisionFilterGroup' in body:
+            return m.group(0)
+        mask = int(cm.group(1))
+        group, filter_mask = fs25_collision_pair(mask)
+        nm = re.search(r'name="([^"]*)"', body)
+        hits.append((nm.group(1) if nm else '?', mask, group, filter_mask))
+        new_body = body.replace(cm.group(0),
+                                'collisionFilterGroup="%s" collisionFilterMask="%s"' % (group, filter_mask))
+        return '<Shape %s%s>' % (new_body, m.group(2))
+
+    return SHAPE_TAG.sub(repl, s), hits
+
+
+def layered_read(stem, rel):
+    """Text of a file as it will end up in the build (patched wins over original)."""
+    dst = os.path.join(OUT, stem, rel)
+    if os.path.exists(dst):
+        return read(dst, enc='utf-8')
+    return read(os.path.join(ROOT, stem, rel), enc='utf-8')
+
+
+def migrate_collisions(stem):
+    changed = []
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+        for f in sorted(files):
+            if not f.endswith('.i3d'):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace('\\', '/')
+            base = layered_read(stem, rel)
+            new, hits = migrate_collision_masks(base)
+            if hits:
+                write(os.path.join(OUT, stem, rel), new)
+                changed.append((rel, hits))
+    return changed
+
+
+# --- FS25 sound template migration -------------------------------------------
+# FS25 only knows the templates listed in $data/sounds/soundTemplates.xml.
+# Every FS22 template name that is gone makes SoundManager drop the whole sample
+# ("Sound template 'X' was not found"), and for the indexed 'motor(?)' elements
+# even the samples after it -> engine/vehicle silence.
+# Replacements below are FS25 template names that occur in FS25 content
+# (FS25 mod packs, vanilla vehicles); None means "drop the attribute"
+# (FS25 vanilla defines motorStart/motorStop without a template).
+SOUND_TEMPLATE_MAP = {
+    'MEDIUM_TRACTOR_MOTOR_START': None,
+    'MEDIUM_TRACTOR_MOTOR_STOP': None,
+    'MEDIUM_TRACTOR_MOTOR_IDLE': 'engineMedium',
+    'MEDIUM_TRACTOR_MOTOR_OFFLOAD_RUN': 'engineMedium',
+    'MEDIUM_TRACTOR_MOTOR_ONLOAD_RUN': 'engineMedium',
+    'WATER_SPLASH_01': 'waterSplash01',
+    'SWITCH_TURNLIGHT': 'switchTurnlight',
+    'TRUCK_ATTACH_01': 'truckAttach',
+    'TRUCK_ATTACH_03': 'truckDetach',
+    'HONK_NH_TX32': 'hornDefault',
+    'HONK_FENDT511C': 'honkFendt511C',
+    'switch': 'switch01',
+    'defaultHydraulicSound': 'hydraulicOpen02',
+    'hydraulicLayerTone': 'hydraulicClose02',
+    'HARVESTER_TOOL_WORK': 'harvesterToolWork',
+    'forageHarvesterWork': 'combineThreshingSystemLoop',
+    'augerBelt': 'harvesterDischargeStartCabin',
+    'ROLLBELT_LOOP': 'tracksLoop',
+}
+
+
+def migrate_sounds(s):
+    hits = []
+    for old, new in SOUND_TEMPLATE_MAP.items():
+        attr = 'template="%s"' % old
+        if attr not in s:
+            continue
+        if new is None:
+            s = re.sub(r'\s+' + re.escape(attr), '', s)
+        else:
+            s = s.replace(attr, 'template="%s"' % new)
+        hits.append((old, new))
+    return s, hits
+
+
+def migrate_sound_templates(stem):
+    changed = []
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+        for f in sorted(files):
+            if not f.endswith('.xml'):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace('\\', '/')
+            base = layered_read(stem, rel)
+            new, hits = migrate_sounds(base)
+            if new != base:
+                write(os.path.join(OUT, stem, rel), new)
+                changed.append((rel, hits))
+    return changed
+
+
+for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
+    _coll = migrate_collisions(_stem)
+    print(_stem, 'i3d collision filters migrated:', sum(len(h) for _r, h in _coll))
+    for _rel, _hits in _coll:
+        print('    %s: %d shapes' % (_rel, len(_hits)))
+    _snd = migrate_sound_templates(_stem)
+    print(_stem, 'xml sound templates migrated:', sum(len(h) for _r, h in _snd))
+    for _rel, _hits in _snd:
+        print('    %s: %s' % (_rel, ', '.join('%s->%s' % (o, n if n else '(none)') for o, n in _hits)))
+
 # --- _remove.txt ---
 write(f'{OUT}/FS22_DT_Pack/_remove.txt', 'scripts/MoreDesignConfigs.lua\n')
 write(f'{OUT}/FS22_T150_Gus/_remove.txt', 'scripts/MoreDesignConfigs.lua\n')

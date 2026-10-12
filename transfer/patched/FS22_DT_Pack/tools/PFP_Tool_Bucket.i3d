@@ -48,7 +48,7 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="bucket_Main_Component" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="31" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="bucket_Main_Component" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="31" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <TransformGroup name="bucketVisual" nodeId="32">
           <Shape shapeId="2" name="bucket" translation="0.00145149 0.695599 0.0374339" nodeId="33" materialIds="6" castsShadows="true" receiveShadows="true">
             <Shape shapeId="3" name="bucketDecals" translation="-0.00105162 0.407421 -0.0523619" clipDistance="60" nodeId="34" materialIds="5" castsShadows="true" receiveShadows="true"/>
@@ -59,7 +59,7 @@
           <TransformGroup name="torReferenceNode" translation="0 0.712006 -0.258406" nodeId="37"/>
         </TransformGroup>
         <TransformGroup name="fillable" nodeId="38">
-          <Shape shapeId="4" name="exactFillRootNode" translation="-0.00017558 0.807756 0.223784" kinematic="true" compound="true" collisionMask="1073741824" nodeId="39" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="4" name="exactFillRootNode" translation="-0.00017558 0.807756 0.223784" kinematic="true" compound="true" collisionFilterGroup="0x40000000" collisionFilterMask="0x20000000" nodeId="39" materialIds="7" nonRenderable="true"/>
           <Shape shapeId="5" name="fillVolume" translation="0 0.328587 -0.0265844" rotation="64.3104 -0 9.47879e-23" nodeId="40" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
           <TransformGroup name="fillVolumeLoadNode" translation="0 0.280976 0.950448" rotation="-29.0205 -0 0" nodeId="41"/>
           <TransformGroup name="fillVolumeUnloadNode" translation="0 1.8468 0.100417" nodeId="42"/>
@@ -71,20 +71,20 @@
             <Shape shapeId="7" name="smokeEffect" translation="-8.47453e-17 -0.00196269 -0.023752" rotation="-22.0668 -0 0" visibility="false" clipDistance="100" nodeId="48" materialIds="10" castsShadows="true" receiveShadows="true"/>
             <Shape shapeId="8" name="emitterShape" translation="2.68213e-31 0.00940535 -0.612355" rotation="-22.0668 -0 0" clipDistance="300" nodeId="49" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
           </TransformGroup>
-          <Shape shapeId="9" name="exactFillRootNode" translation="6.55924e-18 0.0454521 -0.108437" rotation="40.2228 -0 0" kinematic="true" compound="true" collisionMask="1073741824" nodeId="50" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="9" name="exactFillRootNode" translation="6.55924e-18 0.0454521 -0.108437" rotation="40.2228 -0 0" kinematic="true" compound="true" collisionFilterGroup="0x40000000" collisionFilterMask="0x20000000" nodeId="50" materialIds="7" nonRenderable="true"/>
           <TransformGroup name="dischargeNode" translation="0 1.91354 -0.172505" rotation="93.5622 -0.795173 179.559" nodeId="51"/>
         </TransformGroup>
         <TransformGroup name="collisions" nodeId="52">
-          <Shape shapeId="10" name="colPart01" translation="6.01748e-08 0.0750383 -0.226582" compoundChild="true" collisionMask="8212" nodeId="53" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="11" name="colPart02" translation="2.97382e-08 0.437813 -0.208622" compoundChild="true" collisionMask="8212" nodeId="54" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="12" name="colPart03" translation="0 0.229087 -0.09633" compoundChild="true" collisionMask="8212" nodeId="55" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="13" name="colPart04" translation="-7.90712e-10 0.087701 0.0862762" compoundChild="true" collisionMask="8212" nodeId="56" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="14" name="colPart05" translation="0 0.0424137 0.310408" compoundChild="true" collisionMask="8212" nodeId="57" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="15" name="colPart06" translation="1.51535e-09 0.148059 0.681892" compoundChild="true" collisionMask="8212" nodeId="58" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="16" name="colPartLeft" translation="1.06291 0.4349 0.265613" compoundChild="true" collisionMask="8212" nodeId="59" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="17" name="colPartLeftTop" translation="0.973713 1.24763 0.0788561" compoundChild="true" collisionMask="8212" nodeId="60" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="18" name="colPartRight" translation="-1.05995 0.434856 0.265456" compoundChild="true" collisionMask="8212" nodeId="61" materialIds="7" nonRenderable="true"/>
-          <Shape shapeId="19" name="colPartRightTop" translation="-0.970779 1.24747 0.0787433" compoundChild="true" collisionMask="8212" nodeId="62" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="10" name="colPart01" translation="6.01748e-08 0.0750383 -0.226582" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="53" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="11" name="colPart02" translation="2.97382e-08 0.437813 -0.208622" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="54" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="12" name="colPart03" translation="0 0.229087 -0.09633" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="55" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="13" name="colPart04" translation="-7.90712e-10 0.087701 0.0862762" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="56" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="14" name="colPart05" translation="0 0.0424137 0.310408" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="57" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="15" name="colPart06" translation="1.51535e-09 0.148059 0.681892" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="58" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="16" name="colPartLeft" translation="1.06291 0.4349 0.265613" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="59" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="17" name="colPartLeftTop" translation="0.973713 1.24763 0.0788561" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="60" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="18" name="colPartRight" translation="-1.05995 0.434856 0.265456" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="61" materialIds="7" nonRenderable="true"/>
+          <Shape shapeId="19" name="colPartRightTop" translation="-0.970779 1.24747 0.0787433" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="62" materialIds="7" nonRenderable="true"/>
         </TransformGroup>
         <Camera name="persp" translation="-1.62568 1.68121 0.695309" rotation="-12.9818 -51.181 -4.25619e-08" nodeId="63" fov="60" nearClip="0.1" farClip="10000" orthographicHeight="1"/>
       </Shape>

@@ -115,7 +115,7 @@
         </movingParts>
 
         <sounds>
-            <actionSound template="defaultHydraulicSound" pitchScale="0.6" volumeScale="2"   linkNode="0>0|4" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG" nodes="0>0|4"/>
+            <actionSound template="hydraulicOpen02" pitchScale="0.6" volumeScale="2"   linkNode="0>0|4" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG" nodes="0>0|4"/>
             <actionSound template="clackVar6"             pitchScale="0.9" volumeScale="1.4" linkNode="0>0|4" actionNames="TOOL_MOVE_END_POS_LIMIT"     nodes="0>0|4"/>
             <actionSound template="cylinderPunch"         pitchScale="2"   volumeScale="0.5" linkNode="0>0|4" actionNames="TOOL_MOVE_END_POS_LIMIT"     nodes="0>0|4"/>
             <actionSound template="clackVar6"             pitchScale="0.6" volumeScale="1.7" linkNode="0>0|4" actionNames="TOOL_MOVE_END_NEG_LIMIT"     nodes="0>0|4"/>

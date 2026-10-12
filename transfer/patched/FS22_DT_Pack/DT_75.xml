@@ -1688,8 +1688,8 @@
 		<animation name="svet_kabin">
           <part node="0>0|14|13|0" startTime="0" endTime="0.0025" visibility="false"/>
           <part node="0>0|14|13|0" startTime="0.0025" endTime="0.005" visibility="true"/>
-          <sound template="switch"  startTime="0.001"      pitchScale="0.95"  volumeScale="2.5" linkNode="0>0|14|13|0"   direction="0" />    
-          <sound template="switch"  startTime="0.0025"     pitchScale="0.95"  volumeScale="2.5" linkNode="0>0|14|13|0"   direction="0" />
+          <sound template="switch01"  startTime="0.001"      pitchScale="0.95"  volumeScale="2.5" linkNode="0>0|14|13|0"   direction="0" />    
+          <sound template="switch01"  startTime="0.0025"     pitchScale="0.95"  volumeScale="2.5" linkNode="0>0|14|13|0"   direction="0" />
         </animation>
 		
 		<animation name="turnON">
@@ -1874,7 +1874,7 @@
 			<movingPart node="0>0|14|17|1|1|0" referencePoint="0>0|14|17|0|1|1|0|0" referenceFrame="0>0|14|17|0|1|1|0|0" isActiveDirty="true" scaleZ="true" playSound="false" maxUpdateDistance="50"/>
         </movingParts>
         <sounds>
-            <hydraulic template="defaultHydraulicSound" linkNode="0>"/>
+            <hydraulic template="hydraulicOpen02" linkNode="0>"/>
             <actionSound template="metalLowVar2"  pitchScale="1.0" volumeScale="3"   linkNode="bottomArm" actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="bottomArm"/>
             <actionSound template="cylinderPunch" pitchScale="1.5" volumeScale="0.4" linkNode="bottomArm" actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="bottomArm"/>
             <actionSound template="metalClose"    pitchScale="2.5" volumeScale="0.2" linkNode="bottomArm" actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="bottomArm"/>

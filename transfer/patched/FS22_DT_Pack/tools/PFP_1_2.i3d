@@ -96,7 +96,7 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="PFP_12_main_component1" dynamic="true" compound="true" collisionMask="10493954" density="60" clipDistance="300" nodeId="51" materialIds="12" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="PFP_12_main_component1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="60" clipDistance="300" nodeId="51" materialIds="12" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <TransformGroup name="PFP_12_vis" nodeId="52">
           <TransformGroup name="hydraulic" nodeId="53">
             <TransformGroup name="rearHydraulicRot" translation="0 0.493412 -1.78339" rotation="4.3 -0 0" nodeId="54">
@@ -243,9 +243,9 @@
               </TransformGroup>
             </TransformGroup>
             <TransformGroup name="collisions" translation="0 -0.807776 -0.102257" nodeId="158">
-              <Shape shapeId="32" name="colPartLeft1" translation="1.16894 0.765872 0.230473" rotation="11.3447 -0 0" compoundChild="true" collisionMask="33172" nodeId="159" materialIds="12" nonRenderable="true" distanceBlending="false"/>
-              <Shape shapeId="32" name="colPartRight1" translation="-1.169 0.765872 0.230473" rotation="11.3447 -0 0" compoundChild="true" collisionMask="33172" nodeId="160" materialIds="12" nonRenderable="true" distanceBlending="false"/>
-              <Shape shapeId="33" name="colPartCenter" translation="0 0.203634 3.03314" rotation="9.83554 -0 0" compoundChild="true" collisionMask="33172" nodeId="161" materialIds="12" nonRenderable="true" distanceBlending="false"/>
+              <Shape shapeId="32" name="colPartLeft1" translation="1.16894 0.765872 0.230473" rotation="11.3447 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="159" materialIds="12" nonRenderable="true" distanceBlending="false"/>
+              <Shape shapeId="32" name="colPartRight1" translation="-1.169 0.765872 0.230473" rotation="11.3447 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="160" materialIds="12" nonRenderable="true" distanceBlending="false"/>
+              <Shape shapeId="33" name="colPartCenter" translation="0 0.203634 3.03314" rotation="9.83554 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="161" materialIds="12" nonRenderable="true" distanceBlending="false"/>
             </TransformGroup>
           </TransformGroup>
           <TransformGroup name="frontLoaderAttacherRot" nodeId="162">

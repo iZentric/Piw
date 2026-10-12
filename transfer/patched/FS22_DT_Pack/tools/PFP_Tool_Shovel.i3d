@@ -55,14 +55,14 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="lopata_main_component1" dynamic="true" compound="true" collisionMask="10493954" clipDistance="300" nodeId="17" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="lopata_main_component1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="17" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <Shape shapeId="2" name="lopata_vis" translation="-0.00631325 0.00604157 -0.106039" nodeId="18" materialIds="7" castsShadows="true" receiveShadows="true">
           <TransformGroup name="emptyTrans" nodeId="19"/>
           <TransformGroup name="FIllable" translation="0.00631325 0.061405 -2.76106" nodeId="20"/>
           <TransformGroup name="LevelerNode" translation="0.00631325 -0.320131 0.43894" clipDistance="300" nodeId="21"/>
           <Shape shapeId="3" name="mesh" translation="0.00631325 -0.277305 0.18589" visibility="false" clipDistance="300" nodeId="22" materialIds="5" castsShadows="true" receiveShadows="true"/>
           <TransformGroup name="emptyTrans" nodeId="23"/>
-          <Shape shapeId="4" name="col" compoundChild="true" collisionMask="33172" nodeId="24" materialIds="9" nonRenderable="true" distanceBlending="false"/>
+          <Shape shapeId="4" name="col" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="24" materialIds="9" nonRenderable="true" distanceBlending="false"/>
           <Shape shapeId="5" name="Lopata_Decal" translation="0.00657288 -0.084454 0.23367" nodeId="25" materialIds="8" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
           <TransformGroup name="trailerAttacher" nodeId="26">
             <Shape shapeId="6" name="hook" nodeId="27" materialIds="6" castsShadows="true" receiveShadows="true"/>

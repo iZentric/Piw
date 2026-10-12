@@ -70,7 +70,7 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="protivoves" dynamic="true" compound="true" collisionMask="2105346" density="2.3" clipDistance="200" nodeId="21" materialIds="10" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="protivoves" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="2.3" clipDistance="200" nodeId="21" materialIds="10" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <TransformGroup name="attacherJoint" translation="3.11732e-09 0.329641 -0.454257" rotation="0 -90 0" clipDistance="200" nodeId="22"/>
         <TransformGroup name="topReferenceNode" translation="3.24303e-09 0.787603 -0.43629" rotation="0 -90 0" joint="true" projection="true" projDistance="0" projAngle="1.80964e+29" yAxisDrive="true" drivePos="true" driveForceLimit="-2.53993e-29" driveSpring="4.30506e-30" driveDamping="0" breakableJoint="true" jointBreakForce="15.1498" jointBreakTorque="4.15891e+21" rotMinX="0" rotMaxX="1.8344e+29" transMinX="0" transMaxX="0" rotMinY="6.3579e-31" rotMaxY="-2.54e-29" transMinY="0" transMaxY="1.85916e+29" rotMinZ="0" rotMaxZ="-5.87072e+07" nodeId="23"/>
         <TransformGroup name="trailerAttacherJoint" translation="-8.17889e-10 0.0519922 0.485873" rotation="0 -90 0" nodeId="24"/>

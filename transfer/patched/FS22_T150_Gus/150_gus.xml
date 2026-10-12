@@ -774,7 +774,7 @@
         <suspension useCharacterTorso="true" weight="90" minRotation="0 -5 -5" maxRotation="0 5 5" suspensionParametersY="7 1" suspensionParametersZ="7 1"/>
     </suspensions>
     <honk>
-        <sound template="HONK_FENDT511C"/>
+        <sound template="honkFendt511C"/>
         <honkkey>
             <honk animName0="Honk"/>
         </honkkey>

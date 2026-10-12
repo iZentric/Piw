@@ -57,7 +57,7 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="KunDTNew_main_component1Shape" dynamic="true" compound="true" collisionMask="2105346" clipDistance="300" nodeId="37" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="KunDTNew_main_component1Shape" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="37" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <TransformGroup name="kunDt_vis" translation="0 1.62187e-05 0" nodeId="38">
           <Shape shapeId="2" name="mainArm" translation="-0.0023885 1.63098 0.339276" nodeId="39" materialIds="11" castsShadows="true" receiveShadows="true">
             <TransformGroup name="attacherRot" translation="0 -1.45998 2.34559" nodeId="40">
@@ -85,10 +85,10 @@
             </Shape>
             <TransformGroup name="NizShtokFix" translation="0.0023884 -0.650656 1.0036" rotation="0 -3.24e-05 0" nodeId="57"/>
             <TransformGroup name="Colision" translation="0 1.62125e-05 0" nodeId="58">
-              <Shape shapeId="7" name="Col1" translation="0 -1.54074 2.33845" compoundChild="true" collisionMask="2109442" nodeId="59" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-              <Shape shapeId="8" name="Col2" translation="0 -1.54074 2.33845" compoundChild="true" collisionMask="2109442" nodeId="60" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-              <Shape shapeId="9" name="Col3" compoundChild="true" collisionMask="2109442" nodeId="61" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-              <Shape shapeId="10" name="Col4" compoundChild="true" collisionMask="2109442" nodeId="62" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="7" name="Col1" translation="0 -1.54074 2.33845" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="59" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="8" name="Col2" translation="0 -1.54074 2.33845" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="60" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="9" name="Col3" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="61" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="10" name="Col4" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="62" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
             </TransformGroup>
             <TransformGroup name="decals" translation="0.0023885 -1.631 -0.339276" nodeId="63">
               <Shape shapeId="11" name="decals2" nodeId="64" materialIds="6" castsShadows="true" receiveShadows="true"/>
@@ -162,8 +162,8 @@
         <TransformGroup name="skinedMesh" nodeId="112"/>
         <TransformGroup name="attacherJoint" translation="-2.83813e-08 -0.0167812 0.316157" rotation="-4.07111e-13 -90 0" nodeId="113"/>
         <TransformGroup name="supportCol" translation="0 1.734 0.28679" nodeId="114">
-          <Shape shapeId="24" name="ColL" translation="1.3 -1.014 0.000251193" rotation="2.50448e-06 -0 0" compoundChild="true" collisionMask="2109442" clipDistance="300" nodeId="115" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-          <Shape shapeId="24" name="ColP" translation="-1.3 -1.014 0.000251236" rotation="2.50448e-06 -0 0" compoundChild="true" collisionMask="2109442" clipDistance="300" nodeId="116" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="24" name="ColL" translation="1.3 -1.014 0.000251193" rotation="2.50448e-06 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="115" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="24" name="ColP" translation="-1.3 -1.014 0.000251236" rotation="2.50448e-06 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="116" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
         </TransformGroup>
       </Shape>
   </Scene>

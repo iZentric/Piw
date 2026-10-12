@@ -85,7 +85,7 @@
     <attacherJointControl maxTiltAngle="25">       
 		<control controlFunction="controlAttacherJointHeight" controlAxis="AXIS_FRONTLOADER_TOOL" invertControlAxis="false" mouseSpeedFactor="0.2" iconName="FRONTLOADER_ARM_ROTATE_TOOL" />
          <sounds>
-            <hydraulic template="defaultHydraulicSound" linkNode="0>" />
+            <hydraulic template="hydraulicOpen02" linkNode="0>" />
         </sounds>
     </attacherJointControl>
 	

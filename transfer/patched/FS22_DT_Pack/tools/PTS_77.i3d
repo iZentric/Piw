@@ -111,7 +111,7 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="PTS_77_main_component1" dynamic="true" compound="true" collisionMask="10493954" density="60" clipDistance="300" nodeId="80" materialIds="21" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="PTS_77_main_component1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="60" clipDistance="300" nodeId="80" materialIds="21" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <TransformGroup name="pts77_vis" translation="0 -0.2 -1.45" nodeId="81">
           <TransformGroup name="rama" translation="0 0.56 -0.8" nodeId="82">
             <Shape shapeId="2" name="liftArm" rotation="4 0 0" nodeId="83" materialIds="25" castsShadows="true" receiveShadows="true">
@@ -123,7 +123,7 @@
                   <TransformGroup name="fillVolumeLoadNode" translation="0 0.54886 0.456775" rotation="25.972 1.05849e-11 -1.50631e-11" nodeId="89"/>
                   <TransformGroup name="fillVolumeUnloadNode" translation="3.21041e-15 0.051 -2.37462" rotation="7.22946 -1.62844e-12 0" nodeId="90"/>
                   <TransformGroup name="fillVolumeDischargeNode" translation="2.90173e-13 0.051 -3.1539" rotation="180 0 180" nodeId="91"/>
-                  <Shape shapeId="5" name="exactFillRootNode" translation="-0.00799996 -0.453044 -0.169477" kinematic="true" compound="true" collisionMask="1073741824" nodeId="92" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                  <Shape shapeId="5" name="exactFillRootNode" translation="-0.00799996 -0.453044 -0.169477" kinematic="true" compound="true" collisionFilterGroup="0x40000000" collisionFilterMask="0x20000000" nodeId="92" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
                 </TransformGroup>
                 <TransformGroup name="effectNodeRot" translation="-1.46595e-06 1.83203 -0.860725" rotation="99 8.74198e-08 -180" nodeId="93">
                   <Shape shapeId="6" name="grainEffect" translation="-1.64708e-06 0.116 -0.163488" visibility="false" clipDistance="300" nodeId="94" materialIds="14" castsShadows="true" receiveShadows="true"/>
@@ -134,10 +134,10 @@
                 <TransformGroup name="pickUpNode" translation="4.79612e-08 -0.227244 1.11457" rotation="0 -1.42489e-12 4.08654e-05" nodeId="98"/>
                 <TransformGroup name="cylinderFrontRef" translation="0 1.009 -0.62" rotation="-104 -0 0" nodeId="99"/>
                 <TransformGroup name="coollision" translation="0 0.062 -3.56274" nodeId="100">
-                  <Shape shapeId="9" name="colPart_left" translation="1.14501 1.00079 3.57424" compoundChild="true" collisionMask="8194" density="0.1" nodeId="101" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-                  <Shape shapeId="10" name="colPart_right" translation="-1.14501 1.00091 3.57459" compoundChild="true" collisionMask="8194" density="0.01" nodeId="102" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-                  <Shape shapeId="11" name="colPart_bottom" translation="-0.0018893 0.131078 4.24407" compoundChild="true" collisionMask="8396802" density="0.01" nodeId="103" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-                  <Shape shapeId="12" name="colPart_back" translation="0.0010774 0.966811 3.14252" compoundChild="true" collisionMask="8194" density="0.01" nodeId="104" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                  <Shape shapeId="9" name="colPart_left" translation="1.14501 1.00079 3.57424" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.1" nodeId="101" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                  <Shape shapeId="10" name="colPart_right" translation="-1.14501 1.00091 3.57459" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.01" nodeId="102" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                  <Shape shapeId="11" name="colPart_bottom" translation="-0.0018893 0.131078 4.24407" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.01" nodeId="103" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                  <Shape shapeId="12" name="colPart_back" translation="0.0010774 0.966811 3.14252" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.01" nodeId="104" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
                 </TransformGroup>
                 <TransformGroup name="decals" translation="0 -0.0332961 -2.14165" rotation="0.5 -0 0" nodeId="105">
                   <Shape shapeId="13" name="decalKovsh" nodeId="106" materialIds="10" castsShadows="true" receiveShadows="true"/>
@@ -192,16 +192,16 @@
                 <Shape shapeId="28" name="decalFrame1" nodeId="141" materialIds="10" castsShadows="true" receiveShadows="true"/>
               </TransformGroup>
               <TransformGroup name="collision" translation="0 -0.202171 2.26963" rotation="-4 -0 0" nodeId="142">
-                <Shape shapeId="29" name="colPart_left" translation="0 0.358895 -2.47671" rotation="-4.26887e-07 -0 0" compoundChild="true" collisionMask="8194" density="0.001" nodeId="143" materialIds="21" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-                <Shape shapeId="30" name="colPart_right" translation="0 0.358895 -2.47671" rotation="-4.26887e-07 -0 0" compoundChild="true" collisionMask="8194" density="0.001" nodeId="144" materialIds="21" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                <Shape shapeId="29" name="colPart_left" translation="0 0.358895 -2.47671" rotation="-4.26887e-07 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="143" materialIds="21" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                <Shape shapeId="30" name="colPart_right" translation="0 0.358895 -2.47671" rotation="-4.26887e-07 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="144" materialIds="21" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
               </TransformGroup>
             </Shape>
             <Shape shapeId="31" name="rearArm" translation="0 0.073 0.615" rotation="-35.5 -0 0" nodeId="145" materialIds="25" castsShadows="true" receiveShadows="true">
               <Shape shapeId="32" name="frontArm" translation="0 -0.12 2.2" rotation="81.6 -0 0" nodeId="146" materialIds="25" castsShadows="true" receiveShadows="true"/>
               <TransformGroup name="frameRef" translation="0 -1.4014 2.35434" rotation="79.51 -0 0" nodeId="147"/>
               <TransformGroup name="cylinderRearRef" translation="0 -0.12222 2.08165" rotation="-17.49 -0 0" nodeId="148"/>
-              <Shape shapeId="33" name="trig" translation="1.046 0.00799954 2.161" rotation="1.02453e-05 -0 0" compoundChild="true" collisionMask="8194" nodeId="149" materialIds="11,22" nonRenderable="true"/>
-              <Shape shapeId="33" name="trig" translation="-1.046 0.00799978 2.161" rotation="1.02453e-05 -0 0" compoundChild="true" collisionMask="8194" nodeId="150" materialIds="11,22" nonRenderable="true"/>
+              <Shape shapeId="33" name="trig" translation="1.046 0.00799954 2.161" rotation="1.02453e-05 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="149" materialIds="11,22" nonRenderable="true"/>
+              <Shape shapeId="33" name="trig" translation="-1.046 0.00799978 2.161" rotation="1.02453e-05 -0 0" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="150" materialIds="11,22" nonRenderable="true"/>
               <TransformGroup name="decals" translation="0 -1.30196 1.07963" rotation="35.5 -0 0" nodeId="151">
                 <Shape shapeId="34" name="decalFrame2" nodeId="152" materialIds="10" castsShadows="true" receiveShadows="true"/>
               </TransformGroup>
@@ -266,7 +266,7 @@
           <TransformGroup name="attacherJoint" translation="-2.13924e-08 0.15 -1.13167" rotation="-4.07111e-13 -90 0" nodeId="194"/>
         </TransformGroup>
         <TransformGroup name="collisions" translation="0 0.358895 -2.47671" nodeId="195">
-          <Shape shapeId="51" name="collPart_back" translation="0 0.878985 -0.273765" compoundChild="true" collisionMask="8194" density="0.01" nodeId="196" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="51" name="collPart_back" translation="0 0.878985 -0.273765" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.01" nodeId="196" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
         </TransformGroup>
         <Camera name="camera" translation="1.05013 1.39099 5.29799" rotation="-21.3218 17.9415 -6.87082e-07" visibility="false" nodeId="197" fov="60" nearClip="0.1" farClip="10000" orthographicHeight="1"/>
       </Shape>

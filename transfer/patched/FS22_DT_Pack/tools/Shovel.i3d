@@ -45,14 +45,14 @@
   </Dynamics>
 
   <Scene>
-      <Shape shapeId="1" name="lopata_main_component1" dynamic="true" compound="true" collisionMask="10493954" density="2.3" clipDistance="300" nodeId="20" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="1" name="lopata_main_component1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="2.3" clipDistance="300" nodeId="20" materialIds="9" castsShadows="true" receiveShadows="true" nonRenderable="true">
         <Shape shapeId="2" name="lopata_vis" nodeId="21" materialIds="6" castsShadows="true" receiveShadows="true">
           <TransformGroup name="emptyTrans" nodeId="22"/>
           <TransformGroup name="FIllable" translation="0 0.0674466 -0.165951" nodeId="23"/>
           <TransformGroup name="LevelerNode" translation="0 -0.4 3.03405" clipDistance="300" nodeId="24"/>
           <Shape shapeId="3" name="mesh" translation="0 -0.271263 2.781" visibility="false" clipDistance="300" nodeId="25" materialIds="5" castsShadows="true" receiveShadows="true"/>
-          <Shape shapeId="4" name="col" translation="-1.12167 0.0674466 -0.165951" compoundChild="true" collisionMask="33172" nodeId="26" materialIds="9" nonRenderable="true" distanceBlending="false"/>
-          <Shape shapeId="4" name="col" translation="1.122 0.0674466 -0.165951" compoundChild="true" collisionMask="33172" nodeId="27" materialIds="9" nonRenderable="true" distanceBlending="false"/>
+          <Shape shapeId="4" name="col" translation="-1.12167 0.0674466 -0.165951" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="26" materialIds="9" nonRenderable="true" distanceBlending="false"/>
+          <Shape shapeId="4" name="col" translation="1.122 0.0674466 -0.165951" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" nodeId="27" materialIds="9" nonRenderable="true" distanceBlending="false"/>
           <Shape shapeId="5" name="Lopata_Decal" translation="0.000259632 -0.0784124 2.83115" nodeId="28" materialIds="7" castsShadows="true" receiveShadows="true" distanceBlending="false"/>
           <TransformGroup name="trailerAttacher" nodeId="29">
             <Shape shapeId="6" name="hook" nodeId="30" materialIds="6" castsShadows="true" receiveShadows="true"/>
