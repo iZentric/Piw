@@ -32,7 +32,9 @@
         <sourceFile filename="scripts/categorizer.lua"/>
         <sourceFile filename="scripts/BaseMaterial.lua"/>
     </extraSourceFiles>
-    <newcategory name="vgtz" title="ДТ Пак" type="VEHICLE" img="store/storeDT_75.dds"/>
+    <storeCategories>
+        <storeCategory name="vgtz" title="ДТ Пак" type="VEHICLE" image="store/storeDT_75.dds"/>
+    </storeCategories>
 <vehicleTypes>
         <type name="dt" parent="tractor" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
 			<specialization name="powerConsumer"/>

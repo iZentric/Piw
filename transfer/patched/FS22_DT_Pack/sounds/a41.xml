@@ -46,7 +46,7 @@
             <gearLeverEnd template="gearEngaged" volumeScale="0.2" linkNodeOffset="-0.059 1.156 -0.968"/>
             <gearGroupLeverStart template="gearDisengaged" volumeScale="0.2" linkNodeOffset="-0.059 1.156 -0.968"/>
             <gearGroupLeverEnd template="gearEngaged" volumeScale="0.2" linkNodeOffset="-0.059 1.156 -0.968"/>
-<motor      template="indoorCabinOldVehicle" file="$data/sounds/vehicles/cabin/indoorCabinRumbleLoop.wav" innerRadius="10.0" outerRadius="10.0" volumeScale="10.0" linkNodeOffset="0 1.58 2.419" supportsReverb="false"/>
+<motor      template="indoorCabinRumble" file="$data/sounds/vehicles/cabin/indoorCabinRumbleLoop.wav" innerRadius="10.0" outerRadius="10.0" volumeScale="10.0" linkNodeOffset="0 1.58 2.419" supportsReverb="false"/>
 		</sounds>
 	</motorized>
 

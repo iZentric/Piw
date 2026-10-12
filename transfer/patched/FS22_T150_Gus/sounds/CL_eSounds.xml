@@ -21,7 +21,7 @@
 			<motor template="engineLarge" file="sounds/CL_eSounds_interior_loop.gls" volumeScale="3.0" innerRadius="5" supportsReverb="false" linkNodeOffset="0 2 3">
 			    <volume indoor="1.0" outdoor="0.0" />
 			</motor>
-			<motor template="indoorCabinOldVehicle" innerRadius="5.0" outerRadius="5.0" volumeScale="9.0" supportsReverb="false" linkNodeOffset="0 2 3"/>
+			<motor template="indoorCabinRumble" innerRadius="5.0" outerRadius="5.0" volumeScale="9.0" supportsReverb="false" linkNodeOffset="0 2 3"/>
 			<gearbox file="$data/sounds/vehicles/transmission/transmissionLoop06.ogg" volumeScale="0.8" innerRadius="5.0" outerRadius="5.0" supportsReverb="false" linkNodeOffset="0 1.5 2.7">
 			    <volume indoor="1.0" outdoor="0.0">
 			        <modifier type="MOTOR_RPM" value="0.00" modifiedValue="0.0" />

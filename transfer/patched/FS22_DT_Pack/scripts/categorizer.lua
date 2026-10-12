@@ -11,27 +11,26 @@ local function registerCategories()
     local modDescFile = loadXMLFile("modDesc", Categorizer.modDescFile)
     local i = 0
     while i < 10 do
-        local ndx = string.format("modDesc.newcategory(%d)", i)
+        local ndx = string.format("modDesc.storeCategories.storeCategory(%d)", i)
         if not hasXMLProperty(modDescFile, ndx) then break end
         local name = getXMLString(modDescFile, ndx .. "#name")
         if name == nil or name == "" then break end
         name = name:upper()
-        if g_storeManager:getCategoryByName(name) ~= nil then
-            g_logManager:xmlWarning(modDescFile, "*** Categorizer: category '%s' already exists!", tostring(name))
-            break
-        end
-        local title = getXMLString(modDescFile, ndx .. "#title")
-        if title == nil or title == "" then title = name end
-        title = g_i18n:hasText(title) and g_i18n:getText(title) or title:upper()
-        local cattype = getXMLString(modDescFile, ndx .. "#type")
-        if cattype == nil or cattype == "" then cattype = "VEHICLE" end
-        cattype = cattype:upper()
-        local img = getXMLString(modDescFile, ndx .. "#img")
-        local ok, err = pcall(function()
-            g_storeManager:addCategory(name, title, img, cattype, Categorizer.modFolder)
-        end)
-        if not ok then
-            g_logManager:xmlWarning(modDescFile, "*** Categorizer: could not add '%s' (%s)", tostring(name), tostring(err))
+        if g_storeManager:getCategoryByName(name) == nil then
+            local title = getXMLString(modDescFile, ndx .. "#title")
+            if title == nil or title == "" then title = name end
+            title = g_i18n:hasText(title) and g_i18n:getText(title) or title:upper()
+            local cattype = getXMLString(modDescFile, ndx .. "#type")
+            if cattype == nil or cattype == "" then cattype = "VEHICLE" end
+            cattype = cattype:upper()
+            local img = getXMLString(modDescFile, ndx .. "#image")
+            if img == nil or img == "" then img = getXMLString(modDescFile, ndx .. "#img") end
+            local ok, err = pcall(function()
+                g_storeManager:addCategory(name, title, img, cattype, Categorizer.modFolder)
+            end)
+            if not ok then
+                g_logManager:xmlWarning(modDescFile, "*** Categorizer: could not add '%s' (%s)", tostring(name), tostring(err))
+            end
         end
         i = i + 1
     end

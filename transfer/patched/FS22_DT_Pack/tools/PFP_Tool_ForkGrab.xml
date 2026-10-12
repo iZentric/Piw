@@ -88,11 +88,11 @@
 	  	    <powerConsumer ptoRpm="300" neededMinPtoPower="1" neededMaxPtoPower="5" useTurnOnState="false"/>
 
     <connectionHoses>
-        <hose diameter="0.028" inputAttacherJointIndices="1" length="1.1" node="0>0|3|0|0|1|0" startStraightening="0.5"  endStraightening="0.5"   isWorldSpaceHose="true" minCenterPointAngle="100"  type="hydraulicIn">
+        <hose diameter="0.028" inputAttacherJointIndices="1" length="1.1" node="0>0|3|0|0|1|0" straighteningFactor="0.5"   isWorldSpaceHose="true" minCenterPointAngle="100"  type="hydraulicIn">
 		     <objectChange node="0>0|0|2" visibilityActive="false" visibilityInactive="true"/>
         </hose>
        
-	   <hose diameter="0.028" inputAttacherJointIndices="1" length="1.2" node="0>0|3|0|0|1|1" startStraightening="0.5"  endStraightening="0.5"   isWorldSpaceHose="true" minCenterPointAngle="0"  type="hydraulicOut"/>
+	   <hose diameter="0.028" inputAttacherJointIndices="1" length="1.2" node="0>0|3|0|0|1|1" straighteningFactor="0.5"   isWorldSpaceHose="true" minCenterPointAngle="0"  type="hydraulicOut"/>
     </connectionHoses>
 	
  

@@ -1275,7 +1275,7 @@
           <TransformGroup name="cameraRaycastNode3" translation="0 2.56085 -1.83671" nodeId="779"/>
           <Shape shapeId="187" name="shadowFocusBox" translation="0 1.79411 0.0624502" visibility="false" nodeId="780" materialIds="67" castsShadows="true" receiveShadows="true"/>
           <Camera name="camera" translation="3.61265 2.18454 -4.34008" rotation="168.264 41.5316 180" visibility="false" nodeId="781" fov="60" nearClip="0.1" farClip="10000" orthographicHeight="1">
-            <Light name="light" rotation="-40 -0 -30" nodeId="782" type="directional" color="1 1 1" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.0012" depthMapSlopeScaleBias="2" depthMapSlopeClamp="0.0005" depthMapResolution="1024" shadowFarDistance="1000" shadowExtrusionDistance="200" pcssLightSize="50.7906" pcssLightDistance="0.66" pcssDepthBiasFactor="1" pcssMaxPenumbraSize="1" shadowPerspective="false" numShadowMapSplits="5" shadowMapSplitDistancesParameter="0.9" range="500"/>
+            <Light name="light" rotation="-40 -0 -30" nodeId="782" type="directional" color="1 1 1" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.0012" depthMapSlopeScaleBias="2" depthMapSlopeClamp="0.0005" depthMapResolution="1024" shadowFarDistance="1000" shadowExtrusionDistance="200" softShadowsLightSize="50.7906" softShadowsLightDistance="0.66" softShadowsDepthBiasFactor="1" softShadowsMaxPenumbraSize="1" shadowPerspective="false" numShadowMapSplits="5" shadowMapSplitDistancesParameter="0.9" range="500"/>
           </Camera>
         </TransformGroup>
         <TransformGroup name="lights" nodeId="783">

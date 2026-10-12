@@ -49,10 +49,10 @@
                         <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.4" repr="LeftFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" maxWheelSink="0.1"/>
+                        <physics rotSpeed="1" restLoad="1.4" repr="LeftFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" supportsWheelSink="true"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.4" repr="RightFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" maxWheelSink="0.1"/>
+                        <physics rotSpeed="1" restLoad="1.4" repr="RightFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" supportsWheelSink="true"/>
                     </wheel>
                     <wheel hasParticles="true">
                         <physics rotSpeed="0" restLoad="1.4" repr="RightMiddleWheel" radius="0.5" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler"/>
@@ -78,10 +78,10 @@
                         <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.4" repr="LeftFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" maxWheelSink="0.1"/>
+                        <physics rotSpeed="1" restLoad="1.4" repr="LeftFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" supportsWheelSink="true"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.4" repr="RightFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" maxWheelSink="0.1"/>
+                        <physics rotSpeed="1" restLoad="1.4" repr="RightFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" supportsWheelSink="true"/>
                     </wheel>
                     <wheel hasParticles="true">
                         <physics rotSpeed="0" restLoad="1.4" repr="RightMiddleWheel" radius="0.5" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler"/>
@@ -107,10 +107,10 @@
                         <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.4" repr="LeftFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" maxWheelSink="0.1"/>
+                        <physics rotSpeed="1" restLoad="1.4" repr="LeftFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" supportsWheelSink="true"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.4" repr="RightFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" maxWheelSink="0.1"/>
+                        <physics rotSpeed="1" restLoad="1.4" repr="RightFrontWheel" radius="0.50" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler" supportsWheelSink="true"/>
                     </wheel>
                     <wheel hasParticles="true">
                         <physics rotSpeed="0" restLoad="1.4" repr="RightMiddleWheel" radius="0.5" forcePointRatio="0.5" width="0.45" mass="0.5" initialCompression="35" suspTravel="0.2" spring="100" damper="120" frictionScale="2.5" tireType="crawler"/>
@@ -455,8 +455,8 @@
 
         <exhaustFlap node="0>7|1|0|11|0|0" maxRot="95"/>
         <exhaustEffects>
-            <exhaustEffect node="exhaustEffect" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 100" xzRotationsRight="0 -100"/>
-			 <exhaustEffect node="0>7|5|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 100" xzRotationsRight="0 -100"/>
+            <exhaustEffect node="exhaustEffect" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5"/>
+			 <exhaustEffect node="0>7|5|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5"/>
         </exhaustEffects>
         <animationNodes>
 		<animationNode class="ShakeAnimation" node="0>7|4|1|7|0" shaking="0.0015 0 0.0015 100" turnOnFadeTime="2.5" turnOffFadeTime="1.5" /> 
@@ -729,7 +729,7 @@
 		<passengerSeats>
             <passengerSeat node="0>7|6|0" exitPoint="0>7|6|0|6" outdoorCameraIndex="1">
                 <camera node="0>7|6|0|0" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" positionSmoothingParameter="0" shadowFocusBox="0>1|3"/>
-                <characterNode node="0>7|6|0|1" cameraMinDistance="0.5" spineRotation="-90 -10 90">
+                <characterNode node="0>7|6|0|1" cameraMinDistance="0.5" spineRotationOffset="-90 -10 90">
                     <target ikChain="leftArm"   targetNode="0>7|6|0|4" poseId="wideFingers"/>
                     <target ikChain="rightArm"  targetNode="0>7|6|0|5" poseId="flatFingers"/>
                     <target ikChain="leftFoot"  targetNode="0>7|6|0|2"/>
@@ -745,7 +745,7 @@
             </camera>
             <camera node="indoorCamera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" isInside="true" shadowFocusBox="shadowFocusBox"/>
         </cameras>
-        <characterNode node="playerSkin" cameraMinDistance="1.5" spineRotation="-90 0 90">
+        <characterNode node="playerSkin" cameraMinDistance="1.5" spineRotationOffset="-90 0 90">
             <target ikChain="rightFoot" targetNode="playerRightFootTarget" setDirty="true"/>
             <target ikChain="leftFoot" targetNode="playerLeftFootTarget" setDirty="true"/>
             <target ikChain="rightArm" targetNode="playerRightHandTarget" setDirty="true"/>

@@ -55,17 +55,17 @@
                 <wheels autoRotateBackSpeed="3" speedDependentRotateBack="false">
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackLeft" radius="0.45" width="0.4" forcePointRatio="0.2" initialCompression="35" suspTravel="0.1" spring="40" damper="130" frictionScale="2" mass="0.1" tireType="crawler" isSynchronized="true" />
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackRight" radius="0.45" width="0.4" forcePointRatio="0.2" initialCompression="35" suspTravel="0.1" spring="40" damper="130" frictionScale="2" mass="0.1" tireType="crawler" isSynchronized="true"/>
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.06" repr="wheelFrontLeft" radius="0.48" width="0.4" forcePointRatio="0.2" initialCompression="35" suspTravel="0.1" spring="40" damper="130" frictionScale="2" mass="0.1" tireType="crawler" maxWheelSink="0.1" isSynchronized="true"/>
+                        <physics rotSpeed="1" restLoad="1.06" repr="wheelFrontLeft" radius="0.48" width="0.4" forcePointRatio="0.2" initialCompression="35" suspTravel="0.1" spring="40" damper="130" frictionScale="2" mass="0.1" tireType="crawler" supportsWheelSink="true" isSynchronized="true"/>
                     </wheel>
                     <wheel hasParticles="true">
-                        <physics rotSpeed="1" restLoad="1.06" repr="wheelFrontRight" radius="0.48" width="0.4" forcePointRatio="0.2" initialCompression="35" suspTravel="0.1" spring="40" damper="130" frictionScale="2" mass="0.1" tireType="crawler" maxWheelSink="0.1" isSynchronized="true"/>
+                        <physics rotSpeed="1" restLoad="1.06" repr="wheelFrontRight" radius="0.48" width="0.4" forcePointRatio="0.2" initialCompression="35" suspTravel="0.1" spring="40" damper="130" frictionScale="2" mass="0.1" tireType="crawler" supportsWheelSink="true" isSynchronized="true"/>
                     </wheel>
                     <wheel hasParticles="true">
                         <physics rotSpeed="0" restLoad="2.06" repr="0>1|4" radius="0.45" width="0.4" forcePointRatio="0.4" initialCompression="20" suspTravel="0.55" spring="20" damper="30" mass="0.1" tireType="crawler" isSynchronized="true"/>
@@ -110,11 +110,11 @@
                 <wheels autoRotateBackSpeed="3" speedDependentRotateBack="false">
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackLeft" forcePointRatio="0.2" radius="0.40" width="0.65" mass="0.25" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackRight" forcePointRatio="0.2" radius="0.40" width="0.65" mass="0.25" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasParticles="true">
                         <physics rotSpeed="1" restLoad="1.06" repr="wheelFrontLeft" forcePointRatio="0.2" radius="0.42" width="0.65" mass="0.25" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
@@ -165,11 +165,11 @@
                 <wheels autoRotateBackSpeed="3" speedDependentRotateBack="false">
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackLeft" forcePointRatio="0.2" radius="0.40" width="0.65" mass="0.25" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackRight" forcePointRatio="0.2" radius="0.40" width="0.65" mass="0.25" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasParticles="true">
                         <physics rotSpeed="1" restLoad="1.06" repr="wheelFrontLeft" forcePointRatio="0.2" radius="0.42" width="0.65" mass="0.25" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
@@ -229,11 +229,11 @@
                 <wheels autoRotateBackSpeed="3" speedDependentRotateBack="false">
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackLeft" forcePointRatio="0.2" radius="0.40" width="0.4" mass="0.1" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasTireTracks="true" hasParticles="true">
                         <physics rotSpeed="-1" restLoad="1.06" repr="wheelBackRight" forcePointRatio="0.2" radius="0.40" width="0.4" mass="0.1" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
-                        <tire tireTrackAtlasIndex="5" isCareWheel="false"/>
+                        <tire tireTrackAtlasIndex="5"/>
                     </wheel>
                     <wheel hasParticles="true">
                         <physics rotSpeed="1" restLoad="1.06" repr="wheelFrontLeft" forcePointRatio="0.2" radius="0.42" width="0.4" mass="0.1" initialCompression="35" suspTravel="0.2" spring="40" damper="120" frictionScale="2" tireType="crawler"/>
@@ -1260,20 +1260,20 @@
         </target>
 		
 		<localHose>
-            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|0" length="1.5" realLength="1.5" diameter="0.025" startStraightening="0.5" endStraightening="0.5" minCenterPointAngle="100" adapterType="NONE"/>
-            <target type="hydraulicOut" node="0>0|0|2|1|6|0"     length="1.5" startStraightening="0.5" endStraightening="0.5"/>
+            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|0" length="1.5" diameter="0.025" straighteningFactor="0.5" minCenterPointAngle="100" adapterType="NONE"/>
+            <target type="hydraulicOut" node="0>0|0|2|1|6|0"     length="1.5" straighteningFactor="0.5"/>
         </localHose>
 				<localHose>
-            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|1" length="1.5" realLength="1.5" diameter="0.025" startStraightening="0.5" endStraightening="0.5" minCenterPointAngle="100" adapterType="NONE"/>
-            <target type="hydraulicOut" node="0>0|0|2|1|6|1"     length="1.5" startStraightening="0.5" endStraightening="0.5"/>
+            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|1" length="1.5" diameter="0.025" straighteningFactor="0.5" minCenterPointAngle="100" adapterType="NONE"/>
+            <target type="hydraulicOut" node="0>0|0|2|1|6|1"     length="1.5" straighteningFactor="0.5"/>
         </localHose>
 		<localHose>
-            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|2" length="1.5" realLength="1.5" diameter="0.025" startStraightening="0.5" endStraightening="0.5" minCenterPointAngle="100" adapterType="NONE"/>
-            <target type="hydraulicOut" node="0>0|0|2|1|6|2"     length="1.5" startStraightening="0.5" endStraightening="0.5"/>
+            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|2" length="1.5" diameter="0.025" straighteningFactor="0.5" minCenterPointAngle="100" adapterType="NONE"/>
+            <target type="hydraulicOut" node="0>0|0|2|1|6|2"     length="1.5" straighteningFactor="0.5"/>
         </localHose>
 		<localHose>
-            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|3" length="1.5" realLength="1.5" diameter="0.025" startStraightening="0.5" endStraightening="0.5" minCenterPointAngle="100" adapterType="NONE"/>
-            <target type="hydraulicOut" node="0>0|0|2|1|6|3"     length="1.5" startStraightening="0.5" endStraightening="0.5"/>
+            <hose type="hydraulicIn"    node="0>0|0|2|1|5|0|1|3" length="1.5" diameter="0.025" straighteningFactor="0.5" minCenterPointAngle="100" adapterType="NONE"/>
+            <target type="hydraulicOut" node="0>0|0|2|1|6|3"     length="1.5" straighteningFactor="0.5"/>
         </localHose>
 							
     </connectionHoses>
@@ -1292,7 +1292,7 @@
         <mirrors>
             <mirror node="mirror03Decal" prio="2"/>
         </mirrors>
-        <characterNode node="playerSkin" cameraMinDistance="1.5" spineRotation="-90 -18 90">
+        <characterNode node="playerSkin" cameraMinDistance="1.5" spineRotationOffset="-90 -18 90">
             <target ikChain="rightFoot" targetNode="playerRightFootTarget"/>
             <target ikChain="leftFoot" targetNode="playerLeftFootTarget"/>
             <target ikChain="rightArm" targetNode="0>9|6|5|0" poseId="narrowFingers"/>
@@ -1320,7 +1320,7 @@
             <state node="0>9|0|3" referenceNode="0>9|6|7"/>
         </characterTargetNodeModifier>
     </enterable>
-    <articulatedAxis componentJointIndex="1" anchorActor="0" rotSpeed="-33" rotMax="33" rotMin="-30" aiRevereserNode="AiReverser">
+    <articulatedAxis componentJointIndex="1" anchorActor="0" rotSpeed="-33" rotMax="33" rotMin="-30" aiReverserNode="AiReverser">
         <rotatingPart node="povlev"  negRot="-10 0 0" posRot="0 0 0"/>
         <rotatingPart node="povprav" negRot="0 0 0" posRot="-10 0 0"/>
         <rotatingPart node="0>9|6|1|0|0" negRot="0 0 0" posRot="0 -15 0"/>
@@ -1530,13 +1530,13 @@
         </differentialConfigurations>
 		
         <exhaustEffects>
-            <exhaustEffect node="0>0|1|5|0|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 -100" xzRotationsRight="0 100"/>
-            <exhaustEffect node="0>0|1|5|1|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 -100" xzRotationsRight="0 100"/>
-            <exhaustEffect node="0>0|1|5|2|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 -100" xzRotationsRight="0 100"/>
-            <exhaustEffect node="0>0|1|5|3|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 -100" xzRotationsRight="0 100"/>
-            <exhaustEffect node="0>0|1|5|4|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 -100" xzRotationsRight="0 100"/>
+            <exhaustEffect node="0>0|1|5|0|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5"/>
+            <exhaustEffect node="0>0|1|5|1|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5"/>
+            <exhaustEffect node="0>0|1|5|2|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5"/>
+            <exhaustEffect node="0>0|1|5|3|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5"/>
+            <exhaustEffect node="0>0|1|5|4|1" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.2 0.2 0.2 0.05" maxRpmColor="0 0 0 7" minRpmScale="0.05" maxRpmScale="0.5"/>
 <!--launcher-->	  
-	        <exhaustEffect node="0>6|0"       filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0 0.4 0.9 5" maxRpmColor="0 0.4 0.9 5" minRpmScale="0.1" maxRpmScale="0.5" xzRotationsOffset="0 0" xzRotationsForward="-100 0" xzRotationsBackward="100 0" xzRotationsLeft="0 -100" xzRotationsRight="0 100" />   
+	        <exhaustEffect node="0>6|0"       filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0 0.4 0.9 5" maxRpmColor="0 0.4 0.9 5" minRpmScale="0.1" maxRpmScale="0.5" />   
 	  </exhaustEffects>
         <motorStartDuration>8500</motorStartDuration>
 		
@@ -1885,9 +1885,9 @@
             <actionSound template="clackVar6"     pitchScale="1.8" volumeScale="0.5" linkNode="bottomArm" actionNames="TOOL_MOVE_END_NEG_LIMIT" nodes="bottomArm"/>
         </sounds>
         <dashboards>
-            <dashboard displayType="ROT" valueType="movingTool" node="0>0|14|2|1" rotAxis="1" minRot="10" maxRot="-10" axis="AXIS_FRONTLOADER_ARM"  attacherJointIndex="1 2 3 4 5 6 7" doInterpolation="true" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ROT" valueType="movingTool" node="0>0|14|2|1" rotAxis="1" minRot="10" maxRot="-10" axis="AXIS_FRONTLOADER_ARM"  attacherJointIndices="1 2 3 4 5 6 7" doInterpolation="true" groups="MOTOR_ACTIVE"/>
             <dashboard displayType="ROT" valueType="movingTool" node="0>0|14|2|2" rotAxis="1" minRot="-10" maxRot="10" axis="AXIS_FRONTLOADER_ARM2" doInterpolation="true" groups="MOTOR_ACTIVE"/>
-            <dashboard displayType="ROT" valueType="movingTool" node="0>0|14|2|3" rotAxis="1" minRot="10" maxRot="-10" axis="AXIS_FRONTLOADER_TOOL" attacherJointIndex="1 2 3 4 5 6 7" doInterpolation="true" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ROT" valueType="movingTool" node="0>0|14|2|3" rotAxis="1" minRot="10" maxRot="-10" axis="AXIS_FRONTLOADER_TOOL" attacherJointIndices="1 2 3 4 5 6 7" doInterpolation="true" groups="MOTOR_ACTIVE"/>
         </dashboards>
     </cylindered>
     <suspensions>

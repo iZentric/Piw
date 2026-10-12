@@ -1,0 +1,18 @@
+# FS22 sound template names that no longer exist in FS25 (they make the game
+# drop the sample with "Sound template '...' was not found").  Any remaining
+# occurrence in a converted mod is a hard error.
+MEDIUM_TRACTOR_MOTOR_START
+MEDIUM_TRACTOR_MOTOR_STOP
+WATER_SPLASH_01
+SWITCH_TURNLIGHT
+TRUCK_ATTACH_01
+TRUCK_ATTACH_03
+HONK_NH_TX32
+defaultHydraulicSound
+hydraulicLayerTone
+HARVESTER_TOOL_WORK
+forageHarvesterWork
+augerBelt
+ROLLBELT_LOOP
+indoorCabinOldVehicle
+DEFAULT_MOWER_WORK

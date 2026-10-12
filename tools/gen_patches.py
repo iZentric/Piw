@@ -61,27 +61,26 @@ local function registerCategories()
     local modDescFile = loadXMLFile("modDesc", Categorizer.modDescFile)
     local i = 0
     while i < 10 do
-        local ndx = string.format("modDesc.newcategory(%d)", i)
+        local ndx = string.format("modDesc.storeCategories.storeCategory(%d)", i)
         if not hasXMLProperty(modDescFile, ndx) then break end
         local name = getXMLString(modDescFile, ndx .. "#name")
         if name == nil or name == "" then break end
         name = name:upper()
-        if g_storeManager:getCategoryByName(name) ~= nil then
-            g_logManager:xmlWarning(modDescFile, "*** Categorizer: category '%s' already exists!", tostring(name))
-            break
-        end
-        local title = getXMLString(modDescFile, ndx .. "#title")
-        if title == nil or title == "" then title = name end
-        title = g_i18n:hasText(title) and g_i18n:getText(title) or title:upper()
-        local cattype = getXMLString(modDescFile, ndx .. "#type")
-        if cattype == nil or cattype == "" then cattype = "VEHICLE" end
-        cattype = cattype:upper()
-        local img = getXMLString(modDescFile, ndx .. "#img")
-        local ok, err = pcall(function()
-            g_storeManager:addCategory(name, title, img, cattype, Categorizer.modFolder)
-        end)
-        if not ok then
-            g_logManager:xmlWarning(modDescFile, "*** Categorizer: could not add '%s' (%s)", tostring(name), tostring(err))
+        if g_storeManager:getCategoryByName(name) == nil then
+            local title = getXMLString(modDescFile, ndx .. "#title")
+            if title == nil or title == "" then title = name end
+            title = g_i18n:hasText(title) and g_i18n:getText(title) or title:upper()
+            local cattype = getXMLString(modDescFile, ndx .. "#type")
+            if cattype == nil or cattype == "" then cattype = "VEHICLE" end
+            cattype = cattype:upper()
+            local img = getXMLString(modDescFile, ndx .. "#image")
+            if img == nil or img == "" then img = getXMLString(modDescFile, ndx .. "#img") end
+            local ok, err = pcall(function()
+                g_storeManager:addCategory(name, title, img, cattype, Categorizer.modFolder)
+            end)
+            if not ok then
+                g_logManager:xmlWarning(modDescFile, "*** Categorizer: could not add '%s' (%s)", tostring(name), tostring(err))
+            end
         end
         i = i + 1
     end
@@ -195,6 +194,56 @@ for rel in KAPOTS_SHADERS:
     write(f'{OUT}/FS22_T150_Gus/{rel}', shader)
 print('T150 kapots shaders replaced with the fixed one:', len(KAPOTS_SHADERS))
 
+# --- FS22 -> FS25 attribute renames ------------------------------------------
+# FS25 renamed a couple of i3d attributes, the old names are simply ignored:
+#   pcssLightSize/LightDistance/DepthBiasFactor/MaxPenumbraSize -> softShadows*
+#     (verified: 0 pcss* in 227 FS25 i3ds, softShadows* present in vanilla/mod ones)
+#   aiRevereserNode -> aiReverserNode   (typo fixed in FS25, vehicle.xsd)
+#   spineRotation   -> spineRotationOffset (enterable/characterNode, vehicle.xsd)
+# ...and dropped a few FS22-only attributes which are reported by the FS25
+# schema validation:
+#   tire#isCareWheel, physics#maxWheelSink (FS25: supportsWheelSink),
+#   exhaustEffect#xzRotations*, objectChange#centerOfMass, connectionHoses
+#   hose#realLength/startStraightening/endStraightening
+I3D_ATTR_RENAME = {
+    'pcssLightSize': 'softShadowsLightSize',
+    'pcssLightDistance': 'softShadowsLightDistance',
+    'pcssDepthBiasFactor': 'softShadowsDepthBiasFactor',
+    'pcssMaxPenumbraSize': 'softShadowsMaxPenumbraSize',
+    'aiRevereserNode': 'aiReverserNode',
+}
+# attributes that do not exist in FS25 at all -> remove them (the values were
+# either unused engine-side or replaced by a different mechanism)
+I3D_ATTR_DROP = ('xzRotationsOffset', 'xzRotationsForward', 'xzRotationsBackward',
+                 'xzRotationsLeft', 'xzRotationsRight')
+
+
+def migrate_i3d_attrs(stem):
+    changed = []
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+        for f in sorted(files):
+            if not f.endswith('.i3d'):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace('\\', '/')
+            base = layered_read(stem, rel)
+            new = base
+            hits = 0
+            for old, repl in I3D_ATTR_RENAME.items():
+                if old not in new:
+                    continue
+                hits += new.count(old)
+                new = new.replace(old, repl)
+            for attr in I3D_ATTR_DROP:
+                if attr not in new:
+                    continue
+                hits += len(re.findall('\\s' + attr + '="[^"]*"', new))
+                new = re.sub('\\s' + attr + '="[^"]*"', '', new)
+            if hits:
+                write(os.path.join(OUT, stem, rel), new)
+                changed.append((rel, hits))
+    return changed
+
+
 # --- FS25 collision filter migration -----------------------------------------
 # FS22 stored a single combined mask in the i3d attribute "collisionMask".
 # FS25 replaced it by the pair "collisionFilterGroup" + "collisionFilterMask"
@@ -280,6 +329,59 @@ def migrate_collisions(stem):
     return changed
 
 
+# --- FS22 -> FS25 XML attribute fixes -----------------------------------------
+# The FS25 xml schema (vehicle.xsd / modDesc.xsd) no longer knows these FS22
+# attributes.  Verified replacements (FS25 source of truth in the brackets):
+#   tire#isCareWheel             -> removed   (FS25: wheelConfiguration#isCareWheelConfiguration)
+#   wheel/physics#maxWheelSink   -> supportsWheelSink="true" (Wheels.lua physics paths)
+#   exhaustEffect#xzRotations*   -> removed   (not in the FS25 exhaustEffect type)
+#   enterable/characterNode#spineRotation -> #spineRotationOffset (vehicle.xsd)
+#   connectionHoses hose#realLength -> removed (FS25 uses #length, which the mod has)
+#   hose/target#startStraightening -> #straighteningFactor (FS25 attribute name)
+#   hose/target#endStraightening   -> removed
+#   cylindered dashboard#attacherJointIndex="1 2 3" -> #attacherJointIndices
+#       (FS25 reads a vector of indices; Cylindered.lua / Dashboard registration)
+# modDesc:
+#   <newcategory .../> (FS22) -> <storeCategories><storeCategory .../></storeCategories>
+#       which is the FS25 name (modDesc.xsd).  img= becomes image=.
+XML_FIX_SIMPLE = [
+    (re.compile(r'\s+xzRotations[A-Za-z]*="[^"]*"'), ''),
+    (re.compile(r'\s+isCareWheel="[^"]*"'), ''),
+    (re.compile(r'maxWheelSink="[^"]*"'), 'supportsWheelSink="true"'),
+    (re.compile(r'\s+realLength="[^"]*"'), ''),
+    (re.compile(r'startStraightening="'), 'straighteningFactor="'),
+    (re.compile(r'\s+endStraightening="[^"]*"'), ''),
+    (re.compile(r'spineRotation="'), 'spineRotationOffset="'),
+    (re.compile(r'aiRevereserNode='), 'aiReverserNode='),
+    (re.compile(r'attacherJointIndex="([^"]*\s[^"]*)"'), r'attacherJointIndices="\1"'),
+]
+
+
+def fix_fs22_attrs(stem):
+    changed = []
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, stem)):
+        for f in sorted(files):
+            if not f.endswith('.xml'):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, stem)).replace('\\', '/')
+            base = layered_read(stem, rel)
+            new = base
+            hits = 0
+            for pat, repl in XML_FIX_SIMPLE:
+                new, n = pat.subn(repl, new)
+                hits += n
+            m = re.search(r'<newcategory\s+([^>]*?)/>', new)
+            if m:
+                attrs = re.sub(r'\bimg=', 'image=', m.group(1)).strip()
+                new = new.replace(m.group(0),
+                                  '<storeCategories>\n        <storeCategory %s/>\n    </storeCategories>' % attrs)
+                hits += 1
+            if new != base:
+                write(os.path.join(OUT, stem, rel), new)
+                changed.append((rel, hits))
+    return changed
+
+
 # --- FS25 sound template migration -------------------------------------------
 # FS25 only knows the templates listed in $data/sounds/soundTemplates.xml.
 # Every FS22 template name that is gone makes SoundManager drop the whole sample
@@ -307,6 +409,11 @@ SOUND_TEMPLATE_MAP = {
     'forageHarvesterWork': 'combineThreshingSystemLoop',
     'augerBelt': 'harvesterDischargeStartCabin',
     'ROLLBELT_LOOP': 'tracksLoop',
+    # FS22 cabin rumble name; FS25 uses the plain 'indoorCabinRumble' template
+    # (attested in FS25 mods) and the original sample file is literally
+    # sounds/.../indoorCabinRumbleLoop.wav, so this is a 1:1 rename.
+    'indoorCabinOldVoice': 'indoorCabinRumble',
+    'indoorCabinOldVehicle': 'indoorCabinRumble',
 }
 
 
@@ -340,6 +447,10 @@ def migrate_sound_templates(stem):
 
 
 for _stem in ('FS22_DT_Pack', 'FS22_T150_Gus'):
+    _attr = migrate_i3d_attrs(_stem)
+    print(_stem, 'i3d attributes migrated:', sum(n for _r, n in _attr), _attr)
+    _xmlattr = fix_fs22_attrs(_stem)
+    print(_stem, 'xml attributes migrated:', sum(n for _r, n in _xmlattr), _xmlattr)
     _coll = migrate_collisions(_stem)
     print(_stem, 'i3d collision filters migrated:', sum(len(h) for _r, h in _coll))
     for _rel, _hits in _coll:
