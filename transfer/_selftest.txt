@@ -5,23 +5,19 @@ FS22 original: transfer/original/FS22_DT_Pack
 [PASS] xml-parse - 41 xml/i3d files parse
       modDesc.xml: 1 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 1 pre-existing violations vs the FS25 schemas
-      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_1200.wav
-      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_idle.wav
-      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_run.wav
-      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_start.wav
-      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/a41_stop.wav
-      (pre-existing, also dangling in FS22) sounds/a41.xml: sounds/tracks.wav
-[PASS] files - 6 pre-existing dangling, 0 new
+[PASS] files - 0 pre-existing dangling, 0 new
       5 added file(s): dynamicallyLoadedParts/shaders/vehicleShader.xml, scripts/BaseMaterial.lua, shaders/vehicleShader.xml, tools/shaders/vehicleShader.xml, wheels/shaders/vehicleShader.xml
 [PASS] parity - 173 archive files, 178 in build, 0 lost, 5 added
 [PASS] parity-nodes - no named node lost in the i3d files
 [PASS] collision - 0 problem(s), 0 unknown-bit, 0 legacy mask(s), 74 component(s) without explicit filters
-[PASS] sounds - 0 template name(s) outside the attested FS25 vocabulary
+            25 template name(s): 14 confirmed by FS25 vanilla (attach01, clackVar1, clackVar6, cylinderPunch, engineMedium, harvesterDischargeStartCabin…), 6 kept from FS22, 5 FS25-mod-only
+[PASS] sounds - 25 template name(s) used, 0 FS22-only, 0 unattested
 [PASS] specializations - 4 specialization reference(s), 0 unknown
 [PASS] shaders - 0 FS22 shader file(s), 0 FS22 shader reference(s)
 [PASS] jointtypes - 5 mod joint type(s), 0 unknown reference(s)
+[PASS] node-paths - 1526 numeric node path(s) checked, 0 unresolved
 
-summary: 10 PASS / 0 warning(s) / 0 failure(s)
+summary: 11 PASS / 0 warning(s) / 0 failure(s)
 selftest FS25_DT_Pack exit=0
 ==============================================================================
 Self-test: FS25_T150_Gus   (/tmp/built/FS25_T150_Gus)
@@ -30,16 +26,17 @@ FS22 original: transfer/original/FS22_T150_Gus
 [PASS] xml-parse - 18 xml/i3d files parse
       modDesc.xml: 2 pre-existing schema violation(s) (same as FS22)
 [PASS] schema - 0 new / 2 pre-existing violations vs the FS25 schemas
-      (pre-existing, also dangling in FS22) sounds/CL_eSounds.xml: sounds/kirovets_compressorWork1.wav
-[PASS] files - 1 pre-existing dangling, 0 new
+[PASS] files - 0 pre-existing dangling, 0 new
       2 added file(s): scripts/BaseMaterial.lua, tracks/shaders/vehicleShader.xml
 [PASS] parity - 224 archive files, 226 in build, 0 lost, 2 added
 [PASS] parity-nodes - no named node lost in the i3d files
 [PASS] collision - 0 problem(s), 0 unknown-bit, 0 legacy mask(s), 18 component(s) without explicit filters
-[PASS] sounds - 0 template name(s) outside the attested FS25 vocabulary
+            13 template name(s): 2 confirmed by FS25 vanilla (wiper1, wiper2), 7 kept from FS22, 4 FS25-mod-only
+[PASS] sounds - 13 template name(s) used, 0 FS22-only, 0 unattested
 [PASS] specializations - 0 specialization reference(s), 0 unknown
 [PASS] shaders - 0 FS22 shader file(s), 0 FS22 shader reference(s)
 [PASS] jointtypes - 0 mod joint type(s), 0 unknown reference(s)
+[PASS] node-paths - 1293 numeric node path(s) checked, 0 unresolved
 
-summary: 10 PASS / 0 warning(s) / 0 failure(s)
+summary: 11 PASS / 0 warning(s) / 0 failure(s)
 selftest FS25_T150_Gus exit=0
