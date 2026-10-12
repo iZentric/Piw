@@ -1,17 +1,17 @@
-date: Mon Oct 12 17:30:57 UTC 2026
+date: Mon Oct 12 17:36:29 UTC 2026
 pwd: /home/runner/work/Piw/Piw
-github.sha: 9d2e57423a99ba213e3c6306b14907b3b9f48b45   ref: arena/01a10279-piw
+github.sha: 88e74d12192a999f658a715168d4d13ceac25677   ref: arena/01a10279-piw
 
 --- ls -la ---
 total 32
-drwxr-xr-x 6 runner runner 4096 Oct 12 17:30 .
-drwxr-xr-x 3 runner runner 4096 Oct 12 17:30 ..
-drwxr-xr-x 7 runner runner 4096 Oct 12 17:30 .git
-drwxr-xr-x 3 runner runner 4096 Oct 12 17:30 .github
--rw-r--r-- 1 runner runner  171 Oct 12 17:30 .gitignore
--rw-r--r-- 1 runner runner    6 Oct 12 17:30 README.md
-drwxr-xr-x 3 runner runner 4096 Oct 12 17:30 tools
-drwxr-xr-x 6 runner runner 4096 Oct 12 17:30 transfer
+drwxr-xr-x 6 runner runner 4096 Oct 12 17:35 .
+drwxr-xr-x 3 runner runner 4096 Oct 12 17:35 ..
+drwxr-xr-x 7 runner runner 4096 Oct 12 17:35 .git
+drwxr-xr-x 3 runner runner 4096 Oct 12 17:35 .github
+-rw-r--r-- 1 runner runner  171 Oct 12 17:35 .gitignore
+-rw-r--r-- 1 runner runner    6 Oct 12 17:35 README.md
+drwxr-xr-x 3 runner runner 4096 Oct 12 17:35 tools
+drwxr-xr-x 6 runner runner 4096 Oct 12 17:35 transfer
 
 --- find transfer -type f ---
 transfer/_run_status.txt
@@ -123,7 +123,6 @@ transfer/patched/FS22_DT_Pack/wheels/shaders/vehicleShader.xml
  M transfer/original/_download_log.txt
  M transfer/reference/_fetch_log.txt
  M transfer/reference/_fetch_report.txt
- M transfer/reference/_grab_log.txt
  M transfer/reference/pages/FS25_ref_FS22ShaderColorFix_v1.2.zip.html
  M transfer/reference/pages/FS25_ref_VolvoT425_colorfix.zip.html
  M transfer/reference/pages/RCQkPQMzoBz0Vr6_5b555b84a5.html
@@ -132,8 +131,8 @@ transfer/patched/FS22_DT_Pack/wheels/shaders/vehicleShader.xml
  M transfer/reference/pages/zbm8hfjkusrk_FS22_DT_Pack.zip_cc5a0fb54e.html
 
 --- git log -3 ---
-9d2e574 fix frozen crawler tracks (FS22 shader param scrollPosition -> FS25 scrollPos); selftest: shader-parameter check
-018dd48 transfer: apply log + self-test [skip ci]
-7fede2c transfer: reference data [skip ci]
+88e74d1 fix track scroll value in i3d material too; ignore shader-parameter names in node parity; versions 1.0.0.7 / 1.0.0.5
+99a5112 transfer: apply log + self-test [skip ci]
+493da3c transfer: reference data [skip ci]
 
 --- env: BRANCH=arena/01a10279-piw DRIVE_FOLDER=https://drive.google.com/drive/folders/1cTvQysO6Tu-vnGkug8NUTQfBQW44uAAm ---
